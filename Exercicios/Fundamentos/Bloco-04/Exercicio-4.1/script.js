@@ -205,14 +205,62 @@ if((custo < 0) || (valorVenda < 0) || (quantidadeVenda < 0)){
 /*Exercício 11: Uma pessoa que trabalha de carteira assinada no Brasil tem descontados de seu salário bruto o INSS e o IR. Faça um programa que, dado um salário bruto calcule o líquido a ser recebido.
 A notação para um salário de R$1500,10, por exemplo, deve ser 1500.10. Para as faixas de impostos, use as seguintes referências:
  - INSS (Instituto Nacional do Seguro Social)
- - Salário bruto até R$ 1.556,94: alíquota de 8%
- - Salário bruto de R$ 1.556,95 a R$ 2.594,92: alíquota de 9%
- - Salário bruto de R$ 2.594,93 a R$ 5.189,82: alíquota de 11%
- - Salário bruto acima de R$ 5.189,82: alíquota máxima de R$ 570,88
+   - Salário bruto até R$ 1.556,94: alíquota de 8%
+   - Salário bruto de R$ 1.556,95 a R$ 2.594,92: alíquota de 9%
+   - Salário bruto de R$ 2.594,93 a R$ 5.189,82: alíquota de 11%
+   - Salário bruto acima de R$ 5.189,82: alíquota máxima de R$ 570,88
  - IR (Imposto de Renda)
- - Até R$ 1.903,98: isento de imposto de renda
- - De R$ 1.903,99 a 2.826,65: alíquota de 7,5% e parcela de R$ 142,80 a deduzir do imposto
- - De R$ 2.826,66 a R$ 3.751,05: alíquota de 15% e parcela de R$ 354,80 a deduzir do imposto
- - De R$ 3.751,06 a R$ 4.664,68: alíquota de 22,5% e parcela de R$ 636,13 a deduzir do imposto
- - Acima de R$ 4.664,68: alíquota de 27,5% e parcela de R$ 869,36 a deduzir do imposto.
+   - Até R$ 1.903,98: isento de imposto de renda
+   - De R$ 1.903,99 a 2.826,65: alíquota de 7,5% e parcela de R$ 142,80 a deduzir do imposto
+   - De R$ 2.826,66 a R$ 3.751,05: alíquota de 15% e parcela de R$ 354,80 a deduzir do imposto
+   - De R$ 3.751,06 a R$ 4.664,68: alíquota de 22,5% e parcela de R$ 636,13 a deduzir do imposto
+   - Acima de R$ 4.664,68: alíquota de 27,5% e parcela de R$ 869,36 a deduzir do imposto.
  */
+console.log("Exercício 11");
+
+const salarioBruto = 2500;
+let valorInss = 0;
+let valorIr = 0;
+let parcelaIr = 0;
+
+if(salarioBruto > 0){
+  //Cálculo do INSS
+  if(salarioBruto <= 1556.94){
+    valorInss = (salarioBruto * 0.08);
+  }else if((salarioBruto > 1556.94) && (salarioBruto <= 2594.92)){
+    valorInss = (salarioBruto * 0.09);
+  }else{
+    valorInss = (salarioBruto * 0.11);
+  }
+  if(valorInss > 570.88){
+  valorInss = 570.88;
+  }
+  //Cálculo do IR
+  if(salarioBruto < 1903.99){
+    valorIr = 0; //Isento IR
+  }else if((salarioBruto >= 1903.99) && (salarioBruto < 2826.65)){
+    valorIr = (salarioBruto * 0.075);
+    parcelaIr = 142.80;
+    valorIr -= parcelaIr; //Atualiza o Valor descontado de IR 
+  }else if((salarioBruto > 2826.65) && (salarioBruto <= 3751.05)){
+    valorIr = (salarioBruto * 0.15);
+    parcelaIr = 354.80;
+    valorIr -= parcelaIr; //Atualiza o Valor descontado de IR 
+  }else if((salarioBruto > 3751.05) && (salarioBruto <= 4664.68)){
+    valorInss = (salarioBruto * 0.225);
+    parcelaIr = 636.13;
+    valorIr -= parcelaIr; //Atualiza o Valor descontado de IR 
+  }else{
+    valorIr = (salarioBruto * 0.275);
+    parcelaIr = 869.36;
+    valorIr -= parcelaIr; //Atualiza o Valor descontado de IR 
+  }
+  //Mostra o Salário Líquido
+  console.log(`Salário Bruto: R$ ${salarioBruto}`);
+  console.log(`(-) Desconto INSS: R$ ${valorInss}`);
+  console.log(`(-) Desconto IR: R$ ${valorIr.toFixed(2)}`); // Duas casas decimais
+  console.log(`= Salário Líquido: R$: `,(salarioBruto - valorInss - valorIr).toFixed(2)); // Duas casas decimais
+
+}else{
+  console.log("[ERRO] - Valor Inválido.");
+}
