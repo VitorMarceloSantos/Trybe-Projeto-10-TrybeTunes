@@ -87,7 +87,7 @@ main{
   width: 750px;
   margin: auto;  
   background-color: rgba(245, 245, 220, 0.5);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.199);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   padding: 50px;
 }
 #apresentacao{
