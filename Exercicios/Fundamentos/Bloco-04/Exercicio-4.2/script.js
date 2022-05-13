@@ -129,3 +129,53 @@ console.log("Exercício 09");
 for(let i = 0; i < arrNumeros.length; i+=1){
   console.log(`O número ${arrNumeros[i]} / 2 = ${arrNumeros[i] / 2}.`);
 }
+
+//Exercícios Bônus - 01
+console.log("Exercicio Bônus - 01");
+
+let numbersBonus = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+
+//Ordenar em ordem crescente
+for(let i = 0; i < numbersBonus.length; i+=1){
+  for(let j = i + 1; j < numbersBonus.length; j+=1){//Sempre vai executar o numero seguinte ao [i], pois os valores anteriores sempre serão os menores
+    if(numbersBonus[i] > numbersBonus[j]){  //Vai armazenar o menor valor na variável menor, e o menor valor vai ocupar a posição[i]
+      let menor = numbersBonus[j];
+      numbersBonus[j] = numbersBonus[i];
+      numbersBonus[i] = menor;
+    }
+  }
+}
+console.log(numbersBonus)
+
+//Exercícios Bônus - 02
+console.log("Exercicio Bônus - 02");
+
+//Ordenar em ordem decrescente
+for(let i = 0; i < numbersBonus.length; i+=1){
+  for(let j = i + 1; j < numbersBonus.length; j+=1){//Sempre vai executar o numero seguinte ao [i], pois os valores anteriores sempre serão os maiores
+    if(numbersBonus[i] < numbersBonus[j]){  //Vai armazenar o maior valor na variável maior, e o maior valor vai ocupar a posição[i]
+      let maior = numbersBonus[j];
+      numbersBonus[j] = numbersBonus[i];
+      numbersBonus[i] = maior;
+    }
+  }
+}
+console.log(numbersBonus)
+
+//Exercícios Bônus - 03
+console.log("Exercicio Bônus - 03");
+
+//Criar um novo array, multiplicado pelo valor do seguinte
+// let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27]; //Já foi declarada no início dos exercicios bônus.
+
+let arrayMultiplicado = []; //Vai armazenar os valores multiplicados
+for(let i = 0; i < numbers.length; i+=1){
+  if( i == numbers.length - 1){
+    arrayMultiplicado.push(numbers[i] * 2);
+  }else{
+    for(let j = i + 1; j <= i+1; j+=1){//Sempre vai executar o numero seguinte ao [i], pois os valores anteriores sempre serão os maiores
+      arrayMultiplicado.push(numbers[i] * numbers[j]);
+    }
+  }
+}
+console.log(arrayMultiplicado);
