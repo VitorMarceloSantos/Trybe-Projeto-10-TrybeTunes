@@ -50,3 +50,19 @@ let temp = 1; //0: não é primo, 1: é primo
   }
 }
 console.log(`O maior número primo entre 1 e 50 é: ${maiorPrimo}.`);
+
+
+//Exercícios Bônus
+//Exercício - 01
+
+let quantAst = 8;
+
+for (let i = 0; i < quantAst; i += 1)
+{
+  let tabelaAst = ''; //Toda vez que executar vai zerar o valor
+  for (let j = 0; j < quantAst; j += 1)
+  { 
+  tabelaAst += "*"; //vai somando os asteristicos
+  }
+console.log(tabelaAst);
+} 
