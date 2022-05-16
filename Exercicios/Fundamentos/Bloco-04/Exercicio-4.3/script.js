@@ -34,3 +34,19 @@ for (let i = 0; i < array.length; i+=1){
 
 console.log(`A maior string é: ${maior}`);
 console.log(`A menor string é: ${menor}`);
+
+//Exercício - 04
+let maiorPrimo = 0;
+
+for(let i = 1; i <= 50; i+=1){ // dividendo
+let temp = 1; //0: não é primo, 1: é primo 
+  for(let j = 2; j < i; j+=1){ // divisor
+    if(i % j == 0){ //caso a divisão seja 0 quer dizer que ele não é primo.
+    temp = 0; // não é primo
+    }
+  } 
+  if(temp == 1){
+    maiorPrimo = i; //vai receber o maior primo
+  }
+}
+console.log(`O maior número primo entre 1 e 50 é: ${maiorPrimo}.`);
