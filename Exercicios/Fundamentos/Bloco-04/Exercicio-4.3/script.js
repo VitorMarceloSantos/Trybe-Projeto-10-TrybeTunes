@@ -66,3 +66,20 @@ for (let i = 0; i < quantAst; i += 1)
   }
 console.log(tabelaAst);
 } 
+
+//Exercício - 02
+
+let quantAst2 = 8;
+let cont = 1;
+tabelaAst2 ="";
+
+for (let i = 0; i < quantAst2; i += 1)
+{
+  tabelaAst2 ="";
+  for (let j = 0; j < cont; j += 1)
+  { 
+    tabelaAst2 += "*"; //vai somando os asteristicos
+  }
+  console.log(tabelaAst2);
+  cont += 1; // o contador sempre vai receber mais um, a cada execução
+} 
