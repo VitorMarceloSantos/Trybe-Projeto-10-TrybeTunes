@@ -83,3 +83,25 @@ for (let i = 0; i < quantAst2; i += 1)
   console.log(tabelaAst2);
   cont += 1; // o contador sempre vai receber mais um, a cada execução
 } 
+
+//Exercício - 03
+
+let quantAst3 = 8;
+let contador = 1;
+tabelaAst3 ="";
+
+for (let i = 0; i < quantAst3; i += 1)
+{
+  tabelaAst3 ="";
+  for (let j = quantAst3; j > 0; j -= 1)
+  { 
+    if(j > contador){
+    tabelaAst3 += " "; //vai somando espaços vazios
+    } 
+    else{
+    tabelaAst3 += "*"; //vai somando os asteristicos
+    }
+  }
+  console.log(tabelaAst3);
+  contador += 1; // o contador sempre vai receber mais um, a cada execução
+} 
