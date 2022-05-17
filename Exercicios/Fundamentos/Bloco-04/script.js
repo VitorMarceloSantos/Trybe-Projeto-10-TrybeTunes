@@ -94,3 +94,18 @@ if(verificarPalindromo("Arara") === true){
 }else{
   console.log("As palavras NÃO são palindromos.");
 };
+
+//Exercicio 02
+
+let arrayNumeros = [2, 3, 6, 7, 10, 1];
+
+function arrayIndice(array){
+  let maior = array[0];
+  for(let i = 0; i < array.length; i+=1){
+    if(array[i] > maior){
+      maior = array[i];
+    }
+  }
+  return array.indexOf(maior); //vair retornar o indice do maior número
+}
+console.log(`O indice do maior valor é: ${arrayIndice(arrayNumeros)}`); //chamando a função e passando como parâmentro o arrayNumeros
