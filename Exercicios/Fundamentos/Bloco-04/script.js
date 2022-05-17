@@ -6,3 +6,9 @@ let info = {
   nota: 'Namorada do personagem principal nos quadrinhos do Pato Donald',
 };
 console.log(`Bem vinda, ${info["personagem"]}.`);
+
+//Exercício 02
+
+info["recorrente"] = "Sim"; //Inserindo uma nova chave e valor
+
+console.log(info);
