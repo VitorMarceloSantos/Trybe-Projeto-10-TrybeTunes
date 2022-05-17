@@ -139,3 +139,35 @@ function arrayCaracteres(array){
   return maior; //vair retornar o maior nome
 }
 console.log(`O nome com maior caracteres é: ${arrayCaracteres(arrayNomes)}`); //chamando a função e passando como parâmentro o arrayNumeros
+
+//Exercicios 05
+
+let arrayEx05 = [2, 3, 2, 5, 8, 2, 3];
+
+function quantidadeRepeticao(array){
+  let objNumeros = {};
+
+  for(let i = 0; i < array.length; i+=1){
+    let contador = 0;
+    for(let j = 0; j < array.length; j+=1){
+      if(array[i] === array[j]){ //verificar a partir do 1° número
+        contador += 1; //contador de números repetidos
+      }
+    }
+    objNumeros[array[i]] = contador; //criando um objeto com todos o números com suas devidas repetiçoes
+  }
+  //console.log(objNumeros); //-> esse console vai monstrar o objeto com todos as keys e os valores
+  let arrayChave = [];
+  for(let keys in array){ //vai levar em consideração as chaves
+    arrayChave.push(keys); // o array vai receber as chaves do objeto
+  } 
+  let maior = 0;
+  for(let i = 0; i < arrayChave.length - 1; i+=1){
+    if(objNumeros[arrayChave[i]] > objNumeros[arrayChave[i+1]]){
+      maior = arrayChave[i]; // a key que tem o maior valor(value-objeto) vai ser armazenada
+    }
+  }
+  return objNumeros[maior];
+}
+
+console.log(`O número que mais se repete é o: ${quantidadeRepeticao(arrayEx05)}.`);
