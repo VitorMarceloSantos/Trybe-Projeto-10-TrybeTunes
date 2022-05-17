@@ -109,3 +109,18 @@ function arrayIndice(array){
   return array.indexOf(maior); //vair retornar o indice do maior número
 }
 console.log(`O indice do maior valor é: ${arrayIndice(arrayNumeros)}`); //chamando a função e passando como parâmentro o arrayNumeros
+
+//Exercicio 03
+
+let arrayEx03 = [2, 4, 6, 7, 10, 0, -3];
+
+function arrayIndiceMenor(array){
+  let menor = array[0];
+  for(let i = 0; i < array.length; i+=1){
+    if(array[i] < menor){
+      menor = array[i];
+    }
+  }
+  return array.indexOf(menor); //vair retornar o indice do menor número
+}
+console.log(`O indice do menor valor é: ${arrayIndiceMenor(arrayEx03)}`); //chamando a função e passando como parâmentro o arrayNumeros
