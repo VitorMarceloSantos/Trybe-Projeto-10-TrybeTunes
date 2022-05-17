@@ -18,3 +18,9 @@ console.log(info);
 for(keys in info){  //for in: tem como referência os indices(Keys)
   console.log(keys);
 }
+
+//Exercício 04
+
+for(keys in info){  //for in: tem como referência os indices(Keys)
+  console.log(info[keys]);
+}
