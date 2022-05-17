@@ -12,3 +12,9 @@ console.log(`Bem vinda, ${info["personagem"]}.`);
 info["recorrente"] = "Sim"; //Inserindo uma nova chave e valor
 
 console.log(info);
+
+//Exercício 03
+
+for(keys in info){  //for in: tem como referência os indices(Keys)
+  console.log(keys);
+}
