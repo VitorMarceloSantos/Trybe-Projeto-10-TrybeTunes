@@ -124,3 +124,18 @@ function arrayIndiceMenor(array){
   return array.indexOf(menor); //vair retornar o indice do menor número
 }
 console.log(`O indice do menor valor é: ${arrayIndiceMenor(arrayEx03)}`); //chamando a função e passando como parâmentro o arrayNumeros
+
+//Exercício 04
+
+let arrayNomes = ['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana'];
+
+function arrayCaracteres(array){
+  let maior = array[0];
+  for(let i = 0; i < array.length; i+=1){
+    if(array[i].length > maior.length){
+      maior = array[i];
+    }
+  }
+  return maior; //vair retornar o maior nome
+}
+console.log(`O nome com maior caracteres é: ${arrayCaracteres(arrayNomes)}`); //chamando a função e passando como parâmentro o arrayNumeros
