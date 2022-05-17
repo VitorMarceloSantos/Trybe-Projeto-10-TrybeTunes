@@ -68,3 +68,8 @@ console.log(`O livro favorito de ${leitor["nome"]} ${leitor["sobrenome"]} se cha
 //Exercício 07
 
 leitor["livrosFavoritos"][1] = {titulo: "Harry Potter e o Prisioneiro de Azkaban", autor: "JK Rowling", editora: "Rocco"};
+
+
+//Exercício 08
+
+console.log(`${leitor["nome"]} tem ${leitor["livrosFavoritos"].length} livros favoritos.`); // ${leitor["livrosFavoritos"].length}  -> acessando o array e utilizando o metodo .length para saber o tamanho do array
