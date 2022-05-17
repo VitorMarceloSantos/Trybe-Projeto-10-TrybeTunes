@@ -135,7 +135,7 @@ console.log(tabelaAst4); //imprimi a linha
 
 //Exercício - 05
 
-let quantAst5 = 5;
+let quantAst5 = 21;
 let numInteiro5 = Math.trunc(quantAst5 / 2); //pega o valor arrendodado para baixo do meio da variavel quantAst4
 
 let direita5 = numInteiro5;
