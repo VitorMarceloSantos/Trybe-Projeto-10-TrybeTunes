@@ -73,3 +73,24 @@ leitor["livrosFavoritos"][1] = {titulo: "Harry Potter e o Prisioneiro de Azkaban
 //Exercício 08
 
 console.log(`${leitor["nome"]} tem ${leitor["livrosFavoritos"].length} livros favoritos.`); // ${leitor["livrosFavoritos"].length}  -> acessando o array e utilizando o metodo .length para saber o tamanho do array
+
+//Exercicios Funções
+//Exercicio 01
+
+function verificarPalindromo(palavra){
+  let palavraMinuscula = palavra.toLowerCase(); //todas as letras ficaram em minusculo, caso contrario pode ocorrer erro(case sensitive)
+  let palavraArray = palavraMinuscula.split(""); //converte a string em um array
+  let reverse = palavraArray.reverse(); // inverte os valores do array
+  let palavraReverse = reverse.join(""); // converte o array em string
+
+  if(palavraMinuscula === palavraReverse){ 
+    return true;
+  }
+  return false;
+}
+
+if(verificarPalindromo("Arara") === true){
+  console.log("As palavras são palindromos.");
+}else{
+  console.log("As palavras NÃO são palindromos.");
+};
