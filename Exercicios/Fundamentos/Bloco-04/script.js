@@ -171,3 +171,17 @@ function quantidadeRepeticao(array){
 }
 
 console.log(`O número que mais se repete é o: ${quantidadeRepeticao(arrayEx05)}.`);
+
+//Exercicio 06
+
+let numero = 5;
+
+function somatorio(num){
+  let soma = 0;
+  for(let i = num; i >= 1; i-=1){
+    soma += i;
+  }
+  return soma;
+}
+
+console.log(`O somatario de ${numero} é igual a: ${somatorio(numero)}.`);
