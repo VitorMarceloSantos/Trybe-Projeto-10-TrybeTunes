@@ -185,3 +185,29 @@ function somatorio(num){
 }
 
 console.log(`O somatario de ${numero} é igual a: ${somatorio(numero)}.`);
+
+
+//Exercicio 07
+
+let str1 = "VamoqueVamo";
+let str2 = "amo";
+
+function verificarFimPalavra(str1, str2){
+  
+  let arrStr1 = str1.split(""); //convertendo a string em array
+  let arrStr2 = str2.split(""); //convertendo a string em array
+  let arrStr2Reverse = arrStr2.reverse(); // inverte o arrayStr2
+  let arrStr1Reverse = arrStr1.reverse(); // inverte o arrayStr2
+
+  for(let i = 0 ; i < arrStr2.length; i+=1){
+    let verifica = true; 
+    if(arrStr1Reverse[i] != arrStr2Reverse[i] ){
+      verifica = false;
+    }
+    if(verifica == false){ //caso seja falso o return irá retornar false e a função será encerrada
+      return false;
+    }
+  }
+  return true; // caso todas as comparações sejam verdadeiras, o retorno da função será true
+}
+console.log(`Retorno: ${verificarFimPalavra(str1, str2)}.`);
