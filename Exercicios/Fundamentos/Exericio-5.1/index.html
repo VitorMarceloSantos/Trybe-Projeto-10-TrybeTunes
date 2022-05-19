@@ -81,6 +81,14 @@
       corrigirTexto.textContent = "Exercício 5.1 - JavaScript"; // Exercício 04
     }
     corrigirTexto();
+    
+    function letraMaiuscula(){
+      let todosP = document.getElementsByTagName('p');
+      for (let i = 0; i < todosP.length; i += 1) {
+        todosP[i].textContent = todosP[i].textContent.toUpperCase(); // Exercício 05
+      }
+    }
+    letraMaiuscula();
 
   </script>
 </body>
