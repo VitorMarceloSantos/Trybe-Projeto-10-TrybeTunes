@@ -57,11 +57,19 @@
   </head>
   <body>
     <script>
+      //Criação
       //Exercício - 01
       let corpo = document.getElementsByTagName('body')[0];
       let titulo = document.createElement('h1');
       titulo.textContent = 'Exericicio 5.2 - JavaScript DOM';
       corpo.appendChild(titulo);
+
+      //Exercício - 02
+      let principal = document.createElement('main');
+      principal.className = 'main-content';
+      corpo.appendChild(principal);
+
+      
     </script>
   </body>
 </html>
