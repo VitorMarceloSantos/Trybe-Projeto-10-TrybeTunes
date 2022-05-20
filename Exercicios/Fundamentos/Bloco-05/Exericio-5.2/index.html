@@ -80,13 +80,21 @@
       principal.firstElementChild.appendChild(paragrafo);
 
       //Exericio - 05
-      sessoes.className = 'left-content';
-      principal.appendChild(sessoes);
+      let sessoes2 = document.createElement('section');
+      sessoes2.className = 'left-content';
+      principal.appendChild(sessoes2);
 
       //Exericio - 06
-      sessoes.className = 'right-content';
-      principal.appendChild(sessoes);
-      
+      let sessoes3 = document.createElement('section');
+      sessoes3.className = 'right-content';
+      principal.appendChild(sessoes3);
+
+      //Exericio -07
+      let img = document.createElement('img');
+      img.setAttribute('src','https://picsum.photos/200');
+      img.className = 'small-image';
+      principal.children[1].appendChild(img);
+
     </script>
   </body>
 </html>
