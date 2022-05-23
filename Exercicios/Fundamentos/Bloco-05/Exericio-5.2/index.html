@@ -1,24 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <main id="paiDoPai">
-    <section id="pai">
-      <section id="primeiroFilho"></section>
-      <section id="elementoOndeVoceEsta">
-        <section id="primeiroFilhoDoFilho"></section>
-        <section id="segundoEUltimoFilhoDoFilho"></section>
-      </section>
-      Atenção!
-      <section id="terceiroFilho"></section>
-      <section id="quartoEUltimoFilho"></section>
-    </section>
-  </main>
-  <script src="script.js"></script>
-</body>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //Criação
+      //Exercício - 01
+      let corpo = document.getElementsByTagName('body')[0];
+      let titulo = document.createElement('h1');
+      titulo.textContent = 'Exericicio 5.2 - JavaScript DOM';
+      corpo.appendChild(titulo);
+
+      //Exercício - 02
+      let principal = document.createElement('main');
+      principal.className = 'main-content';
+      corpo.appendChild(principal);
+      
+      //Exercício - 03
+      let sessoes = document.createElement('section');
+      sessoes.className = 'center-content';
+      principal.appendChild(sessoes);
+   
+      //Exercício - 04
+      let paragrafo = document.createElement('p');
+      paragrafo.textContent = 'Exercicio de criacao de elementos aula 5.2.';
+      principal.firstElementChild.appendChild(paragrafo);
+
+      //Exericio - 05
+      let sessoes2 = document.createElement('section');
+      sessoes2.className = 'left-content';
+      principal.appendChild(sessoes2);
+
+      //Exericio - 06
+      let sessoes3 = document.createElement('section');
+      sessoes3.className = 'right-content';
+      principal.appendChild(sessoes3);
+
+      //Exericio -07
+      let img = document.createElement('img');
+      img.setAttribute('src','https://picsum.photos/200');
+      img.className = 'small-image';
+      principal.children[1].appendChild(img);
+
+    </script>
+  </body>
 </html>
