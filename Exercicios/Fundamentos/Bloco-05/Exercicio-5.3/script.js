@@ -47,6 +47,7 @@ function btnFeriado(){
     btnHoliday.textContent = 'Feriado';
     btnContainer.appendChild(btnHoliday);
   }
+  btnHolidayEvent();
 }
 
 //Exercício 03
@@ -57,20 +58,48 @@ function btnHolidayEvent(){
 
   eventBtn.addEventListener('click', function (){
   for (let i = 0; i < daysList.childElementCount; i += 1) {
-    if (daysList.children[i].classList.contains('day-holiday')) {
-      daysList.children[i].style.backgroundColor = 'red';
-      if (daysList.children[i].style.backgroundColor === 'red') {
-        daysList.children[i].style.backgroundColor = 'rgb(238,238,238);'
-      }
+    if (daysList.children[i].style.backgroundColor === 'green') {
+      daysList.children[i].setAttribute("style",'red')
+    }else if (daysList.children[i].classList.contains('day-holiday')) {
+      daysList.children[i].style.backgroundColor = 'green';
     }
   }
   });
 }
 
+
 //Exercício 04
 
 function sextaFeira(){
+  const textInput = document.getElementById('task-input').value;
+  const btnContainer = document.querySelector('.buttons-container');
 
+  if (textInput === 'Sexta-feira') {
+    const btnFriday = document.createElement('button');
+    btnFriday.setAttribute('id','btn-friday');
+    btnFriday.textContent = 'Sextouuu!';
+    btnContainer.appendChild(btnFriday);
+    
+  }
+  btnSextaFeira();
+}
+
+//Exercício 05
+
+function btnSextaFeira(){
+  eventBtn = document.getElementById('btn-friday');
+  const daysList = document.querySelector('#days');
+
+  eventBtn.addEventListener('click', function (){
+  for (let i = 0; i < daysList.childElementCount; i += 1) {
+    if (daysList.children[i].textContent === 'Beba com moderação.') {
+      daysList.children[i].textContent = 'Ressaca.'
+    }
+    else if (daysList.children[i].classList.contains('day-friday')) {
+      daysList.children[i].textContent = 'Beba com moderação.'
+    }
+  }
+  });
 }
 
 const btnAdicionar = document.getElementById('btn-add');
@@ -78,5 +107,6 @@ const btnAdicionar = document.getElementById('btn-add');
 btnAdicionar.addEventListener('click', function(){
   //Executar funções
   btnFeriado();
-  btnHolidayEvent();
+
+  sextaFeira();
 })
