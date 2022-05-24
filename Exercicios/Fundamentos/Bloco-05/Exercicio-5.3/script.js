@@ -38,14 +38,45 @@ createDays();
 
 function btnFeriado(){
   const textInput = document.getElementById('task-input').value;
-  const btnContainer = document.querySelector('#buttons-container');
+  const btnContainer = document.querySelector('.buttons-container');
 
     
   if (textInput === 'Feriados') {
-    console.log('tete')
     const btnHoliday = document.createElement('button');
     btnHoliday.setAttribute('id','btn-holiday');
+    btnHoliday.textContent = 'Feriado';
     btnContainer.appendChild(btnHoliday);
   }
 }
-btnFeriado();
+
+//Exercício 03
+
+function btnHolidayEvent(){
+  eventBtn = document.getElementById('btn-holiday');
+  const daysList = document.querySelector('#days');
+
+  eventBtn.addEventListener('click', function (){
+  for (let i = 0; i < daysList.childElementCount; i += 1) {
+    if (daysList.children[i].classList.contains('day-holiday')) {
+      daysList.children[i].style.backgroundColor = 'red';
+      if (daysList.children[i].style.backgroundColor === 'red') {
+        daysList.children[i].style.backgroundColor = 'rgb(238,238,238);'
+      }
+    }
+  }
+  });
+}
+
+//Exercício 04
+
+function sextaFeira(){
+
+}
+
+const btnAdicionar = document.getElementById('btn-add');
+
+btnAdicionar.addEventListener('click', function(){
+  //Executar funções
+  btnFeriado();
+  btnHolidayEvent();
+})
