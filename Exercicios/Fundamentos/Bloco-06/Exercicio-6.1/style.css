@@ -1,0 +1,35 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-color: bisque;
+}
+main{
+  width: 70%;
+  background-color: white;
+  margin: 50px auto;
+  padding: 20px;
+}
+h1{
+  margin-bottom: 20px;
+  font-size: 2.3em;
+  text-align: center;
+}
+.line-content{
+  margin: 10px 0;
+}
+#area-txt {
+  resize: none;
+  width: 100%;
+}
+#container-inputs {
+  text-align: center;
+}
+.inputs { 
+  width: 60px;
+  padding: 3px;
+}
+.inputs:not(:last-child) {
+  margin-right: 30px;
+}
