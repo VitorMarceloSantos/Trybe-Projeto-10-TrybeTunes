@@ -32,7 +32,7 @@ function recuperarInformacoes(){
 
 function resetarInformacoes(){ //Limpar dados salvos
   localStorage.clear();
-  alert('Informações Apagadas.');
+  alert('Informações Apagadas.'); 
 }
 
 btnEnviar = document.getElementById('btn-enviar');
