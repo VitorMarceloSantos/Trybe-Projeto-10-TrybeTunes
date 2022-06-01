@@ -1,0 +1,14 @@
+textarea {
+  resize: none;
+}
+h1{
+  text-align: center;
+}
+.container {
+  margin-bottom: 20px;
+}
+#container-formulario {
+  border: 1px solid black;
+  width: 80%;
+  margin: auto;
+}

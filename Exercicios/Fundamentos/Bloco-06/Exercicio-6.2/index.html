@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> <!-- Adicionando o caminho do cdn-->
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <h1 class="h1">TrybeTrip</h1>
+    <div id="container-formulario">
+      <form>
+        <div class="container">
+          <label class="form-label" for="name-txt">Nome</label>
+          <input class="form-control" type="text" name="name-txt" id="name-txt" min="10" max="40" required>
+        </div>
+        <div class="container">
+          <label class="form-label" for="email-txt">Email</label>
+          <input class="form-control" type="email" name="email-txt" id="email-txt" min="10" max="50" required>
+        </div>
+        <div class="container">
+          <p>Destino Preferido:</p>
+          <input class="form-check-input" type="radio" name="selecionar-opcao" id="cidade">
+          <label class="form-check-label" for="cidade">Cidade</label>
+          <input class="form-check-input" type="radio" name="selecionar-opcao" id="campo">
+          <label class="form-check-label" for="campo">Campo</label>
+          <input class="form-check-input" type="radio" name="selecionar-opcao" id="praia">
+          <label class="form-check-label" for="praia">Praia</label>
+          <input class="form-check-input" type="radio" name="selecionar-opcao" id="montanhas">
+          <label class="form-check-label" for="montanhas">Montanhas</label>
+        </div>
+        <div class="container">
+          <label class="form-label" for="area-txt">Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?</label>
+          <textarea class="form-control" name="area-txt" id="area-txt" cols="30" rows="10" maxlength="500"></textarea>
+        </div>
+        <div class="container">
+          <p>Qual a melhor data para realizar sua viagem?</p>
+          <input class="form-control" type="date" name="date-txt" id="date-txt">
+        </div>
+        <div class="container">
+          <input class="form-check-input" type="checkbox" name="ofertas" id="oferta-1">
+          <label class="form-check-label" for="oferta-1">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?</label></br>
+          <input class="form-check-input" type="checkbox" name="ofertas" id="oferta-2">
+          <label class="form-check-label"  for="oferta-2">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.</label>
+        </div>
+        <div class="container">
+          <button class="btn btn-success" type="submit" >Enviar</button>
+          <button class="btn btn-danger" type="reset" >Apagar</button>
+          <button id="myModal" class="btn btn-warning">Exemplo Modal</button>
+        </div>
+      </form>
+    </div>
+    <div id="modalTeste" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Meu Primeiro Modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Pode adicionar qualquer texto.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Confirma</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> <!-- Adicionando o caminho do cdn-->
+<script src="script.js"></script>
+</html>
