@@ -43,20 +43,20 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 02: JavaScript - Trabalhando com elementos
 - [X] 03: JavaScript - Eventos
 - [X] 04: JavaScript - Web Storage
-- [ ] 05: Fundamentos - JavaScript - Projetos
-- [ ] **[05: Projeto - Arte com Pixels (NOTA: )]()**
-- [ ] **[06: (Bônus) Projeto - Lista de tarefas (NOTA: )]()**
-- [ ] **[06: (Bônus) Projeto - Adivinhe a Cor (NOTA: )]()**
-- [ ] **[06: (Bônus) Projeto - Meme Generator (NOTA: )]()**
-- [ ] **[06: (Bônus) Projeto - Carta Misteriosa (NOTA: )]()**
+- [X] 05: Fundamentos - JavaScript - Projetos
+- [X] **[05: Projeto - Arte com Pixels (NOTA: 100%)](https://vitormarcelosantos.github.io/Trybe-Projeto-03-Pixels-Art/)**
+- [X] **[06: (Bônus) Projeto - Lista de tarefas (NOTA: 100%)](https://vitormarcelosantos.github.io/Trybe-Projeto-Bonus-Lista-Tarefas/)**
+- [X] **[06: (Bônus) Projeto - Adivinhe a Cor (NOTA: 100%)](https://vitormarcelosantos.github.io/Trybe-Projeto-Bonus-Adivinhe-Cor/)**
+- [X] **[06: (Bônus) Projeto - Meme Generator (NOTA: 100%)](https://vitormarcelosantos.github.io/Trybe-Projeto-Bonus-Gerador-Meme/)**
+- [X] **[06: (Bônus) Projeto - Carta Misteriosa (NOTA: 100%)](https://vitormarcelosantos.github.io/Trybe-Projeto-Bonus-Carta-Misteriosa/)**
 
 ##### Bloco 06: HTML e CSS: Forms, Flexbox e Responsivo
 
-- [ ] 01: HTML & CSS - Forms
-- [ ] 02: Bibliotecas JavaScript e Frameworks CSS
-- [ ] 03: Introdução - CSS Flexbox
-- [ ] 03: CSS Flexbox - Parte 1
-- [ ] 04: CSS Flexbox - Parte 2
+- [X] 01: HTML & CSS - Forms
+- [X] 02: Bibliotecas JavaScript e Frameworks CSS
+- [X] 03: Introdução - CSS Flexbox
+- [X] 03: CSS Flexbox - Parte 1
+- [X] 04: CSS Flexbox - Parte 2
 - [ ] 05: CSS Responsivo - Mobile First
 - [ ] **[06: Projeto - Trybewarts (NOTA: -)]()**
 
