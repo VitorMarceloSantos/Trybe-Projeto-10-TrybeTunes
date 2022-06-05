@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/13af6c0cdd.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+    <!--Adicionar Icones-->
+    <link id="link_css" rel="stylesheet" href="css/style.css">
+    <title>Projeto PixArt</title>
+</head>
+<body>
+    <div class="container_geral">
+        <div class="plano_fundo"></div>
+        <header>
+            <h1>
+                <div class="texto_colorido">
+                    <p class="azul">P</p>
+                    <p class="vermelho">A</p>
+                    <p class="amarelo">L</p>
+                    <p>E</p>
+                    <p class="azul">T</p>
+                    <p class="vermelho">A</p>
+                    <p>&nbsp;</p>
+                    <p class="amarelo">D</p>
+                    <p>E&nbsp;</p>
+                    <!--Tag utilizada para adicionar um espaço-->
+                    <p class="azul">C</p>
+                    <p class="vermelho">O</p>
+                    <p class="amarelo">R</p>
+                    <p>E</p>
+                    <p class="azul">S</p>
+                </div>
+            </h1>
+        </header>
+        <main class="container_sections">
+            <div class="colunas">
+                <div class="container_coluna1">
+                    <section class="container_paleta">
+                        <p class="texto_orientacao">Selecione a cor desejada:</p>
+                        <button id="btn_voltar"><i class="fa-solid fa-angle-left"></i></button>
+                        <!--Foi adicionado um botão dentro do icone, para que possa ser realizado os eventos-->
+                        <div id="paletaCores">
+                            <div id="cor0" class="cores_paleta"></div>
+                            <div id="cor1" class="cores_paleta"></div>
+                            <div id="cor2" class="cores_paleta"></div>
+                            <div id="cor3" class="cores_paleta"></div>
+                            <div id="cor4" class="cores_paleta"></div>
+                        </div>
+                        <button id="btn_avancar"><i class="fa-solid fa-angle-right"></i></button>
+                        <!--Foi adicionado um botão dentro do icone, para que possa ser realizado os eventos-->
+                    </section>
+                    <section class="container_menu">
+                        <!--Menu Superior-->
+                        <p>Linhas:</p>
+                        <input type="number" name="linhaTxt" id="linhaTxt" min="1" max="10">
+                        <!--Valor minimo 1 e máximo 20-->
+                        <p>Colunas:</p>
+                        <input type="number" name="colunaTxt" id="colunaTxt" min="1" max="10">
+                        <!--Valor minimo 1 e máximo 20-->
+                        <div class="input_gerais">
+                            <input type="button" value="Aplicar" id="btn_aplicar" class="style_btn">
+                            <input type="button" value="Reiniciar" id="btn_reiniciar" class="style_btn">
+                            <input type="button" value="Apagar" id="btn_apagar" class="style_btn">
+                            <input type="button" value="#VQV" id="btn_trybe" class="style_btn">
+                        </div>
+                    </section>
+                </div>
+                <div class="container_coluna2">
+                    <section class="btn_radio">
+                        <div>
+                            <div>
+                                <input type="radio" name="radio_paleta" id="paleta_usuario">
+                                <!--cada div armazena o o input e a label, para facilitar na organização da flex direction: column-->
+                                <label for="paleta_usuario">Paleta criada pelo Usuário</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="radio_paleta" id="paleta_aleatorio">
+                                <label for="paleta_aleatorio">Paleta gerada Aleatoriamente</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="radio_paleta" id="paleta_padrao">
+                                <label for="paleta_padrao">Paleta Padrão</label>
+                            </div>
+                        </div>
+                        <input type="button" value="Confirma" class="style_btn" id="btn_confirma">
+                    </section>
+                    <section class="selecao_cores">
+                        <div id="red">
+                            <input type="range" class="range_input" name="" id="range_red" min="0" max="255" value="0" step="1" list="referencia">
+                            <p id="txt_red">R: 0</p>
+                        </div>
+                        <div id="green">
+                            <input type="range" class="range_input" name="" id="range_green" min="0" max="255" value="0" step="1" list="referencia">
+                            <p id="txt_green">G: 0</p>
+                        </div>
+                        <div id="blue">
+                            <input type="range" class="range_input" name="" id="range_blue" min="0" max="255" value="0" step="1" list="referencia">
+                            <p id="txt_blue">B: 0</p>
+                        </div>
+                            <!--https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input/range-->
+                    </section>
+                    <div id="container-paletas-usuario">
+                        <div class="paleta_range" id="paleta_criar_cor4"></div>
+                        <div id="container-usuario">
+                            <div class="paleta_usuario" id="paleta_criar_cor1"></div>
+                            <div class="paleta_usuario" id="paleta_criar_cor2"></div>
+                            <div class="paleta_usuario" id="paleta_criar_cor3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="container_tabela">
+                <div class="container_posicionamento">
+                    <!--Container quer servirá para posicionarmos a tabela no centro-->
+                    <div id="tabela"></div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="logo_trybe">
+                <a href="https://www.betrybe.com/" target="_blank" rel="external"><img src="img/logo_trybe.png" alt="Logo Trybe"></a>
+                <small class="desenvolvedor">&copy;Desenvolvido por Vitor Marcelo - Turma 23 - Tribo B</small>
+                <div class="icones">
+                    <a href="https://github.com/VitorMarceloSantos" target="_blank" rel="external"><i class="fa-brands fa-github"></i></a>
+                    <!--Os icones possuem as mesmas caractericas que os textos-->
+                    <a href="https://www.linkedin.com/in/vitor-marcelo-santos/" target="_blank" rel="external"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/vitor_marcelo_santos/" target="_blank" rel="external"><i class="fa-brands fa-instagram-square"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html> 

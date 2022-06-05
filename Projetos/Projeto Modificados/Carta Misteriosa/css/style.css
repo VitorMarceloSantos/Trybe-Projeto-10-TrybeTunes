@@ -1,0 +1,294 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Revista;
+  src: url('../font/REVISTA.ttf') format('truetype');
+}
+@font-face {
+  font-family: Bebas;
+  src: url('../font/BebasNeue-Regular.ttf') format('truetype');
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+
+/* Header */
+#container-titulo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4vh;
+}
+h1{
+  font-family: 'Revista';
+  width: 70vw;
+  background-color: white;
+  border-radius: 0 40px 0 40px;
+}
+header h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#c-carta{
+  font-size: 2.5em;
+  color: red;
+  background-color: black;
+}
+#a1-carta{
+  font-size: 2em;
+  color: yellow;
+}
+#r-carta{
+  font-size: 2.3em;
+  color: blue;
+  background-color: bisque;
+}
+#t-carta{
+  font-size: 2.8em;
+  color: green;
+}
+#a2-carta{
+  font-size: 1.3em;
+  color: purple;
+}
+#m-misteriosa{
+  font-size: 3em;
+  color: black;
+}
+#i1-misteriosa{
+  font-size: 2.5em;
+  color: white;
+  background-color: palevioletred;
+}
+#s-misteriosa{
+  font-size: 1.4em;
+  color: rgb(13, 173, 13);
+}
+#t-misteriosa{
+  font-size: 2.5em;
+  color: burlywood;
+}
+#i2-misteriosa{
+  font-size: 2.2em;
+  color: red;
+  background-color: rgba(255, 127, 80, 0.226);
+}
+#o-misteriosa{
+  font-size: 3.2em;
+  color: yellow;
+  background-color: rgba(0, 0, 255, 0.692);
+}
+#a-misteriosa{
+  font-size: 1.9em;
+  color: black;
+  background-color: purple;
+}
+
+/* Body */
+body{
+  background-color: black;
+}
+#container-geral{
+  width: 70vw;
+  height: 50vh;
+  background-color: white;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 40px 0 40px 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+#informacao{
+  font-size: 1.7em;
+  font-weight: 600;
+  font-family: 'Bebas';
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.274);
+  text-align: center;
+}
+#container-input input[type='text']{
+  font-family: 'Bebas';
+  font-size: 1.2em;
+  width: 70%; /* do tamanho do container-geral */
+}
+#container-input #criar-carta{
+  font-family: 'Bebas';
+  margin-top: 20px;
+  width: 70px;
+  font-size: 1.1em;
+}
+#container-input #criar-carta:hover{
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+#container-input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+#container-contador{
+  margin: auto;
+  margin-top: 20px;
+  font-family: 'Bebas';
+  font-size: 1.2em;
+  width: 70%; /* do tamanho do container-geral */
+  height: 8vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 5px;
+}
+#container-contador #carta-contador{
+  margin-top: 15px;
+  font-size: 1.6em;
+  text-decoration: underline;
+}
+#container-cartagerada{
+  margin: auto;
+  margin-top: 20px;
+  font-family: 'Bebas';
+  font-size: 1.2em;
+  width: 70%; /* do tamanho do container-geral */
+  height: 17vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+}
+#container-cartagerada #informacao-usuario{
+  margin-bottom: 20px;
+}
+/* Estilos de classe para modificar o texto */
+.newspaper{
+  background-color: rgb(250, 235, 215);
+  font-weight: 700;
+}
+.magazine1{
+  background-color: rgb(0, 128, 128);
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+}
+.magazine2{
+  background-image: url('../img/pink-pattern.png');
+  color: rgb(255, 0, 255);
+  font-weight: 700;
+}
+.magazine3{
+  background-image: url('../img/png-transparent-paper-printing-creased-white-paper-texture-angle-white-thumbnail.png');
+  font-weight: 800;
+}
+.magazine4{
+  background-image: url('../img/png-transparent-black-n-white-pattern-seamless-pattern-vector-pattern-seamless-pattern-white-simple-graphics-repeat-black-thumbnail.png');
+  font-weight: 600;
+}
+.magazine5{
+  background-image: url('../img/images.png');
+  font-weight: 700;
+}
+.medium{
+  font-size: 20px;
+  padding: 8px;
+}
+.big{
+  font-size: 30px;
+  padding: 10px;
+}
+.reallybig{
+  font-size: 40px;
+  padding: 15px;
+}
+.rotateleft{
+  transform: matrix(0.996195, -0.0871557, 0.0871557, 0.996195, 0, 0);
+}
+.rotateright{
+  transform: matrix(0.996195, 0.0871557, -0.0871557, 0.996195, 0, 0)
+}
+.skewleft{
+  transform: matrix(1, 0, 0.176327, 1, 0, 0);
+}
+.skewright{
+  transform: matrix(1, 0, -0.176327, 1, 0, 0);
+}
+.letra1{
+  font-family: 'Revista';
+}
+.letra2{
+  font-family: 'Bebas';
+}
+.letra3{
+  font-family: monospace;
+}
+.letra4{
+  font-family: 'Times New Roman', Times, serif;
+}
+.upper{
+  text-transform: uppercase;
+}
+.lower{
+  text-transform: lowercase;
+}
+.geral:hover{ /* Configuraçãoes Gerais */
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* Rodapé */
+footer{
+  width: 70vw;
+  height: 10vh;
+  background-color: white;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 0 40px 0 40px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Bebas';
+  font-size: 1.3em;
+}
+footer .desenvolvedor{ /*Texto Desenvolvedor*/
+  font-size: .7em;
+  font-weight: 600;
+}
+footer #nome-desenvolvedor{
+  font-family: 'Revista';
+  font-size: 1.5em;
+}
+footer .icones{ /*Tamanho dos Icones*/
+  font-size: 1em;
+  margin-top: 7px;
+}
+footer .icones .fa-brands{/*Todos os filhos exceto o primeiro filho*/
+  margin-left: 30px;
+}
+footer .icones a .fa-github{ /*Atlerando a cor do icone ao passar o mouse*/
+  color: red;
+}
+footer .icones a .fa-linkedin{ /*Atlerando a cor do icone ao passar o mouse*/
+  color: green;
+}
+footer .icones a .fa-instagram-square{ /*Atlerando a cor do icone ao passar o mouse*/
+  color: blue;
+}
+footer .icones a .fa-brands:hover{ /*Atlerando a cor do icone ao passar o mouse*/
+  color: black;
+  transition: .3s; /*Tempo de transição*/
+}
+#nome-desenvolvedor a{
+  text-decoration: none;
+  color: black;
+}
+#nome-desenvolvedor a:hover{ /*Atlerando a cor do icone ao passar o mouse*/
+  color: purple;
+  transition: .3s; /*Tempo de transição*/
+  cursor: pointer;
+  text-decoration: underline;
+}

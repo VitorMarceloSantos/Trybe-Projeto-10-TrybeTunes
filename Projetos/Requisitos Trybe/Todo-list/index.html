@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/13af6c0cdd.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Lista de Tarefas</title>
+</head>
+<body>
+    <header>
+      Minha Lista de Tarefas <!--Requisito 01-->
+     <!-- <h1>Minha lista de tarefas</h1> -->
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p> <!--Requisito 02-->
+    </header>
+    <main>
+        <input type="text" id="texto-tarefa"> <!--Requisito 03--> <!--placeholder="Tarefa(s)..."-->
+        <button id="criar-tarefa">Criar Tarefa</button>  <!--Requisito 05-->
+        <button id="apaga-tudo">Apagar Tarefas</button> <!--Requisito 10-->
+        <button id="remover-finalizados">Remover Finalizado</button> <!--Requisito 11-->
+        <button id="salvar-tarefas">Salvar Tarefas</button> <!--Requisito 12-->
+        <button id="mover-cima">Mover Cima</button> <!--Requisito 13-->
+        <button id="mover-baixo">Mover Baixo</button> <!--Requisito 13-->
+        <button id="remover-selecionado">Apagar Selecionado</button> <!--Requisito 14-->
+     
+      <ol id="lista-tarefas"></ol> <!--A lista será preenchida de maneira dinâmica--><!--Requisito 04-->
+
+    </main>
+  <script src="script.js"></script>
+</body>
+</html>

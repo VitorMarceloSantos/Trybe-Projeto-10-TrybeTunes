@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/13af6c0cdd.js" crossorigin="anonymous"></script>
+    <!--Adicionar Icones-->
+    <link id="link_css" rel="stylesheet" href="style.css">
+    <title>Projeto PixArt</title>
+</head>
+<body>
+    <div class="container_geral">
+        <div class="plano_fundo"></div>
+        <header>
+            <h1 id="title"> Paleta de Cores<!--Requisito: 01--></h1>
+        </header>
+        <main class="container_sections">
+            <div id="container-menu">
+                <div id="color-palette"> <!--Requisito: 02-->
+                    <div id="cor0" class="color"></div>
+                    <div id="cor1" class="color"></div>
+                    <div id="cor2" class="color"></div>
+                    <div id="cor3" class="color"></div>
+                </div>
+                <input type="button" value="Confirma" class="style_btn" id="btn_confirma">
+                
+            </div>
+            <div id="requisitoBotao"> <!--Apagar-->
+                <input type="number" name="board-size" id="board-size" min="1">
+                <button id="generate-board">VQV</button> <!--Botoes Requisito-->
+                <button id="clear-board">Limpar</button>
+            </div>
+            <div id="pixel-board"></div>
+        </main>
+        
+        <footer>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

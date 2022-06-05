@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/13af6c0cdd.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Projeto Gerador de Meme</title>
+</head>
+<body>
+  <header>
+    <img id="titulo-img" src="imgs/titulo.png" alt="Titulo">
+  </header>
+  <div id="container-imagem" class="meme-image-container">
+    <span><p id="meme-text"></p></span>
+    <div id="container-meme">
+      <img id="border-image" src="#" class="config-padrao">
+      <img id="meme-image" src="#" alt="Imagem Selecionada" class="config-padrao">
+      <img id="text-image" src="#" class="config-text">
+      <img id="trybe-img" src="imgs/logo_trybe.png" alt="Logo Trybe" class="config-alternativa">
+    </div>
+    <div id="container-preTexto" > 
+      <div  class="preTexto" >
+        <img src="imgs/text1.png"  alt="" class="imgs-preTexto geral-hover" id="text-1">
+      </div> 
+      <div  class="preTexto">
+        <img src="imgs/text2.png" alt="" class="imgs-preTexto geral-hover" id="text-2">
+      </div>
+      <div  class="preTexto">
+        <img src="imgs/text3.png" alt="" class="imgs-preTexto geral-hover" id="text-3">
+      </div>
+      <div  class="preTexto">
+        <img src="imgs/text4.png" alt="" class="imgs-preTexto geral-hover" id="text-4">
+      </div>
+    </div> 
+    <div id="container-moldura" > 
+      <div  class="moldura">
+        <img src="imgs/border1.png"  alt="" class="imgs-moldura geral-hover" id="border-1">
+      </div> 
+      <div  class="moldura">
+        <img src="imgs/border2.png" alt="" class="imgs-moldura geral-hover" id="border-2">
+      </div>
+      <div  class="moldura">
+        <img src="imgs/border3.png" alt="" class="imgs-moldura geral-hover" id="border-3">
+      </div>
+      <div  class="moldura">
+        <img src="imgs/border4.png" alt="" class="imgs-moldura geral-hover" id="border-4">
+      </div>
+    </div> 
+    <div id="container-miniaturas" > 
+      <button id="btn_voltar"><i class="fa-solid fa-angle-left"></i></button>
+      <div  class="miniatura" >
+        <img src="imgs/meme1.png"  alt="" class="imgs-miniatura geral-hover" id="meme-1">
+      </div> 
+      <div  class="miniatura">
+        <img src="imgs/meme2.png" alt="" class="imgs-miniatura geral-hover" id="meme-2">
+      </div>
+      <div  class="miniatura">
+        <img src="imgs/meme3.png" alt="" class="imgs-miniatura geral-hover" id="meme-3">
+      </div>
+      <div  class="miniatura">
+        <img src="imgs/meme4.png" alt="" class="imgs-miniatura geral-hover" id="meme-4">
+      </div>
+      <button id="btn_avancar"><i class="fa-solid fa-angle-right"></i></button>
+    </div> 
+  </div>
+  <div id="container-inputs">
+    <div id="container-primeira-coluna">
+      <input type="text" name="text-input" id="text-input" maxlength="60" placeholder="Digite o texto aqui ....">
+      <input type="file" name="meme-insert" id="meme-insert">
+    </div>
+    <div id="container-segunda-coluna">
+      <button id="reiniciar">Reiniciar</button>
+    </div>
+  </div>
+ 
+  <!-- <button id="enviar">Enviar</button> -->
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

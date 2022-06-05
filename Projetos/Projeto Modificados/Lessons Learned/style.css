@@ -1,0 +1,219 @@
+*{
+  padding: 0;
+  margin: 0;}
+body{
+  line-height: 25px;
+  background-color: rgb(253, 251, 251); /*Requisito 1*/
+  text-align: justify;
+}
+body p{
+  text-indent: 40px;
+}
+header{
+  display: flex;
+  flex-direction: column;
+}
+#cabecalho{ /*Requisito 14*/
+  width: 100vw;
+  top: 0; /*Requesito 2*/
+   /*position: fixed;Requesito 2*/
+}
+#cabecalho h1{
+  text-align: center;
+  font-size: .8em;
+  font-family: 'Courier New', Courier, monospace;
+}
+.container_header{
+  margin: auto;
+  margin-bottom: 40px;
+}
+.logo_trybe img{ /*Centralizando a Imagem*/
+  max-width: 300px;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+.titulos{
+  color: green;
+  font-size: 1.6em;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.267);
+  padding-top: 20px;
+}
+.navegacao{ 
+  background-color: #0FA36B;
+  border-radius: 20px;
+  float: left;
+}
+.menu .navegacao ul li{ /*Menus*/
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  list-style: none;
+  position: relative;
+}
+.menu .navegacao li ul{ /*SubMenus*/
+  position: absolute;
+  top: 40px;
+  display: none;
+}
+.menu .navegacao li:hover ul{/*SubMenus*/
+  display: block;
+  background-color: #0FA36B;
+}
+.menu li ul li{
+  display: block;
+  width: 150px;
+}
+.menu .navegacao ul li a{
+  text-decoration: none;
+  padding: 30px;
+  color: white;
+}
+.menu .navegacao ul li a:hover{
+  text-decoration: underline;
+  color: black;
+  transition: .5s;
+}
+.navegacao ul li:hover{
+  background-color: rgba(0, 128, 0, 0.15);
+  border-radius: 20px;
+}
+.geral{
+  border-top: 2px solid #0FA36B; 
+  margin-top: 20px;
+}
+main{
+  width: 750px;
+  margin: auto;  
+  background-color: rgba(245, 245, 220, 0.5);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+}
+#apresentacao{
+  display: flex;
+}
+#minha_foto{
+  margin-right: 30px;
+}
+#container_depoimento{
+  display: flex;
+  justify-content: space-between;
+}
+#depoimento{
+  width: 30%;
+  font-style: italic;
+  margin-left: 15%;
+  padding-right: 10%;
+  margin-top: 25px;
+}
+#icone_depoimento{
+  display: flex;
+  flex-direction: column;
+}
+#icone{
+  display: flex;
+}
+#icone_depoimento #icone p{
+  margin-right: 5px;
+  text-decoration: underline;
+  color:  green;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.fa-comment-dots{
+  color:  green;
+}
+#icone_depoimento #icone p:hover{
+  color: #0FA36B;
+  cursor: pointer;
+}
+#icone_depoimento > aside{
+  display: none;
+}
+#icone_depoimento:hover > aside{
+  display: block;
+}
+#depoimento_txt{
+  margin-top: 10px;
+  color:  green;
+}
+.listas{
+  padding-left: 20px;
+}
+.sublistas{
+  list-style: square;
+}
+#fotos{
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+#referencias{
+  display: flex;
+  flex-direction: column;
+}
+#referencias .container_tabela{
+  margin: auto;
+  text-align: center;
+}
+.fotos_style{
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+}
+.container_fotos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.container_fotos figure figcaption{
+  text-align: center;
+}
+main h2{
+margin-bottom: 10px;
+}
+table{
+  border-collapse: collapse;
+}
+th,td{
+  border: 1px solid black;
+  padding: 10px;
+}
+caption{
+  font-size: 1 em;
+  font-weight: bold;
+  text-align: center;
+}
+footer{
+  background-color: #0FA36B;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;  
+}
+footer p{
+  color: white;
+  font-size: 1.2em;
+  padding-top: 15px;
+}
+footer p a{
+  text-decoration: none;
+  color: white;
+}
+footer p a:hover{
+  color: black;
+}
+footer .links{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  font-size: 1.4em;
+}
+footer .fa-brands{
+  padding-left: 15px;
+  color: white;
+}
+footer .links a i:hover{
+  color: black;
+}

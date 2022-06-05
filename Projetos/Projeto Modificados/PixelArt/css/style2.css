@@ -1,0 +1,589 @@
+*{ /*Configuraçãoes Iniciais*/
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-image: url("../img/fundo_opacidade.jpg");/*Adiciona a imagem de fundo*/
+}
+/*Geral*/
+.container_geral{
+    width: 90vw;/*Largura*/
+    height: 90vh;/*Altura*/
+    background-color: white;
+    margin: auto;
+    margin-top: 5vh;/*Foi utilizado esse valor pois o tamanho da tela é de 70vh, então resta 30vh para dividir em: 15vh margem superior e 15vh margem inferior*/
+    padding: 10px;
+    display: flex;
+    flex-direction: column;/*Altera a direção para coluna*/
+    box-shadow: 5px 5px 5px black;
+}
+
+/*Header*/
+.container_geral header h1{
+    font-family: monospace;
+    font-size: 3.6em;
+    height: 70px; /*Usado para delimitar o tamanho do container sections*/
+    text-align: center;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.445);
+}
+.container_geral header h1 .texto_colorido{
+    display: flex; /*Utilizado para que os p(paragrafos) fiquem em apenas uma linha*/
+    justify-content: center;
+}
+.container_geral header h1 .texto_colorido .azul{
+    color: rgb(42, 17, 241);/*Alterando as cores do texto*/
+}
+.container_geral header h1 .texto_colorido .vermelho{
+    color: rgb(255, 24, 26);/*Alterando as cores do texto*/
+}
+.container_geral header h1 .texto_colorido .amarelo{
+    color: rgb(254, 226, 18);/*Alterando as cores do texto*/
+}
+
+/*Main*/
+.container_sections{
+    height: calc(100% - 160px); /*Vai ocupar 100%(do container sections menos 70px (título) e 90px (footer)*/
+    border: 1px solid black; 
+}
+.container_sections .colunas{
+    height: calc(18%); /* 18% do tamanho do container sections*/ 
+    display: flex; 
+}
+.container_paleta{
+    width: 70%; /*Vai ocupar 100% do container_geral*/
+    height: 90px; 
+    display: flex; 
+    justify-content: center;/*Alinhando a div paletaCores*/
+    align-items: center;/*Alinhando a div paletaCores*/
+    position: relative;/*Usado para movimentar o texto*/
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.container_sections .container_paleta .texto_orientacao{
+    font-size: 1em;
+    position: absolute;/*Usado para movimentar o texto*/
+    top: 5px;
+}
+.container_sections .container_paleta button{
+    background-color: white;
+    border: none;
+}
+.container_sections .container_paleta .fa-solid{ /*Configurações do ìcones de seta*/
+    font-size: 1.4em;
+    margin: 20px;
+}
+.container_sections .container_paleta .fa-solid:hover{ /*Altera o ponteiro do mouse, tamanho do fonte e adiciona borda, quando o mouse estiver no botão-icone*/
+    color: rgb(42, 17, 241);
+    cursor: pointer;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.301);
+}
+.container_paleta #paletaCores{
+    width: 200px; /*A paleta vai possuir 4 opções de cores, sendo 40px para cada*/
+    height: 40px;
+    display: flex; /*Alinha as div's dentro da div paletaCores*/
+}  
+.container_paleta #paletaCores .cores_paleta{
+    width: 40px;
+    height: 40px;
+    border: 1px solid black; 
+} 
+.container_paleta #paletaCores div:hover{ /*Adicionar uma bordar ao passar sobre as div's*/
+    border-bottom: 5px solid rgba(43, 17, 241);;
+    cursor: pointer;
+    transition: .1s; /*Tempo de transição*/
+}
+.container_sections .container_menu{
+    display: flex;/*Colocar um ao lado do outro*/
+    width: 70%; /*Valor em relaçao ao elemento pai -> container_geral*/
+    height: 70px;
+    margin: auto;/*Centralizar o container menu*/
+    align-items: flex-start; /*O inputs são alinhados pelo inicio*/
+    justify-content: center; /*Centralizar os elementos dentro do container*/
+    position: relative;
+    margin-right: 50px;
+}
+.container_sections .container_menu p{
+    font-size: 1em;
+    margin-right: 5px;
+}
+.container_sections .container_menu input[type="number"]{
+    width: 40px; /*Tamanho dos inputs[number] */
+    font-size: .9em;
+}
+.container_sections .container_menu input[type="number"]:not(:last-child){/*Seleciona os inputs, exceto o ultimo filho*/
+    margin-right: 10px;
+}
+.container_sections .container_menu .input_gerais{
+    position: absolute;/*Em relação a div pai -> container_menu*/
+    text-align: center;
+    margin-top: 40px;  
+}
+.container_sections .colunas .style_btn{
+    width: 70px;
+    padding: 4px;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-size: .9em;
+}
+.container_sections .colunas .style_btn:hover{/*Efeito utilizado para quando o mouse estiver em cima do input*/
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.301);
+    color: white;
+    background-color: rgba(43, 17, 241, 0.85);
+    cursor: pointer;
+    transition: .3s; /*Tempo de transição*/
+}
+.container_menu #btn_trybe:hover{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.301);
+    color: white;
+    background-color: rgb(15, 163, 107);
+    cursor: pointer;
+    transition: .3s; /*Tempo de transição*/
+}
+.container_sections .container_coluna1{
+    display: flex;
+    width: 45%; /*em relação a div pai - class colunas*/
+}
+.container_sections .container_coluna2{
+    width: 55%;/*em relação a div pai - class colunas*/
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.container_sections .container_coluna2 .btn_radio{
+    display: flex;
+    flex-direction: column; /*O itens dentro do container coluna2 será alinhados em colunas*/
+    height: 55%;
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+.container_sections .container_coluna2 .btn_radio input{
+    margin: auto;
+    margin-top: 3px;
+}
+.container_sections .container_coluna2 .selecao_cores{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+}
+.selecao_cores #red{
+    display: flex;
+}
+.selecao_cores #green{
+    display: flex;
+}
+.selecao_cores #blue{
+    display: flex;
+}
+.container_sections .container_coluna2 .selecao_cores input{
+    padding: 6px;
+}
+#container-usuario{
+    display: flex;
+}
+.container_coluna2 .paleta_usuario{ /*Paleta com cor criada pelo usuário*/
+    width: 40px;
+    height: 40px;
+    border: 1px solid black; 
+    position: relative;
+    bottom: calc(-50%);
+    top: 20px; 
+}
+.paleta_range{ /*Paleta com cor criada pelo usuário*/
+    width: 124px;
+    height: 40px;
+    border: 1px solid black; 
+    position: relative;
+    top: 3%;
+}
+.paleta_range:hover{ /*Passar o mouse sobre a div*/
+    cursor: pointer;
+    transition: .1s; /*Tempo de transição*/
+}
+.container_coluna2 .paleta_usuario:hover{ /*Passar o mouse sobre a div*/
+border-bottom: 5px solid rgba(43, 17, 241);
+cursor: pointer;
+transition: .1s; /*Tempo de transição*/
+}
+#txt_red{
+    margin-left: 20px;
+    color: red;
+}
+#txt_green{
+    margin-left: 20px;
+    color: green;
+}
+#txt_blue{
+    margin-left: 20px;
+    color: blue;
+}
+#container-paletas-usuario{
+    margin-right: 40px;
+}
+/*Estas são as propriedades prefixadas pelos mecanismos de renderização relevantes ( -webkit para o Chrome e o Safari, -moz para o Firefox, -o para o Opera, -ms para o Internet Explorer). Normalmente, eles são usados ​​para implementar recursos CSS novos ou proprietários, antes do esclarecimento final / definição pelo W3.*/
+
+/*Personalizando o botão range: Foi utilizado este site para personalizar o a cor do input range: https://danielstern.ca/range.css/?ref=css-tricks#/*/    
+
+/*  Pode utilizar a propriedade accent-color para alterar a conr de input
+#range_red{ 
+    accent-color: red;
+    width: 70%; 
+    margin: 8.3px 0;
+    background-color: transparent;
+} */
+
+/*-Webkit - chrome e safari*/
+/*Range Red*/
+#range_red {
+    width: 70%; /*em relação a div selecao_cores*/
+    margin: 8.3px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+#range_red:focus {
+    outline: none;
+}
+#range_red::-webkit-slider-runnable-track {
+    background: rgba(158, 0, 0, 0.3);
+    border: 0.2px solid #010101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
+#range_red::-webkit-slider-thumb {
+    margin-top: -8.5px;
+    width: 11px;
+    height: 25px;
+    background: #ff0000;
+    border: 1.1px solid #ff0000;
+    border-radius: 50px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+#range_red:focus::-webkit-slider-runnable-track {
+    background: #b80000;
+}
+/*-moz -utilzado em mozila*/
+#range_red::-moz-range-track {
+    background: rgba(158, 0, 0, 0.3);
+    border: 0.2px solid #010101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
+#range_red::-moz-range-thumb {
+    width: 11px;
+    height: 25px;
+    background: #ff0000;
+    border: 1.1px solid #ff0000;
+    border-radius: 50px;
+    cursor: pointer;
+}
+/*-Webkit - chrome e safari*/
+/*Range Green*/
+#range_green {
+    width: 70%; /*em relação a div selecao_cores*/
+    margin: 8.3px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+#range_green:focus {
+    outline: none;
+}
+#range_green::-webkit-slider-runnable-track {
+    background: rgba(0, 158, 0, 0.3);
+    border: 0.2px solid #010101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
+#range_green::-webkit-slider-thumb {
+    margin-top: -8.5px;
+    width: 11px;
+    height: 25px;
+    background: #00ff00;
+    border: 1.1px solid #00ff00;
+    border-radius: 50px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+#range_green:focus::-webkit-slider-runnable-track {
+    background: #00b800;
+}
+/*-moz -utilzado em mozila*/
+#range_green::-moz-range-track {
+    background: rgba(0, 158, 0, 0.3);
+    border: 0.2px solid #010101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
+#range_green::-moz-range-thumb {
+    width: 11px;
+    height: 25px;
+    background: #00ff00;
+    border: 1.1px solid #00ff00;
+    border-radius: 50px;
+    cursor: pointer;
+}
+/*-Webkit - chrome e safari*/
+/*Range Blue*/
+#range_blue {
+    width: 70%; /*em relação a div selecao_cores*/
+    margin: 8.3px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+#range_blue:focus {
+    outline: none;
+}
+#range_blue::-webkit-slider-runnable-track {
+    background: rgba(0, 0, 158, 0.3);
+    border: 0.2px solid #010101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
+#range_blue::-webkit-slider-thumb {
+    margin-top: -8.5px;
+    width: 11px;
+    height: 25px;
+    background: #0000ff;
+    border: 1.1px solid #0000ff;
+    border-radius: 50px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+#range_blue:focus::-webkit-slider-runnable-track {
+    background: #0000b8;
+}
+/*-moz -utilzado em mozila*/
+#range_blue::-moz-range-track {
+    background: rgba(0, 0, 158, 0.3);
+    border: 0.2px solid #010101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
+#range_blue::-moz-range-thumb {
+    width: 11px;
+    height: 25px;
+    background: #0000ff;
+    border: 1.1px solid #0000ff;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.container_sections .container_tabela{
+    width: 100%; /*Ocupa 100% da largura do container sections*/
+    height: 82%; /*Ocupa 82% do container sections*/
+}
+.container_sections .container_tabela .container_posicionamento{
+    border: 1px solid rgb(42, 17, 241);
+    width: 90%; /*em realação ao container tabela*/
+    height: 95%;/*em realação ao container tabela*/
+    margin: auto;
+    position: relative; /*Usado para posicionar a tabela*/ 
+}
+.container_sections .container_tabela .container_posicionamento #tabela{
+    position: absolute;/*Posicionamento absolute em relação ao container_posionamento*/
+    top: 50%; /*Tem como referência a primeira div da tabela(id:"lin_0_0")*/
+    left: 50%;/*Tem como referência a primeira div da tabela(id:"lin_0_0")*/
+    transform: translate(-50%, -50%); /*Reposiciona um elemento na direção horizontal e/ou vertical.*/
+}
+#tabela{
+    display: flex;
+    flex-direction: column;
+}
+.divLinha{
+    display: flex;
+}
+/*ALTERA SOMENTE A PARTE DO TAMNHO DAS DIV'S*/
+.container_sections .container_tabela .container_posicionamento #tabela .box_div{
+height: .7vh;
+width: .7vw;
+background-color: white;
+border: 1px solid black;
+}
+.container_sections .container_tabela .container_posicionamento #tabela .box_div:hover{ /*Ao passar o mouse sob o elemento div*/
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(43, 17, 241, 0.7) inset;
+    transition: .3s; /*Tempo de transição*/
+}
+footer .logo_trybe{
+    width: 90%;
+    margin: auto;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+footer .logo_trybe img{ /*Tamanho da Imagem*/
+    max-width: 110px;
+    max-height: 110px;
+    margin-top: 10px;
+}
+footer .logo_trybe .desenvolvedor{ /*Texto Desenvolvedor*/
+    font-size: .9em;
+    font-weight: 600;
+    padding: 5px;
+}
+footer .logo_trybe .icones{ /*Tamanho dos Icones*/
+    font-size: 1.3em;
+    padding-top: 5px;
+}
+footer .logo_trybe .icones .fa-brands{/*Todos os filhos exceto o primeiro filho*/
+    color: rgb(15, 163, 107);
+    margin-left: 30px;
+}
+footer .logo_trybe .icones a i:hover{ /*Atlerando a cor do icone ao passar o mouse*/
+    color: rgb(42, 17, 241);
+    transition: .5s; /*Tempo de transição*/
+}
+
+/* Responsividade */
+
+@media (max-width: 1680px){ /* Tela: desktop: 1680 x 1050 */
+    .container_sections .container_menu{
+        width: 75%; /*Valor em relaçao ao elemento pai -> container_geral*/
+    }
+}
+@media (max-width: 1440px){ /* Tela: laptop: 1440 x 900 */
+    .container_geral{
+        
+        height: 95vh;/*Altura*/
+        margin-bottom: 2.5vh;
+        margin-top: 2.5vh;
+    }
+    .container_sections .container_menu{
+       height: 90%; /*Valor em relaçao ao elemento pai -> container_geral*/
+       width: 95%;
+    }
+    .container_sections .container_menu .input_gerais{
+        position: absolute;/*Em relação a div pai -> container_menu*/
+        margin-top: 17px;  
+    }
+    .container_sections .container_menu .input_gerais input{
+        margin-top: 10px;
+    }
+    .container_sections .colunas .style_btn{
+        width: 67px;
+        padding: 3px;
+        margin-left: 5px;
+        border-radius: 5px;
+        font-size: .9em;
+    }
+    .container_sections .container_coluna2 .btn_radio{
+        line-height: 18px;
+    }
+    .container_sections .container_coluna2 .selecao_cores{
+        height: 95%;
+        width: 40%;
+        }
+    .container_sections .container_coluna2 .selecao_cores input{
+        height: 2px;
+    }
+    .container_sections .container_coluna2 .selecao_cores p{
+        margin-top: 7px;
+    }
+    #txt_red {
+        margin-left: 5px;
+    }
+    #txt_green{
+        margin-left: 5px;
+    }
+    #txt_blue{
+        margin-left: 5px;
+    }
+    
+    .paleta_range{ /*Paleta com cor criada pelo usuário*/
+        top: 1%;
+    }
+    .container_coluna2 .paleta_usuario{ /*Paleta com cor criada pelo usuário*/
+        top: 5px; 
+    }
+    /*ALTERA SOMENTE A PARTE DO TAMNHO DAS DIV'S*/
+    .container_sections .container_tabela .container_posicionamento #tabela .box_div{
+        height: .67vh;
+        width: .67vw;
+    }
+}
+@media (max-width: 1080px) and (orientation: portrait){ /* Tela: monitorVertical: 1080 x 1920 */
+    .container_geral{
+        width: 80vw;/*Largura*/
+        height: 95vh;/*Altura*/
+        margin-top: 2.5vh;/*Foi utilizado esse valor pois o tamanho da tela é de 70vh, então resta 30vh para dividir em: 15vh margem superior e 15vh margem inferior*/
+    }
+    .container_paleta{
+        width: 100%; /*Vai ocupar 100% do container_geral*/
+    }
+    .container_sections .container_coluna1{
+        display: flex;
+        flex-direction: column;
+        width: 50%; /*em relação a div pai - class colunas*/
+    }
+    .container_sections .container_menu{
+        display: flex;/*Colocar um ao lado do outro*/
+        width: 70%; /*Valor em relaçao ao elemento pai -> container_geral*/
+        height: 110px;
+        align-items: flex-start; /*O inputs são alinhados pelo inicio*/
+        justify-content: center; /*Centralizar os elementos dentro do container*/
+        position: relative;
+        margin-right: 70px;
+    } 
+    .container_sections .container_menu .input_gerais{
+        margin-top: 25px;
+    }
+    .container_sections .container_coluna2{
+        width: 50%;/*em relação a div pai - class colunas*/
+        display: flex;
+        flex-direction: column;
+    }
+    .container_sections .container_coluna2 .btn_radio{
+      margin-top: 15px;
+    }
+    .container_sections .container_coluna2 .selecao_cores{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    #txt_red {
+        margin-left: 15px;
+    }
+    #txt_green{
+        margin-left: 15px;
+    }
+    #txt_blue{
+        margin-left: 15px;
+    }
+   
+    .container_sections .container_coluna2 .selecao_cores{
+        height: 50%;  
+    }
+    .container_sections .container_coluna2 .selecao_cores input{
+        padding: 6px;
+    }
+    .container_coluna2 .paleta_usuario{ /*Paleta com cor criada pelo usuário*/
+        top: -42px;
+        left: calc(40%);
+    }
+    #container-paletas-usuario{
+        margin-bottom: 20px;
+        height: 40px;
+        padding: 5px;
+    } 
+    /*ALTERA SOMENTE A PARTE DO TAMNHO DAS DIV'S*/
+    .container_sections .container_tabela .container_posicionamento #tabela .box_div{
+        height: .54vh;
+        width: .54vw;
+    } 
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/13af6c0cdd.js" crossorigin="anonymous"></script>
+    <title>Portifólio</title>
+</head>
+<body>
+    <header><!--Cabeçalho-->
+        <div id="cabecalho"> <!--Requesito 2-->
+            <h1 id="titulo">Project Lessons Learned</h1> <!--Requesito 2-->
+        </div>
+        <div class="container_header">
+            <div class="logo_trybe">
+                <img src="img/trybe.png" alt="Logo Trybe">
+            </div>
+            <div class="menu"> 
+                <nav class="navegacao">
+                    <ul>
+                        <li><a href="#apresentacao">Quem sou eu?</a></li>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#">Lições</a>
+                            <ul>
+                                <li><a href="#licoes_aprendidas">Aprendidas</a></li>
+                                <li><a href="#licoes_a_aprender">a Aprender</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#referencias">Referências</a></li>
+                        <li><a href="#fotos">Fotos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main><!--Menu-->
+        <section id="apresentacao">
+            <img id="minha_foto" class="fotos_style" src="img/perfil_atualizada.png "alt="Foto Perfil"> <!--Requisito 3-->
+                <div class="container_apresentacao">
+                    <h2 class="titulos">Quem sou eu?</h2>
+                    <p>Me chamo <strong>Vitor Marcelo dos Santos Ferreira</strong>, nasci no interior de Minas Gerais na cidade de Carmo do Paranaíba, sou formado em Contabilidade pela Universidade Federal de Viçosa, e atualmete sou servidor público estadual.</p>
+                </div>
+        </section>
+        <article class="geral" id="inicio"><!--Requisito 8-->
+            <h2 class="titulos">Início</h2>
+            <section>
+                <p>Tudo começou no dia em que decidi mudar de vida. Após muitas pesquisas e vários videos no Youtube, decidi que voltaria ao mercado de Tecnológia. Escolhi o ramo do <em>Desenvolvimento Web</em> sendo que começei a estudar por conta própria. Depois de alguns cursos resolvi procurar um ensino de qualidade e foi ai que encontrei a <em>Trybe</em>, resolvi que faria o processo seletivo para concorrer a uma vaga na tão sonhada instituição de ensino.</p>
+            </section>
+        </article>
+        <div id="container_depoimento" class="lados_opostos geral">
+            <div>
+                <section class="lado-esquerdo"> <!--Requisito 4-->
+                    <h2 class="titulos">Lições Aprendidas</h2>
+                    <div class="listas">
+                        <ol id="licoes_aprendidas">
+                            <li>Fundamentos do Desenvolvimento Web</li>
+                            <li>Unix & Shell</li>
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>Internet - Entendendo como ela funciona</li>
+                            <li>Introdução - HTML & CSS</li>
+                            <li>HTML & CSS - Estruturas de Página</li>
+                            <li>HTML & CSS - Primeiros passos em CSS</li>
+                            <li>HTML & CSS - Seletores e Posicionamento</li>
+                            <li>HTML Semântico</li>
+                        </ol>
+                    </div>
+            </div>
+            </section>
+                <section id="depoimento" class="lado-direito">
+                    <div id="icone_depoimento">
+                        <div id="icone">
+                            <p>Depoimento</p>
+                            <i class="fa-solid fa-comment-dots"></i>
+                        </div>
+                        <aside id="depoimento_txt"> 
+                            <p>Minha experiência na <em>Trybe</em> está sendo a melhor possível, as aulas são dinâmicas com excelentes professores e auxiliares. Sendo que a <em>Trybe</em> pensando no mercado de trabalho e em constante contato com empresas parceiras, está sempre atualizando o curriculo.</p>
+                        </aside>
+                    </div>
+            </section> 
+        </div>
+        <section class="geral" > <!--Requisito 5-->
+            <h2 class="titulos">Lições a Aprender</h2>
+            <div class="listas">
+                <ul id="licoes_a_aprender">
+                    <li>Java Script
+                        <ul class="listas sublistas">
+                            <li>Introdução</li>
+                            <li>Array e loop For</li>
+                            <li>Lógica de Programação e Algoritimos</li>
+                            <li>Objetos e Funções</li>
+                            <li>DOM e Seletores</li>
+                        </ul>
+                    </li>
+                    <li>HTML & CSS
+                        <ul class="listas sublistas">
+                            <li>Forms</li>
+                            <li>CSS FlexBox</li>
+                            <li>CSS Responsivo</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section  class="geral" id="referencias">
+            <h2 class="titulos">Referências:</h2>
+            <div class="container_tabela">
+                <table> <!--Requisito 12-->
+                    <caption>
+                        Web Developer FullStack
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Professores</th>
+                            <th>Cursos</th>
+                            <th>Livros</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gustavo Guanabara</td>
+                            <td>Trybe</td>
+                            <td>HTML: do básico ao avançado</td>
+                        </tr>
+                        <tr>
+                            <td>Caique Coelho</td>
+                            <td>Curso em Video</td>
+                            <td>JavaScript e Jquery</td>
+                        </tr>
+                        <tr>
+                            <td>Tiago Quadros</td>
+                            <td>Udemy</td>
+                            <td>A marca da Vitória</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="fotos" class="geral">
+            <h2 class="titulos">Fotos:</h2>
+            <div class="container_fotos">
+                <figure>
+                    <img class="fotos_style" src="img/cidadenoite_atualizada.png" alt="Cidade a noite"> 
+                    <figcaption>Vista Noturna</figcaption> 
+                </figure>
+                <figure>
+                    <img class="fotos_style" src="img/nina_atualizada.png" alt="Gatinha Nina">
+                    <figcaption>Nina</figcaption>
+                </figure>
+                <figure>
+                    <img class="fotos_style" src="img/eucalipto_atualizada.png" alt="Entrada da Cidade">
+                    <figcaption>Entrada da Cidade</figcaption>
+                </figure>
+                <figure>
+                    <img class="fotos_style" src="img/igrejasaofrancisco_atualizada.png" alt="Igreja São Francisco">
+                    <figcaption>Igreja São Francisco</figcaption>
+                </figure>
+                <figure>
+                    <img class="fotos_style" src="img/represa_atualizada.png" alt="Lagoa do Curumim">
+                    <figcaption>Lagoa do Curumim</figcaption>
+                </figure>
+                <figure>
+                    <img class="fotos_style" src="img/arco_iris_atualizada.png" alt="Arco Iris">
+                    <figcaption>Igreja Matriz</figcaption>
+                </figure>    
+            </div>
+        </section>
+    </main>
+    <footer id="rodape"><!--Requisito 6-->
+        <p>&copy;Desenvolvido por <a href="https://github.com/VitorMarceloSantos" rel="external" target="_blank">Vitor Marcelo</a> - 2022</p> <!--Requisito 7-->
+        <div class="links">
+            <a href="https://www.linkedin.com/in/vitor-marcelo-santos/" rel="external" target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
+            <a href="https://github.com/VitorMarceloSantos" rel="external" target="_blank"><i class="fa-brands fa-github"></i></i></a>
+            <a href="https://www.instagram.com/vitor_marcelo_santos/" rel="external" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
