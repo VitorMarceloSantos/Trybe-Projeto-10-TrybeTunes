@@ -1,0 +1,87 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+
+}
+
+article {
+
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+img {
+	max-width: 100%;
+}
+
+main {
+
+}
+
+section {
+
+}
+
+figure {
+	margin: 0;
+}
+
+figcaption {
+  font-size: .8em;
+}
+/* Exericicos */
+/* Exericio 1*/
+body {
+  font-size: 1.4em;
+  margin: 0 10%; /* Exericio 4*/
+}
+/* Exericio 2*/
+h1 {
+  font-size: 1.5em;
+}
+/* Exericio 3*/
+
+/* Exericio 5*/
+@media screen and (min-width: 769px) {
+  body {
+    background: rgba(0, 128, 0, 0.308);
+    font-size: 1.2em;
+    margin: 30px 5%;
+  }
+  #imagens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  img {
+    max-width: 80%;
+  }
+}
+@media screen and (min-width: 1300px) {
+  body {
+    background: rgba(255, 0, 0, 0.24);
+    font-size: 1.5em;
+    margin: 50px 10%;
+  }
+  #imagens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  img {
+    max-width: 80%;
+  }
+}
+
