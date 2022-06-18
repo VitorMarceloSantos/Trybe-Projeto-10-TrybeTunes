@@ -11,5 +11,6 @@ test('adds 4 + 5 to equal 9', () => {
  });
 
  test('parameters must be numbers', () => { 
-  expect(sum(4,'5')).toThrow();
+  expect(() => sum(4,'5')).toThrowError();
+  expect(() => sum(4, '5')).toThrowError('parameters must be numbers');
  });
