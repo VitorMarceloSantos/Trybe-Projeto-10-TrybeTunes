@@ -25,3 +25,7 @@ test('(b,c,d,f,g) equals (b,c,d,f,g)', () => {
 test('(6,7,8,9,10) equals (6,7,8,9,10)', () => {
   expect('(6,7,8,9,10)').toBe('(6,7,8,9,10)');
 });
+
+test('(trybe) equals 5', () => {
+ expect(encode('trybe').length).toBe(5);
+});
