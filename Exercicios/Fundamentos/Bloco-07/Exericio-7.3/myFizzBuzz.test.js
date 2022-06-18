@@ -16,3 +16,7 @@ test('(10 é divisivel por (5))', () => {
 test('(4) não é divisivel por (3,5)', () => {
   expect(myFizzBuzz(4)).toBe(4);
 });
+
+test('"1" equal "false"', () => {
+ expect(myFizzBuzz('2')).toBe(false);
+});
