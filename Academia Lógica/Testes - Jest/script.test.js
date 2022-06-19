@@ -66,4 +66,7 @@ describe('A função recebe uma string como parâmetro e retorna a lista de comp
   test('Com a chamada shoppingList("refrigerante de laranja", veja se o item "refrigerante de laranja" foi adicionado a lista de compra', () => {
     expect(shoppingList('refrigerante de laranja"')).toContain('refrigerante de laranja"');
   });
+  test('Com a chamada shoppingList("farinha de trigo"), veja se o item "farinha de trigo" foi adicionado a lista de compra;', () => {
+    expect('farinha de trigo').toContain('farinha de trigo');
+  });
 });
