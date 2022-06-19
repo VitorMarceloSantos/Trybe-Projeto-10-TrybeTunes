@@ -69,4 +69,7 @@ describe('A função recebe uma string como parâmetro e retorna a lista de comp
   test('Com a chamada shoppingList("farinha de trigo"), veja se o item "farinha de trigo" foi adicionado a lista de compra;', () => {
     expect('farinha de trigo').toContain('farinha de trigo');
   });
+  test("Sem parâmetros, retorne o array ['suco de maracujá', 'maçã', 'sacos de lixo', 'papel toalha', 'leite',]", () => {
+    expect(shoppingList()).toEqual(["suco de maracujá", "maçã", "sacos de lixo", "papel toalha", "leite",]); //toEqual é utilizado para array e objetos
+  });
 });
