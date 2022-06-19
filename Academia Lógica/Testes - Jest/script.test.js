@@ -18,4 +18,7 @@ describe('Testando a funçao finalSpeed', () => {
   test('Retorna 0 caso o parâmetro seja algum tipo diferente de number', () => {
     expect(finalSpeed('5')).toBe(0);
   });
+  test('Retorna 0 caso não seja passado parâmetros', () => {
+    expect(finalSpeed()).toBe(0);
+  });
 });
