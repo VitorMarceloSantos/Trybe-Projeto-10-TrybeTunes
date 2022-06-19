@@ -27,4 +27,7 @@ describe('Testando a função isEven', () => {
   test('Escreva um teste se quando a função é chamada isEven(2), retorna a string "esse valor é par"', () => {
     expect(isEven(2)).toBe('esse valor é par');
   });
+  test('Escreva um teste se quando a função é chamada isEven(3), retorna a string "esse valor é ímpar"', () => {
+    expect(isEven(3)).toBe('esse valor é ímpar');
+  });
 });
