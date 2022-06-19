@@ -14,5 +14,8 @@ describe('Crie o nome, sigla, capital e população do seu Estado', () => {
 describe('Testando a funçao finalSpeed', () => {
   test('Retorna 49 caso a função seja chamanda com o argumento 5finalSpeed(5)', () => {
     expect(finalSpeed(5)).toBe(49);
-  })
+  });
+  test('Retorna 0 caso o parâmetro seja algum tipo diferente de number', () => {
+    expect(finalSpeed('5')).toBe(0);
+  });
 });
