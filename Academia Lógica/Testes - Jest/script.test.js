@@ -1,6 +1,6 @@
 // Exericios da Academia de Lógica - Testes
 
-const { createState, finalSpeed, isEven } = require('./script');
+const { createState, finalSpeed, isEven, isNumber} = require('./script');
 
 describe('Crie o nome, sigla, capital e população do seu Estado', () => {
   it('Retorne a string `Bem-vindo ao estado Caduverso-CV, nossa capital Caduversolandia possui 137921852 pessoas` quando passamos `Caduverso`, `CV`, `Caduversolandia` e `137921852`', () => {
@@ -23,11 +23,17 @@ describe('Testando a funçao finalSpeed', () => {
   });
 });
 
-describe('Testando a função isEven', () => {
+describe('A função recebe um array de números por parâmetro e faz a soma de todos os números pares', () => {
   test('Escreva um teste se quando a função é chamada isEven(2), retorna a string "esse valor é par"', () => {
     expect(isEven(2)).toBe('esse valor é par');
   });
   test('Escreva um teste se quando a função é chamada isEven(3), retorna a string "esse valor é ímpar"', () => {
     expect(isEven(3)).toBe('esse valor é ímpar');
+  });
+});
+
+describe('A função recebe um parâmetro como argumento e faz uma validação se seu tipo de dado é ou não um número', () => {
+  test('Retorna true se passar um número como parâmetro da função', () => {
+    expect(isNumber(6)).toBe(true);
   });
 });

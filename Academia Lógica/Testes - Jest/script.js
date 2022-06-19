@@ -24,5 +24,12 @@ const isEven = (number) => {
   return 'esse valor é ímpar';
 };
 
-module.exports = {createState, finalSpeed, isEven};
+const isNumber = (value) => {
+  if (typeof value === 'number') {
+    return true;
+  }
+  return false;
+};
+
+module.exports = {createState, finalSpeed, isEven, isNumber};
 
