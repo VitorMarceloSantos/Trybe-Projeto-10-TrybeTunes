@@ -51,4 +51,7 @@ describe('A função recebe uma string com o nome de uma pessoa usuária e retor
   test('Boas-vindas, Gabriel! caso Gabriel seja o nome passado como parâmetro;', () => {
     expect(welcomeUser('Gabriel')).toBe('Boas-vindas, Gabriel!');
   });
+  test('O parâmetro username deve conter pelo menos um caracter! caso a quantidade de caracteres for menor que 1;', () => {
+    expect(welcomeUser('')).toBe('O parâmetro username deve conter pelo menos um caracter!');
+  });
 });
