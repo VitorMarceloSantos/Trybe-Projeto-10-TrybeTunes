@@ -1,6 +1,6 @@
 // Exericios da Academia de Lógica - Testes
 
-const { createState, finalSpeed, isEven, isNumber} = require('./script');
+const { createState, finalSpeed, isEven, isNumber, welcomeUser} = require('./script');
 
 describe('Crie o nome, sigla, capital e população do seu Estado', () => {
   it('Retorne a string `Bem-vindo ao estado Caduverso-CV, nossa capital Caduversolandia possui 137921852 pessoas` quando passamos `Caduverso`, `CV`, `Caduversolandia` e `137921852`', () => {
@@ -44,5 +44,11 @@ describe('A função recebe um parâmetro como argumento e faz uma validação s
   });
   test('Retorna false se passar um objeto como parâmetro da função;', () => {
     expect(isNumber({nome: 'Trybe'})).toBe(false);
+  });
+});
+
+describe('A função recebe uma string com o nome de uma pessoa usuária e retorna uma nova string desejando boas-vindas.', () => {
+  test('Boas-vindas, Gabriel! caso Gabriel seja o nome passado como parâmetro;', () => {
+    expect(welcomeUser('Gabriel')).toBe('Boas-vindas, Gabriel!');
   });
 });

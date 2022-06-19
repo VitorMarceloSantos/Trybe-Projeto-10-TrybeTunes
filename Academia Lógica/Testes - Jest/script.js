@@ -31,5 +31,14 @@ const isNumber = (value) => {
   return false;
 };
 
-module.exports = {createState, finalSpeed, isEven, isNumber};
+const welcomeUser = (username) => {
+  if (typeof username !== 'string') {
+    return 'O parâmetro username deve ser do tipo texto!';
+  } else if (username.length <= 1) {
+    return 'O parâmetro username deve conter pelo menos um caracter!';
+  }
+  return `Boas-vindas, ${username}!`;
+};
+
+module.exports = {createState, finalSpeed, isEven, isNumber, welcomeUser};
 
