@@ -40,5 +40,18 @@ const welcomeUser = (username) => {
   return `Boas-vindas, ${username}!`;
 };
 
-module.exports = {createState, finalSpeed, isEven, isNumber, welcomeUser};
+const shoppingList = (item) => {
+  const list = [
+    'suco de maracujá',
+    'maçã',
+    'sacos de lixo',
+    'papel toalha',
+    'leite',
+  ];
+  if (!item) return list;
+  list.push(item);
+  return list;
+};
+
+module.exports = {createState, finalSpeed, isEven, isNumber, welcomeUser, shoppingList};
 

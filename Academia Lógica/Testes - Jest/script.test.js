@@ -1,6 +1,6 @@
 // Exericios da Academia de Lógica - Testes
 
-const { createState, finalSpeed, isEven, isNumber, welcomeUser} = require('./script');
+const { createState, finalSpeed, isEven, isNumber, welcomeUser, shoppingList} = require('./script');
 
 describe('Crie o nome, sigla, capital e população do seu Estado', () => {
   it('Retorne a string `Bem-vindo ao estado Caduverso-CV, nossa capital Caduversolandia possui 137921852 pessoas` quando passamos `Caduverso`, `CV`, `Caduversolandia` e `137921852`', () => {
@@ -56,5 +56,11 @@ describe('A função recebe uma string com o nome de uma pessoa usuária e retor
   });
   test('O parâmetro username deve ser do tipo texto! caso o parâmetro não seja do tipo string', () => {
     expect(welcomeUser(1)).toBe('O parâmetro username deve ser do tipo texto!');
+  });
+});
+
+describe('A função recebe uma string como parâmetro e retorna a lista de compras com o novo item adicionado', () => {
+  test('Com a chamada shoppingList("filé de peixe"), veja se o item "filé de peixe" foi adicionado a lista de compra',() => {
+    expect(shoppingList('filé de peixe')).toContain('filé de peixe');
   });
 });
