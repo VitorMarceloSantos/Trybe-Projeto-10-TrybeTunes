@@ -73,3 +73,25 @@ describe('A função recebe uma string como parâmetro e retorna a lista de comp
     expect(shoppingList()).toEqual(["suco de maracujá", "maçã", "sacos de lixo", "papel toalha", "leite",]); //toEqual é utilizado para array e objetos
   });
 });
+
+
+// repeatLetter
+// A função recebe dois parâmetros, sendo uma letra e um texto, conte quantas vezes a letra repete no texto;
+
+// O que será testado
+
+// Retorne 2 quando a função for chamada repeatLetter('m', 'how many times does the character occur in this sentence?');
+// Retorne 4 quando a função for chamada repeatLetter('h', 'how many times does the character occur in this sentence?');
+// Retorne 1 quando a função for chamada repeatLetter('?', 'how many times does the character occur in this sentence?');
+// Retorne 0 quando a função for chamada repeatLetter('z', 'how many times does the character occur in this sentence?');
+
+
+// longestWord
+// A função recebe um array de string como parâmetro e retorna a maior palavra contida nele;
+
+// O que será testado
+
+// Retorne candy caso o array passado seja ["I", "need", "candy"];
+// Retorne help caso o array passado seja ["help", "me"]
+// Retorne Array inválido! caso não envie parâmetros
+// Retorne Array inválido! caso o array possua algum caractere diferente de string
