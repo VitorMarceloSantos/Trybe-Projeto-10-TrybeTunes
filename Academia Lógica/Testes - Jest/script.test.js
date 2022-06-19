@@ -38,5 +38,8 @@ describe('A função recebe um parâmetro como argumento e faz uma validação s
   });
   test('Retorna false se passar uma string como parâmetro da função;', () => {
     expect(isNumber('trybe')).toBe(false);
-  })
+  });
+  test('Retorna false se passar uma array como parâmetro da função;', () => {
+    expect(isNumber([1, 2, 3])).toBe(false);
+  });
 });
