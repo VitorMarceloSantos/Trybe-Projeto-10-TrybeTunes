@@ -42,7 +42,6 @@ console.log(resultado(10, 5, sub));
 console.log(resultado(10, 5, mult));
 console.log(resultado(10, 5, div));
 
-
 // Exercicio 01
 
 const functNomeEmail = (nome) => {
@@ -62,3 +61,39 @@ console.log(newEmployees(functNomeEmail));
 
 // Exercicio 02
 
+const sorteio = (numero) => {
+  if ((Math.floor(Math.random() * 5) + 1) === numero) { // gerando um número aleatorio entre 1 e 5)
+    return 'Parabéns você ganhou.';
+  } 
+  return 'Tente novamente.';
+}
+
+const functSorteio = (numero, callback) => {
+  return callback(numero);
+}
+
+console.log(functSorteio(5,sorteio));
+
+// Exercicio 03
+
+const functCorrecao = (estudante, gabarito) => {
+  let resultado = 0;
+  for (let i = 0; i < estudante.length; i += 1) {
+    if (estudante[i] === gabarito[i]) {
+      resultado += 1;
+    } else if ((estudante[i] !== gabarito[i]) && (gabarito[i] !== 'N.A')) {
+      resultado -= 0.5;
+    }
+    
+  }
+  return `Total de Pontos: ${resultado}`;
+}
+
+const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
+const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+
+const correcaoQuestoes = (estudante, gabarito, calllback) => {
+  return calllback(estudante, gabarito);
+}
+
+console.log(correcaoQuestoes(STUDENT_ANSWERS, RIGHT_ANSWERS, functCorrecao));
