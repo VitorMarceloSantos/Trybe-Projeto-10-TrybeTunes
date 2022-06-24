@@ -93,7 +93,7 @@ const functFind = (livros) => { //HOF
  console.log(`O menor título é: ${functGeral(books, funcForEach)}`);
 
  // Exercício - 03
- // Encontre o primeiro livro cujo nome possui 26 caracteres.
+ // Encontre o primeiro livro cujo nome possui 26 caracteres. !!! Utilizando o forEach e encerrando sua execução quando a condição for satisfeita!!!
 
  const funcForEach26 = (livros) => { // Obs: cada função deverá ter seu retorno
   try{
@@ -127,3 +127,13 @@ const functFind = (livros) => { //HOF
   // A lógica é a seguinte: a função recebe, da sort, todos os elementos do array, em pares (elemento1, elemento2), e vai comparando-os. O formato é meuArray.sort((elemento1, elemento2) => /* logica da função */). Ou seja: para o array [1, 2, 3, 4], a função receberá (2, 1), (3, 2), (4, 3) como parâmetros e ordenará o array com base em seu resultado. Se a operação de elemento1 com elemento2 der resultado negativo, elemento1 vai para trás. Caso contrário, vai para frente, para, de forma decrescente, só inverter elemento1 - elemento2 para elemento2 - elemento1.
  }
  console.log(functGeral(books, funcSort));
+
+ // Exercicio - 05
+ // Faça uma função que retorne true, se todas as pessoas autoras nasceram no século XX, ou false, caso contrário.
+
+ const functEvery = (livros) => { // seculo XX -> 1901 até 2000
+  return livros.every((livro) => { // vai retorna true se todas os elementos satisfazerem o if
+    return ((livro.author.birthYear >= 1901) && (livro.author.birthYear <= 2000)); // não necessita do if
+  });
+ }
+console.log(`Todos os escritores nasceram no seculo XX: ${functGeral(books, functEvery)}`);
