@@ -137,3 +137,13 @@ const functFind = (livros) => { //HOF
   });
  }
 console.log(`Todos os escritores nasceram no seculo XX: ${functGeral(books, functEvery)}`);
+
+// Exercicio - 06
+// Faça uma função que retorne true, se algum livro foi lançado na década de 80, e false, caso contrário.
+
+const functSome = (livros) => {
+    return livros.some((livro) => {
+      return ((livro.releaseYear >= 1980) && (livro.releaseYear <= 1989));
+    });
+}
+console.log(functGeral(books, functSome));
