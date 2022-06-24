@@ -149,4 +149,13 @@ const functSome = (livros) => {
 console.log(`Possui um livro da decada de 1980: ${functGeral(books, functSome)}`);
 
 // Exercicio - 07
-// Faça uma função que retorne true, caso nenhum author tenha nascido no mesmo ano, e false, caso contrário.
+// Faça uma função que retorne true, caso nenhum author tenha nascido no mesmo ano, e false, caso contrário. Verifica se possui escritores com a mesma data de nascimento.
+
+const functEveryNome = (livros) => {
+  return livros.every((livro1) => {  // testa todos os elementos, se encontrar algum false é encerrado
+    !livros.some((livro2) => { // retorna true, e será transformado em false(!)
+      return ((livro1.birthYear === livro2.birthYear) && (livro1.author.name !== livro2.author.name)); // Compara livro1 e livro2, sendo que em cada posição do livro1 o livro2 percorre todo o laço. Caso haja um true(as duas condições de some seja satisfeita , o ! antes do livros.some vai transformar em false) sendo false o every será encerrado e o array books contém dois autores com a data de nascimento igual.
+    });
+  });
+}
+console.log(`Existe escritores com a mesma data de nascimento: ${functGeral(books, functEveryNome)}`);
