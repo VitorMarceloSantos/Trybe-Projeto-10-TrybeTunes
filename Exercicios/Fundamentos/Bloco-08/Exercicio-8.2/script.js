@@ -146,4 +146,7 @@ const functSome = (livros) => {
       return ((livro.releaseYear >= 1980) && (livro.releaseYear <= 1989));
     });
 }
-console.log(functGeral(books, functSome));
+console.log(`Possui um livro da decada de 1980: ${functGeral(books, functSome)}`);
+
+// Exercicio - 07
+// Faça uma função que retorne true, caso nenhum author tenha nascido no mesmo ano, e false, caso contrário.
