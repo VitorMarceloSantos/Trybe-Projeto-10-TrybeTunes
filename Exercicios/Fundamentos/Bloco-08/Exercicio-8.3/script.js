@@ -125,10 +125,19 @@ const functGeral = (array, callback) => {
 // Exercicio - 06
 // Crie um array com o nome de todos os livros com mais de 60 anos de publicação.
 
+// const functFilterMap2 = (livros) => {
+//   return livros.filter((livro) => {
+//     return ((2022 - livro.releaseYear) >= 60); // criando um array de objetos com todos os elemenos que tem mais de 60 anos
+//   }).map((livro) => livro.name); // criando um array(map) com o nome do livros
+// }
+// console.log(functGeral(books, functFilterMap2));
 
-const functFilterMap2 = (livros) => {
+// Exercicio - 07
+// Encontre o nome do livro escrito pela pessoa cujo nome registrado começa com três iniciais.
+
+const functInciais = (livros) => {
   return livros.filter((livro) => {
-    return ((2022 - livro.releaseYear) >= 60); // criando um array de objetos com todos os elemenos que tem mais de 60 anos
-  }).map((livro) => livro.name); // criando um array(map) com o nome do livros
+    return ((livro.author.name[1] === '.') && (livro.author.name[4] === '.') && (livro.author.name[7] === '.')); // retorna o elemento que contem o ponto final nas seguinte posições
+  }).map((livro) => livro.name); // retorna um com o nome do livro
 }
-console.log(functGeral(books, functFilterMap2));
+console.log(functGeral(books, functInciais));
