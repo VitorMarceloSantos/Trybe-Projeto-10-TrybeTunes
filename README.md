@@ -57,21 +57,21 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 03: Introdução - CSS Flexbox
 - [X] 03: CSS Flexbox - Parte 1
 - [X] 04: CSS Flexbox - Parte 2
-- [ ] 05: CSS Responsivo - Mobile First
-- [ ] **[06: Projeto - Trybewarts (NOTA: -)]()**
+- [X] 05: CSS Responsivo - Mobile First
+- [X] **[06: Projeto - Trybewarts (NOTA: 100%)](https://vitormarcelosantos.github.io/Trybe-Projeto-04-TrybeWarts/)**
 
 ##### Bloco 07: Introdução à JavaScript ES6 e Testes Unitários
 
-- [ ] 01: JavaScript ES6 - let, const, arrow functions e template literals
-- [ ] 02: JavaScript ES6 - Fluxo de exceção e Objetos
-- [ ] 03: Primeiros passos em Jest
-- [ ] **[04: Projeto - JavaScript Testes Unitários (NOTA: -)]()**
+- [X] 01: JavaScript ES6 - let, const, arrow functions e template literals
+- [X] 02: JavaScript ES6 - Fluxo de exceção e Objetos
+- [X] 03: Primeiros passos em Jest
+- [X] **[04: Projeto - JavaScript Testes Unitários (NOTA: 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-05-Js-Unit-Tests)**
 
 ##### Bloco 08: Higher Order Functions do JavaScript ES6
 
-- [ ] 01: JavaScript ES6 - Introdução a Higher Order Functions
-- [ ] 02: JavaScript ES6 - Higher Order Functions - forEach, find, some, every, sort
-- [ ] 03: JavaScript ES6 - Higher Order Functions - map e filter
+- [X] 01: JavaScript ES6 - Introdução a Higher Order Functions
+- [X] 02: JavaScript ES6 - Higher Order Functions - forEach, find, some, every, sort
+- [X] 03: JavaScript ES6 - Higher Order Functions - map e filter
 - [ ] 04: JavaScript ES6 - Higher Order Functions - reduce
 - [ ] 05: JavaScript ES6 - spread operator, parâmetro rest, destructuring e mais
 - [ ] **[06: Projeto - Zoo functions (NOTA: -)]()**
