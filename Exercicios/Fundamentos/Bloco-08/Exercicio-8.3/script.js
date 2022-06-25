@@ -82,12 +82,22 @@ const functGeral = (array, callback) => {
 // Exercicio - 02
 //  Construa um array de objetos a partir do array de livros. Cada objeto deve conter uma propriedade author, com o nome da pessoa autora do livro, e uma propriedade age com a idade dessa pessoa quando o livro foi lançado. O array deve ser ordenado por idade, ou seja, da pessoa mais jovem para a mais velha considerando suas idades quando o livro foi lançado.
 
-const functMapSort = (livros) => {
-  return livros.map((livro) => {
-    let objModelo = {};
-    objModelo.author = livro.author.name;
-    objModelo.age = (livro.releaseYear - livro.author.birthYear); // idade na data do lançamento do livro
-    return objModelo;
-  }).sort((a,b) => a.age - b.age); // utilizando o sort com a saída do map
+// const functMapSort = (livros) => {
+//   return livros.map((livro) => {
+//     let objModelo = {};
+//     objModelo.author = livro.author.name;
+//     objModelo.age = (livro.releaseYear - livro.author.birthYear); // idade na data do lançamento do livro
+//     return objModelo;
+//   }).sort((a,b) => a.age - b.age); // utilizando o sort com a saída do map
+// }
+// console.log(functGeral(books, functMapSort));
+
+// Exercício - 03
+// Crie um array com todos os objetos que possuem gênero ficção científica ou fantasia.
+
+const functFilter = (livros) => {
+  return livros.filter((livro) => { // o metodo filter já tem um if embutido
+    return ((livro.genre === 'Ficção Científica') || (livro.genre === 'Fantasia')); // retorna um novo array
+  });
 }
-console.log(functGeral(books, functMapSort));
+console.log(functGeral(books, functFilter));
