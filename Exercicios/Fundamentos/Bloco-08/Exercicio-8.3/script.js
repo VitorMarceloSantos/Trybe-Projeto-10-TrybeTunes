@@ -95,9 +95,19 @@ const functGeral = (array, callback) => {
 // Exercício - 03
 // Crie um array com todos os objetos que possuem gênero ficção científica ou fantasia.
 
-const functFilter = (livros) => {
-  return livros.filter((livro) => { // o metodo filter já tem um if embutido
-    return ((livro.genre === 'Ficção Científica') || (livro.genre === 'Fantasia')); // retorna um novo array
-  });
+// const functFilter = (livros) => {
+//   return livros.filter((livro) => { // o metodo filter já tem um if embutido
+//     return ((livro.genre === 'Ficção Científica') || (livro.genre === 'Fantasia')); // retorna um novo array
+//   });
+// }
+// console.log(functGeral(books, functFilter));
+
+// Exercicio - 04
+//  Crie um array ordenado pelos livros com mais de 60 anos de publicação e ordene-o pelo livro mais velho.
+
+const functFilterSort = (livros) => {
+  return livros.filter((livro) => {
+    return ((2022 - livro.releaseYear) >= 60); // filtra os livros que tem mais de 60 anos de publicação(novo array)
+  }).sort((a, b) => a.releaseYear - b.releaseYear); // colocando o array(filter) em ordem crescente
 }
-console.log(functGeral(books, functFilter));
+console.log(functGeral(books, functFilterSort));
