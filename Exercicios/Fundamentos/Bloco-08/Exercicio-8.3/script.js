@@ -141,3 +141,5 @@ const functInciais = (livros) => {
   }).map((livro) => livro.name); // retorna um com o nome do livro
 }
 console.log(functGeral(books, functInciais));
+
+module.exports = {functGeral, functMap};
