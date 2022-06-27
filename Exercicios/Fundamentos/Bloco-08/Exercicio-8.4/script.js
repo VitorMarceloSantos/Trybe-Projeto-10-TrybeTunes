@@ -90,3 +90,17 @@ const books = [
     releaseYear: 1928,
   },
 ];
+
+// Exercicio - 02
+// Crie uma string com os nomes de todas as pessoas autoras.
+
+// const functNome = (books) => {
+//   return books.reduce((acc, curr, index) => { // O reduce tem dois parâmetros(callback, valor incial), o callback pode ter 4 parâmetros: (acc, curr, index, array)
+//     return index !== 5 ? `${acc} ${curr.author.name},` : `${acc} ${curr.author.name}.`; // adiciona virgula na primeira condição e ponto final na segunda condição.
+//   }, '');
+// }
+//console.log(functNome(books));
+
+// Forma Reduzida
+const functNome = books.reduce((acc, curr, index) =>  index !== 5 ? `${acc} ${curr.author.name},` : `${acc} ${curr.author.name}.`, ''); // O reduce tem dois parâmetros(callback, valor incial), o callback pode ter 4 parâmetros: (acc, curr, index, array) // adiciona virgula na primeira condição e ponto final na segunda condição.
+console.log(functNome);
