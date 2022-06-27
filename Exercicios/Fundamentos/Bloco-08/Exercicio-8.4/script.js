@@ -22,12 +22,11 @@ const arrays = [
 //   }, []);
 // }
 
-// const functReduce = (arrays) => { // Utilizando a HOF Map()      /////////////////////////Correção
-//         .map((element) => element);
-//         .reduce((acc, curr) => acc.concat(curr), []);; // o método concat, retorna um novo array contendo os elementos passados novo array = elemento1.concat(elemento2);
-// }
+const functReduce = arrays  // Utilizando a HOF Map()    Reduzindo a escrita das HOF, é executada na ordem que aparece(1° Map, 2° reduce)
+        .map((element) => element) // o retorno de map será utilizado pelo reduce
+        .reduce((acc, curr) => acc.concat(curr)); // o método concat, retorna um novo array contendo os elementos passados novo array = elemento1.concat(elemento2);
 
-//console.log(functReduce(arrays));
+console.log(functReduce);
 
 const books = [
   {
