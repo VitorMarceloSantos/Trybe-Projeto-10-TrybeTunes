@@ -97,10 +97,10 @@ const books = [
 // const functNome = (books) => {
 //   return books.reduce((acc, curr, index) => { // O reduce tem dois parâmetros(callback, valor incial), o callback pode ter 4 parâmetros: (acc, curr, index, array)
 //     return index !== 5 ? `${acc} ${curr.author.name},` : `${acc} ${curr.author.name}.`; // adiciona virgula na primeira condição e ponto final na segunda condição.
-//   }, '');
+//   }, '').trim();
 // }
 //console.log(functNome(books));
 
 // Forma Reduzida
-const functNome = books.reduce((acc, curr, index) =>  index !== 5 ? `${acc} ${curr.author.name},` : `${acc} ${curr.author.name}.`, ''); // O reduce tem dois parâmetros(callback, valor incial), o callback pode ter 4 parâmetros: (acc, curr, index, array) // adiciona virgula na primeira condição e ponto final na segunda condição.
+const functNome = books.reduce((acc, curr, index) =>  index !== 5 ? `${acc} ${curr.author.name},` : `${acc} ${curr.author.name}.`, '').trim(); // O reduce tem dois parâmetros(callback, valor incial), o callback pode ter 4 parâmetros: (acc, curr, index, array) // adiciona virgula na primeira condição e ponto final na segunda condição. // trim(), remove os espaços em branco no inicio e no fim da string.
 console.log(functNome);
