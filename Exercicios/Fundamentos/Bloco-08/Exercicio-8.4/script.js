@@ -120,3 +120,16 @@ const functMedia = books.reduce((acc, curr, index) => (Object.keys(books).length
 
 console.log(`A média das idades quando o livros foram lançado é de: ${functMedia}.`);
 
+// Exercicio - 04
+// Encontre o livro com o maior nome.
+
+const functMaiorNome = (books) => {
+ return books.reduce((acc, curr) => {
+  if (acc.name.length > curr.name.length) {
+    return acc;
+  } 
+  return curr;
+  }); // nesse caso não há valor inicial, pois o valor inicial será o a posição 0 do array books, que é o primeiro objeto. Sendo assim o valor acc receberá o elemento na primeira posição do array books.
+}
+//console.log(`O livro com o maior nome é: ${functMaiorNome(books).name}`); // retorna o nome do livro
+console.log(functMaiorNome(books));
