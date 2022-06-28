@@ -104,3 +104,19 @@ const books = [
 // Forma Reduzida
 const functNome = books.reduce((acc, curr, index) =>  index !== 5 ? `${acc} ${curr.author.name},` : `${acc} ${curr.author.name}.`, '').trim(); // O reduce tem dois parâmetros(callback, valor incial), o callback pode ter 4 parâmetros: (acc, curr, index, array) // adiciona virgula na primeira condição e ponto final na segunda condição. // trim(), remove os espaços em branco no inicio e no fim da string.
 console.log(functNome);
+
+// Exercicio - 03
+// Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
+
+// const functMedia = (books) => {
+//   return books.reduce((acc, curr, index) => { // acc-acumulador, curr-elemento, index-posição elemento
+//     return (Object.keys(books).length - 1) === index ? (acc + (curr.releaseYear - curr.author.birthYear)) / Object.keys(books).length : (acc + (curr.releaseYear - curr.author.birthYear)); 
+//   }, 0);
+// }
+// console.log(`A média das idades quando o livros foram lançado é de: ${functMedia(books)}.`);
+
+//Forma Reduzida
+const functMedia = books.reduce((acc, curr, index) => (Object.keys(books).length - 1) === index ? (acc + (curr.releaseYear - curr.author.birthYear)) / Object.keys(books).length : (acc + (curr.releaseYear - curr.author.birthYear)), 0); // acc-acumulador, curr-elemento, index-posição elemento
+
+console.log(`A média das idades quando o livros foram lançado é de: ${functMedia}.`);
+
