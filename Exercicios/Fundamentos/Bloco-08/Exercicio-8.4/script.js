@@ -133,3 +133,34 @@ const functMaiorNome = (books) => {
 }
 //console.log(`O livro com o maior nome é: ${functMaiorNome(books).name}`); // retorna o nome do livro
 console.log(functMaiorNome(books));
+
+// Exercicio - 05
+// Dada o array de nomes, retorne a quantidade de vezes em que aparecem a letra a maiúscula ou minúscula.
+
+const names = [
+  'Aanemarie', 'Adervandes', 'Akifusa',
+  'Abegildo', 'Adicellia', 'Aladonata',
+  'Abeladerco', 'Adieidy', 'Alarucha',
+];
+
+// const functQuantLetra = (names) => {
+//   return names.reduce((acc, curr) => {
+//     return acc + curr.toLowerCase().split(''); // transformar em um array de string(split) e transformar todas as letras minusculas(toLowerCAse)
+//   },'').reduce((acumula, elemento) => {
+//     return elemento === 'a' ? acumula + 1 : acumula; // se for a letra o acumulador vai receber o valor de 1, e caso contrário não vai receber valor(apenas retorna seu valor acumulado)
+//   }, 0); // acumula começa com 0
+// }
+//console.log(functQuantLetra(names));
+
+const functQuantLetra = names 
+  .reduce((acc, curr) => acc + curr.toLowerCase().split('') // transformar em um array de string(split) e transformar todas as letras minusculas(toLowerCAse)
+  .reduce((acumula, elemento) => {
+    console.log(acumula)
+    if (elemento === 'a') {
+      return acumula + 1;
+    }
+    return acumula;
+  }, 0),''); // se for a letra o acumulador vai receber o valor de 1, e caso contrário não vai receber valor(apenas retorna seu valor acumulado) // acumula começa com 0
+  console.log(functQuantLetra);
+
+
