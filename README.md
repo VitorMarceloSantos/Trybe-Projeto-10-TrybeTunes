@@ -72,9 +72,11 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 01: JavaScript ES6 - Introdução a Higher Order Functions
 - [X] 02: JavaScript ES6 - Higher Order Functions - forEach, find, some, every, sort
 - [X] 03: JavaScript ES6 - Higher Order Functions - map e filter
-- [ ] 04: JavaScript ES6 - Higher Order Functions - reduce
-- [ ] 05: JavaScript ES6 - spread operator, parâmetro rest, destructuring e mais
-- [ ] **[06: Projeto - Zoo functions (NOTA: -)]()**
+- [X] 04: JavaScript ES6 - Higher Order Functions - reduce
+- [X] 05: JavaScript ES6 - spread operator, parâmetro rest, destructuring e mais
+- [X] **[06: Projeto - Zoo functions (NOTA: 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-06-Zoo-Functions)**
+
+## Desenvolvimento Front-end (67 Dias) :hourglass_flowing_sand:
 
 ##### Bloco 09: JavaScript e Testes Assíncronos
 
@@ -82,8 +84,6 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [ ] 02: JavaScript Assíncrono - Fetch API e async/await
 - [ ] 03: Jest - Testes Assíncronos
 - [ ] **[04: Projeto - Carrinho de Compras (NOTA: -)]()**
-
-## Desenvolvimento Front-end (67 Dias) :hourglass_flowing_sand:
 
 ##### Bloco 11: Introdução - React
 
