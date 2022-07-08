@@ -2,12 +2,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Best jokes ever</title>
+    <title>Crypt Cooins</title>
     <script src="apiScript.js" ></script>
   </head>
   <body>
-    <h1>Get ready for a great joke!</h1>
-    <h2 id="jokeContainer"></h2>
+    <header>
+      <h1>Top Cryptos</h1>
+    </header>
+    <main>
+      <h2>Ranking:</h1>
+        <div id="container-inputs">
+          <p>Entre com a quantidade de cryptos:</p>
+          <input type="number" name="quant-crypto" id="quant-crypto">
+          <input type="button" value="Pesquisar" id="btn-search">
+        </div>
+        <div id="container-list">
+          <ol id="list-cooins"></ol>
+        </div>
+    </main>
+    <footer>
+      <small><p>Todos os direitos reservados a &copy;Vitor Marcelo </p></small>
+    </footer>
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
