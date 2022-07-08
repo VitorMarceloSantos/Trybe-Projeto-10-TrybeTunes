@@ -27,9 +27,13 @@ const URL = 'https://api.coincap.io/v2/assets';
 async function getCooins() {
 
   const result = await fetch(URL);
-  const data = await result.json();
-  
-console.log(data.data[0].name)
+  const object = await result.json();
+  const { data } = object;
+
+  const arrayCooins = data.map((cooin) => {
+  return `Nome: ${cooin.name} - ${cooin.symbol} - USD: ${Math.round(cooin.priceUsd)}.`;
+  });
+  console.log(arrayCooins);
 }
 
 
