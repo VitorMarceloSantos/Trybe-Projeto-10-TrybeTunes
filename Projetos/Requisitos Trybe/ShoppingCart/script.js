@@ -1,9 +1,49 @@
-const saveCartItems = require("./helpers/saveCartItems");
+let objStorage = {}; // irá armazenar os itens adicionados no carrrinho
+const cartShopp = document.querySelector('.cart__items');
+let totalPrice = 0; // Variável que irá armazenar o total do preços
+const priceHtml = document.querySelector('#total');
 
- const arrayStorage = []; // irá armazenar os itens adicionados
-// const storage = () => {
+const removeCartItem = (idItem) => {
+  const cartItems = JSON.parse(getSavedCartItems()); // convertendo os valores do localStorage
+  // const cartItems = getSavedCartItems();
+  for (let i = 0; i < Object.keys(cartItems).length; i += 1) {
+    Object.keys(cartItems).forEach((id) => {
+      if (id === idItem) {
+        delete cartItems[id]; // quando for variável utiliza o [] no objeto.
+      }
+    });
+  }
+  localStorage.clear(); // apagar informações do localStorage
+  objStorage = cartItems; // atualizando o objstorage
+  saveCartItems(objStorage); // armazenar todo o objStorage 
+};
+const cartItemClickListener = (event) => { // Requisito 5
+  const priceTxt = (event.target.textContent).split('PRICE: $'); // o preço está no array price[1], e converte para numero
+  const priceNumber = Number(priceTxt[1]);
+  totalPrice -= priceNumber; // removendo o valor do produto
+  priceHtml.textContent = totalPrice; // alterando no HTML
+  const idItem = event.target.classList[1]; // irá armazenar o valor do sku do item
+  removeCartItem(idItem);
+  cartShopp.removeChild(event.target); // removendo o elemento filho clicado
+};
 
-// }
+const refreshCart = () => { // atualizando a pagina, e o carrinho permanece
+  const cartItems = JSON.parse(getSavedCartItems()); // convertendo os valores do localStorage
+  if (Object.keys(cartItems).length > 0) { // caso seja maior que 0 é porque há itens adicionados no carrinho
+    const arrayKeys = Object.keys(cartItems);
+    for (let i = 0; i < arrayKeys.length; i += 1) {
+      const priceTxt = (cartItems[arrayKeys[i]]).split('PRICE: $'); // o preço está no array price[1], e converte para numero
+      totalPrice += Number(priceTxt[1]);
+      priceHtml.textContent = totalPrice; // adicionando no HTML
+      const li = document.createElement('li');
+      li.className = 'cart__item';
+      li.classList.add(arrayKeys[i]);
+      li.textContent = cartItems[arrayKeys[i]];
+      li.addEventListener('click', cartItemClickListener); // utlizada para excluir o item no carrinho
+      cartShopp.appendChild(li);
+    }
+  }
+};
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -19,31 +59,27 @@ const createCustomElement = (element, className, innerText, id) => {
   e.id = id; // adicionando o id ao elemento button
   return e;
 };
-const cartItemClickListener = (event) => { // Requisito 5
-  const cart = document.querySelector('.cart__items'); // selecionando o elemento pai
-  const idItem = event.target.classList[1]; // irá armazenar o valor do sku do item
-  localStorage.removeItem(idItem); // removendo o item do localStorage
-  cart.removeChild(event.target); // removendo o elemento filho clicado
-};
 
 const createCartItemElement = ({ sku, name, salePrice }) => {
+  totalPrice += Number(salePrice); // Somando os produtos do carrinho
+  priceHtml.textContent = totalPrice; // adicionando no HTML
   const li = document.createElement('li');
   const objetcTemp = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   li.className = 'cart__item';
   li.innerText = objetcTemp;
   li.classList.add(sku); // adicionando uma classe com o id do item, para realizar a exclusão do array Storage;
-  li.addEventListener('click', cartItemClickListener);
-  saveCartItems(objetcTemp)
-  // localStorage.setItem(sku, JSON.stringify(objetcTemp)); // armazenando as informações
-  // arrayStorage.push(objetcTemp); // irá armazenar todos os itens adicionados
+  li.addEventListener('click', cartItemClickListener); // utlizada para excluir o item no carrinho
+  objStorage[sku] = objetcTemp; // adicionando um novo produto ao objStorage(chave: id do item / valor: variável objetcTemp
+  localStorage.clear(); // apagar informações do localStorage
+  saveCartItems(objStorage); // armazenar todo o objStorage
   return li;
 };
 
 const addCart = async (e) => { // Requisito 04
-  const items = document.querySelector('.cart__items');
+  // const items = document.querySelector('.cart__items');
   const objeto = await fetchItem(e.target.id); // e necessário o await, pois primeiro executa a função i
   const { id, title, price } = objeto;
-  items.appendChild(createCartItemElement({ sku: id, name: title, salePrice: price }));
+  cartShopp.appendChild(createCartItemElement({ sku: id, name: title, salePrice: price }));
 };
 
 const addEventBtn = (button) => {
@@ -77,4 +113,5 @@ const addItems = async () => { // Requisito 02
 
 window.onload = () => { 
   addItems();
+  refreshCart();
 };
