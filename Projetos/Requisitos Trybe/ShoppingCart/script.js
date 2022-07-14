@@ -2,10 +2,21 @@ let objStorage = {}; // irá armazenar os itens adicionados no carrrinho
 const cartShopp = document.querySelector('.cart__items');
 let totalPrice = 0; // Variável que irá armazenar o total do preços
 const priceHtml = document.querySelector('#total');
+const btnEmpty = document.querySelector('.empty-cart');
+
+const emptyCart = () => {
+  if (cartShopp.childElementCount > 0) {
+    while (cartShopp.firstChild) { // removendo todos os elementos do carrinho
+      cartShopp.removeChild(cartShopp.firstChild);
+    }
+    localStorage.clear(); // apagar informações do localStorage
+    totalPrice = 0;
+    priceHtml.textContent = totalPrice; // alterando no HTML
+  }
+};
 
 const removeCartItem = (idItem) => {
   const cartItems = JSON.parse(getSavedCartItems()); // convertendo os valores do localStorage
-  // const cartItems = getSavedCartItems();
   for (let i = 0; i < Object.keys(cartItems).length; i += 1) {
     Object.keys(cartItems).forEach((id) => {
       if (id === idItem) {
@@ -29,19 +40,23 @@ const cartItemClickListener = (event) => { // Requisito 5
 
 const refreshCart = () => { // atualizando a pagina, e o carrinho permanece
   const cartItems = JSON.parse(getSavedCartItems()); // convertendo os valores do localStorage
-  if (Object.keys(cartItems).length > 0) { // caso seja maior que 0 é porque há itens adicionados no carrinho
-    const arrayKeys = Object.keys(cartItems);
-    for (let i = 0; i < arrayKeys.length; i += 1) {
-      const priceTxt = (cartItems[arrayKeys[i]]).split('PRICE: $'); // o preço está no array price[1], e converte para numero
-      totalPrice += Number(priceTxt[1]);
-      priceHtml.textContent = totalPrice; // adicionando no HTML
-      const li = document.createElement('li');
-      li.className = 'cart__item';
-      li.classList.add(arrayKeys[i]);
-      li.textContent = cartItems[arrayKeys[i]];
-      li.addEventListener('click', cartItemClickListener); // utlizada para excluir o item no carrinho
-      cartShopp.appendChild(li);
-    }
+  const arrayKeys = Object.keys(cartItems);
+  for (let i = 0; i < arrayKeys.length; i += 1) {
+    const priceTxt = (cartItems[arrayKeys[i]]).split('PRICE: $'); // o preço está no array price[1], e converte para numero
+    totalPrice += Number(priceTxt[1]);
+    priceHtml.textContent = totalPrice; // adicionando no HTML
+    const li = document.createElement('li');
+    li.className = 'cart__item';
+    li.classList.add(arrayKeys[i]);
+    li.textContent = cartItems[arrayKeys[i]];
+    li.addEventListener('click', cartItemClickListener); // utlizada para excluir o item no carrinho
+    cartShopp.appendChild(li);
+  }
+};
+
+const verifyStorage = () => { // caso seja maior que 0 é porque há itens adicionados no carrinho
+  if (JSON.parse(getSavedCartItems()) !== null) { // verifica se o localStorage está vazio
+    refreshCart();
   }
 };
 
@@ -70,7 +85,6 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
   li.classList.add(sku); // adicionando uma classe com o id do item, para realizar a exclusão do array Storage;
   li.addEventListener('click', cartItemClickListener); // utlizada para excluir o item no carrinho
   objStorage[sku] = objetcTemp; // adicionando um novo produto ao objStorage(chave: id do item / valor: variável objetcTemp
-  localStorage.clear(); // apagar informações do localStorage
   saveCartItems(objStorage); // armazenar todo o objStorage
   return li;
 };
@@ -89,7 +103,6 @@ const addEventBtn = (button) => {
 const createProductItemElement = ({ sku, name, image }) => {
   const section = document.createElement('section');
   section.className = 'item';
-
   section.appendChild(createCustomElement('span', 'item__sku', sku));
   section.appendChild(createCustomElement('span', 'item__title', name));
   section.appendChild(createProductImageElement(image));
@@ -100,11 +113,11 @@ const createProductItemElement = ({ sku, name, image }) => {
   return section;
 };
 
-const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
-
 const addItems = async () => { // Requisito 02
   const items = document.querySelector('.items');
   const objeto = await fetchProducts('computador'); // e necessário o await, pois primeiro executa a função fetchProducts
+  const carregando = document.querySelector('.loading');
+  carregando.remove();
   (objeto.results).forEach((elemento) => {
     const { id, title, thumbnail } = elemento;
     items.appendChild(createProductItemElement({ sku: id, name: title, image: thumbnail }));
@@ -113,5 +126,6 @@ const addItems = async () => { // Requisito 02
 
 window.onload = () => { 
   addItems();
-  refreshCart();
+  verifyStorage();
+  btnEmpty.addEventListener('click', emptyCart); // adicionanando escutador de evento
 };
