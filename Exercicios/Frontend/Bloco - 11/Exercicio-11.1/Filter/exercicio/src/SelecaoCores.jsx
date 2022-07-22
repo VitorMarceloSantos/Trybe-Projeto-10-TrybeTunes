@@ -13,6 +13,7 @@ class SelecaoCores extends Component {
 
     this.state = {
       filter: '', // valor inicial
+      color: '', // valor inicial
     }
   }
 
@@ -20,9 +21,17 @@ class SelecaoCores extends Component {
   // utiliza o this. para chamar a função pois o o função render não consegue ver o que está de fora dele
   getValue(event){
     this.setState({
-      filter: event.target.value
+      filter: event.target.value,
+      color: event.target.textContent
     });
   };
+
+  selectElement(event){ // alterando a cor do elemento
+    event.target.style.background = 'black'
+    this.setState({ // alterando o estado do Color
+      color: event.target.textContent
+    });
+  }
 
   /* NÃO FAZ USO DO BIND EM CASO DE ARROW FUNCTION
   getValue = (event) => {
@@ -45,7 +54,7 @@ class SelecaoCores extends Component {
         <input type="text" className='input-text' onChange={ (event) =>  this.getValue(event) }/> { /* Utiliza uma arrow function para passar o evento (o mesmo que o addEventListenner) */}
         <ul className='list-li'>
         { (this.filterValue()).map(({ color, value }) => ( // realizando a destruturação do objeto
-          <li key={ value } className="li-map" style={{ background: value }}>{ color }</li> // aplicando estilo inline
+          <li key={ value } className="li-map" style={{ background: value }} onClick={ (event) => this.selectElement(event) }>{ color }</li> // aplicando estilo inline
         )) }
         </ul>
       </div>
