@@ -1,0 +1,25 @@
+.li-map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  list-style: none;
+  width: 100px;
+  height: 100px;
+  color: white;
+  font-weight: 700;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.input-text {
+  border-color: blue;
+  border-radius: 5px;
+  margin: 20px 20px;
+  padding: 5px;
+}
+
+.list-li {
+  display: flex;
+  flex-wrap: wrap;
+}
