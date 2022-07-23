@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Email from './Email';
+import Email from './Email';
 // import Password from './Password';
 // import Submit from './Submit';
 
@@ -24,11 +24,12 @@ class Form extends Component {
   }
 
   render() {
+    const { email, password, submit } = this.state; // utilizando os estados no formulário
     return (
       <form>
-        <input type="text" name="email" id="email" onChange={(event) => this.handlerGeneric(event)} />
-        {/* <Email />
-        <Password />
+        <input type="text" name="email" id="email" value={ email } onChange={(event) => this.handlerGeneric(event)} />
+        <Email info={ email }/>
+        {/* <Password />
         <Submit /> */}
       </form>
     )
