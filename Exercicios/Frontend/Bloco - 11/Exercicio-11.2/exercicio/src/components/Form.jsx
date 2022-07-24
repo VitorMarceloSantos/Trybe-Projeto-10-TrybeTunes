@@ -15,6 +15,8 @@ class Form extends Component {
     }
   }
 
+  //IMPORTANTE: POSSUI DUAS FORMAS DE SETSTATE: 1° NA QUAL É PASSADO UM OBJETO COMO PARÂMETRO E ESSE OBJETO É MODIFICADO. 2° É PASSADO UMA FUNÇÁO COMO PARÂMETRO EM QUE O PARAMETRO É ESTADO ANTERIOR.
+  
   handlerGeneric = (event) => {  // destruturacao do event.target
     const { name, value } = event.target;
     // função setState é ASSINCRONO
