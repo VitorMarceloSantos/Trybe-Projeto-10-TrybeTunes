@@ -3,11 +3,19 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 
 class Deck extends Component {
+  verifyArray = () => {
+    const { arrayFilter, arraySave, filterValue, rareValue, trunfoValue } = this.props;
+    const verify = ((rareValue !== 'todas')
+    || (filterValue.length !== 0) || (trunfoValue === true)) ? arrayFilter : arraySave;
+    return verify;
+  }
+
   render() {
-    const { arraySave, deleteButton } = this.props;
+    const {
+      deleteButton } = this.props;
     return (
       <div>
-        {arraySave.map((card) => (
+        {(this.verifyArray()).map((card) => (
           <div key={ card.cardName }>
             <Card
               cardName={ card.cardName }
@@ -40,6 +48,10 @@ class Deck extends Component {
 
 Deck.propTypes = {
   arraySave: PropTypes.arrayOf(PropTypes.object).isRequired,
+  arrayFilter: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteButton: PropTypes.func.isRequired,
+  filterValue: PropTypes.string.isRequired,
+  rareValue: PropTypes.string.isRequired,
+  trunfoValue: PropTypes.bool.isRequired,
 };
 export default Deck;

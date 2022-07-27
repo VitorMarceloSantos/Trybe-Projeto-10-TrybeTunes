@@ -46,7 +46,6 @@ class Card extends Component {
         >
           { `${cardRare}`}
         </p>
-        {/* { this.verifyCardTrunfo } */}
         { cardTrunfo === true ? <p data-testid="trunfo-card">Super Trunfo</p> : '' }
       </div>
     );
@@ -62,7 +61,6 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
 };
 
 export default Card;
