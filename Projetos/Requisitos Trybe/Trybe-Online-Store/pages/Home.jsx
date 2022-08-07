@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ProductCard from '../Components/ProductCard';
 import { getProductsByName, getProductsFromCategoryAndQuery } from '../services/api';
 import CategoryContainer from '../Components/CategoryContainer';
@@ -39,7 +40,9 @@ export default class Home extends Component {
   }
 
   renderproductListOrNone = () => {
+    const { handleClickAddCart } = this.props;
     const { productList } = this.state;
+    const { match: { path } } = this.props;
     return (productList.length === 0
       ? (
         <p data-testid="home-initial-message">
@@ -49,8 +52,10 @@ export default class Home extends Component {
         <ul>
           {productList
             .map((product) => (<ProductCard
+              handleClickAddCart={ handleClickAddCart }
               product={ product }
               key={ product.id }
+              path={ path }
             />))}
         </ul>
       )
@@ -58,7 +63,6 @@ export default class Home extends Component {
   }
 
   handleRadioClick = async ({ target }) => {
-    // console.log(target.id);
     const productsByCategory = await getProductsFromCategoryAndQuery(target.id);
 
     this.setState({
@@ -108,3 +112,10 @@ export default class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  handleClickAddCart: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }).isRequired,
+};

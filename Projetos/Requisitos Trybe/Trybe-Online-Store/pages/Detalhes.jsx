@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { getProductsDetailsId } from '../services/api';
 import ProductCardDetails from '../Components/ProductCardDetails';
 import ButtonCart from '../Components/ButtonCart';
+import AddItemCartButton from '../Components/AddItemCartButton';
 
 class Detalhes extends Component {
   constructor() {
@@ -24,8 +25,11 @@ class Detalhes extends Component {
   }
 
   render() {
+    const { match: { path } } = this.props;
     const { saveDetails, productDetails } = this.state;
+    const [price, thumbnail, title] = saveDetails;
     const { match: { params: { id } } } = this.props;
+    const { handleClickAddCart } = this.props;
     return (
       <div className="container-detalhes">
         Detalhes
@@ -33,6 +37,14 @@ class Detalhes extends Component {
         <ProductCardDetails
           saveDetails={ saveDetails }
           productDetails={ productDetails }
+          id={ id }
+        />
+        <AddItemCartButton
+          path={ path }
+          handleClickAddCart={ handleClickAddCart }
+          price={ price }
+          title={ title }
+          thumbnail={ thumbnail }
           id={ id }
         />
       </div>
@@ -45,6 +57,13 @@ Detalhes.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string,
     }).isRequired,
+    path: PropTypes.string.isRequired,
+  }).isRequired,
+  handleClickAddCart: PropTypes.func.isRequired,
+  saveDetails: PropTypes.shape({
+    price: PropTypes.number,
+    title: PropTypes.string,
+    thumbnail: PropTypes.string,
   }).isRequired,
 };
 
