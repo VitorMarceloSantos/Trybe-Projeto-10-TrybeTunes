@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes, { shape } from 'prop-types';
 
 class Carrinho extends React.Component {
+  componentDidMount() {
+    if (localStorage.length > 0) {
+      const { cartItemsStateUpdate } = this.props;
+      cartItemsStateUpdate();
+    }
+  }
+
   handleOnChange = ({ target: { value, name } }) => {
     const { handleClickAmoutCart } = this.props;
     handleClickAmoutCart(value, name);
@@ -70,6 +77,7 @@ class Carrinho extends React.Component {
 Carrinho.propTypes = {
   CartItemsList: PropTypes.arrayOf(shape()).isRequired,
   handleClickAmoutCart: PropTypes.func.isRequired,
+  cartItemsStateUpdate: PropTypes.func.isRequired,
 };
 
 export default Carrinho;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 import ProductCard from '../Components/ProductCard';
 import { getProductsByName, getProductsFromCategoryAndQuery } from '../services/api';
 import CategoryContainer from '../Components/CategoryContainer';
@@ -72,6 +72,7 @@ export default class Home extends Component {
 
   render() {
     const { searchBar, noneProduct } = this.state;
+    const { CartItemsList } = this.props;
     return (
       <section>
         <form action="">
@@ -95,7 +96,9 @@ export default class Home extends Component {
           </button>
         </form>
         <div className="container-cart">
-          <ButtonCart />
+          <ButtonCart
+            CartItemsList={ CartItemsList }
+          />
         </div>
         <section>
           {noneProduct
@@ -115,6 +118,7 @@ export default class Home extends Component {
 
 Home.propTypes = {
   handleClickAddCart: PropTypes.func.isRequired,
+  CartItemsList: PropTypes.arrayOf(shape()).isRequired,
   match: PropTypes.shape({
     path: PropTypes.string.isRequired,
   }).isRequired,

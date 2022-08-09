@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 import { getProductsDetailsId } from '../services/api';
 import ProductCardDetails from '../Components/ProductCardDetails';
 import ButtonCart from '../Components/ButtonCart';
@@ -29,11 +29,13 @@ class Detalhes extends Component {
     const { saveDetails, productDetails } = this.state;
     const [price, thumbnail, title] = saveDetails;
     const { match: { params: { id } } } = this.props;
-    const { handleClickAddCart } = this.props;
+    const { handleClickAddCart, CartItemsList } = this.props;
     return (
       <div className="container-detalhes">
         Detalhes
-        <ButtonCart />
+        <ButtonCart
+          CartItemsList={ CartItemsList }
+        />
         <ProductCardDetails
           saveDetails={ saveDetails }
           productDetails={ productDetails }
@@ -66,5 +68,7 @@ Detalhes.propTypes = {
     thumbnail: PropTypes.string,
   }).isRequired,
 };
-
+Detalhes.propTypes = {
+  CartItemsList: PropTypes.arrayOf(shape()).isRequired,
+};
 export default Detalhes;
