@@ -1,0 +1,16 @@
+header {
+  align-items: center;
+  background-color: #7db290;
+  border-radius: 0 0 15px 15px;
+  color: #244c66;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.logoTrybe {
+  height: auto;
+  max-height: 150px;
+  max-width: 200px;
+  width: auto;
+}

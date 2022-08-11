@@ -1,0 +1,41 @@
+.nav-item-category {
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.253);
+  height: 2em;
+}
+
+.btn-category {
+  background-color: white;
+  border: none;
+  font-size: 1em;
+  line-height: 1.3em;
+  width: 100%;
+}
+
+.btn-category:hover {
+  background-color: rgba(125, 178, 144);
+  color: white;
+}
+
+
+.navbar-collapse {
+  background-color: white;
+  flex-grow: 0;
+  margin: auto;
+}
+
+.container-navbar {
+  background-color: white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  font-size: 1.2em;
+}
+
+.nav-link {
+  font-weight: 700;
+  margin-left: 30px;
+}
+
+.nav-link:hover {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
