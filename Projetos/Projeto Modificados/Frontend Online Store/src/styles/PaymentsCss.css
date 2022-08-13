@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0 40px 0;
+  margin: 10px 0 35px 0;
 }
 
 .payments {
@@ -72,4 +72,29 @@
   margin-left: 5.8%;
   line-height: 5px;
   margin-bottom: 10px;
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .payments {
+    padding: 15px;
+    line-height: 10px;
+  }
+
+  .payments .fa-solid {
+    font-size: 1.5em;
+    padding: 2px;
+  }
+
+  .payments .primary {
+    font-size: 0.75em;
+  }
+
+  .payments .second {
+    font-size: 0.65em;
+  }
+
+  .container-payments {
+    margin: 10px 0 20px 0;
+  }
 }

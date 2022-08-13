@@ -7,6 +7,7 @@ import NavBarExample from '../BootStrap/NavBar';
 import Header from '../Components/Header';
 import IndexCategory from '../Components/IndexCategory';
 import MethodsPaymetns from '../Components/MethodsPaymetns';
+import CarouselBrands from '../BootStrap/Carousel';
 
 export default class Home extends Component {
   constructor() {
@@ -49,7 +50,7 @@ export default class Home extends Component {
     return (productList.length === 0
       ? (
         <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
+          {/* Digite algum termo de pesquisa ou escolha uma categoria. */}
         </p>
       ) : (
         <ul>
@@ -89,6 +90,7 @@ export default class Home extends Component {
         />
         <IndexCategory />
         <MethodsPaymetns />
+        <CarouselBrands />
         <section>
           {noneProduct
             ? (

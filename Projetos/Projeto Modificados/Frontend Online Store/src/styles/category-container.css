@@ -40,3 +40,15 @@
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .nav-link {
+    font-size: 0.7em;
+  }
+
+  .btn-category {
+    font-size: 0.8em;
+    line-height: 1em;
+  }
+}
+
