@@ -1,0 +1,86 @@
+header {
+  background-color: #7db290;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.container-header {
+  align-items: center;
+  display: flex;
+  width: 97%;
+}
+
+.logoTrybe {
+  height: auto;
+  max-height: 150px;
+  max-width: 200px;
+  width: auto;
+}
+
+/* Search Bar */
+.container-searchBar {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  height: 3.3vh;
+  margin: auto;
+  width: 28.6vw;
+}
+
+.container-searchBar input {
+  border: none;
+  height: 3vh;
+  margin-left: 3px;
+  width: 26.5vw;
+}
+
+.container-searchBar button {
+  background-color: white;
+  border: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgb(64, 125, 108);
+  font-size: 1.1em;
+  margin: auto;
+  /* margin-left: 5px; */
+  padding-left: 9px;
+}
+
+.container-searchBar button:hover {
+  color: black;
+}
+
+/* Cart */
+.container-item-cart-button {
+  display: flex;
+  margin-right: 20px;
+}
+
+.icon-cart {
+  color: rgb(51, 99, 85);
+  font-size: 2.3em;
+  position: relative;
+}
+
+.icon-cart:hover {
+  color: rgb(31, 61, 53);
+}
+
+.border-number-items {
+  align-items: center;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  height: 1.3em;
+  justify-content: center;
+  left: 2vw;
+  position: absolute;
+  top: 1.5vh;
+  width: 1.3em;
+}
+
+.number-items-cart {
+  color: white;
+}

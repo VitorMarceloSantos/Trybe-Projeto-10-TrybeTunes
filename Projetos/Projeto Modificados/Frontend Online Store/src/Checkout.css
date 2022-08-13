@@ -1,0 +1,44 @@
+body {
+  background-color: #b5c7cc;
+}
+
+.finalization {
+  margin-left: 40%;
+}
+
+.checkout-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+input {
+  margin-bottom: 20px;
+}
+
+.checkout-error-msg {
+  margin-bottom: 30px;
+  margin-left: 47%;
+  margin-top: 30px;
+}
+
+.checkout-items-ul {
+  display: flex;
+}
+
+li { list-style-type: none; }
+
+.items {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  width: 200px;
+
+}
+
+.itemsTitle {
+  font-size: medium;
+}
+
