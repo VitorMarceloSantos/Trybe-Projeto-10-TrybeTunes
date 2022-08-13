@@ -115,3 +115,18 @@ header {
     font-size: 1.7em;
   }
 }
+
+@media ( max-width : 1680px ) {
+
+  .container-searchBar input {
+    height: 3vh;
+    margin-left: 3px;
+    width: 25.5vw;
+  }
+
+  .container-searchBar button {
+    font-size: 0.9em;
+    height: 3vh;
+    margin-left: 2px;
+  }
+}

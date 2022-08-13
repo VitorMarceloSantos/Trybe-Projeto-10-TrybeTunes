@@ -1,57 +1,102 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/IndexCategoryCss.css';
 
 export default class IndexCategory extends Component {
   render() {
+    const { handleChangeCategory } = this.props;
     return (
       <section className="container-category">
         <div className="container-figures">
           <div className="container-figures-1">
-            <div className="div-figure select-all games">
+            <button
+              className="div-figure select-all games"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-gamepad select-all games" />
               <p className="select-all games">Games</p>
-            </div>
-            <div className="div-figure select-all informatica">
+            </button>
+            <button
+              className="div-figure select-all informatica"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-computer select-all informatica" />
               <p className="select-all informatica">Informática</p>
-            </div>
-            <div className="div-figure select-all veiculos">
+            </button>
+            <button
+              className="div-figure select-all veiculos"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-car select-all veiculos" />
               <p className="select-all veiculos">Carros, Motos e Outros</p>
-            </div>
-            <div className="div-figure select-all roupas">
+            </button>
+            <button
+              className="div-figure select-all roupas"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-shirt select-all roupas" />
               <p className="select-all roupas">Roupas e Calçados</p>
-            </div>
-            <div className="div-figure select-all celulares">
+            </button>
+            <button
+              className="div-figure select-all celulares"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-mobile-screen-button select-all celulares" />
               <p className="select-all celulares">Celulars e Telefones</p>
-            </div>
+            </button>
           </div>
           <div className="container-figures-2">
-            <div className="div-figure select-all eletronicos">
+            <button
+              className="div-figure select-all eletronicos"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-microphone select-all eletronicos" />
               <p className="select-all eletronicos">Eletrônicos e Áudio</p>
-            </div>
-            <div className="div-figure select-all ferramentas">
+            </button>
+            <button
+              className="div-figure select-all ferramentas"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-screwdriver-wrench select-all ferramentas" />
               <p className="select-all ferramentas">Ferramentas</p>
-            </div>
-            <div className="div-figure select-all petshop">
+            </button>
+            <button
+              className="div-figure select-all petshop"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-cat select-all petshop" />
               <p className="select-all petshop">Animais e Shop</p>
-            </div>
-            <div className="div-figure select-all mobilia">
+            </button>
+            <button
+              className="div-figure select-all mobilia"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-house select-all mobilia" />
               <p className="select-all mobilia">Casa, Móveis e Decoração</p>
-            </div>
-            <div className="div-figure select-all esportes">
+            </button>
+            <button
+              className="div-figure select-all esportes"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <i className="fa-solid fa-person-biking select-all esportes" />
               <p className="select-all esportes">Esporte e Fitness</p>
-            </div>
+            </button>
           </div>
         </div>
       </section>
     );
   }
 }
+IndexCategory.propTypes = {
+  handleChangeCategory: PropTypes.func.isRequired,
+};

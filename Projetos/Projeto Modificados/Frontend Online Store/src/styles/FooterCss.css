@@ -34,3 +34,10 @@ footer .logo_trybe .desenvolvedor { /*Texto Desenvolvedor*/
     height: 10.8vh;
   }
 }
+
+@media ( max-width : 1680px ) {
+
+  footer {
+    height: 8.6vh;
+  }
+}

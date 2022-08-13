@@ -26,22 +26,40 @@ export default class Home extends Component {
     });
   }
 
-  handleSearchClick = async () => {
-    const { searchBar } = this.state;
+  handleChangeCategory = ({ target }) => {
+    this.setState({ searchBar: target.classList[3] }, async () => {
+      const { searchBar } = this.state;
+      const productListByName = await getProductsByName(searchBar);
 
-    const productListByName = await getProductsByName(searchBar);
-
-    if (productListByName.results.length === 0) {
-      this.setState({
-        noneProduct: true,
-      });
-    } else {
-      this.setState({
-        productList: productListByName.results,
-        noneProduct: false,
-      });
-    }
+      if (productListByName.results.length === 0) {
+        this.setState({
+          noneProduct: true,
+        });
+      } else {
+        this.setState({
+          productList: productListByName.results,
+          noneProduct: false,
+        });
+      }
+    });
   }
+
+  // handleSearchClick = async () => {
+  //   const { searchBar } = this.state;
+
+  //   const productListByName = await getProductsByName(searchBar);
+
+  //   if (productListByName.results.length === 0) {
+  //     this.setState({
+  //       noneProduct: true,
+  //     });
+  //   } else {
+  //     this.setState({
+  //       productList: productListByName.results,
+  //       noneProduct: false,
+  //     });
+  //   }
+  // }
 
   renderproductListOrNone = () => {
     const { handleClickAddCart } = this.props;
@@ -88,7 +106,9 @@ export default class Home extends Component {
         <NavBarExample
           handleRadioClick={ this.handleRadioClick }
         />
-        <IndexCategory />
+        <IndexCategory
+          handleChangeCategory={ this.handleChangeCategory }
+        />
         <MethodsPaymetns />
         <CarouselBrands />
         <section>
