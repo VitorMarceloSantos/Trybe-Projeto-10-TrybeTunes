@@ -24,17 +24,20 @@ export default class CategoryContainer extends Component {
     const { categories } = this.state;
     return (
       <section className="category-container">
-        {categories.map((category) => (
-          <NavDropdown.Item key={ category.id } className="nav-item-category">
-            <input
-              className="btn-category"
-              type="button"
-              id={ category.id }
-              name="categorie"
-              onClick={ handleRadioClick }
-              value={ category.name }
-            />
-          </NavDropdown.Item>
+        {categories.map((category, index) => (
+          // eslint-disable-next-line no-magic-numbers
+          index < 18 && ( // limitando o tamanho do navBar
+            <NavDropdown.Item key={ category.id } className="nav-item-category">
+              <input
+                className="btn-category"
+                type="button"
+                id={ category.id }
+                name="categorie"
+                onClick={ handleRadioClick }
+                value={ category.name }
+              />
+            </NavDropdown.Item>
+          )
         ))}
       </section>
     );

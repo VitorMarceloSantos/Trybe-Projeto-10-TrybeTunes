@@ -5,6 +5,8 @@ import { getProductsByName, getProductsFromCategoryAndQuery } from '../services/
 // import ButtonCart from '../Components/ButtonCart';
 import NavBarExample from '../BootStrap/NavBar';
 import Header from '../Components/Header';
+import IndexCategory from '../Components/IndexCategory';
+import MethodsPaymetns from '../Components/MethodsPaymetns';
 
 export default class Home extends Component {
   constructor() {
@@ -85,11 +87,8 @@ export default class Home extends Component {
         <NavBarExample
           handleRadioClick={ this.handleRadioClick }
         />
-        {/* <div className="container-cart">
-          <ButtonCart
-            CartItemsList={ CartItemsList }
-          />
-        </div> */}
+        <IndexCategory />
+        <MethodsPaymetns />
         <section>
           {noneProduct
             ? (

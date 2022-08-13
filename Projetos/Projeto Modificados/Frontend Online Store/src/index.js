@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Carrinho from './pages/Carrinho';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

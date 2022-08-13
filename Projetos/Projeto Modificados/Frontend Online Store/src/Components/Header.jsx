@@ -25,6 +25,7 @@ export default class Header extends Component {
                 value={ searchBar }
                 onChange={ handleChange }
                 data-testid="query-input"
+                placeholder="Buscar produtos, marcas e muito mais ..."
               />
             </label>
             <button
