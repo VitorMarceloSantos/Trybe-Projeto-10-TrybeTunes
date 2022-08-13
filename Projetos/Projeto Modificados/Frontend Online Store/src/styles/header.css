@@ -14,8 +14,9 @@ header {
 
 .logoTrybe {
   height: auto;
-  max-height: 150px;
-  max-width: 200px;
+  margin: 10px;
+  max-height: 140px;
+  max-width: 180px;
   width: auto;
 }
 
@@ -44,7 +45,6 @@ header {
   color: rgb(64, 125, 108);
   font-size: 1.1em;
   margin: auto;
-  /* margin-left: 5px; */
   padding-left: 9px;
 }
 
@@ -53,8 +53,11 @@ header {
 }
 
 /* Cart */
-.container-item-cart-button {
+.container-cart-icon {
   display: flex;
+}
+
+.container-item-cart-button {
   margin-right: 20px;
 }
 
@@ -69,18 +72,19 @@ header {
 }
 
 .border-number-items {
-  align-items: center;
   background-color: red;
   border-radius: 50%;
   display: flex;
   height: 1.3em;
   justify-content: center;
-  left: 2vw;
+  margin: auto;
   position: absolute;
-  top: 1.5vh;
+  right: 2.5vw;
+  top: 6.1vh;
   width: 1.3em;
 }
 
 .number-items-cart {
   color: white;
+  font-size: 0.9em;
 }

@@ -10,7 +10,7 @@ export default class ButtonCart extends Component {
     const recoveredObject = CartItemsList.length > 0
       ? CartItemsList : (JSON.parse(localStorage.getItem('CartItems')));
     return (
-      <div>
+      <div className="container-cart-icon">
         <Link
           data-testid="shopping-cart-button"
           to="/Carrinho"
@@ -20,16 +20,18 @@ export default class ButtonCart extends Component {
               className="icon-cart"
             />
           </div>
-          <div className="border-number-items">
-            <p
-              className="number-items-cart"
-              data-testid="shopping-cart-size"
-            >
-              {recoveredObject !== null
-                ? recoveredObject.reduce((acc, current) => (
-                  acc + current.quantidade), 0) : 0}
-            </p>
-          </div>
+          {recoveredObject.length > 0 && (
+            <div className="border-number-items">
+              <p
+                className="number-items-cart"
+                data-testid="shopping-cart-size"
+              >
+                {recoveredObject !== null
+                  ? recoveredObject.reduce((acc, current) => (
+                    acc + current.quantidade), 0) : 0}
+              </p>
+            </div>
+          )}
         </Link>
       </div>
     );
