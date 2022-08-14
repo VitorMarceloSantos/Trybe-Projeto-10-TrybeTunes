@@ -8,6 +8,7 @@ import Header from '../Components/Header';
 import IndexCategory from '../Components/IndexCategory';
 import MethodsPaymetns from '../Components/MethodsPaymetns';
 import CarouselBrands from '../BootStrap/Carousel';
+import Loading from '../Components/Loading';
 
 export default class Home extends Component {
   constructor() {
@@ -111,6 +112,7 @@ export default class Home extends Component {
         />
         <MethodsPaymetns />
         <CarouselBrands />
+        <Loading />
         <section>
           {noneProduct
             ? (
