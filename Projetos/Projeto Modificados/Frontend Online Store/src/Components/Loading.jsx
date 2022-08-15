@@ -14,41 +14,46 @@ export default class Loading extends Component {
     };
   }
 
+  componentDidMount() {
+    this.preloaderTrybe();
+  }
+
+  componentWillUnmount() {
+    this.LoaderId.clearInterval();
+  }
+
   preloaderTrybe = () => {
     const { verify } = this.state;
     if (verify) {
-      setTimeout(() => {
+      this.LoaderId = setInterval(() => {
         const { preloader } = this.state;
-        console.log(preloader)
+        let loader;
+        let imagem;
         switch (preloader) {
         case 0:
-          this.setState({
-            preloader: 1,
-            img: trybe0,
-          });
+          loader = 1;
+          imagem = trybe0;
           break;
         case 1:
-          this.setState({
-            preloader: 2,
-            img: trybe1,
-          });
+          loader = 2;
+          imagem = trybe1;
           break;
         case 2:
-          this.setState({
-            preloader: 3,
-            img: trybe2,
-          });
+          loader = 3;
+          imagem = trybe2;
           break;
         case 3:
-          this.setState({
-            preloader: 0,
-            img: trybe3,
-          });
+          loader = 0;
+          imagem = trybe3;
           break;
         default:
           console.log('ERRO');
         }
-      }, 550);
+        this.setState({
+          preloader: loader,
+          img: imagem,
+        });
+      }, 250);
     }
   }
 
@@ -56,7 +61,6 @@ export default class Loading extends Component {
     const { img } = this.state;
     return (
       <div>
-        { this.preloaderTrybe()}
         <img src={ img } alt="Preloader" />
       </div>
     );
