@@ -2,7 +2,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
-import renderWithRouter from '../components/renderWithRouter';
+import renderWithRouter from '../renderWithRouter';
 
 describe('1 - Teste o componente <App.js />', () => {
   test('Teste se o topo da aplicação contém um conjunto fixo de links de navegaçã',
