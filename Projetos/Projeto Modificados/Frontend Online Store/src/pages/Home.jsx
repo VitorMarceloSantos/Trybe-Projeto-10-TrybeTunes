@@ -18,6 +18,8 @@ export default class Home extends Component {
       searchBar: '',
       productList: [],
       noneProduct: false,
+      indexView: true,
+      isLoading: false,
     };
   }
 
@@ -28,20 +30,26 @@ export default class Home extends Component {
   }
 
   handleChangeCategory = ({ target }) => {
-    this.setState({ searchBar: target.classList[3] }, async () => {
+    this.setState({ searchBar: target.classList[3] }, () => {
       const { searchBar } = this.state;
-      const productListByName = await getProductsByName(searchBar);
-
-      if (productListByName.results.length === 0) {
-        this.setState({
-          noneProduct: true,
-        });
-      } else {
-        this.setState({
-          productList: productListByName.results,
-          noneProduct: false,
-        });
-      }
+      this.setState({
+        indexView: false,
+        isLoading: true,
+      }, async () => {
+        const productListByName = await getProductsByName(searchBar);
+        if (productListByName.results.length === 0) {
+          this.setState({
+            isLoading: false,
+            noneProduct: true,
+          });
+        } else {
+          this.setState({
+            isLoading: false,
+            productList: productListByName.results,
+            noneProduct: false,
+          });
+        }
+      });
     });
   }
 
@@ -94,7 +102,7 @@ export default class Home extends Component {
   }
 
   render() {
-    const { searchBar, noneProduct } = this.state;
+    const { searchBar, noneProduct, indexView, isLoading } = this.state;
     const { CartItemsList } = this.props;
     return (
       <section>
@@ -107,12 +115,27 @@ export default class Home extends Component {
         <NavBarExample
           handleRadioClick={ this.handleRadioClick }
         />
-        <IndexCategory
+        <section>
+          {indexView
+            && (
+              <div>
+                <IndexCategory
+                  handleChangeCategory={ this.handleChangeCategory }
+                />
+                <MethodsPaymetns />
+                <CarouselBrands />
+              </div>
+            )}
+        </section>
+        <section>
+          {isLoading && (<Loading />)}
+        </section>
+        {/* <IndexCategory
           handleChangeCategory={ this.handleChangeCategory }
         />
         <MethodsPaymetns />
-        <CarouselBrands />
-        <Loading />
+        <CarouselBrands /> */}
+        {/* <Loading /> */}
         <section>
           {noneProduct
             ? (
