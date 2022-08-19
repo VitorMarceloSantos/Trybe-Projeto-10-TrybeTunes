@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import trybe0 from '../images/trybe0.png';
+import trybe0 from '../images/trybe0.png';
 import trybe1 from '../images/trybe1.png';
 import trybe2 from '../images/trybe2.png';
 import trybe3 from '../images/trybe3.png';
+import '../styles/LoadingCss.css';
 
 export default class Loading extends Component {
   constructor() {
@@ -10,7 +11,7 @@ export default class Loading extends Component {
     this.state = {
       preloader: 0,
       verify: true,
-      img: '',
+      img: trybe0,
     };
   }
 
@@ -18,11 +19,19 @@ export default class Loading extends Component {
     this.preloaderTrybe();
   }
 
+  componentWillUnmount() {
+    this.myStopFunction();
+  }
+
+  myStopFunction = (myInterval) => {
+    clearInterval(myInterval);
+  }
+
   preloaderTrybe = () => {
     const time = 200;
     const { verify } = this.state;
     if (verify) {
-      const myInterval = setInterval(() => {
+      setInterval(() => {
         const { preloader } = this.state;
         let loader;
         let imagem;
@@ -45,8 +54,6 @@ export default class Loading extends Component {
         this.setState({
           preloader: loader,
           img: imagem,
-        }, () => {
-          clearInterval(myInterval);
         });
       }, time);
     }
@@ -55,7 +62,7 @@ export default class Loading extends Component {
   render() {
     const { img } = this.state;
     return (
-      <div>
+      <div className="container-loading">
         <img src={ img } alt="Preloader" />
       </div>
     );

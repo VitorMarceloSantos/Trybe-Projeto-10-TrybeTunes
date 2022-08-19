@@ -127,6 +127,7 @@ export default class Home extends Component {
               </div>
             )}
         </section>
+        {/* <Loading /> */}
         <section>
           {isLoading && (<Loading />)}
         </section>
