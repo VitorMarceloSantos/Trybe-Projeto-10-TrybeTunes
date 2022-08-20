@@ -9,6 +9,7 @@ import IndexCategory from '../Components/IndexCategory';
 import MethodsPaymetns from '../Components/MethodsPaymetns';
 import CarouselBrands from '../BootStrap/Carousel';
 import Loading from '../Components/Loading';
+import NotFound from '../Components/NotFound';
 
 export default class Home extends Component {
   constructor() {
@@ -156,7 +157,7 @@ export default class Home extends Component {
           {noneProduct
             ? (
               <p data-testid="home-initial-message">
-                Nenhum produto foi encontrado
+                <NotFound />
               </p>
             ) : this.renderproductListOrNone() }
         </section>
