@@ -57,7 +57,7 @@ export default class Home extends Component {
     });
   }
 
-  handleSearchClick = async () => {
+  handleSearchClick = () => {
     this.searchProduct();
   }
 
@@ -85,14 +85,8 @@ export default class Home extends Component {
   }
 
   handleRadioClick = async ({ target }) => {
-    // const productsByCategory = await getProductsFromCategoryAndQuery(target.id);
-
-    // this.setState({
-    //   productList: productsByCategory.results,
-    // });
-    // const { searchBar } = this.state;
-    
     this.setState({
+      searchBar: target.value,
       indexView: false,
       isLoading: true,
     }, async () => {
@@ -134,7 +128,9 @@ export default class Home extends Component {
                   handleChangeCategory={ this.handleChangeCategory }
                 />
                 <MethodsPaymetns />
-                <CarouselBrands />
+                <CarouselBrands
+                  handleChangeCategory={ this.handleChangeCategory }
+                />
               </div>
             )}
         </section>

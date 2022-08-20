@@ -11,6 +11,11 @@
   width: 30vw;
 }
 
+.container-brands button {
+  background-color: white;
+  border: none;
+}
+
 .brand {
   align-items: center;
   display: flex;

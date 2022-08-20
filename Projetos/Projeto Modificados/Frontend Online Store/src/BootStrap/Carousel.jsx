@@ -16,66 +16,115 @@ import motorola from '../images/motorola.jpg';
 
 export default class CarouselBrands extends Component {
   render() {
+    const { handleChangeCategory } = this.props;
     return (
       <Carousel>
         <Carousel.Item>
           <div className="container-brands">
-            <div className="brand">
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ adidas } alt="Adidas" />
               <p>ADIDAS</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ aramis } alt="Aramis" />
               <p>ARAMIS</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ decathlon } alt="Decathlon" />
               <p>DECATHLON</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ garnier } alt="Garnier" />
               <p>GARNIER</p>
-            </div>
+            </button>
           </div>
         </Carousel.Item>
         <Carousel.Item>
           <div className="container-brands">
-            <div className="brand">
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ hering } alt="Hering" />
               <p>HERING</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ mac } alt="Mac" />
               <p>MAC</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ nike } alt="Nike" />
               <p>NIKE</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ democratas } alt="Democratas" />
               <p>DEMOCRATAS</p>
-            </div>
+            </button>
           </div>
         </Carousel.Item>
         <Carousel.Item>
           <div className="container-brands">
-            <div className="brand">
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ marisa } alt="Marisa" />
               <p>MARISA</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ aple } alt="Aple" />
               <p>APLE</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ motorola } alt="Motorola" />
               <p>MOTOROLA</p>
-            </div>
-            <div className="brand">
+            </button>
+            <button
+              className="brand"
+              type="button"
+              onClick={ handleChangeCategory }
+            >
               <img src={ samsung } alt="Samsung" />
               <p>SAMSUNG</p>
-            </div>
+            </button>
           </div>
         </Carousel.Item>
       </Carousel>
