@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Carousel from 'react-bootstrap/Carousel';
 import '../styles/BrandsCss.css';
 import adidas from '../images/adidas.jpg';
@@ -16,7 +17,7 @@ import motorola from '../images/motorola.jpg';
 
 export default class CarouselBrands extends Component {
   render() {
-    const { handleChangeCategory } = this.props;
+    const { handleChangeBrands } = this.props;
     return (
       <Carousel>
         <Carousel.Item>
@@ -24,33 +25,37 @@ export default class CarouselBrands extends Component {
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Adidas"
             >
-              <img src={ adidas } alt="Adidas" />
+              <img src={ adidas } alt="Adidas" name="Adidas" />
               <p>ADIDAS</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Aramis"
             >
-              <img src={ aramis } alt="Aramis" />
+              <img src={ aramis } alt="Aramis" name="Aramis" />
               <p>ARAMIS</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Decathlon"
             >
-              <img src={ decathlon } alt="Decathlon" />
+              <img src={ decathlon } alt="Decathlon" name="Decathlon" />
               <p>DECATHLON</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Garnier"
             >
-              <img src={ garnier } alt="Garnier" />
+              <img src={ garnier } alt="Garnier" name="Garnier" />
               <p>GARNIER</p>
             </button>
           </div>
@@ -60,33 +65,37 @@ export default class CarouselBrands extends Component {
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Hering"
             >
-              <img src={ hering } alt="Hering" />
+              <img src={ hering } alt="Hering" name="Hering" />
               <p>HERING</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Mac"
             >
-              <img src={ mac } alt="Mac" />
+              <img src={ mac } alt="Mac" name="Mac" />
               <p>MAC</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Nike"
             >
-              <img src={ nike } alt="Nike" />
+              <img src={ nike } alt="Nike" name="Nike" />
               <p>NIKE</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Democratas"
             >
-              <img src={ democratas } alt="Democratas" />
+              <img src={ democratas } alt="Democratas" name="Democratas" />
               <p>DEMOCRATAS</p>
             </button>
           </div>
@@ -96,33 +105,37 @@ export default class CarouselBrands extends Component {
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Marisa"
             >
-              <img src={ marisa } alt="Marisa" />
+              <img src={ marisa } alt="Marisa" name="Marisa" />
               <p>MARISA</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Aple"
             >
-              <img src={ aple } alt="Aple" />
+              <img src={ aple } alt="Aple" name="Aple" />
               <p>APLE</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Motorola"
             >
-              <img src={ motorola } alt="Motorola" />
+              <img src={ motorola } alt="Motorola" name="Motorola" />
               <p>MOTOROLA</p>
             </button>
             <button
               className="brand"
               type="button"
-              onClick={ handleChangeCategory }
+              onClick={ handleChangeBrands }
+              name="Samsung"
             >
-              <img src={ samsung } alt="Samsung" />
+              <img src={ samsung } alt="Samsung" name="Samsung" />
               <p>SAMSUNG</p>
             </button>
           </div>
@@ -131,3 +144,6 @@ export default class CarouselBrands extends Component {
     );
   }
 }
+CarouselBrands.propTypes = {
+  handleChangeBrands: PropTypes.func.isRequired,
+};

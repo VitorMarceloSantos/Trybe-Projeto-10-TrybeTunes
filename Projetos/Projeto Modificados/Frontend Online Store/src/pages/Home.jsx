@@ -61,6 +61,14 @@ export default class Home extends Component {
     this.searchProduct();
   }
 
+  handleChangeBrands = ({ target: { name } }) => {
+    this.setState({
+      searchBar: name,
+    }, () => {
+      this.searchProduct();
+    });
+  }
+
   renderproductListOrNone = () => {
     const { handleClickAddCart } = this.props;
     const { productList } = this.state;
@@ -129,7 +137,7 @@ export default class Home extends Component {
                 />
                 <MethodsPaymetns />
                 <CarouselBrands
-                  handleChangeCategory={ this.handleChangeCategory }
+                  handleChangeBrands={ this.handleChangeBrands }
                 />
               </div>
             )}
