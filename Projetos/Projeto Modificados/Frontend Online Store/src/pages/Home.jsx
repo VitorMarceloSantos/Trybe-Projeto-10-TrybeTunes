@@ -29,46 +29,37 @@ export default class Home extends Component {
     });
   }
 
+ searchProduct = () => {
+   const { searchBar } = this.state;
+   this.setState({
+     indexView: false,
+     isLoading: true,
+   }, async () => {
+     const productListByName = await getProductsByName(searchBar);
+     if (productListByName.results.length === 0) {
+       this.setState({
+         isLoading: false,
+         noneProduct: true,
+       });
+     } else {
+       this.setState({
+         isLoading: false,
+         productList: productListByName.results,
+         noneProduct: false,
+       });
+     }
+   });
+ }
+
   handleChangeCategory = ({ target }) => {
     this.setState({ searchBar: target.classList[3] }, () => {
-      const { searchBar } = this.state;
-      this.setState({
-        indexView: false,
-        isLoading: true,
-      }, async () => {
-        const productListByName = await getProductsByName(searchBar);
-        if (productListByName.results.length === 0) {
-          this.setState({
-            isLoading: false,
-            noneProduct: true,
-          });
-        } else {
-          this.setState({
-            isLoading: false,
-            productList: productListByName.results,
-            noneProduct: false,
-          });
-        }
-      });
+      this.searchProduct();
     });
   }
 
-  // handleSearchClick = async () => {
-  //   const { searchBar } = this.state;
-
-  //   const productListByName = await getProductsByName(searchBar);
-
-  //   if (productListByName.results.length === 0) {
-  //     this.setState({
-  //       noneProduct: true,
-  //     });
-  //   } else {
-  //     this.setState({
-  //       productList: productListByName.results,
-  //       noneProduct: false,
-  //     });
-  //   }
-  // }
+  handleSearchClick = async () => {
+    this.searchProduct();
+  }
 
   renderproductListOrNone = () => {
     const { handleClickAddCart } = this.props;
@@ -94,10 +85,30 @@ export default class Home extends Component {
   }
 
   handleRadioClick = async ({ target }) => {
-    const productsByCategory = await getProductsFromCategoryAndQuery(target.id);
+    // const productsByCategory = await getProductsFromCategoryAndQuery(target.id);
 
+    // this.setState({
+    //   productList: productsByCategory.results,
+    // });
+    // const { searchBar } = this.state;
+    
     this.setState({
-      productList: productsByCategory.results,
+      indexView: false,
+      isLoading: true,
+    }, async () => {
+      const productListByName = await getProductsFromCategoryAndQuery(target.id);
+      if (productListByName.results.length === 0) {
+        this.setState({
+          isLoading: false,
+          noneProduct: true,
+        });
+      } else {
+        this.setState({
+          isLoading: false,
+          productList: productListByName.results,
+          noneProduct: false,
+        });
+      }
     });
   }
 

@@ -17,6 +17,7 @@ footer .logo_trybe {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 15px;
 }
 footer .logo_trybe img { /*Tamanho da Imagem*/
   max-width: 110px;
