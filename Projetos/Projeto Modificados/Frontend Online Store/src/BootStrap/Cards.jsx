@@ -8,6 +8,18 @@ import AddItemCartButton from '../Components/AddItemCartButton';
 import '../styles/CardsBoot.css';
 
 export default class CardsProducts extends Component {
+  reduceTitle = (title) => {
+    const lengthTilte = 6;
+    const arrayTemp = (title).split(' ');
+    const arrayFinal = arrayTemp.reduce((acc, curr, index) => {
+      if (index < lengthTilte) {
+        return `${acc} ${curr}`;
+      }
+      return acc;
+    }, '');
+    return arrayFinal;
+  }
+
   render() {
     const {
       handleClickAddCart,
@@ -19,7 +31,7 @@ export default class CardsProducts extends Component {
       <div>
         <Card className="container-card">
           <Card.Body>
-            <Card.Title className="titleCard">{title}</Card.Title>
+            <Card.Title className="titleCard">{this.reduceTitle(title)}</Card.Title>
             <Card.Img
               variant="bottom"
               src={ thumbnail }
@@ -36,7 +48,10 @@ export default class CardsProducts extends Component {
             </Card.Text>
             <Card.Text className="shipping">
               {shipping.free_shipping && (
-                'Frete Grátis'
+                <div className="container-frete">
+                  <i className="fa-solid fa-truck-fast" />
+                  <p>Frete Grátis</p>
+                </div>
               )}
             </Card.Text>
             <div className="container-buttons">
