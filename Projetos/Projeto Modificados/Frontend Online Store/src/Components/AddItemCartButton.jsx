@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import '../styles/AddItemCartCss.css';
 
 export default class AddItemCartButton extends Component {
   render() {
@@ -15,7 +16,9 @@ export default class AddItemCartButton extends Component {
           () => handleClickAddCart(product)
         }
       >
-        Adicionar ao Carrinho
+        <div className="cart-icon">
+          <i className="fa-solid fa-cart-plus" />
+        </div>
       </button>
     );
   }

@@ -1,0 +1,10 @@
+.add-item-cart-button {
+  background-color: none;
+  border: none;
+}
+
+.cart-icon {
+  background-color: white;
+  font-size: 0.7em;
+  /* padding-bottom: 10px; */
+}

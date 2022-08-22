@@ -52,10 +52,10 @@ textarea {
   flex-direction: column;
 }
 
-.add-item-cart-button {
+/* .add-item-cart-button {
   padding: 20px;
   font-size: larger;
-}
+} */
 
 .review-error-msg {
   font-weight: bold;

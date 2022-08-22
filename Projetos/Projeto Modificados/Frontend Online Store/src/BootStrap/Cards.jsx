@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-max-depth */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import AddItemCartButton from '../Components/AddItemCartButton';
@@ -49,27 +48,29 @@ export default class CardsProducts extends Component {
             <Card.Text className="shipping">
               {shipping.free_shipping && (
                 <div className="container-frete">
-                  <i className="fa-solid fa-truck-fast" />
+                  <div className="shipping">
+                    <i className="fa-solid fa-truck-fast" />
+                  </div>
                   <p>Frete Grátis</p>
                 </div>
               )}
             </Card.Text>
             <div className="container-buttons">
-              <Button variant="primary">
+              <Card.Link>
                 <Link
                   data-testid="product-detail-link"
                   to={ `/Detalhes/${id}` }
                 >
                   Detalhes
                 </Link>
-              </Button>
-              <Button variant="primary">
+              </Card.Link>
+              <Card.Link>
                 <AddItemCartButton
                   handleClickAddCart={ handleClickAddCart }
                   path={ path }
                   product={ product }
                 />
-              </Button>
+              </Card.Link>
             </div>
           </Card.Body>
         </Card>
