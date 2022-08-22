@@ -10,6 +10,7 @@ import MethodsPaymetns from '../Components/MethodsPaymetns';
 import CarouselBrands from '../BootStrap/Carousel';
 import Loading from '../Components/Loading';
 import NotFound from '../Components/NotFound';
+import '../styles/HomeCss.css';
 
 export default class Home extends Component {
   constructor() {
@@ -80,15 +81,17 @@ export default class Home extends Component {
           {/* Digite algum termo de pesquisa ou escolha uma categoria. */}
         </p>
       ) : (
-        <ul>
-          {productList
-            .map((product) => (<ProductCard
-              handleClickAddCart={ handleClickAddCart }
-              product={ product }
-              key={ product.id }
-              path={ path }
-            />))}
-        </ul>
+        <div className="container-global-cards">
+          <ul>
+            {productList
+              .map((product) => (<ProductCard
+                handleClickAddCart={ handleClickAddCart }
+                product={ product }
+                key={ product.id }
+                path={ path }
+              />))}
+          </ul>
+        </div>
       )
     );
   }
