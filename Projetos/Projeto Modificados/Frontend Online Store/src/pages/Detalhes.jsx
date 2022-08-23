@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes, { shape } from 'prop-types';
+import { Link } from 'react-router-dom';
 import { getProductsDetailsId } from '../services/api';
 import ProductCardDetails from '../Components/ProductCardDetails';
 import ButtonCart from '../Components/ButtonCart';
@@ -36,10 +37,21 @@ class Detalhes extends Component {
     const { handleClickAddCart, CartItemsList } = this.props;
     return (
       <div className="container-detalhes">
-        Detalhes
-        <ButtonCart
-          CartItemsList={ CartItemsList }
-        />
+        <div className="container-buttons-input">
+          <ButtonCart
+            CartItemsList={ CartItemsList }
+          />
+          <button
+            type="button"
+            className="button-home"
+          >
+            <Link
+              to="/"
+            >
+              <i className="fa-solid fa-house" />
+            </Link>
+          </button>
+        </div>
         <div className="container-details">
           <ProductCardDetails
             product={ product }
@@ -51,10 +63,6 @@ class Detalhes extends Component {
               path={ path }
               handleClickAddCart={ handleClickAddCart }
               product={ product }
-              // price={ price }
-              // title={ title }
-              // thumbnail={ thumbnail }
-              // id={ id }
             />
           </div>
           <ReviewSection id={ id } />

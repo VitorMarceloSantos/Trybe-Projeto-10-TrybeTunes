@@ -7,3 +7,7 @@
   background-color: white;
   font-size: 0.7em;
 }
+
+.fa-cart-plus:hover {
+  color: rgb(64, 125, 108);
+}

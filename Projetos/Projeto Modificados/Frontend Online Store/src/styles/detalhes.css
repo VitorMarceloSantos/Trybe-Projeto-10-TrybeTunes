@@ -1,15 +1,24 @@
+/* stylelint-disable selector-max-specificity */
+
+/* stylelint-disable font-weight-notation */
+
+/* stylelint-disable order/properties-alphabetical-order */
 .container-detalhes {
   display: flex;
   justify-content: center;
 }
 
 .container-details {
+  background-color: white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  border: solid 2px gray;
-  padding: 10px;
+  border: solid 2px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  margin: 20px 0;
+  padding: 20px;
   width: 50vw;
+  text-align: center;
 }
 
 #product-detail-name {
@@ -18,7 +27,7 @@
 }
 
 .container-details section img {
-  width: 300px;
+  width: 200px;
 }
 
 .detalhes-img {
@@ -52,11 +61,6 @@ textarea {
   flex-direction: column;
 }
 
-/* .add-item-cart-button {
-  padding: 20px;
-  font-size: larger;
-} */
-
 .review-error-msg {
   font-weight: bold;
   font-size: large;
@@ -84,4 +88,79 @@ textarea {
 
 .review-evaluation p {
   padding: 10px;
+}
+
+.form-review {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.rating-radio-buttons label {
+  margin-right: 15px;
+}
+
+.rating-radio-buttons label:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.rating-radio-buttons input {
+  margin-right: 5px;
+}
+
+.input-email {
+  margin-left: 5px;
+}
+
+.input-avaliar {
+  width: 15vw;
+  margin: 15px auto;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.input-avaliar:hover {
+  background-color: rgb(64, 125, 108);
+  color: white;
+}
+
+.container-detalhes .fa-cart-plus {
+  font-size: 3em;
+}
+
+.container-detalhes .fa-cart-plus:hover {
+  color: rgb(64, 125, 108);
+}
+
+.add-item-cart-button {
+  background-color: white;
+  padding: 15px;
+}
+
+.container-buttons-input {
+  background-color: white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 5px;
+  position: absolute;
+  right: 12vw;
+  top: 5vh;
+}
+
+.button-home {
+  border: none;
+  background-color: white;
+}
+
+.button-home .fa-house {
+  font-size: 2em;
+  color: rgb(64, 125, 108);
+}
+
+.button-home .fa-house:hover {
+  color: rgb(31, 61, 53);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }

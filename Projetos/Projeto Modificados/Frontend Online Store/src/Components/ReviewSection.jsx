@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../styles/detalhes.css';
 
 export default class ReviewSection extends Component {
   constructor() {
@@ -65,7 +66,7 @@ export default class ReviewSection extends Component {
   render() {
     const { email, text, allReviews, validReview } = this.state;
     return (
-      <section>
+      <section className="form-review">
         <form className="review-section">
           <label htmlFor="review-email">
             Email:
@@ -76,11 +77,11 @@ export default class ReviewSection extends Component {
               id="review-email"
               onChange={ this.handleChange }
               value={ email }
+              className="input-email"
             />
           </label>
           <div className="rating-radio-buttons">
             <label htmlFor="rating-1">
-              1
               <input
                 value="1"
                 type="radio"
@@ -89,9 +90,9 @@ export default class ReviewSection extends Component {
                 id="rating-1"
                 data-testid="1-rating"
               />
+              1
             </label>
             <label htmlFor="rating-2">
-              2
               <input
                 value="2"
                 type="radio"
@@ -100,9 +101,9 @@ export default class ReviewSection extends Component {
                 id="rating-2"
                 data-testid="2-rating"
               />
+              2
             </label>
             <label htmlFor="rating-3">
-              3
               <input
                 value="3"
                 type="radio"
@@ -111,9 +112,9 @@ export default class ReviewSection extends Component {
                 id="rating-3"
                 data-testid="3-rating"
               />
+              3
             </label>
             <label htmlFor="rating-4">
-              4
               <input
                 value="4"
                 type="radio"
@@ -122,9 +123,9 @@ export default class ReviewSection extends Component {
                 id="rating-4"
                 data-testid="4-rating"
               />
+              4
             </label>
             <label htmlFor="rating-5">
-              5
               <input
                 value="5"
                 type="radio"
@@ -133,6 +134,7 @@ export default class ReviewSection extends Component {
                 id="rating-5"
                 data-testid="5-rating"
               />
+              5
             </label>
           </div>
           <label htmlFor="product-detail-evaluation" className="review-textarea">
@@ -149,6 +151,7 @@ export default class ReviewSection extends Component {
             type="submit"
             data-testid="submit-review-btn"
             onClick={ this.handleReview }
+            className="input-avaliar"
           >
             Avaliar
 

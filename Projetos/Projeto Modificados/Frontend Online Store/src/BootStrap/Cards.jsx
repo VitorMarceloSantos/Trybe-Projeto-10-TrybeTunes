@@ -8,7 +8,7 @@ import '../styles/CardsBoot.css';
 
 export default class CardsProducts extends Component {
   reduceTitle = (title) => {
-    const lengthTilte = 6;
+    const lengthTilte = 5;
     const arrayTemp = (title).split(' ');
     const arrayFinal = arrayTemp.reduce((acc, curr, index) => {
       if (index < lengthTilte) {

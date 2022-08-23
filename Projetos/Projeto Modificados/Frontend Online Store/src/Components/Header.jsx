@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes, { shape } from 'prop-types';
+import { Link } from 'react-router-dom';
 import '../styles/header.css';
 import { GiMagnifyingGlass } from 'react-icons/gi';
 import ShoppingTrybe from '../images/ShoppingTrybe.png';
@@ -11,11 +12,15 @@ export default class Header extends Component {
     return (
       <header>
         <div className="container-header">
-          <img
-            src={ ShoppingTrybe }
-            alt="Logo da Trybe"
-            className="logoTrybe"
-          />
+          <Link
+            to="/"
+          >
+            <img
+              src={ ShoppingTrybe }
+              alt="Logo da Trybe"
+              className="logoTrybe"
+            />
+          </Link>
           <div className="container-searchBar">
             <label htmlFor="searchBar">
               <input
