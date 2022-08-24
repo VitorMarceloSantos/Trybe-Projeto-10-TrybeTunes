@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes, { shape } from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../styles/CartCss.css';
 
 class Carrinho extends React.Component {
   componentDidMount() {
@@ -26,8 +27,17 @@ class Carrinho extends React.Component {
               {
                 CartItemsList.map((item, i) => (
                   <section key={ `${item.title}${i}` }>
-                    <h1 data-testid="shopping-cart-product-name">{ item.title }</h1>
-                    <h2>{ item.price }</h2>
+                    <div className="container-line-product">
+                      <img
+                        src={ item.thumbnail }
+                        alt={ item.title }
+                      />
+                      <h1 data-testid="shopping-cart-product-name">{ item.title }</h1>
+                      <h2>
+                        {`R$ ${item.price.toLocaleString('pt-BR',
+                          { minimumFractionDigits: 2 })}` }
+                      </h2>
+                    </div>
                     <div className="container-amount">
                       <button
                         data-testid="product-decrease-quantity"
