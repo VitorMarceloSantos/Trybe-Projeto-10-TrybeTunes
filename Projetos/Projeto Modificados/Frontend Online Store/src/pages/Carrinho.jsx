@@ -13,6 +13,7 @@ class Carrinho extends React.Component {
   }
 
   handleOnChange = ({ target: { value, name } }) => {
+    console.log('entrou')
     const { handleClickAmoutCart } = this.props;
     handleClickAmoutCart(value, name);
   }

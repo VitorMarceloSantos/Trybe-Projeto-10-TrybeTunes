@@ -1,7 +1,8 @@
 .container-cart-products {
   background-color: white;
-  width: 70vw;
+  width: 50vw;
   margin: auto;
+  padding: 5px;
 }
 .container-line-product {
   display: flex;
@@ -28,9 +29,20 @@
 
 .cart-title {
   font-size: 0.9em;
+  margin-bottom: 15px;
 }
 
 .cart-price {
   font-size: 1em;
+  font-weight: 700;
+}
+
+.container-cart-center .fa-minus, .fa-plus, .fa-trash {
+  font-size: 1.1em;
+  padding: 0 10px;
+}
+
+.container-cart-center p {
+  margin: 0;
   font-weight: 700;
 }
