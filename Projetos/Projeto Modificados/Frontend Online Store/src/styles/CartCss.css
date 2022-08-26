@@ -1,9 +1,18 @@
 /* stylelint-disable order/properties-alphabetical-order */
+
+/* .container-global {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  background-color: rebeccapurple;
+} */
+
 .container-cart-global {
   height: 89.6vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .container-cart-products {
@@ -70,11 +79,32 @@
 }
 
 .container-total-products {
-  background-color: red;
+  height: 6vh;
+  background-color: white;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 .array-products {
   display: flex;
   min-width: 5vw;
+  justify-content: center;
+}
+
+.container-section-price {
+  display: flex;
+  margin: auto;
+  justify-content: space-evenly;
+  padding-right: 3vw;
+  font-size: 1.2em;
+  font-weight: 700;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.total-number {
+  min-width: 10vw;
+  display: flex;
   justify-content: center;
 }

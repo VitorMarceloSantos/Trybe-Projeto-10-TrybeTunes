@@ -35,7 +35,7 @@ class Carrinho extends React.Component {
       <div className="container-cart-global">
         {
           verification ? (
-            <div>
+            <div className="container-global">
               <div className="container-cart-products">
                 {
                   CartItemsList.map((item, i) => (
@@ -116,7 +116,16 @@ class Carrinho extends React.Component {
                 }
               </div>
               <div className="container-total-products">
-                {console.log(arrayProducts)}
+                <section className="container-section-price">
+                  <p>Total:</p>
+                  <p className="total-number">
+                    { `R$ ${(arrayProducts.reduce(
+                      (acc, current) => acc + (current.price * current.quant), 0,
+                    ).toFixed(2)).toLocaleString('pt-BR',
+                      { minimumFractionDigits: 2 })}`}
+                  </p>
+                </section>
+
               </div>
             </div>
           )
