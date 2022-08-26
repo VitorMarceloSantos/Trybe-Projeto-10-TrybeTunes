@@ -27,6 +27,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 35vw;
 }
 
 .cart-title {
@@ -35,8 +36,12 @@
 }
 
 .cart-price {
+  display: flex;
   font-size: 1em;
   font-weight: 700;
+  min-width: 7vw;
+  margin: auto;
+  justify-content: center;
 }
 
 .container-cart-center .fa-minus, .fa-plus, .fa-trash {
@@ -47,4 +52,8 @@
 .container-cart-center p {
   margin: 0;
   font-weight: 700;
+}
+
+.container-line-product img {
+  max-width: 10vw;
 }
