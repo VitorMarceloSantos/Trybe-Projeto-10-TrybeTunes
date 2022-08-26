@@ -12,10 +12,11 @@ class Carrinho extends React.Component {
     }
   }
 
-  handleOnChange = ({ target: { value, name } }) => {
-    console.log('entrou')
+  handleOnChange = ({ target: { id, title, value, name } }) => {
+    const param1 = id !== undefined ? id : name;
+    const param2 = title !== undefined ? title : value;
     const { handleClickAmoutCart } = this.props;
-    handleClickAmoutCart(value, name);
+    handleClickAmoutCart(param2, param1);
   }
 
   render() {
@@ -49,7 +50,12 @@ class Carrinho extends React.Component {
                             value="decrease"
                             onClick={ this.handleOnChange }
                           >
-                            <i className="fa-solid fa-minus" />
+                            {/* Utiliza as tags id e title, para passar os paramentros para a função ao clicar no icone(<i>) */}
+                            <i
+                              className="fa-solid fa-minus"
+                              id={ item.id }
+                              title="decrease"
+                            />
                           </button>
                           <p
                             data-testid="shopping-cart-product-quantity"
@@ -63,7 +69,11 @@ class Carrinho extends React.Component {
                             value="increase"
                             onClick={ this.handleOnChange }
                           >
-                            <i className="fa-solid fa-plus" />
+                            <i
+                              className="fa-solid fa-plus"
+                              id={ item.id }
+                              title="increase"
+                            />
                           </button>
                           <div className="button-delete">
                             <button
@@ -73,7 +83,11 @@ class Carrinho extends React.Component {
                               value="remove"
                               onClick={ this.handleOnChange }
                             >
-                              <i className="fa-solid fa-trash" />
+                              <i
+                                className="fa-solid fa-trash"
+                                id={ item.id }
+                                title="remove"
+                              />
                             </button>
                           </div>
                         </div>
