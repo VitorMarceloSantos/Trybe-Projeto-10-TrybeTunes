@@ -1,7 +1,9 @@
+/* eslint-disable max-lines */
 /* eslint-disable react/jsx-max-depth */
 import React, { Component } from 'react';
 import PropTypes, { shape } from 'prop-types';
 import '../styles/Checkout.css';
+import { Link } from 'react-router-dom';
 
 export default class Checkout extends Component {
   constructor() {
@@ -75,6 +77,7 @@ export default class Checkout extends Component {
   render() {
     const { verify } = this.state;
     const { CartItemsList } = this.props;
+    // let valueTotal = 0;
     return (
       <div className="container-checkout">
         <h2 className="finalization">Finalização de Compra</h2>
@@ -83,6 +86,7 @@ export default class Checkout extends Component {
             <div className="container-primary-information">
               <label
                 htmlFor="Nome"
+                className="text-checkout"
               >
                 Nome Completo:
                 <input
@@ -94,6 +98,7 @@ export default class Checkout extends Component {
               </label>
               <label
                 htmlFor="Email"
+                className="text-checkout"
               >
                 Email:
                 <input
@@ -105,6 +110,7 @@ export default class Checkout extends Component {
               </label>
               <label
                 htmlFor="CPF"
+                className="text-checkout"
               >
                 CPF:
                 <input
@@ -118,6 +124,7 @@ export default class Checkout extends Component {
             <div className="second-information">
               <label
                 htmlFor="Telefone"
+                className="text-checkout"
               >
                 Telefone:
                 <input
@@ -129,6 +136,7 @@ export default class Checkout extends Component {
               </label>
               <label
                 htmlFor="CEP"
+                className="text-checkout"
               >
                 CEP:
                 <input
@@ -140,6 +148,7 @@ export default class Checkout extends Component {
               </label>
               <label
                 htmlFor="Endereco"
+                className="text-checkout"
               >
                 Endereço:
                 <input
@@ -152,7 +161,7 @@ export default class Checkout extends Component {
             </div>
           </div>
           <div className="form-pgto">
-            <p>Forma de Pagamento:</p>
+            <p className="text-checkout">Forma de Pagamento:</p>
             <label
               htmlFor="Boleto"
             >
@@ -206,31 +215,51 @@ export default class Checkout extends Component {
               Elo
             </label>
           </div>
-          <button
-            data-testid="checkout-btn"
-            type="submit"
-            onClick={ this.submited }
-          >
-            Salvar
-          </button>
+          <div>
+            <Link
+              to="/Carrinho"
+            >
+              <button
+                type="button"
+              >
+                Voltar
+              </button>
+            </Link>
+            <button
+              data-testid="checkout-btn"
+              type="submit"
+              onClick={ this.submited }
+            >
+              Salvar
+            </button>
+          </div>
         </form>
-
         <section className="checkout-error-msg">
           {verify && <span data-testid="error-msg"> Campos inválidos </span>}
         </section>
         <section className="container-items-checkout">
-          <p>Resumo do Pedido</p>
+          <p className="text-checkout">Resumo do Pedido</p>
           <ul className="checkout-items-ul">
             {CartItemsList.map((product, index) => (
               <li key={ index } className="items">
                 {/* <img src={ product.thumbnail } alt={ product.title } /> */}
                 <p>{`#0${index + 1}`}</p>
                 <h2 className="itemsTitle">{this.reduceTitle(product.title)}</h2>
-                <p>
-                  {`R$ ${(product.price).toLocaleString('pt-BR',
-                    { maximunFractionDigits: 2 })}`}
+                <p className="price-item">
+                  {`R$ ${(product.price * product.quantidade)
+                    .toFixed(2).toLocaleString('pt-BR',
+                      { maximunFractionDigits: 2 })}`}
                 </p>
               </li>))}
+            <section className="container-section-price">
+              <p>Total:</p>
+              <p className="total-number">
+                { `R$ ${((CartItemsList).reduce(
+                  (acc, current) => acc + (current.price * current.quantidade), 0,
+                )).toLocaleString('pt-BR',
+                  { maximunFractionDigits: 2 })}`}
+              </p>
+            </section>
           </ul>
         </section>
       </div>

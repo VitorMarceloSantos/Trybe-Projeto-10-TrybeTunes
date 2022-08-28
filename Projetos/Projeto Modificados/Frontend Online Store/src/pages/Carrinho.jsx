@@ -6,14 +6,6 @@ import '../styles/CartCss.css';
 import CartEmpty from '../images/CartEmpty.png';
 
 class Carrinho extends React.Component {
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     total: '',
-  //   };
-  // }
-
   componentDidMount() {
     if (localStorage.length > 0) {
       const { cartItemsStateUpdate } = this.props;
@@ -140,7 +132,6 @@ class Carrinho extends React.Component {
                       { maximunFractionDigits: 2 })}`}
                   </p>
                 </section>
-
               </div>
             </div>
           )

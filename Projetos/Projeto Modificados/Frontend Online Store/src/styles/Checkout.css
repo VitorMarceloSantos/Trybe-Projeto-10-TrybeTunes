@@ -1,4 +1,8 @@
 /* stylelint-disable order/properties-alphabetical-order */
+.container-checkout {
+  min-height: 88.5vh;
+}
+
 body {
   background-color: #b5c7cc;
 }
@@ -41,12 +45,14 @@ li { list-style-type: none; }
 
 .itemsTitle {
   font-size: medium;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
 }
 
 .container-primary-information, .second-information, .form-pgto {
   width: 60vw;
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
 }
 
@@ -59,6 +65,8 @@ li { list-style-type: none; }
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 15px;
+  background-color: white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .form-pgto label:hover, input:hover {
@@ -112,7 +120,25 @@ li { list-style-type: none; }
   border-radius: 5px;
   width: 40vw;
   margin: auto;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   padding: 10px;
+  background-color: white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.container-items-checkout .price-item {
+  width: 5vw;
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-items-ul .container-section-price {
+  border: none;
+  margin-top: 10px;
+}
+
+.text-checkout {
+  font-weight: 500;
+  font-size: 1em;
 }
 
