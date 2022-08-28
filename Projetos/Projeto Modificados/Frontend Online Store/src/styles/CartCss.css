@@ -108,3 +108,31 @@
   display: flex;
   justify-content: center;
 }
+
+.container-buttons-cart {
+  display: flex;
+  margin-top: 20px;
+}
+
+.container-buttons-cart button {
+  margin: 0 10px;
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(125, 178, 144);
+  font-weight: 700;
+  padding: 6px;
+  font-size: 0.9em;
+  border: none;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.container-buttons-cart button:hover {
+  color: white;
+  background-color: rgb(64, 125, 108);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.container-cart-products .fa-solid:hover {
+  color: rgb(64, 125, 108);
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}

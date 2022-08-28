@@ -131,25 +131,27 @@ class Carrinho extends React.Component {
           )
             : <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
         }
-        <Link
-          to="/"
-        >
-          <button
-            type="button"
+        <div className="container-buttons-cart">
+          <Link
+            to="/"
           >
-            Continuar Comprando
-          </button>
-        </Link>
-        <Link
-          data-testid="checkout-products"
-          to="/Checkout"
-        >
-          <button
-            type="button"
+            <button
+              type="button"
+            >
+              Continuar Comprando
+            </button>
+          </Link>
+          <Link
+            data-testid="checkout-products"
+            to="/Checkout"
           >
-            Finalizar Compra
-          </button>
-        </Link>
+            <button
+              type="button"
+            >
+              Finalizar Compra
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }
