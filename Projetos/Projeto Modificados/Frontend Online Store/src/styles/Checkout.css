@@ -1,3 +1,4 @@
+/* stylelint-disable order/properties-alphabetical-order */
 body {
   background-color: #b5c7cc;
 }
@@ -40,5 +41,27 @@ li { list-style-type: none; }
 
 .itemsTitle {
   font-size: medium;
+}
+
+.container-primary-information {
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-primary-information input {
+  margin: 10px 10px  10px 5px;
+}
+
+.second-information {
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.second-information input {
+  margin: 10px 10px  10px 5px;
 }
 
