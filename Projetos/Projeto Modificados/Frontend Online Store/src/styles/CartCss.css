@@ -136,3 +136,11 @@
   color: rgb(64, 125, 108);
   text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
 }
+
+.text-cart-empty {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-left: 3vw;
+  margin-top: 5vh;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}

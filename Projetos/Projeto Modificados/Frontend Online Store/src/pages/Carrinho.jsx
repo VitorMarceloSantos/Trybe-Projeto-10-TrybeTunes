@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes, { shape } from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../styles/CartCss.css';
+import CartEmpty from '../images/CartEmpty.png';
 
 class Carrinho extends React.Component {
   // constructor() {
@@ -25,6 +26,18 @@ class Carrinho extends React.Component {
     const param2 = title !== undefined ? title : value;
     const { handleClickAmoutCart } = this.props;
     handleClickAmoutCart(param2, param1);
+  }
+
+  reduceTitle = (title) => {
+    const lengthTilte = 5;
+    const arrayTemp = (title).split(' ');
+    const arrayFinal = arrayTemp.reduce((acc, curr, index) => {
+      if (index < lengthTilte) {
+        return `${acc} ${curr}`;
+      }
+      return acc;
+    }, '');
+    return arrayFinal;
   }
 
   render() {
@@ -54,7 +67,9 @@ class Carrinho extends React.Component {
                             data-testid="shopping-cart-product-name"
                             className="cart-title"
                           >
-                            { item.title }
+                            {`${this.reduceTitle(item.title)}
+                              - R$ ${item.price.toLocaleString('pt-BR',
+                      { maximunFractionDigits: 2 })}`}
                           </h1>
                           <div className="container-amount">
                             <button
@@ -108,8 +123,8 @@ class Carrinho extends React.Component {
                         </div>
 
                         <h2 className="cart-price">
-                          {`R$ ${item.price.toLocaleString('pt-BR',
-                            { minimumFractionDigits: 2 })}` }
+                          {`R$ ${(item.price * item.quantidade).toLocaleString('pt-BR',
+                            { maximunFractionDigits: 2 })}` }
                         </h2>
                       </div>
                     </section>))
@@ -121,15 +136,24 @@ class Carrinho extends React.Component {
                   <p className="total-number">
                     { `R$ ${(arrayProducts.reduce(
                       (acc, current) => acc + (current.price * current.quant), 0,
-                    ).toFixed(2)).toLocaleString('pt-BR',
-                      { minimumFractionDigits: 2 })}`}
+                    )).toLocaleString('pt-BR',
+                      { maximunFractionDigits: 2 })}`}
                   </p>
                 </section>
 
               </div>
             </div>
           )
-            : <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+            : (
+              <div className="cart-empty">
+                <img src={ CartEmpty } alt="Cart Empty" />
+                <p
+                  data-testid="shopping-cart-empty-message"
+                  className="text-cart-empty"
+                >
+                  Seu carrinho está vazio
+                </p>
+              </div>)
         }
         <div className="container-buttons-cart">
           <Link
@@ -141,16 +165,18 @@ class Carrinho extends React.Component {
               Continuar Comprando
             </button>
           </Link>
-          <Link
-            data-testid="checkout-products"
-            to="/Checkout"
-          >
-            <button
-              type="button"
+          {verification && (
+            <Link
+              data-testid="checkout-products"
+              to="/Checkout"
             >
-              Finalizar Compra
-            </button>
-          </Link>
+              <button
+                type="button"
+              >
+                Finalizar Compra
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     );
