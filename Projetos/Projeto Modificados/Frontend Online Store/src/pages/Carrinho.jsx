@@ -13,10 +13,6 @@ class Carrinho extends React.Component {
       const { cartItemsStateUpdate } = this.props;
       cartItemsStateUpdate();
     }
-    // if (localStorage.length > 0) {
-    //   const { cartItemsStateUpdate } = this.props;
-    //   cartItemsStateUpdate();
-    // }
   }
 
   handleOnChange = ({ target: { id, title, value, name } }) => {
