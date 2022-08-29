@@ -5,6 +5,7 @@ import Carrinho from './pages/Carrinho';
 import Detalhes from './pages/Detalhes';
 import Checkout from './pages/Checkout';
 import Footer from './Components/Footer';
+import Finish from './Components/Finish';
 
 export default class App extends Component {
   constructor() {
@@ -136,6 +137,11 @@ export default class App extends Component {
               CartItemsList={ CartItemsList }
               clearItemsCart={ this.clearItemsCart }
             />) }
+          />
+          <Route
+            exact
+            path="/Finish"
+            component={ Finish }
           />
         </Switch>
         <Footer />

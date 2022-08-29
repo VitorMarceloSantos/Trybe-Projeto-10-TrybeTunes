@@ -225,13 +225,17 @@ export default class Checkout extends Component {
                 Voltar
               </button>
             </Link>
-            <button
-              data-testid="checkout-btn"
-              type="submit"
-              onClick={ this.submited }
+            <Link
+              to="/Finish"
             >
-              Salvar
-            </button>
+              <button
+                data-testid="checkout-btn"
+                type="submit"
+                // onClick={ this.submited }
+              >
+                Salvar
+              </button>
+            </Link>
           </div>
         </form>
         <section className="checkout-error-msg">
