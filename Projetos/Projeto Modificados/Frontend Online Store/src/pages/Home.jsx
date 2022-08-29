@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes, { shape } from 'prop-types';
 import ProductCard from '../Components/ProductCard';
 import { getProductsByName, getProductsFromCategoryAndQuery } from '../services/api';
-// import ButtonCart from '../Components/ButtonCart';
 import NavBarExample from '../BootStrap/NavBar';
 import Header from '../Components/Header';
 import IndexCategory from '../Components/IndexCategory';
@@ -11,6 +10,7 @@ import CarouselBrands from '../BootStrap/Carousel';
 import Loading from '../Components/Loading';
 import NotFound from '../Components/NotFound';
 import '../styles/HomeCss.css';
+// import Finish from './Components/Finish';
 
 export default class Home extends Component {
   constructor() {
