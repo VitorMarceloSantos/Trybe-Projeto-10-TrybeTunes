@@ -6,11 +6,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Carrinho from './pages/Carrinho';
+import { Provider } from 'react-redux';
+import store from './Redux/index';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={ store }>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

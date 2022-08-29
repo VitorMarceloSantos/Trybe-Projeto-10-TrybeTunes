@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-max-depth */
 import React from 'react';
 import PropTypes, { shape } from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/CartCss.css';
 import CartEmpty from '../images/CartEmpty.png';
@@ -33,7 +34,9 @@ class Carrinho extends React.Component {
   }
 
   render() {
-    const { CartItemsList } = this.props;
+    let { CartItemsList } = this.props;
+    const { reset } = this.props;
+    if (reset.finish) CartItemsList = [];
     const verification = CartItemsList.length > 0;
     const arrayProducts = [];
     return (
@@ -178,6 +181,11 @@ Carrinho.propTypes = {
   CartItemsList: PropTypes.arrayOf(shape()).isRequired,
   handleClickAmoutCart: PropTypes.func.isRequired,
   cartItemsStateUpdate: PropTypes.func.isRequired,
+  reset: PropTypes.shape().isRequired,
 };
 
-export default Carrinho;
+const mapStateToProps = (state) => ({
+  reset: state.resetReducer,
+});
+
+export default connect(mapStateToProps, null)(Carrinho);

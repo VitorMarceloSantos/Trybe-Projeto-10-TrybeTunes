@@ -1,14 +1,16 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import PropTypes, { shape } from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import '../styles/header.css';
 
-export default class ButtonCart extends Component {
+class ButtonCart extends Component {
   render() {
     const { CartItemsList } = this.props;
-    const recoveredObject = CartItemsList.length > 0
-      ? CartItemsList : (JSON.parse(localStorage.getItem('CartItems')));
+    const recoveredObject = CartItemsList.length > 0 ? CartItemsList : (localStorage.getItem('CartItems') !== null ? (JSON.parse(localStorage.getItem('CartItems'))) : 0);
     return (
       <div className="container-cart-icon">
         <Link
@@ -40,3 +42,10 @@ export default class ButtonCart extends Component {
 ButtonCart.propTypes = {
   CartItemsList: PropTypes.arrayOf(shape()).isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  personal: state.personalReducer,
+  professional: state.professionalReducer,
+});
+
+export default connect(mapStateToProps, null)(ButtonCart);

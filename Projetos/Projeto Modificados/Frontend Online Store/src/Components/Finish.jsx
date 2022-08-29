@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes, { shape } from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Obrigado from '../images/Obrigado.png';
 import '../styles/FinishCss.css';
+import resetStateAction from '../Redux/Actions';
 
-export default class Finish extends Component {
+class Finish extends Component {
   resetCart = () => {
-    const { CartItemsList } = this.props;
-    CartItemsList = [];
+    const { dispatch } = this.props;
+    dispatch(resetStateAction({ finish: true }));
   }
 
   render() {
@@ -47,4 +49,7 @@ export default class Finish extends Component {
 }
 Finish.propTypes = {
   CartItemsList: PropTypes.arrayOf(shape()).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
+
+export default connect()(Finish);
