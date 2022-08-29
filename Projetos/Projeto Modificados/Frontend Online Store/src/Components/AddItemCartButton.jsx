@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import '../styles/AddItemCartCss.css';
+import resetStateAction from '../Redux/Actions';
 
-export default class AddItemCartButton extends Component {
+class AddItemCartButton extends Component {
   render() {
     const { path, handleClickAddCart, product } = this.props;
     // price, title, thumbnail, id
+    const { dispatch } = this.props;
+    dispatch(resetStateAction({ finish: false }));
     return (
       <button
         className="add-item-cart-button"
@@ -33,4 +37,7 @@ AddItemCartButton.propTypes = {
   }).isRequired,
   handleClickAddCart: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
+
+export default connect()(AddItemCartButton);

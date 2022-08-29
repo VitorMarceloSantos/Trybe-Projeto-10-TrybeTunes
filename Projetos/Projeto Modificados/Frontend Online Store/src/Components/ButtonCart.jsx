@@ -9,7 +9,7 @@ import '../styles/header.css';
 
 class ButtonCart extends Component {
   render() {
-    const { CartItemsList } = this.props;
+    const { CartItemsList, reset } = this.props;
     const recoveredObject = CartItemsList.length > 0 ? CartItemsList : (localStorage.getItem('CartItems') !== null ? (JSON.parse(localStorage.getItem('CartItems'))) : 0);
     return (
       <div className="container-cart-icon">
@@ -22,7 +22,7 @@ class ButtonCart extends Component {
               className="icon-cart"
             />
           </div>
-          {recoveredObject.length > 0 && (
+          {((recoveredObject.length > 0) && (!reset.finish)) && (
             <div className="border-number-items">
               <p
                 className="number-items-cart"
@@ -41,11 +41,11 @@ class ButtonCart extends Component {
 }
 ButtonCart.propTypes = {
   CartItemsList: PropTypes.arrayOf(shape()).isRequired,
+  reset: PropTypes.shape().isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  personal: state.personalReducer,
-  professional: state.professionalReducer,
+  reset: state.resetReducer,
 });
 
 export default connect(mapStateToProps, null)(ButtonCart);
