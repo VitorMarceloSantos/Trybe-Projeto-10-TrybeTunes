@@ -7,7 +7,6 @@ import resetStateAction from '../Redux/Actions';
 class AddItemCartButton extends Component {
   render() {
     const { path, handleClickAddCart, product } = this.props;
-    // price, title, thumbnail, id
     const { dispatch } = this.props;
     dispatch(resetStateAction({ finish: false }));
     return (

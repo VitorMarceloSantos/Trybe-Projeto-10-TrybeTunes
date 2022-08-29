@@ -10,7 +10,6 @@ import CarouselBrands from '../BootStrap/Carousel';
 import Loading from '../Components/Loading';
 import NotFound from '../Components/NotFound';
 import '../styles/HomeCss.css';
-// import Finish from './Components/Finish';
 
 export default class Home extends Component {
   constructor() {

@@ -60,8 +60,6 @@ export default class Checkout extends Component {
   }
 
   finishCart=() => {
-    // const { clearItemsCart } = this.props;
-    // clearItemsCart();
     this.setState({
       finish: true,
     });
