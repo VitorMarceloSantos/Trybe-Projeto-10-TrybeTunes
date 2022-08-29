@@ -4,12 +4,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Obrigado from '../images/Obrigado.png';
 import '../styles/FinishCss.css';
-import resetStateAction from '../Redux/Actions';
+// import resetStateAction from '../Redux/Actions';
 
 class Finish extends Component {
   resetCart = () => {
-    const { dispatch } = this.props;
-    dispatch(resetStateAction({ finish: true }));
+    // const { dispatch } = this.props;
+    // dispatch(resetStateAction({ finish: true }));
+    // localStorage.removeItem('CartItems');
+    const { clearItemsCart } = this.props;
+    clearItemsCart();
   }
 
   render() {
@@ -49,7 +52,8 @@ class Finish extends Component {
 }
 Finish.propTypes = {
   CartItemsList: PropTypes.arrayOf(shape()).isRequired,
-  dispatch: PropTypes.func.isRequired,
+  // dispatch: PropTypes.func.isRequired,
+  clearItemsCart: PropTypes.func.isRequired,
 };
 
 export default connect()(Finish);

@@ -60,6 +60,8 @@ export default class Checkout extends Component {
   }
 
   finishCart=() => {
+    // const { clearItemsCart } = this.props;
+    // clearItemsCart();
     this.setState({
       finish: true,
     });
@@ -79,11 +81,12 @@ export default class Checkout extends Component {
 
   render() {
     const { verify, finish } = this.state;
-    const { CartItemsList } = this.props;
+    const { CartItemsList, clearItemsCart } = this.props;
     return (
       <div className="container-checkout-initial">
         {finish ? (<Finish
           CartItemsList={ CartItemsList }
+          clearItemsCart={ clearItemsCart }
         />
         ) : (
           <div className="container-checkout">

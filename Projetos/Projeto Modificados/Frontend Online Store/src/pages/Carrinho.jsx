@@ -8,10 +8,15 @@ import CartEmpty from '../images/CartEmpty.png';
 
 class Carrinho extends React.Component {
   componentDidMount() {
-    if (localStorage.length > 0) {
+    const { reset } = this.props;
+    if ((localStorage.getItem('CartItems') !== null) && (!reset.finish)) {
       const { cartItemsStateUpdate } = this.props;
       cartItemsStateUpdate();
     }
+    // if (localStorage.length > 0) {
+    //   const { cartItemsStateUpdate } = this.props;
+    //   cartItemsStateUpdate();
+    // }
   }
 
   handleOnChange = ({ target: { id, title, value, name } }) => {
