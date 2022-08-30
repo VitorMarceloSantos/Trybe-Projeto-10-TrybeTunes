@@ -53,3 +53,10 @@
 .container-finish .button-finish {
   height: 5vh;
 }
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-finish {
+    min-height: 87.3vh;
+  }
+}
