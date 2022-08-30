@@ -1,12 +1,4 @@
 /* stylelint-disable order/properties-alphabetical-order */
-
-/* .container-global {
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  background-color: rebeccapurple;
-} */
-
 .container-cart-global {
   min-height: 89.6vh;
   display: flex;

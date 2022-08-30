@@ -83,6 +83,7 @@ header {
   right: 2.5vw;
   top: 5.5vh;
   width: 1.3em;
+  background-color: red;
 }
 
 .number-items-cart {
@@ -121,6 +122,17 @@ header {
 
   .icon-cart {
     font-size: 1.7em;
+  }
+
+  .border-number-items {
+    height: 1.1em;
+    right: 3vw;
+    top: 4.7vh;
+    width: 1.1em;
+  }
+
+  .number-items-cart {
+    font-size: 0.7em;
   }
 }
 

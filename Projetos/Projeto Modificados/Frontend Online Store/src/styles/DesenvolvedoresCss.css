@@ -1,3 +1,4 @@
+/* stylelint-disable shorthand-property-no-redundant-values */
 /* stylelint-disable indentation */
 
 /* stylelint-disable order/properties-alphabetical-order */
@@ -60,4 +61,17 @@
   color: rgb(64, 125, 108);
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   font-size: 2em;
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-develops {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container-card-develops {
+    margin: 20px 20px;
+  }
+
 }

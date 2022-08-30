@@ -8,7 +8,7 @@ import '../styles/DesenvolvedoresCss.css';
 
 export default class Desenvolvedores extends Component {
   render() {
-    const developersData = [{ image: AnaBeatriz, name: 'Ana Beatriz', linkedin: 'https://www.linkedin.com/in/ana-beatriz-martins-lima-4009a8147/', gitHub: 'https://github.com/ana-beatriz-martins-lima' }, { image: ArturSenna, name: 'Artur Senna', linkedin: 'https://www.linkedin.com/in/artur-senna-9a2025206/', gitHub: 'https://github.com/artursennass' }, { image: MiguelInacio, name: 'Miguel Inácio', linkedin: 'https://www.linkedin.com/in/miguel-inacio/', gitHub: 'https://github.com/miguel-inacio' }, { image: RuhamLeal, name: 'Ruham Leal', linkedin: 'https://www.linkedin.com/in/ruham-leal-dos-santos-sutil-38a837243/', gitHub: 'https://github.com/RuhamLeal' }, { image: VitorMarcelo, name: 'Vitor Marcelo', linkedin: 'https://www.linkedin.com/in/vitor-marcelo-santos/', gitHub: 'https://github.com/VitorMarceloSantos' }];
+    const developersData = [{ image: VitorMarcelo, name: 'Vitor Marcelo', linkedin: 'https://www.linkedin.com/in/vitor-marcelo-santos/', gitHub: 'https://github.com/VitorMarceloSantos' }, { image: ArturSenna, name: 'Artur Senna', linkedin: 'https://www.linkedin.com/in/artur-senna-9a2025206/', gitHub: 'https://github.com/artursennass' }, { image: MiguelInacio, name: 'Miguel Inácio', linkedin: 'https://www.linkedin.com/in/miguel-inacio/', gitHub: 'https://github.com/miguel-inacio' }, { image: RuhamLeal, name: 'Ruham Leal', linkedin: 'https://www.linkedin.com/in/ruham-leal-dos-santos-sutil-38a837243/', gitHub: 'https://github.com/RuhamLeal' }, { image: AnaBeatriz, name: 'Ana Beatriz', linkedin: 'https://www.linkedin.com/in/ana-beatriz-martins-lima-4009a8147/', gitHub: 'https://github.com/ana-beatriz-martins-lima' }];
     return (
       <section>
         <h2 className="title-develops-initial">Desenvolvedores</h2>
@@ -31,7 +31,6 @@ export default class Desenvolvedores extends Component {
                 >
                   {develop.linkedin}
                 </a>
-                {/* <p >{` ${develop.linkedin}`}</p> */}
               </div>
               <p>GitHub:</p>
               <div className="container-text">
@@ -43,7 +42,6 @@ export default class Desenvolvedores extends Component {
                 >
                   {develop.gitHub}
                 </a>
-                {/* <p >{` ${develop.gitHub}`}</p> */}
               </div>
             </div>
           ))}
