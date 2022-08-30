@@ -6,14 +6,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CategoryContainer from '../Components/CategoryContainer';
+import '../styles/NavBarCss.css';
 
 export default class NavBarExample extends Component {
-  // developsNavBar = () => {
-  //   console.log('entrou')
-  //   const { developsState } = this.props;
-  //   developsState();
-  // }
-
   render() {
     const { handleRadioClick, developsState } = this.props;
     return (
@@ -28,7 +23,6 @@ export default class NavBarExample extends Component {
                     handleRadioClick={ handleRadioClick }
                   />
                 </NavDropdown>
-                {/* <Nav.Link href="#home">Trybe</Nav.Link> */}
                 <Nav.Link>
                   <button
                     type="button"
