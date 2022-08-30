@@ -29,8 +29,6 @@ export default class Home extends Component {
   developsState = () => {
     this.setState({
       develops: true,
-      noneProduct: false,
-      indexView: false,
       searchBar: '',
     });
   }
@@ -154,12 +152,13 @@ export default class Home extends Component {
           handleRadioClick={ this.handleRadioClick }
           developsState={ this.developsState }
         />
-        <section>
-          <section>
-            {develops ? (
-              <Desenvolvedores />
-            ) : (
-              indexView
+        {develops ? (
+          <Desenvolvedores />
+        ) : (
+          <div>
+            <section>
+              {
+                indexView
             && (
               <div>
                 <IndexCategory
@@ -171,20 +170,23 @@ export default class Home extends Component {
                 />
               </div>
             )
-            )}
-          </section>
-        </section>
-        <section>
-          {isLoading && (<Loading />)}
-        </section>
-        <section>
-          {noneProduct
-            ? (
-              <p data-testid="home-initial-message">
-                <NotFound />
-              </p>
-            ) : this.renderproductListOrNone() }
-        </section>
+              }
+            </section>
+            <section>
+              {isLoading && (<Loading />)}
+            </section>
+            <section>
+              {noneProduct
+                ? (
+                  <p data-testid="home-initial-message">
+                    <NotFound />
+                  </p>
+                ) : this.renderproductListOrNone() }
+            </section>
+          </div>
+
+        )}
+
       </section>
     );
   }
