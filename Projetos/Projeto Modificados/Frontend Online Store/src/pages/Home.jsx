@@ -10,6 +10,7 @@ import CarouselBrands from '../BootStrap/Carousel';
 import Loading from '../Components/Loading';
 import NotFound from '../Components/NotFound';
 import '../styles/HomeCss.css';
+import Desenvolvedores from '../Components/Desenvolvedores';
 
 export default class Home extends Component {
   constructor() {
@@ -21,7 +22,15 @@ export default class Home extends Component {
       noneProduct: false,
       indexView: true,
       isLoading: false,
+      develops: false,
     };
+  }
+
+  developsState = () => {
+    console.log('home');
+    this.setState({
+      develops: true,
+    });
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -118,7 +127,7 @@ export default class Home extends Component {
   }
 
   render() {
-    const { searchBar, noneProduct, indexView, isLoading } = this.state;
+    const { searchBar, noneProduct, indexView, isLoading, develops } = this.state;
     const { CartItemsList } = this.props;
     return (
       <section>
@@ -130,9 +139,14 @@ export default class Home extends Component {
         />
         <NavBarExample
           handleRadioClick={ this.handleRadioClick }
+          developsState={ this.developsState }
         />
         <section>
-          {indexView
+          <section>
+            {develops ? (
+              <Desenvolvedores />
+            ) : (
+              indexView
             && (
               <div>
                 <IndexCategory
@@ -143,7 +157,21 @@ export default class Home extends Component {
                   handleChangeBrands={ this.handleChangeBrands }
                 />
               </div>
+            )
             )}
+          </section>
+          {/* {indexView
+            && (
+              <div>
+                <IndexCategory
+                  handleChangeCategory={ this.handleChangeCategory }
+                />
+                <MethodsPaymetns />
+                <CarouselBrands
+                  handleChangeBrands={ this.handleChangeBrands }
+                />
+              </div>
+            )} */}
         </section>
         <section>
           {isLoading && (<Loading />)}

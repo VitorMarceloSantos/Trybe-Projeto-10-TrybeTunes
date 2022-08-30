@@ -4,6 +4,7 @@ import AnaBeatriz from '../images/AnaBeatriz.png';
 import MiguelInacio from '../images/MiguelInacio.png';
 import RuhamLeal from '../images/RuhamLeal.png';
 import VitorMarcelo from '../images/VitorMarcelo.png';
+import '../styles/DesenvolvedoresCss.css';
 
 export default class Desenvolvedores extends Component {
   render() {
