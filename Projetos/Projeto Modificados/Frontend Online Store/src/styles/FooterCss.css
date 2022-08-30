@@ -22,17 +22,23 @@ footer .logo_trybe {
 footer .logo_trybe img { /*Tamanho da Imagem*/
   max-width: 110px;
   max-height: 110px;
+  margin-top: 5px;
 }
 footer .logo_trybe .desenvolvedor { /*Texto Desenvolvedor*/
   font-size: 0.9em;
   font-weight: 600;
   padding: 5px;
   color: white;
+  margin-top: -5px;
 }
 
 @media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
   footer {
-    height: 10.8vh;
+    margin-top: 31px;
+    padding: 0;
+  }
+  footer .logo_trybe {
+    padding: 2px;
   }
 }
 
