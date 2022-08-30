@@ -27,9 +27,17 @@ export default class Home extends Component {
   }
 
   developsState = () => {
-    console.log('home');
     this.setState({
       develops: true,
+      noneProduct: false,
+      indexView: false,
+      searchBar: '',
+    });
+  }
+
+  resetDevelopsState = () => {
+    this.setState({
+      develops: false,
     });
   }
 
@@ -50,12 +58,14 @@ export default class Home extends Component {
        this.setState({
          isLoading: false,
          noneProduct: true,
+         develops: false,
        });
      } else {
        this.setState({
          isLoading: false,
          productList: productListByName.results,
          noneProduct: false,
+         develops: false,
        });
      }
    });
@@ -115,12 +125,14 @@ export default class Home extends Component {
         this.setState({
           isLoading: false,
           noneProduct: true,
+          develops: false,
         });
       } else {
         this.setState({
           isLoading: false,
           productList: productListByName.results,
           noneProduct: false,
+          develops: false,
         });
       }
     });
@@ -136,6 +148,7 @@ export default class Home extends Component {
           handleSearchClick={ this.handleSearchClick }
           searchBar={ searchBar }
           CartItemsList={ CartItemsList }
+          resetDevelopsState={ this.resetDevelopsState }
         />
         <NavBarExample
           handleRadioClick={ this.handleRadioClick }
@@ -160,18 +173,6 @@ export default class Home extends Component {
             )
             )}
           </section>
-          {/* {indexView
-            && (
-              <div>
-                <IndexCategory
-                  handleChangeCategory={ this.handleChangeCategory }
-                />
-                <MethodsPaymetns />
-                <CarouselBrands
-                  handleChangeBrands={ this.handleChangeBrands }
-                />
-              </div>
-            )} */}
         </section>
         <section>
           {isLoading && (<Loading />)}

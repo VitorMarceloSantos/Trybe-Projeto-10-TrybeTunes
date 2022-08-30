@@ -8,12 +8,19 @@ import ButtonCart from './ButtonCart';
 
 export default class Header extends Component {
   render() {
-    const { handleChange, handleSearchClick, searchBar, CartItemsList } = this.props;
+    const {
+      handleChange,
+      handleSearchClick,
+      searchBar,
+      CartItemsList,
+      resetDevelopsState,
+    } = this.props;
     return (
       <header>
         <div className="container-header">
           <Link
             to="/"
+            onClick={ resetDevelopsState }
           >
             <img
               src={ ShoppingTrybe }
@@ -60,4 +67,5 @@ Header.propTypes = {
   match: PropTypes.shape({
     path: PropTypes.string.isRequired,
   }).isRequired,
+  resetDevelopsState: PropTypes.func.isRequired,
 };
