@@ -116,14 +116,22 @@ textarea {
 .input-avaliar {
   width: 15vw;
   margin: 15px auto;
-  font-weight: 700;
   border-radius: 5px;
+  background-color: rgb(64, 125, 108);
+  color: white;
+  font-weight: 700;
+  padding: 6px;
+  font-size: 0.9em;
+  border: none;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .input-avaliar:hover {
-  background-color: rgb(64, 125, 108);
-  color: white;
+  color: rgb(125, 178, 144);
+  background-color: white;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
+
 
 .container-detalhes .fa-cart-plus {
   font-size: 3em;

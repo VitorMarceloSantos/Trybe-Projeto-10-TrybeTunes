@@ -147,18 +147,20 @@ export default class ReviewSection extends Component {
               value={ text }
             />
           </label>
-          <button
-            type="submit"
-            data-testid="submit-review-btn"
-            onClick={ this.handleReview }
-            className="input-avaliar"
-          >
-            Avaliar
+          <div className="button-avaliar">
+            <button
+              type="submit"
+              data-testid="submit-review-btn"
+              onClick={ this.handleReview }
+              className="input-avaliar"
+            >
+              Avaliar
 
-          </button>
+            </button>
+          </div>
         </form>
         {
-          !validReview && (
+          (!validReview && email.length > 0 && text.length > 0) && (
             <p
               className="review-error-msg"
               data-testid="error-msg"
