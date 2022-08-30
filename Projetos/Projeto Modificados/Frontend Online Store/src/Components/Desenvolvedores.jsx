@@ -10,21 +10,45 @@ export default class Desenvolvedores extends Component {
   render() {
     const developersData = [{ image: AnaBeatriz, name: 'Ana Beatriz', linkedin: '', gitHub: 'https://github.com/ana-beatriz-martins-lima' }, { image: ArturSenna, name: 'Artur Senna', linkedin: 'https://www.linkedin.com/in/artur-senna-9a2025206/', gitHub: 'https://github.com/artursennass' }, { image: MiguelInacio, name: 'Miguel Inácio', linkedin: 'https://www.linkedin.com/in/miguel-inacio/', gitHub: 'https://github.com/miguel-inacio' }, { image: RuhamLeal, name: 'Ruham Leal', linkedin: 'https://www.linkedin.com/in/ruham-leal-dos-santos-sutil-38a837243/', gitHub: 'https://github.com/RuhamLeal' }, { image: VitorMarcelo, name: 'Vitor Marcelo', linkedin: 'https://www.linkedin.com/in/vitor-marcelo-santos/', gitHub: 'https://github.com/VitorMarceloSantos' }];
     return (
-      <div className="container-develops">
-        <h2>Desenvolvedores</h2>
-        {developersData.map((develop) => (
-          <div className="container-card-develops" key={ develop.name }>
-            <div className="image-develop">
-              <img src={ develop.image } alt={ develop.name } />
+      <section>
+        <h2 className="title-develops-initial">Desenvolvedores</h2>
+        <div className="container-develops">
+          {developersData.map((develop) => (
+            <div className="container-card-develops" key={ develop.name }>
+              <div className="image-develop">
+                <img src={ develop.image } alt={ develop.name } />
+              </div>
+              <h3 className="name-develop">
+                {develop.name}
+              </h3>
+              <p>Linkedin:</p>
+              <div className="container-text">
+                <a
+                  className="develop-linkedin"
+                  href={ develop.linkedin }
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {develop.linkedin}
+                </a>
+                {/* <p >{` ${develop.linkedin}`}</p> */}
+              </div>
+              <p>GitHub:</p>
+              <div className="container-text">
+                <a
+                  className="develop-gitHub"
+                  href={ develop.gitHub }
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {develop.gitHub}
+                </a>
+                {/* <p >{` ${develop.gitHub}`}</p> */}
+              </div>
             </div>
-            <h3 className="name-develop">
-              {develop.name}
-            </h3>
-            <p className="develop-linkedin">{`Linkedin: ${develop.linkedin}`}</p>
-            <p className="develop-gitHub">{`GitHub: ${develop.gitHub}`}</p>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
     );
   }
 }
