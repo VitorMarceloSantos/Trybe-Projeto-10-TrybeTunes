@@ -138,3 +138,23 @@
   margin-top: 5vh;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-section-price {
+    display: flex;
+    padding-top: 10px;
+    padding-right: 3vw;
+    font-size: 1em;
+    font-weight: 700;
+    height: 5.7vh;
+  }
+
+  .container-total-products {
+    height: 7vh;
+  }
+
+  .container-cart-global {
+    min-height: 87.3vh;
+  }
+}
