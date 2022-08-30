@@ -22,7 +22,7 @@ export default class NavBarExample extends Component {
                     handleRadioClick={ handleRadioClick }
                   />
                 </NavDropdown>
-                <Nav.Link href="#home">Trybe</Nav.Link>
+                {/* <Nav.Link href="#home">Trybe</Nav.Link> */}
                 <Nav.Link href="#link">Desenvolvedores</Nav.Link>
               </Nav>
             </Navbar.Collapse>
