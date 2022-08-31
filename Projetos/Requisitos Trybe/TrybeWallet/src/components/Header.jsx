@@ -21,10 +21,7 @@ class Header extends Component {
                 ((walletState.expenses)
                   .reduce((acc, current) => acc + (current.value * (Number(
                     current.exchangeRates[current.currency].ask,
-                  )).toFixed(2)), 0)).toLocaleString(
-                  'pt-BR',
-                  { minimumFractionDigits: 2 },
-                )
+                  ))), 0)).toFixed(2)
               )}
             </p>
           </div>

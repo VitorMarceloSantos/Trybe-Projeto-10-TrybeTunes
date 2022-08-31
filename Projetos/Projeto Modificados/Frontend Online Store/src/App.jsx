@@ -99,7 +99,7 @@ export default class App extends Component {
   render() {
     const { CartItemsList } = this.state;
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={ process.env.PUBLIC_URL }>
         <Switch>
           <Route
             exact

@@ -2,6 +2,7 @@
   "name": "sd-0x-project-frontend-online-store",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://vitormarcelosantos.github.io/Trybe-Projeto-11-FrontEnd-Online-Store/", 
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
@@ -27,6 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
     "lint:styles": "npx stylelint '**/*.css'"
@@ -49,6 +52,7 @@
     "eslint-config-trybe-frontend": "1.2.3",
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-sonarjs": "^0.14.0",
+    "gh-pages": "^4.0.0",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0"

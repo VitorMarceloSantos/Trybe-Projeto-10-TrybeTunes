@@ -10,9 +10,9 @@ class WalletForm extends Component {
       id: '',
       value: '',
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USD',
+      method: 'Cartão de crédito',
+      tag: 'Lazer',
     };
   }
 
