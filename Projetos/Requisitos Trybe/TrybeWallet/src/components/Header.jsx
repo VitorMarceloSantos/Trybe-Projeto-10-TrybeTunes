@@ -17,7 +17,7 @@ class Header extends Component {
           <div className="container-expenses-total">
             <p>Despesa Total:</p>
             <p data-testid="total-field">
-              { (walletState.expenses).length === 0 ? 0 : (
+              { (walletState.expenses).length === 0 ? (0).toFixed(2) : (
                 ((walletState.expenses)
                   .reduce((acc, current) => acc + (current.value * (Number(
                     current.exchangeRates[current.currency].ask,
