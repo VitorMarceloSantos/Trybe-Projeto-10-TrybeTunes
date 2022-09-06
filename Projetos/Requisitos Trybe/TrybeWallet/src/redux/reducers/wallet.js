@@ -1,6 +1,5 @@
 export const walletCorrect = 'WALLET_CORRECT';
 export const walletExchange = 'WALLET_EXCHANGE';
-// export const walletValue = 'WALLET_VALUE';
 const INITIAL_STATE = {
   currencies: [], // array de string
   expenses: [], // array de objetos, com cada objeto tendo as chaves id, value, currency, method, tag, description e exchangeRates

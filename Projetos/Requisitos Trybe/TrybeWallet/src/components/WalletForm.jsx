@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addWalletAction, exchangeExpensesThunk } from '../redux/actions';
+import {
+  addWalletAction,
+  exchangeExpensesThunk,
+  // addWalletValueEdit,
+} from '../redux/actions';
 
 class WalletForm extends Component {
   constructor() {
@@ -38,15 +42,30 @@ class WalletForm extends Component {
     event.preventDefault();
     const { dispatch } = this.props;
     const { walletState } = this.props;
-    this.setState({
-      id: (walletState.expenses).length,
-    }, () => {
-      dispatch(exchangeExpensesThunk(this.state));
+    let { editor } = walletState;
+    if (editor) {
+      const { expenses, idToEdit } = walletState;
+      editor = false;
+      const { exchangeRates } = expenses[idToEdit];
+      expenses[idToEdit] = this.state;
+      expenses[idToEdit].id = idToEdit;
+      expenses[idToEdit].exchangeRates = exchangeRates;
+      dispatch(addWalletAction({ expenses, editor }));
       this.setState({
         value: '',
         description: '',
       });
-    });
+    } else {
+      this.setState({
+        id: (walletState.expenses).length,
+      }, () => {
+        dispatch(exchangeExpensesThunk(this.state));
+        this.setState({
+          value: '',
+          description: '',
+        });
+      });
+    }
   };
 
   render() {
@@ -57,6 +76,7 @@ class WalletForm extends Component {
       method,
       tag } = this.state;
     const { walletState } = this.props;
+    const valueText = walletState.editor ? 'Editar despesa' : 'Adicionar despesa';
     return (
       <form className="container-description-expenses">
         <label htmlFor="value">
@@ -125,7 +145,7 @@ class WalletForm extends Component {
         </label>
         <input
           type="submit"
-          value="Adicionar despesa"
+          value={ valueText }
           onClick={ this.saveExpenses }
         />
       </form>
