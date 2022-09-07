@@ -21,12 +21,11 @@ class Login extends Component {
       const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       const quantCharacter = 6;
       if ((password.length >= quantCharacter) && (regexEmail.test(email))) {
-        console.log('Dados Corretos');
+        // console.log('Dados Corretos');
         this.setState({
           isDisable: false,
         });
       } else {
-        // console.log('Dados Incorretos');
         this.setState({
           isDisable: true,
         });
