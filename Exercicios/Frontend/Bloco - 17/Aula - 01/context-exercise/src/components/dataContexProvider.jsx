@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import informationUser from './dataContext'
 
-export class dataContexProvider extends Component {
+class dataContexProvider extends Component {
   constructor(){
     super();
     this.state = {
@@ -12,7 +12,12 @@ export class dataContexProvider extends Component {
   }
 
   render() {
-    const valueContext = { ...this.state }; // passando os estado destruturado
+    const { name, age, profission } = this.state;
+    const valueContext = {
+      name:name, 
+      age: age,
+      profission: profission
+    }; // passando os estado destruturado
     return (
       <informationUser.Provider value={ valueContext }>
          <div>
