@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
+import DataContexProvider from './components/DataContexProvider'
 
 
-export class App extends Component {
+class App extends Component {
   render() {
     return (
-      <div>
-        <HeaderComponent></HeaderComponent>
-        <FooterComponent></FooterComponent>
-      </div>
+      <DataContexProvider>
+        <main>
+          <HeaderComponent/>
+          <FooterComponent/>
+        </main>
+      </DataContexProvider>
+      
     )
   }
 }
