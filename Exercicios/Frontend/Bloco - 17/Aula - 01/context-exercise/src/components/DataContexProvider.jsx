@@ -12,11 +12,16 @@ class DataContexProvider extends Component {
     }
   }
 
+  handlePrintHello = () => {
+    console.log('Hello World.');
+  }
+
   render() {
     const { children } = this.props; // children é uma forma de passsar todas as props do componente
     // const { name, age, profission } = this.state;
     const valueContext = {
       ...this.state,
+      handlePrintHello: this.handlePrintHello, // passando a função
       // name:name, 
       // age: age,
       // profission: profission
