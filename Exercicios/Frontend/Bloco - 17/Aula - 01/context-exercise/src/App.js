@@ -7,7 +7,7 @@ import DataContexProvider from './components/DataContexProvider'
 class App extends Component {
   render() {
     return (
-      <DataContexProvider>
+      <DataContexProvider> {/*Engloba todos os componentes que vão fazer uso do context. */}
         <main>
           <HeaderComponent/>
           <FooterComponent/>
