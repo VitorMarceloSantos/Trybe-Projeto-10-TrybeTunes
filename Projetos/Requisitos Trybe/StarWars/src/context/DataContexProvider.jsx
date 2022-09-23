@@ -8,6 +8,7 @@ function DataContexProvider({ children }) {
   const [planetsFiltered, setPlanetsFiltered] = useState([]);
   const [filterByName, setFilterByName] = useState({});
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
+  const [order, setOrder] = useState({});
 
   const fetchAPI = async () => {
     const response = await fetch(`${URL}`);
@@ -25,6 +26,8 @@ function DataContexProvider({ children }) {
     setFilterByName,
     filterByNumericValues,
     setFilterByNumericValues,
+    order,
+    setOrder,
   };
   return (
     <informationAPI.Provider value={ valueContext }>
