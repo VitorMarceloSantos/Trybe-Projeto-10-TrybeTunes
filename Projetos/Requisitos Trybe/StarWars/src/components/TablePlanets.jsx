@@ -1,48 +1,35 @@
 import React, { useContext, useEffect, useState } from 'react';
 import informationAPI from '../context/DataContext';
+import verifyFilterNew from '../functions/verifyFilterNew';
+import Table from './Table';
 
 const optionsArray = [
   'orbital_period', 'diameter', 'rotation_period', 'surface_water', 'population'];
-
 function TablePlanets() {
-  const {
-    planets,
-    fetchAPI,
-    planetsFiltered,
-    setPlanetsFiltered,
-    filterByName,
-    setFilterByName,
-    setFilterByNumericValues,
-    filterByNumericValues,
-    order,
-    setOrder,
-  } = useContext(informationAPI);
+  const { planets, fetchAPI, planetsFiltered, setPlanetsFiltered, filterByName,
+    setFilterByName, setFilterByNumericValues, filterByNumericValues, // order,
+    setOrder } = useContext(informationAPI);
   const [column, setColumn] = useState('population');
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState(0);
   const [optionsValues, setOptionsValues] = useState(optionsArray);
-  const [orderOption, setOrderOption] = useState('');
-  const [orderDirection, setOrderDirection] = useState('');
-
+  const [orderOption, setOrderOption] = useState('population');
+  const [orderDirection, setOrderDirection] = useState('ASC');
   useEffect(() => {
     fetchAPI();
   }, []); // caso não coloque será um laço infinito
-
   const verifyFilter = () => {
     if (typeof filterByName.name !== 'undefined') {
       setPlanetsFiltered(planets.filter(({ name }) => name.toLowerCase()
         .includes(filterByName.name)));
     }
   };
-
   useEffect(() => {
     verifyFilter();
   }, [filterByName]);
-
   const handleOnChange = ({ target }) => {
     setFilterByName({ name: (target.value).toLowerCase() });
   };
-
   const verifyFilterComponent = (tempPlanet) => {
     if (comparison === 'maior que') {
       setPlanetsFiltered(tempPlanet.filter(
@@ -60,13 +47,11 @@ function TablePlanets() {
       ));
     }
   };
-
   const verifyFilterOptions = () => {
     const tempPlanet = planetsFiltered.length !== 0 ? planetsFiltered : planets;
     setOptionsValues((prevState) => prevState.filter((option) => option !== column));
     verifyFilterComponent(tempPlanet);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setFilterByNumericValues((prevState) => [...prevState, ({
@@ -76,43 +61,16 @@ function TablePlanets() {
     })]);
     verifyFilterOptions();
   };
-
-  const verifyFilterNew = () => {
-    let tempPlanet = planets;
-    for (let i = 0; i < filterByNumericValues.length; i += 1) {
-      if (filterByNumericValues[i].comparison === 'maior que') {
-        tempPlanet = (tempPlanet.filter(
-          (planet) => Number(planet[filterByNumericValues[i].column])
-          > Number(filterByNumericValues[i].value),
-        ));
-      }
-      if (filterByNumericValues[i].comparison === 'menor que') {
-        tempPlanet = (tempPlanet.filter(
-          (planet) => Number(planet[filterByNumericValues[i].column])
-          < Number(filterByNumericValues[i].value),
-        ));
-      }
-      if (filterByNumericValues[i].comparison === 'igual a') {
-        tempPlanet = (tempPlanet.filter(
-          (planet) => Number(planet[filterByNumericValues[i].column])
-          === Number(filterByNumericValues[i].value),
-        ));
-      }
-    }
-    return tempPlanet;
-  };
-
   const removeFilter = (index) => {
     setOptionsValues((prevState) => [...prevState, index.column]);
     setFilterByNumericValues(filterByNumericValues
       .filter((filter) => filter.column !== index.column));
   };
-
   useEffect(() => {
     if (filterByNumericValues.length === 0) {
       setPlanetsFiltered(planets);
     } else {
-      setPlanetsFiltered(verifyFilterNew);
+      setPlanetsFiltered(verifyFilterNew(planets, filterByNumericValues));
     }
   }, [filterByNumericValues]);
 
@@ -120,11 +78,41 @@ function TablePlanets() {
     setFilterByNumericValues([]);
     setPlanetsFiltered(planets);
   };
-
   const buttonOrder = () => {
     setOrder({ order: { column: orderOption, sort: orderDirection } });
+    const tempPlanet = planetsFiltered.length !== 0 ? planetsFiltered : planets;
+    const magicNumber = -1;
+    function compare(a, b) {
+      if (Number(a[orderOption]) < Number(b[orderOption])) {
+        return magicNumber;
+      }
+      if (Number(a[orderOption]) > Number(b[orderOption])) {
+        return 1;
+      }
+      return 0;
+    }
+    if (orderOption !== 'population') {
+      if (orderDirection === 'ASC') {
+        const temp = ((tempPlanet
+          .sort((a, b) => compare(a, b))));
+        setPlanetsFiltered([...temp]);
+      } else {
+        const temp = (((tempPlanet
+          .sort((a, b) => compare(a, b)))).reverse());
+        setPlanetsFiltered([...temp]);
+      }
+    } else {
+      const arrayUnknown = planets.filter((planet) => planet.population === 'unknown');
+      const notUnknown = planets.filter((planet) => planet.population !== 'unknown');
+      if (orderDirection === 'ASC') {
+        setPlanetsFiltered([...notUnknown
+          .sort((a, b) => compare(a, b)), arrayUnknown[1], arrayUnknown[0]]);
+      } else {
+        setPlanetsFiltered([...notUnknown
+          .sort((a, b) => compare(a, b)).reverse(), arrayUnknown[1], arrayUnknown[0]]);
+      }
+    }
   };
-
   return (
     <div>
       {planets.length !== 0 && (
@@ -203,7 +191,6 @@ function TablePlanets() {
               id="column-sort"
               data-testid="column-sort"
               onChange={ (e) => setOrderOption(e.target.value) }
-              value={ orderOption }
             >
               <option value="population">population</option>
               <option value="orbital_period">orbital_period</option>
@@ -218,6 +205,7 @@ function TablePlanets() {
               name="orderRadio"
               id="orderAsc"
               value="ASC"
+              data-testid="column-sort-input-asc"
               onChange={ (e) => setOrderDirection(e.target.value) }
             />
             Ascendente
@@ -228,6 +216,7 @@ function TablePlanets() {
               name="orderRadio"
               id="orderDesc"
               value="DESC"
+              data-testid="column-sort-input-desc"
               onChange={ (e) => setOrderDirection(e.target.value) }
             />
             Descendente
@@ -245,37 +234,7 @@ function TablePlanets() {
               </tr>
             </thead>
             <tbody>
-              {(planetsFiltered.length !== 0 ? planetsFiltered : planets).map(({
-                name,
-                rotation_period: rotationPeriod,
-                orbital_period: orbitalPeriod,
-                diameter,
-                climate,
-                gravity,
-                terrain,
-                surface_water: surfaceWater,
-                population,
-                films,
-                created,
-                edited,
-                url,
-              }) => (
-                <tr key={ name } data-testid="planet-name">
-                  <td>{name}</td>
-                  <td>{Number(rotationPeriod)}</td>
-                  <td>{Number(orbitalPeriod)}</td>
-                  <td>{Number(diameter)}</td>
-                  <td>{climate}</td>
-                  <td>{gravity}</td>
-                  <td>{terrain}</td>
-                  <td>{Number(surfaceWater)}</td>
-                  <td>{population}</td>
-                  <td>{films}</td>
-                  <td>{created}</td>
-                  <td>{edited}</td>
-                  <td>{url}</td>
-                </tr>
-              ))}
+              {Table()}
             </tbody>
           </table>
         </div>
