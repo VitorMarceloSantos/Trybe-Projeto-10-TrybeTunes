@@ -20,8 +20,8 @@ function Table() {
         edited,
         url,
       }) => (
-        <tr key={ name } data-testid="planet-name">
-          <td>{name}</td>
+        <tr key={ name }>
+          <td data-testid="planet-name">{name}</td>
           <td>{Number(rotationPeriod)}</td>
           <td>{Number(orbitalPeriod)}</td>
           <td>{Number(diameter)}</td>
@@ -29,7 +29,7 @@ function Table() {
           <td>{gravity}</td>
           <td>{terrain}</td>
           <td>{Number(surfaceWater)}</td>
-          <td>{population}</td>
+          <td data-testid="test-unknown">{population}</td>
           <td>{films}</td>
           <td>{created}</td>
           <td>{edited}</td>

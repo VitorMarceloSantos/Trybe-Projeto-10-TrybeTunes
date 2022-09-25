@@ -98,7 +98,7 @@ function TablePlanets() {
         setPlanetsFiltered([...temp]);
       } else {
         const temp = (((tempPlanet
-          .sort((a, b) => compare(a, b)))).reverse());
+          .sort((b, a) => compare(a, b)))));
         setPlanetsFiltered([...temp]);
       }
     } else {
@@ -109,7 +109,7 @@ function TablePlanets() {
           .sort((a, b) => compare(a, b)), arrayUnknown[1], arrayUnknown[0]]);
       } else {
         setPlanetsFiltered([...notUnknown
-          .sort((a, b) => compare(a, b)).reverse(), arrayUnknown[1], arrayUnknown[0]]);
+          .sort((b, a) => compare(a, b)), arrayUnknown[1], arrayUnknown[0]]);
       }
     }
   };
