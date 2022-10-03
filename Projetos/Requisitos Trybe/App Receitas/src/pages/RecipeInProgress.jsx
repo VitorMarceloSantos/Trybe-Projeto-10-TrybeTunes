@@ -1,34 +1,96 @@
-import React from 'react';
-
-const mockArray = [
-  {
-    id: '52771',
-    title: 'Spicy Arrabiata Penne',
-    tags: 'Pasta,Curry',
-    categories: 'Vegetarian',
-    thumbnail: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
-    instructions: 'Bring a large pot of water',
-    video: 'https://www.youtube.com/watch?v=1IszT_guI08',
-    ingredients: [
-      {
-        ingredient: 'penne rigate',
-        measure: '1 pound',
-      },
-    ],
-  },
-];
+import React, { useState, useEffect, useContext } from 'react';
+import MyContext from '../context/Context';
 
 function RecipeInProgress() {
-  const { title, categories, thumbnail, instructions } = mockArray[0];
+  const { idDetails } = useContext(MyContext);
+  const [mealsRoute, setMealsRoute] = useState(false);
+  const [drinksRoute, setDrinksRoute] = useState(false);
+  const [mealDetails, setMealDetails] = useState({});
+  const [drinkDetails, setDrinkDetails] = useState({});
+  useEffect(() => {
+    const fetchMenus = async () => {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idDetails}`);
+      const results = await response.json();
+      setMealDetails(results);
+      setMealsRoute(true);
+    };
+    const fetchBebidas = async () => {
+      const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDetails}`);
+      const results = await response.json();
+      setDrinkDetails(results);
+      setDrinksRoute(true);
+    };
+    if (window.location.pathname.includes('/meals')) {
+      fetchMenus();
+    }
+    if (window.location.pathname.includes('/drinks')) {
+      fetchBebidas();
+    }
+  }, [], idDetails);
   return (
     <div>
-      <img src={ thumbnail } alt="meals" data-testid="recipe-photo" />
-      <h1 data-testid="recipe-title">{title}</h1>
-      <h3 data-testid="recipe-category">{categories}</h3>
-      <button type="button" data-testid="share-btn">Compartilhar</button>
-      <button type="button" data-testid="favorite-btn">Favoritar</button>
-      <p data-testid="instructions">{instructions}</p>
-      <button type="button" data-testid="finish-recipe-btn">Finalizar Receita</button>
+      <h2>Recipe in Progress</h2>
+      {mealsRoute
+      && mealDetails.meals.map((elem, index) => (
+        <div key={ index }>
+          <img
+            alt="meal-thumbnail"
+            src={ elem.strMealThumb }
+            width="330"
+            data-testid="recipe-photo"
+          />
+          <p data-testid="recipe-title">{ elem.strMeal }</p>
+          <button data-testid="share-btn" type="button">Share</button>
+          <button data-testid="favorite-btn" type="button">Favorite</button>
+          <p data-testid="recipe-category">{ elem.strCategory }</p>
+          <p data-testid="instructions">{ elem.strInstructions }</p>
+          {Object.keys(mealDetails.meals[0])
+            .filter((e) => e.includes('strIngredient'))
+            .map((e2, i) => mealDetails.meals[0][e2]
+          && (
+            <div key={ i }>
+              <label
+                data-testid={ `${i}-ingredient-step` }
+                htmlFor="index"
+              >
+                {mealDetails.meals[0][e2]}
+                <input type="checkbox" id="index" />
+              </label>
+            </div>
+          ))}
+        </div>
+      ))}
+      {drinksRoute
+      && drinkDetails.drinks.map((elem, index) => (
+        <div key={ index }>
+          <img
+            alt="meal-thumbnail"
+            src={ elem.strDrinkThumb }
+            width="330"
+            data-testid="recipe-photo"
+          />
+          <p data-testid="recipe-title">{ elem.strDrink }</p>
+          <button data-testid="share-btn" type="button">Share</button>
+          <button data-testid="favorite-btn" type="button">Favorite</button>
+          <p data-testid="recipe-category">{ elem.strCategory }</p>
+          <p data-testid="instructions">{ elem.strInstructions }</p>
+          {Object.keys(drinkDetails.drinks[0])
+            .filter((e) => e.includes('strIngredient'))
+            .map((e2, i) => drinkDetails.drinks[0][e2]
+          && (
+            <div key={ i }>
+              <label
+                data-testid={ `${i}-ingredient-step` }
+                htmlFor="index"
+              >
+                {drinkDetails.drinks[0][e2]}
+                <input type="checkbox" id="index" />
+              </label>
+            </div>
+          ))}
+        </div>
+      ))}
+      <button data-testid="finish-recipe-btn" type="button">Finish Recipe</button>
     </div>
   );
 }

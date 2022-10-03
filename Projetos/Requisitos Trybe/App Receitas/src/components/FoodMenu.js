@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MyContext from '../context/Context';
 import Recipes from './Recipes';
+import CategoryButton from './CategoryButton';
+import ButtonFilterReset from './ButtonFilterReset';
 
 function Cardapio() {
   const { dataSearch } = useContext(MyContext);
   const [fetchData, setFetchData] = useState({});
-  // const maximumLine = 12;
   useEffect(() => {
     const apiRequest = async () => {
       const URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
@@ -27,6 +28,8 @@ function Cardapio() {
   return (
     <div>
       <h2>Cardápio de comida</h2>
+      <CategoryButton />
+      <ButtonFilterReset />
       <ul>
         {(Object.keys(dataSearch).length === 0
         && Object.keys(fetchData).length !== 0) && (
@@ -36,7 +39,9 @@ function Cardapio() {
               imageSrc={ food.strMealThumb }
               index={ index }
               name={ food.strMeal }
+              id={ food.idMeal }
             />
+
           ))
         )}
         {Object.keys(dataSearch).length !== 0 && (
@@ -46,6 +51,7 @@ function Cardapio() {
               imageSrc={ food.strMealThumb }
               index={ i }
               name={ food.strMeal }
+              id={ food.idMeal }
             />
           ))
         )}

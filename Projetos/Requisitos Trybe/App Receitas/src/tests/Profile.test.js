@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
 
-jest.mock('clipboard-copy');
+jest.mock('clipboard-copy'); // adicionando a biblioteca
 
 describe('Verifica funcionalidades da página de Profile', () => {
   function mealsFood() {
@@ -78,6 +78,7 @@ describe('Verifica funcionalidades da página de Profile', () => {
     expect(LogoutButton).toBeInTheDocument();
 
     // Botões do Profile
+
     // Testando o Done Recipes
     userEvent.click(DoneButton);
     // history.push('/done-recipes');

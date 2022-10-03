@@ -1,4 +1,4 @@
-const DRINK_API = 'https://www.thecocktaildb.com/api/json/v1/1';
+/* const DRINK_API = 'https://www.thecocktaildb.com/api/json/v1/1';
 const MEAL_API = 'https://www.themealdb.com/api/json/v1/1';
 
 async function getDrinkById(id) {
@@ -17,4 +17,4 @@ async function getMealById(id) {
     .then((data) => (data.meals ? data.meals[0] : null));
 }
 
-export { getDrinkById, getMealById };
+export { getDrinkById, getMealById }; */

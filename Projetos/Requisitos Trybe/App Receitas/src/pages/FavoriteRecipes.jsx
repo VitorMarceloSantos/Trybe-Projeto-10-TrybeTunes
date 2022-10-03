@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import ShareButton from '../components/ShareButton';
@@ -38,17 +39,19 @@ function FavoriteRecipes() {
       </button>
       {mockRecipe.map((recipe, index) => (
         <div key={ recipe.id }>
-          <img
-            src={ recipe.image }
-            alt={ recipe.name }
-            data-testid={ `${index}-horizontal-image` }
-          />
-          <p
-            data-testid={ `${index}-horizontal-name` }
-            id={ recipe.id }
+          <Link
+            to={ recipe.type === 'meal' ? (`/meals/${recipe.id}`)
+              : (`/drinks/${recipe.id}`) }
           >
-            {recipe.name}
-          </p>
+            <img
+              src={ recipe.image }
+              alt={ `Img-${index}` }
+              role="presentation"
+              data-testid={ `${index}-horizontal-image` }
+              width="300"
+              height="300"
+            />
+          </Link>
           {recipe.alcoholicOrNot && (
             <p data-testid={ `${index}-horizontal-top-text` }>
               {recipe.alcoholicOrNot}
@@ -76,7 +79,9 @@ function FavoriteRecipes() {
               {recipe.category}
             </p>
           )}
-          <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
+          <Link to={ (`/drinks/${recipe.id}`) }>
+            <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
+          </Link>
           <button
             type="button"
             data-testid={ `${index}-horizontal-favorite-btn` }

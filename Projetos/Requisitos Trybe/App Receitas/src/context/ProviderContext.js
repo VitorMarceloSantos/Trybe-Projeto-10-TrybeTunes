@@ -9,6 +9,7 @@ function ProviderContext({ children }) {
   const [searchBar, setSearchBar] = useState(true);
   const [dataSearch, setDataSearch] = useState({});
   const [dataSearchDrink, setDataSearchDrink] = useState({});
+  const [idDetails, setIdDetails] = useState('');
 
   const contextValue = {
     buttonDisable,
@@ -23,6 +24,8 @@ function ProviderContext({ children }) {
     setDataSearch,
     dataSearchDrink,
     setDataSearchDrink,
+    idDetails,
+    setIdDetails,
   };
 
   return (
