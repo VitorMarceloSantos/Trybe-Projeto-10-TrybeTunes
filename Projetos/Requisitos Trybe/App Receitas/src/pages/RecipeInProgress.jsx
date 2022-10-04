@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router';
 import MyContext from '../context/Context';
+import ShareProduct from '../components/ShareProduct';
 
 function RecipeInProgress() {
   const { idDetails } = useContext(MyContext);
@@ -7,6 +9,9 @@ function RecipeInProgress() {
   const [drinksRoute, setDrinksRoute] = useState(false);
   const [mealDetails, setMealDetails] = useState({});
   const [drinkDetails, setDrinkDetails] = useState({});
+  const history = useHistory();
+
+  console.log('Fetch', idDetails);
   useEffect(() => {
     const fetchMenus = async () => {
       const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idDetails}`);
@@ -20,13 +25,14 @@ function RecipeInProgress() {
       setDrinkDetails(results);
       setDrinksRoute(true);
     };
-    if (window.location.pathname.includes('/meals')) {
+    if (history.location.pathname.includes('/meals')) {
       fetchMenus();
     }
-    if (window.location.pathname.includes('/drinks')) {
+    if (history.location.pathname.includes('/drinks')) {
       fetchBebidas();
     }
-  }, [], idDetails);
+    // eslint-disable-next-line
+  }, [idDetails]);
   return (
     <div>
       <h2>Recipe in Progress</h2>
@@ -40,7 +46,8 @@ function RecipeInProgress() {
             data-testid="recipe-photo"
           />
           <p data-testid="recipe-title">{ elem.strMeal }</p>
-          <button data-testid="share-btn" type="button">Share</button>
+          <ShareProduct />
+          {/* <button data-testid="share-btn" type="button">Share</button> */}
           <button data-testid="favorite-btn" type="button">Favorite</button>
           <p data-testid="recipe-category">{ elem.strCategory }</p>
           <p data-testid="instructions">{ elem.strInstructions }</p>
@@ -70,7 +77,7 @@ function RecipeInProgress() {
             data-testid="recipe-photo"
           />
           <p data-testid="recipe-title">{ elem.strDrink }</p>
-          <button data-testid="share-btn" type="button">Share</button>
+          <ShareProduct />
           <button data-testid="favorite-btn" type="button">Favorite</button>
           <p data-testid="recipe-category">{ elem.strCategory }</p>
           <p data-testid="instructions">{ elem.strInstructions }</p>

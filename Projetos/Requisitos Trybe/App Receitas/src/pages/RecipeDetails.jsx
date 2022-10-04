@@ -4,9 +4,10 @@ import { useHistory } from 'react-router-dom';
 import fetchIdRecipes from '../services/fetchDetails25';
 import DetailsDrinks from '../components/DetailsDrink';
 import DetailsMeals from '../components/DetailsMeals';
-import shareIcon from '../images/shareIcon.svg';
+// import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import '../styles/Details.css';
+import ShareProduct from '../components/ShareProduct';
 
 function RecipeDetails() {
   const [recipeDetails,
@@ -32,15 +33,7 @@ function RecipeDetails() {
             alt=""
           />
         </button>
-
-        <button type="button">
-          <img
-            data-testid="share-btn"
-            src={ shareIcon }
-            alt=""
-          />
-        </button>
-
+        <ShareProduct />
       </div>
 
     </body>

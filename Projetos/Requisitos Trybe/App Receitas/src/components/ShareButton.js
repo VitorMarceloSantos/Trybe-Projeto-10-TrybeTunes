@@ -29,7 +29,7 @@ function ShareButton({ index, recipe }) {
         >
           <img
             src={ shareIcon }
-            alt=" "
+            alt="Share Img"
             data-testid={ `${index}-horizontal-share-btn` }
           />
         </button>
@@ -38,7 +38,6 @@ function ShareButton({ index, recipe }) {
     </div>
   );
 }
-
 ShareButton.propTypes = {
   index: PropTypes.number.isRequired,
   recipe: PropTypes.shape().isRequired,

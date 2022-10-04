@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import YoutubeVideo from './YoutubeVideo';
 import '../styles/Details.css';
+import CarouselFood from './CarouselFood';
 import MyContext from '../context/Context';
 
 export default function DetailsDrinks(data) {
@@ -119,21 +120,24 @@ export default function DetailsDrinks(data) {
 
       <p data-testid="instructions">{strInstructions}</p>
       {strYoutube && YoutubeVideo(strYoutube.split('v=')[1])}
+      <div>
+        <CarouselFood />
+        {clearButton === '' && (
+          <button
+            style={ { marginLeft: '300px' } }
+            type="button"
+            className="div-button"
+            data-testid="start-recipe-btn"
+            onClick={ () => {
+              history.push(`/drinks/${idDrink}/in-progress`);
+              setIdDetails(idDrink);
+            } }
+          >
+            {btnProgress}
 
-      {clearButton === '' && (
-        <button
-          type="button"
-          className="div-button"
-          data-testid="start-recipe-btn"
-          onClick={ () => {
-            history.push(`/drinks/${idDrink}/in-progress`);
-            setIdDetails(idDrink);
-          } }
-        >
-          {btnProgress}
-
-        </button>
-      )}
+          </button>
+        )}
+      </div>
     </div>
   );
 }
