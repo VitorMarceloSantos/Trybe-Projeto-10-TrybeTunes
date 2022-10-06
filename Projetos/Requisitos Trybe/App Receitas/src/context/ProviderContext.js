@@ -32,6 +32,7 @@ function ProviderContext({ children }) {
     setCarouselFood,
     idDetails,
     setIdDetails,
+
   };
 
   return (

@@ -120,7 +120,7 @@ export default function DetailsDrinks(data) {
 
       <p data-testid="instructions">{strInstructions}</p>
       {strYoutube && YoutubeVideo(strYoutube.split('v=')[1])}
-      <div>
+      <div style={ { marginBottom: '50px' } }>
         <CarouselFood />
         {clearButton === '' && (
           <button

@@ -24,6 +24,10 @@ const mockRecipe = [
     image: 'https://www.thecocktaildb.com/images/media/drink/zvsre31572902738.jpg',
   }];
 
+const removeFavorite = () => {
+  console.log('aqui');
+};
+
 function FavoriteRecipes() {
   return (
     <div>
@@ -86,6 +90,7 @@ function FavoriteRecipes() {
             type="button"
             data-testid={ `${index}-horizontal-favorite-btn` }
             src={ blackHeartIcon }
+            onClick={ removeFavorite }
           >
             <img
               src={ blackHeartIcon }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import ShareButton from '../components/ShareButton';
-// import ShareProduct from '../components/ShareProduct';
+// import ShareButton from '../components/ShareButton';
+import ShareProduct from '../components/ShareProduct';
 import './DoneRecipes.css';
 
 function DoneRecipes() {
@@ -121,7 +121,8 @@ function DoneRecipes() {
           {recipe.tags.map((e) => (
             <p key={ e } data-testid={ `${index}-${e}-horizontal-tag` }>{e}</p>
           ))}
-          <ShareButton index={ index } recipe={ recipe } />
+          {/* <ShareButton index={ index } recipe={ recipe } /> */}
+          <ShareProduct />
         </div>
       )))}
 
@@ -149,7 +150,8 @@ function DoneRecipes() {
           {recipe.tags.map((e) => (
             <p key={ e } data-testid={ `${index}-${e}-horizontal-tag` }>{e}</p>
           ))}
-          <ShareButton index={ index } recipe={ recipe } />
+          {/* <ShareButton index={ index } recipe={ recipe } /> */}
+          <ShareProduct />
         </div>
       ))}
 
@@ -178,7 +180,8 @@ function DoneRecipes() {
           {recipe.tags.map((e) => (
             <p key={ e } data-testid={ `${index}-${e}-horizontal-tag` }>{e}</p>
           ))}
-          <ShareButton index={ index } recipe={ recipe } />
+          {/* <ShareButton index={ index } recipe={ recipe } /> */}
+          <ShareProduct />
         </div>
       ))}
     </div>
