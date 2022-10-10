@@ -122,7 +122,10 @@ function DoneRecipes() {
             <p key={ e } data-testid={ `${index}-${e}-horizontal-tag` }>{e}</p>
           ))}
           {/* <ShareButton index={ index } recipe={ recipe } /> */}
-          <ShareProduct />
+          <ShareProduct
+            index={ index }
+            recipe={ recipe }
+          />
         </div>
       )))}
 
@@ -151,7 +154,10 @@ function DoneRecipes() {
             <p key={ e } data-testid={ `${index}-${e}-horizontal-tag` }>{e}</p>
           ))}
           {/* <ShareButton index={ index } recipe={ recipe } /> */}
-          <ShareProduct />
+          <ShareProduct
+            index={ index }
+            recipe={ recipe }
+          />
         </div>
       ))}
 
@@ -181,7 +187,10 @@ function DoneRecipes() {
             <p key={ e } data-testid={ `${index}-${e}-horizontal-tag` }>{e}</p>
           ))}
           {/* <ShareButton index={ index } recipe={ recipe } /> */}
-          <ShareProduct />
+          <ShareProduct
+            index={ index }
+            recipe={ recipe }
+          />
         </div>
       ))}
     </div>

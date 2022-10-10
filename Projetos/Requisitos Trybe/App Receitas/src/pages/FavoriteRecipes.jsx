@@ -1,47 +1,83 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import ShareButton from '../components/ShareButton';
 
-const mockRecipe = [
-  {
-    id: '52771',
-    type: 'meal',
-    nationality: 'Italian',
-    category: 'Vegetarian',
-    alcoholicOrNot: '',
-    name: 'Spicy Arrabiata Penne',
-    image: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
-  },
-  {
-    id: '178319',
-    type: 'drink',
-    nationality: '',
-    category: 'Cocktail',
-    alcoholicOrNot: 'Alcoholic',
-    name: 'Aquamarine',
-    image: 'https://www.thecocktaildb.com/images/media/drink/zvsre31572902738.jpg',
-  }];
-
-const removeFavorite = () => {
-  console.log('aqui');
-};
-
 function FavoriteRecipes() {
+  const [productLocalStorage, setProductLocalStorage] = useState([]);
+  const [filterSelection, setFilterSelection] = useState([]);
+  const [useUpdate, setUseUpdate] = useState(false);
+
+  const verifyLocalStorage = () => {
+    const getLocalStorage = localStorage.getItem('favoriteRecipes');
+    const product = JSON.parse(getLocalStorage);
+    if (product !== null) {
+      setProductLocalStorage(product);
+      setFilterSelection(product);
+      return true;
+    }
+  };
+
+  const removeFavorite = (id) => {
+    const arrayFilter = productLocalStorage
+      .filter((product) => product.id !== id);
+    setUseUpdate(!useUpdate);
+    return localStorage.setItem('favoriteRecipes', JSON.stringify(
+      [...arrayFilter],
+    ));
+  };
+
+  useEffect(() => {
+    verifyLocalStorage();
+  }, [useUpdate]);
+
+  const verifyButtons = (name) => {
+    switch (name) {
+    case 'All':
+      setFilterSelection(productLocalStorage);
+      break;
+    case 'Meals':
+      setFilterSelection(productLocalStorage
+        .filter((product) => product.type === 'meal'));
+      break;
+    case 'Drinks':
+      setFilterSelection(productLocalStorage
+        .filter((product) => product.type === 'drink'));
+      break;
+    default:
+      console.log('Erro no Switch.');
+    }
+  };
+
   return (
     <div>
       <Header title="Favorite Recipes" />
-      <button type="button" data-testid="filter-by-all-btn">
+      <button
+        type="button"
+        data-testid="filter-by-all-btn"
+        name="All"
+        onClick={ (e) => verifyButtons(e.target.name) }
+      >
         All
       </button>
-      <button type="button" data-testid="filter-by-meal-btn">
+      <button
+        type="button"
+        data-testid="filter-by-meal-btn"
+        name="Meals"
+        onClick={ (e) => verifyButtons(e.target.name) }
+      >
         Meals
       </button>
-      <button type="button" data-testid="filter-by-drink-btn">
+      <button
+        type="button"
+        data-testid="filter-by-drink-btn"
+        name="Drinks"
+        onClick={ (e) => verifyButtons(e.target.name) }
+      >
         Drinks
       </button>
-      {mockRecipe.map((recipe, index) => (
+      {filterSelection !== null && (filterSelection.map((recipe, index) => (
         <div key={ recipe.id }>
           <Link
             to={ recipe.type === 'meal' ? (`/meals/${recipe.id}`)
@@ -58,48 +94,40 @@ function FavoriteRecipes() {
           </Link>
           {recipe.alcoholicOrNot && (
             <p data-testid={ `${index}-horizontal-top-text` }>
-              {recipe.alcoholicOrNot}
-              {' '}
-              -
-              {' '}
-              {recipe.category}
+              {`${recipe.alcoholicOrNot} - ${recipe.category}`}
             </p>
           )}
           {recipe.area && (
             <p data-testid={ `${index}-horizontal-top-text` }>
-              {recipe.area}
-              {' '}
-              -
-              {' '}
-              {recipe.category}
+              {`${recipe.area} - ${recipe.category}`}
             </p>
           )}
           {recipe.nationality && (
             <p data-testid={ `${index}-horizontal-top-text` }>
-              {recipe.nationality}
-              {' '}
-              -
-              {' '}
-              {recipe.category}
+              {`${recipe.nationality} - ${recipe.category}`}
             </p>
           )}
           <Link to={ (`/drinks/${recipe.id}`) }>
             <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
           </Link>
+
           <button
             type="button"
             data-testid={ `${index}-horizontal-favorite-btn` }
             src={ blackHeartIcon }
-            onClick={ removeFavorite }
+            name={ recipe.id }
+            onClick={ (e) => removeFavorite(e.target.name) }
           >
             <img
               src={ blackHeartIcon }
               alt="Icone de Favorito"
+              name={ recipe.id }
             />
           </button>
+          {/* <HeartButton /> */}
           <ShareButton index={ index } recipe={ recipe } />
         </div>
-      ))}
+      )))}
     </div>
   );
 }
