@@ -34,9 +34,9 @@ function FavoriteRecipes() {
 
   const verifyButtons = (name) => {
     switch (name) {
-    case 'All':
-      setFilterSelection(productLocalStorage);
-      break;
+    // case 'All':
+    //   setFilterSelection(productLocalStorage);
+    //   break;
     case 'Meals':
       setFilterSelection(productLocalStorage
         .filter((product) => product.type === 'meal'));
@@ -46,10 +46,10 @@ function FavoriteRecipes() {
         .filter((product) => product.type === 'drink'));
       break;
     default:
-      console.log('Erro no Switch.');
+      setFilterSelection(productLocalStorage);
     }
   };
-
+  // console.log(filterSelection)
   return (
     <div>
       <Header title="Favorite Recipes" />
@@ -97,11 +97,11 @@ function FavoriteRecipes() {
               {`${recipe.alcoholicOrNot} - ${recipe.category}`}
             </p>
           )}
-          {recipe.area && (
+          {/* {recipe.area && (
             <p data-testid={ `${index}-horizontal-top-text` }>
               {`${recipe.area} - ${recipe.category}`}
             </p>
-          )}
+          )} */}
           {recipe.nationality && (
             <p data-testid={ `${index}-horizontal-top-text` }>
               {`${recipe.nationality} - ${recipe.category}`}
@@ -116,11 +116,12 @@ function FavoriteRecipes() {
             data-testid={ `${index}-horizontal-favorite-btn` }
             src={ blackHeartIcon }
             name={ recipe.id }
+            // alt={ `${index}-Icone-Favorito` }
             onClick={ (e) => removeFavorite(e.target.name) }
           >
             <img
               src={ blackHeartIcon }
-              alt="Icone de Favorito"
+              alt={ `${index}-Icone-Favorito` }
               name={ recipe.id }
             />
           </button>

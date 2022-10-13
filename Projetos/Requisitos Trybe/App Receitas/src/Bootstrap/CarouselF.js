@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import MyContext from '../context/Context';
 // import './Carousel.css';
 
-function NoTransitionExample() {
+function BootstrapCarouselMeals() {
   const { carouselFood } = useContext(MyContext);
   return (
     <Carousel slide={ false }>
@@ -101,4 +101,4 @@ function NoTransitionExample() {
   );
 }
 
-export default NoTransitionExample;
+export default BootstrapCarouselMeals;

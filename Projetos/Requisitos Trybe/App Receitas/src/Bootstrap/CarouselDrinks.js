@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import MyContext from '../context/Context';
 
-function NoTransitionExample() {
+function BootstrapCarouselDrinks() {
   const { carouselDrinks } = useContext(MyContext);
   return (
     <Carousel slide={ false }>
@@ -99,4 +99,4 @@ function NoTransitionExample() {
   );
 }
 
-export default NoTransitionExample;
+export default BootstrapCarouselDrinks;

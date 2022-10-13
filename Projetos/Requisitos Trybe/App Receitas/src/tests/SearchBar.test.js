@@ -8,6 +8,7 @@ import nameMock from './Mocks/NameMock';
 import letterMock from './Mocks/LetterMock';
 import nullMock from './Mocks/NullMock';
 import oneFoodMock from './Mocks/OneFoodMock';
+// import categoryMealsMock from './Mocks/CategoryMealsMock';
 
 describe('Testando a SearchBar', () => {
   test('Testando campos de busca', async () => {
@@ -29,6 +30,31 @@ describe('Testando a SearchBar', () => {
     expect(button).not.toBeDisabled();
 
     userEvent.click(button);
+
+    // Categories
+
+    // global.fetch = jest.fn(async () => ({
+    //   json: async () => categoryMealsMock,
+    // }));
+
+    // expect(inputSearch).toBeInTheDocument();
+    // userEvent.type(inputSearch, 'Beef');
+    // expect(inputSearch).toHaveValue('Beef');
+
+    // expect(ingredientSearch).toBeInTheDocument();
+    // userEvent.click(ingredientSearch);
+    // userEvent.click(buttonSearch);
+
+    // const apiCategoryMeals = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
+
+    // (ingredietMock.meals).map(({ strMeal }) => async () => {
+    //   const element = await screen.findByText(strMeal);
+    //   expect(element).toBeInTheDocument();
+    // });
+    // expect(global.fetch).toHaveBeenCalledTimes(1);
+    // expect(global.fetch).toHaveBeenCalledWith(apiCategoryMeals);
+
+    // const buttonBeef = screen.getByTestId('Beef-category-filter')
 
     // Search
 
