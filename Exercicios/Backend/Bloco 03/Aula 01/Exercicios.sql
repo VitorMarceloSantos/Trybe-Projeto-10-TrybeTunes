@@ -57,4 +57,30 @@ SELECT * FROM hr.employees;
 
 -- 9. Escreva uma query que exiba em ordem decrescente a média salarial de todos os
 -- cargos, exceto das pessoas programadoras (IT_PROG).
+-- SELECT 
+--     AVG(salary) AS 'departament_avg', job_id
+-- FROM
+--     hr.employees
+-- GROUP BY job_id
+-- HAVING job_id <> 'IT_PROG';
 
+-- 10. 🚀 Escreva um query que exiba média salarial e o número de funcionários de 
+-- todos os departamentos com mais de dez funcionários. Dica: agrupe pelo
+-- department_id.
+--  SELECT 
+--     job_id, AVG(salary) AS 'departament_avg', COUNT(job_id) AS 'quant_department'
+-- FROM
+--     hr.employees
+-- GROUP BY job_id
+-- HAVING quant_department > 10;
+
+SELECT * FROM hr.employees;
+
+-- 11. 🚀 Escreva uma query que atualize a coluna phone_number, de modo que todos
+-- os telefones iniciados por 515 agora devem iniciar com 777.
+-- SET SQL_SAFE_UPDATES = 0;
+-- UPDATE hr.employees 
+-- SET 
+--     phone_number = REPLACE(phone_number, '515', '777')
+-- WHERE
+--     phone_number LIKE '515%';
