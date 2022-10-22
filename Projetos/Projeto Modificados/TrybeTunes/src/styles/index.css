@@ -1,0 +1,48 @@
+.container-index {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container-sideBar {
+  width: 15vw;
+  background-color: red;
+}
+
+.container-header-content {
+  width: 70vw;
+  background-color: green;
+}
+
+.container-header {
+  align-items: center;
+  display: flex;
+  height: 7vh;
+  background-color: white;
+  justify-content: flex-end;
+}
+
+.container-border {
+  align-items: center;
+  background-color: rgb(34, 33, 31);
+  border-radius: 40px;
+  display: flex;
+  height: 2vh;
+  justify-content: flex-end;
+  padding: 2px;
+}
+
+.container-header img {
+  height: 33px;
+}
+
+.container-header h2 {
+  color: white;
+  font-size: 1.2em;
+  margin: 0 10px;
+}
+
+.container-friendActivity {
+  width: 15vw;
+  background-color: yellow;
+}

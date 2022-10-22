@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import trybefi from '../images/trybefi.png';
+import '../styles/index.css';
 
 export default class Header extends Component {
   constructor() {
@@ -23,22 +24,20 @@ export default class Header extends Component {
   render() {
     const { nameUser, isLoading } = this.state;
     return (
-      <div>
-
-        <header>
-          {isLoading ? <Loading /> : (
-            <section className="container-user">
+      <header className="container-header">
+        <section className="container-upgrade">
+          <button type="button">Upgrade</button>
+        </section>
+        {isLoading ? <Loading /> : (
+          <section className="container-user">
+            <div className="container-border">
               <img src={ trybefi } alt="Logo Trybefi" />
               {/* <p>{console.log(nameUser)}</p> */}
               <h2>{nameUser.name}</h2>
-            </section>
-          )}
-          <section className="container-upgrade">
-            <button type="button">Upgrade</button>
+            </div>
           </section>
-        </header>
-
-      </div>
+        )}
+      </header>
     );
   }
 }
