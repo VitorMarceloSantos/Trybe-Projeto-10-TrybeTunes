@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { BiCaretDown } from 'react-icons/bi';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import trybefi from '../images/trybefi.png';
 import '../styles/index.css';
+import '../styles/header.css';
 
 export default class Header extends Component {
   constructor() {
@@ -34,6 +36,7 @@ export default class Header extends Component {
               <img src={ trybefi } alt="Logo Trybefi" />
               {/* <p>{console.log(nameUser)}</p> */}
               <h2>{nameUser.name}</h2>
+              <BiCaretDown style={ { color: 'white' } } />
             </div>
           </section>
         )}
