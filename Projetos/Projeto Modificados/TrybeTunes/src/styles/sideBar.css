@@ -1,0 +1,52 @@
+.container-sideBar-style ul {
+  list-style: none;
+  margin-top: 50px;
+}
+
+.container-sideBar-style li {
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+.container-sideBar-style .icon-list-sup {
+  margin-top: 35px;
+}
+
+.container-sideBar-style .icon-list-inf {
+  border-bottom: 1px solid rgb(68, 68, 68);
+  display: flex;
+  padding-bottom: 13px;
+  width: 12vw;
+}
+
+.text-sideBar {
+  color: white;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.icon-sideBar {
+  color: white;
+  font-size: 1.6em;
+}
+
+.icon-sideBar-add {
+  color: white;
+  font-size: 1.5em;
+}
+
+.container-heart {
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #00297f, #533d8b, #b9bada);
+  display: flex;
+  height: 2.7vh;
+  justify-content: center;
+  width: 1.3vw;
+}
+
+.icon-sideBar-heart {
+  color: white;
+  font-size: 0.8em;
+}

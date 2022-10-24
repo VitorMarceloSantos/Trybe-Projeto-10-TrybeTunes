@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { AiFillHome, AiOutlineSearch, AiFillHeart } from 'react-icons/ai';
+import { VscLibrary } from 'react-icons/vsc';
+import { SiAddthis } from 'react-icons/si';
 import { Link } from 'react-router-dom';
+import '../styles/sideBar.css';
+
 // import { getUser } from '../services/userAPI';
 // import Loading from './Loading';
 
@@ -23,22 +28,29 @@ class SideBar extends Component {
   render() {
     // const { nameUser, isLoading } = this.state;
     return (
-      <nav data-testid="header-component">
+      <nav data-testid="header-component" className="container-sideBar-style">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <AiFillHome className="icon-sideBar" />
+            <Link to="/" className="text-sideBar">Home</Link>
           </li>
           <li>
-            <Link to="/search">Search</Link>
+            <AiOutlineSearch className="icon-sideBar" />
+            <Link to="/search" className="text-sideBar">Search</Link>
           </li>
           <li>
-            <Link to="/library">Your Library</Link>
+            <VscLibrary className="icon-sideBar" />
+            <Link to="/library" className="text-sideBar">Your Library</Link>
           </li>
-          <li>
-            <Link to="/create">Create Playlist</Link>
+          <li className="icon-list-sup">
+            <SiAddthis className="icon-sideBar-add" />
+            <Link to="/create" className="text-sideBar">Create Playlist</Link>
           </li>
-          <li>
-            <Link to="/favorites">Liked Song</Link>
+          <li className="icon-list-inf">
+            <div className="container-heart">
+              <AiFillHeart className="icon-sideBar-heart" />
+            </div>
+            <Link to="/favorites" className="text-sideBar">Liked Song</Link>
           </li>
         </ul>
       </nav>
