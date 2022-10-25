@@ -5,16 +5,16 @@
 }
 
 .container-sideBar {
-  width: 15vw;
+  width: 12.5vw;
   background-color: black;
 }
 
 .container-header-content {
-  width: 70vw;
+  width: 73vw;
   background-color: green;
 }
 
 .container-friendActivity {
-  width: 15vw;
-  background-color: yellow;
+  width: 14.5vw;
+  background-color: black;
 }
