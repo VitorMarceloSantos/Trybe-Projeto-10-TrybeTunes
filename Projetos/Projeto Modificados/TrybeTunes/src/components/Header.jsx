@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BiCaretDown } from 'react-icons/bi';
+import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import trybefi from '../images/trybefi.png';
@@ -27,8 +28,13 @@ export default class Header extends Component {
     const { nameUser, isLoading } = this.state;
     return (
       <header className="container-header">
-        <section className="container-upgrade">
-          <button type="button">Upgrade</button>
+        <section className="container-arrows">
+          <div className="arrows-left">
+            <MdArrowBackIosNew className="arrows" />
+          </div>
+          <div className="arrows-rigth">
+            <MdArrowForwardIos className="arrows" />
+          </div>
         </section>
         {isLoading ? <Loading /> : (
           <section className="container-user">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './Header';
+// import Header from './Header';
 import SideBar from './SideBar';
 import FriendActivity from './FriendActivity';
 import Content from './Content';
@@ -13,9 +13,6 @@ export default class Index extends Component {
           <SideBar />
         </div>
         <div className="container-header-content">
-          <div className="container-header">
-            <Header />
-          </div>
           <div className="container-content">
             <Content />
           </div>

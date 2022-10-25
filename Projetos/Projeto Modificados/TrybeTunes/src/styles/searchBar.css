@@ -1,0 +1,12 @@
+.container-change-search {
+  margin-left: 125px;
+  position: absolute;
+  top: 1.65vh;
+}
+
+.container-change-search input {
+  border: none;
+  border-radius: 40px;
+  line-height: 2.2em;
+  width: 18.5vw;
+}

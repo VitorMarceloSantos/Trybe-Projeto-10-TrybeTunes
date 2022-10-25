@@ -35,7 +35,6 @@ class Search extends Component {
       isLoading: true,
     }, async () => {
       const resultSearch = await searchAlbumsAPI(searchArtist); // batendo na API
-      // console.log(resultSearch);
       if (resultSearch.length !== 0) {
         this.setState({
           validation: false,
@@ -43,7 +42,6 @@ class Search extends Component {
       } else {
         this.setState({ validation: true });
       }
-      // resultSearch.length !== 0 ? this.setState({ validation: true }) : this.setState({ validation: false })
       this.setState({
         artist: searchArtist,
         searchArtist: '',

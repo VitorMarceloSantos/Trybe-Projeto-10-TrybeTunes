@@ -1,0 +1,22 @@
+.container-upgrade {
+  top: 1.15vh;
+  position: absolute;
+  right: 27vw;
+}
+
+.container-upgrade button {
+  background-color: rgb(35, 35, 35);
+  border-color: rgb(214, 218, 221);
+  border-radius: 40px;
+  border-width: 1px;
+  box-shadow: none;
+  color: white;
+  padding: 10px;
+  width: 7vw;
+}
+
+.container-upgrade button:hover {
+  background-color: black;
+  font-size: 1.05em;
+  zoom: 1.03;
+}

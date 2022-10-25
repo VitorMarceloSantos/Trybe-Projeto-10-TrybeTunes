@@ -28,11 +28,15 @@ class Login extends Component {
 
   handleSubmit= () => {
     const { nameUser } = this.state;
+    const { changeButton } = this.props;
     // enquanto a função createUser é carregada, utiliza o loading
     this.setState({ isLoading: true }, async () => { // utiliza o async pois é uma função assincrona
       await createUser({ name: nameUser }); // espera a conclusão de createUser(Promise), para executar as demais
-      const { history } = this.props;
-      this.setState({ isLoading: false }, history.push('/index'));
+      // const { history } = this.props;
+      this.setState({ isLoading: false }, () => {
+        changeButton();
+        // history.push('/index');
+      });
     });
   }
 
@@ -68,6 +72,7 @@ Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  changeButton: PropTypes.func.isRequired,
 };
 
 export default Login;
