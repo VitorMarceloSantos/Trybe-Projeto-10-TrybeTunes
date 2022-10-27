@@ -10,19 +10,35 @@ export default class Home extends Component {
   state= {
     loading: true,
     arraySearch: [],
+    albuns: ['Guns N" Roses', 'Pink Floyd', 'Capital Inicial'],
+    // 'Pink Floyd', 'Capital Inicial'
   }
 
-  async componentDidMount() {
-    const resultSearch = await searchAlbumsAPI('Guns"n Roses'); // batendo na API
-    // console.log(resultSearch);
+  componentDidMount() {
+    const { albuns } = this.state;
+    albuns.map((album) => (
+      this.SearchAlbum(album)
+    ));
+  }
+
+  SearchAlbum = async (nomeAlbum) => {
+    const resultSearch = await searchAlbumsAPI(nomeAlbum); // batendo na API
+    console.log(resultSearch);
     if (resultSearch.length !== 0) {
       const NUMBER_SIX = 6;
-      this.setState({
-        arraySearch: (resultSearch).slice(0, NUMBER_SIX),
+      this.setState((prevState) => ({
+        arraySearch: [...prevState.arraySearch, (resultSearch).slice(0, NUMBER_SIX)],
         loading: false,
+      }), () => {
+        const { arraySearch } = this.state;
+        console.log(arraySearch);
       });
+      // this.setState({
+      //   arraySearch: (resultSearch).slice(0, NUMBER_SIX),
+      //   loading: false,
+      // });
     }
-  }
+  };
 
   render() {
     const { loading, arraySearch } = this.state;
@@ -44,10 +60,14 @@ export default class Home extends Component {
           </div>
         </div>
         {loading ? <p>Carregando</p> : (
-          // <p>{console.log(arraySearch)}</p>
-          <CardMusics
-            arraySearch={ arraySearch }
-          />
+          arraySearch.map((artist) => (
+            <CardMusics
+              key={ artist.collectionName }
+              arraySearch={ artist }
+              nameArtist={ artist[0].artistName }
+            />
+          ))
+
         )}
       </section>
     );

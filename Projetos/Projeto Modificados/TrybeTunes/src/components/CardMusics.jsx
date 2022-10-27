@@ -5,10 +5,10 @@ import '../styles/cardMusics.css';
 
 export default class CardMusics extends Component {
   render() {
-    const { arraySearch } = this.props;
+    const { arraySearch, nameArtist } = this.props;
     return (
       <div className="container-geral-cards">
-        <h2 className="title-container-card">Guns N&apos; Roses</h2>
+        <h2 className="title-container-card">{nameArtist}</h2>
         <div className="container-carousel-musics">
           {arraySearch.map((element) => (
             <div className="container-card-music" key={ element.collectionId }>
@@ -32,4 +32,5 @@ export default class CardMusics extends Component {
 
 CardMusics.propTypes = {
   arraySearch: PropTypes.arrayOf.isRequired,
+  nameArtist: PropTypes.string.isRequired,
 };
