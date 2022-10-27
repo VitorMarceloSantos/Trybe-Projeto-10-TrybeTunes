@@ -12,6 +12,7 @@ import '../styles/buttonUpgrade.css';
 // import Search from '../pages/Search';
 import SearchBar from '../pages/SearchBar';
 import ButtonUpgrade from './ButtonUpgrade';
+import YourLibrary from '../pages/YourLibrary';
 
 export default class Content extends Component {
   render() {
@@ -24,6 +25,7 @@ export default class Content extends Component {
         <Switch>
           <Route exact path="/" component={ ButtonUpgrade } />
           <Route exact path="/search" component={ SearchBar } />
+          <Route exact path="/library" component={ YourLibrary } />
           {/* <Route exact path="/" component={ Login } />
         <Route exact path="/search" component={ Search } />
         <Route exact path="/album/:id" component={ Album } />

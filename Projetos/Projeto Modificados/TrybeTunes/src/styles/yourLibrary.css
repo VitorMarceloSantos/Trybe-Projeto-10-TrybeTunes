@@ -1,0 +1,30 @@
+.container-nav-yourLibrary ul {
+  display: flex;
+  left: 18.8vw;
+  list-style: none;
+  position: absolute;
+  top: 1.3vh;
+}
+
+.container-nav-yourLibrary ul li {
+  margin-right: 20px;
+}
+
+.container-nav-yourLibrary button {
+  background-color: rgb(35, 35, 35);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 0.9em;
+  height: 40px;
+  padding: 5px;
+  width: 85px;
+}
+
+.container-nav-yourLibrary button:focus {
+  background-color: rgb(60, 60, 60);
+}
+
+.container-nav-yourLibrary button:hover {
+  color: rgb(180, 180, 180);
+}
