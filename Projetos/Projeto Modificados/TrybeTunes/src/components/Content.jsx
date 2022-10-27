@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
+import Home from '../pages/Home';
 import '../styles/header.css';
-import '../styles/buttonUpgrade.css';
+import '../styles/content.css';
+
 // import Login from '../pages/Login';
 // import Album from '../pages/Album';
 // import Favorites from '../pages/Favorites';
@@ -11,19 +13,17 @@ import '../styles/buttonUpgrade.css';
 // import ProfileEdit from '../pages/ProfileEdit';
 // import Search from '../pages/Search';
 import SearchBar from '../pages/SearchBar';
-import ButtonUpgrade from './ButtonUpgrade';
 import YourLibrary from '../pages/YourLibrary';
 
 export default class Content extends Component {
   render() {
     return (
-      <div>
+      <section className="container-content">
         <div className="container-header">
           <Header />
         </div>
-        <p>Content</p>
         <Switch>
-          <Route exact path="/" component={ ButtonUpgrade } />
+          <Route exact path="/" component={ Home } />
           <Route exact path="/search" component={ SearchBar } />
           <Route exact path="/library" component={ YourLibrary } />
           {/* <Route exact path="/" component={ Login } />
@@ -34,7 +34,7 @@ export default class Content extends Component {
         <Route exact path="/profile/edit" component={ ProfileEdit } />
         <Route exact component={ NotFound } /> */}
         </Switch>
-      </div>
+      </section>
 
     );
   }

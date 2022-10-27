@@ -13,9 +13,7 @@ export default class Index extends Component {
           <SideBar />
         </div>
         <div className="container-header-content">
-          <div className="container-content">
-            <Content />
-          </div>
+          <Content />
         </div>
         <div className="container-friendActivity">
           <FriendActivity />

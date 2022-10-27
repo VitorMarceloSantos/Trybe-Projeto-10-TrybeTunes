@@ -1,0 +1,64 @@
+.container-banner-geral {
+  align-items: center;
+  background-image: linear-gradient(to top right, black, rgb(35, 35, 35));
+  display: flex;
+  height: 28.5vh;
+  justify-content: flex-start;
+  margin: 0 auto;
+  position: relative;
+  width: 96%;
+}
+
+.container-banner-geral img {
+  height: 220px;
+  margin-left: 20px;
+  margin-right: 50px;
+}
+
+.container-text-banner {
+  color: white;
+}
+
+.banner-padding {
+  padding: 10px 0;
+}
+
+.container-text-banner h3 {
+  font-size: 3.5em;
+}
+
+.container-buttons-banner {
+  align-items: center;
+  display: flex;
+  height: 7vh;
+}
+
+.container-banner-geral button {
+  border-radius: 40px;
+  border-width: 1px;
+  box-shadow: none;
+  margin-right: 25px;
+  padding: 10px;
+}
+
+.button-banner-play {
+  background-color: rgb(14, 157, 103);
+  border: none;
+  color: black;
+  font-size: 1em;
+  font-weight: 600;
+  width: 5vw;
+}
+
+.button-banner-follow {
+  background-color: rgb(35, 35, 35);
+  border-color: rgb(214, 218, 221);
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  width: 6vw;
+}
+
+.container-banner-geral button:hover {
+  font-size: 1.05em;
+}

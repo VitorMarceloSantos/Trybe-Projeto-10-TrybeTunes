@@ -2,7 +2,7 @@
   align-items: center;
   background-color: rgb(35, 35, 35);
   display: flex;
-  height: 7vh;
+  height: 9vh;
   justify-content: end;
 }
 
@@ -36,7 +36,7 @@
 
 .container-arrows {
   display: flex;
-  margin-right: 57vw;
+  margin-right: 57.7vw;
 }
 
 .arrows {
