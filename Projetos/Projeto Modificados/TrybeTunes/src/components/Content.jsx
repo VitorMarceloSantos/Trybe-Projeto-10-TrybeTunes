@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Header from './Header';
+// import Header from './Header';
 import Home from '../pages/Home';
 import '../styles/header.css';
 import '../styles/content.css';
@@ -19,21 +19,24 @@ export default class Content extends Component {
   render() {
     return (
       <section className="container-content">
-        <div className="container-header">
+        {/* <div className="container-header">
           <Header />
-        </div>
-        <Switch>
-          <Route exact path="/" component={ Home } />
-          <Route exact path="/search" component={ SearchBar } />
-          <Route exact path="/library" component={ YourLibrary } />
-          {/* <Route exact path="/" component={ Login } />
+        </div> */}
+        <div className="container-albuns-cards">
+          <Switch>
+            <Route exact path="/" component={ Home } />
+            <Route exact path="/search" component={ SearchBar } />
+            <Route exact path="/library" component={ YourLibrary } />
+            {/* <Route exact path="/" component={ Login } />
         <Route exact path="/search" component={ Search } />
         <Route exact path="/album/:id" component={ Album } />
         <Route exact path="/favorites" component={ Favorites } />
         <Route exact path="/profile" component={ Profile } />
         <Route exact path="/profile/edit" component={ ProfileEdit } />
         <Route exact component={ NotFound } /> */}
-        </Switch>
+          </Switch>
+        </div>
+
       </section>
 
     );

@@ -10,7 +10,8 @@ export default class Home extends Component {
   state= {
     loading: true,
     arraySearch: [],
-    albuns: ['Guns N" Roses', 'Pink Floyd', 'Capital Inicial'],
+    albuns: ['Guns N" Roses',
+      'Pink Floyd', 'Capital Inicial', 'Charlie Brown', 'Jota Quest'],
     // 'Pink Floyd', 'Capital Inicial'
   }
 
