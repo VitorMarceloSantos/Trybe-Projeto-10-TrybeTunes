@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import ButtonUpgrade from '../components/ButtonUpgrade';
 import '../styles/buttonUpgrade.css';
 import '../styles/home.css';
 import asMaisTocadas from '../images/asMaisTocadas.png';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import CardMusics from '../components/CardMusics';
 
 export default class Home extends Component {
   state= {
@@ -45,27 +45,9 @@ export default class Home extends Component {
         </div>
         {loading ? <p>Carregando</p> : (
           // <p>{console.log(arraySearch)}</p>
-          <div className="container-geral-cards">
-            <h2 className="title-container-card">Guns N&apos; Roses</h2>
-            <div className="container-carousel-musics">
-              {arraySearch.map((element) => (
-                <div className="container-card-music" key={ element.collectionId }>
-                  <Link
-                    data-testid={ `link-to-album-${element.collectionId}` }
-                    to={ `/album/${element.collectionId}` }
-                    key={ element.collectionId }
-                  >
-                    {/* Informações do artista */}
-                    <img src={ element.artworkUrl100 } alt={ element.collectionId } />
-                    <h3>{element.artistName}</h3>
-                    <h4>{element.collectionName}</h4>
-                  </Link>
-                </div>
-              ))}
-
-            </div>
-          </div>
-
+          <CardMusics
+            arraySearch={ arraySearch }
+          />
         )}
       </section>
     );
