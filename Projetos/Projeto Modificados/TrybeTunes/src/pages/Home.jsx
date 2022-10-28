@@ -12,7 +12,6 @@ export default class Home extends Component {
     arraySearch: [],
     albuns: ['Guns N" Roses',
       'Pink Floyd', 'Capital Inicial', 'Charlie Brown', 'Jota Quest'],
-    // 'Pink Floyd', 'Capital Inicial'
   }
 
   componentDidMount() {
@@ -34,10 +33,6 @@ export default class Home extends Component {
         const { arraySearch } = this.state;
         console.log(arraySearch);
       });
-      // this.setState({
-      //   arraySearch: (resultSearch).slice(0, NUMBER_SIX),
-      //   loading: false,
-      // });
     }
   };
 

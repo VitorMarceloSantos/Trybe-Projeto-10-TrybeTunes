@@ -18,26 +18,28 @@ import YourLibrary from '../pages/YourLibrary';
 export default class Content extends Component {
   render() {
     return (
-      <section className="container-content">
-        {/* <div className="container-header">
+      <div>
+
+        <section className="container-content">
+          {/* <div className="container-header">
           <Header />
         </div> */}
-        <div className="container-albuns-cards">
-          <Switch>
-            <Route exact path="/" component={ Home } />
-            <Route exact path="/search" component={ SearchBar } />
-            <Route exact path="/library" component={ YourLibrary } />
-            {/* <Route exact path="/" component={ Login } />
+          <div className="container-albuns-cards">
+            <Switch>
+              <Route exact path="/" component={ Home } />
+              <Route exact path="/search" component={ SearchBar } />
+              <Route exact path="/library" component={ YourLibrary } />
+              {/* <Route exact path="/" component={ Login } />
         <Route exact path="/search" component={ Search } />
         <Route exact path="/album/:id" component={ Album } />
         <Route exact path="/favorites" component={ Favorites } />
         <Route exact path="/profile" component={ Profile } />
         <Route exact path="/profile/edit" component={ ProfileEdit } />
         <Route exact component={ NotFound } /> */}
-          </Switch>
-        </div>
-
-      </section>
+            </Switch>
+          </div>
+        </section>
+      </div>
 
     );
   }

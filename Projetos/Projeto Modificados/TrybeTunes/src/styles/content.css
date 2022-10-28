@@ -1,6 +1,6 @@
 .container-content {
   background-color: rgb(35, 35, 35);
-  height: 91%;
+  height: 91vh;
   overflow-y: scroll;
 }
 
