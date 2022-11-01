@@ -1,3 +1,5 @@
+const readFile = require('./readFile');
+const writeFile = require('./writeFile');
 const express = require('express');
 
 const app = express();
@@ -59,4 +61,68 @@ app.post('/teams', (req, res) => {
 // }
 });
 
+
+// Exercicio 05
+
+app.get('/movies/:id', async (req, res) => {
+  const idParams = req.params.id;
+  const fileMovies = await readFile();
+  const newFile = fileMovies.find(({ id }) => id === Number(idParams))
+
+  res.status(200).json({ newFile });
+})
+
 module.exports = app;
+
+// Exercicio 06
+
+app.get('/movies', async (req, res) => {
+  const fileMovies = await readFile();
+  res.status(200).json({fileMovies});
+});
+
+// Exercicio 07
+
+app.post('/movies', async (req, res) => {
+  const { movie, price } = req.body;
+  const fileMovie = await readFile();
+  const newMovie = {
+    id: (fileMovie.length) + 1,
+    movie,
+    price
+  }
+  const newFile = ([...fileMovie, newMovie]);
+  await writeFile(newFile);
+
+  res.status(201).json({ newFile });
+
+});
+
+// Exercicio 08
+
+app.put('/movies/:id', async (req, res) => {
+  const idParam = req.params.id;
+  const { movie, price } = req.body;
+  const fileMovie =  await readFile();
+
+  const position = fileMovie.findIndex(({id}) => id === Number(idParam));
+  fileMovie[position] = { id: Number(idParam), movie, price };
+
+  await writeFile(fileMovie);
+  res.status(201).json(fileMovie);
+
+});
+
+// Exercicio 09
+
+app.delete('/movies/:id', async (req, res) => {
+  const idParam = req.params.id;
+  const fileMovie = await readFile();
+
+  const newFile = fileMovie.filter(({ id }) => id !== Number(idParam));
+  
+  await writeFile(newFile);
+
+  res.status(200).json(newFile);
+});
+
