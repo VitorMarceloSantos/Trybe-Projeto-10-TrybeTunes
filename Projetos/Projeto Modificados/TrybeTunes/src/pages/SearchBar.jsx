@@ -7,6 +7,7 @@ export default class SearchBar extends Component {
   state = {
     inputSearch: '',
     loading: false,
+    resultSearch: '',
   }
 
 changeSearch = ({ target }) => {
@@ -20,18 +21,18 @@ changeSearch = ({ target }) => {
 // };
 
 searchAlbum = async (nomeAlbum) => {
-  const resultSearch = await searchAlbumsAPI(nomeAlbum); // batendo na API
-  console.log(resultSearch);
-  // if (resultSearch.length !== 0) {
-  //   const NUMBER_SIX = 6;
-  //   this.setState((prevState) => ({
-  //     arraySearch: [...prevState.arraySearch, (resultSearch).slice(0, NUMBER_SIX)],
-  //     loading: false,
-  //   }), () => {
-  //     const { arraySearch } = this.state;
-  //     console.log(arraySearch);
-  //   });
-  // }
+  this.setState({
+    loading: true,
+  });
+  const result = await searchAlbumsAPI(nomeAlbum); // batendo na API
+  console.log(result);
+  this.setState({
+    resultSearch: result,
+  }, () => {
+    this.setState({
+      loading: false,
+    });
+  });
 };
 
 render() {
