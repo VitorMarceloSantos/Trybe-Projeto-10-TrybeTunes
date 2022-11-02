@@ -23,6 +23,7 @@ changeSearch = ({ target }) => {
 searchAlbum = async (nomeAlbum) => {
   this.setState({
     loading: true,
+    inputSearch: nomeAlbum,
   });
   const result = await searchAlbumsAPI(nomeAlbum); // batendo na API
   console.log(result);
@@ -56,7 +57,7 @@ render() {
     return Math.floor(Math.random() * NUMBER_QUANT);
   };
 
-  const { inputSearch } = this.state;
+  const { inputSearch, loading } = this.state;
 
   return (
     <section className="container-searchBar-principal">
