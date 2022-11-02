@@ -28,6 +28,7 @@ export default class Content extends Component {
             <Switch>
               <Route exact path="/" component={ Home } />
               <Route exact path="/search" component={ SearchBar } />
+              {/* <Route exact path="/search/:id" component={ SearchBarArtist } /> */}
               <Route exact path="/library" component={ YourLibrary } />
               {/* <Route exact path="/" component={ Login } />
         <Route exact path="/search" component={ Search } />
