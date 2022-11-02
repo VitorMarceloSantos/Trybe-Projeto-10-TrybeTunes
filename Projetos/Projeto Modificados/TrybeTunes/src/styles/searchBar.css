@@ -10,3 +10,26 @@
   line-height: 2.2em;
   width: 18.5vw;
 }
+
+.container-searchBar-albuns {
+  display: flex;
+}
+
+.container-searchBar-artist {
+  align-items: center;
+  background-color: rgb(42, 42, 42);
+  border-radius: 7px;
+  display: flex;
+  height: 28.5vh;
+  margin: 0 12px;
+  width: 10vw;
+}
+
+.container-searchBar-artist h4 {
+  color: white;
+}
+
+.container-img-searchBar img {
+  height: 100px;
+  width: 100px;
+} 
