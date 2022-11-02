@@ -23,7 +23,6 @@ export default class Home extends Component {
 
   SearchAlbum = async (nomeAlbum) => {
     const resultSearch = await searchAlbumsAPI(nomeAlbum); // batendo na API
-    console.log(resultSearch);
     if (resultSearch.length !== 0) {
       const NUMBER_SIX = 6;
       this.setState((prevState) => ({

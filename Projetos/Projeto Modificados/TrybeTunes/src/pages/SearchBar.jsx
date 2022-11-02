@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
 import '../styles/searchBar.css';
 import { HiSearch } from 'react-icons/hi';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
 export default class SearchBar extends Component {
   state = {
     inputSearch: '',
+    loading: false,
   }
 
 changeSearch = ({ target }) => {
-  console.log('entrou');
   this.setState({
     inputSearch: target.value,
   });
+};
+
+// searchAlbum = (name) => {
+//   console.log(name);
+// };
+
+searchAlbum = async (nomeAlbum) => {
+  const resultSearch = await searchAlbumsAPI(nomeAlbum); // batendo na API
+  console.log(resultSearch);
+  // if (resultSearch.length !== 0) {
+  //   const NUMBER_SIX = 6;
+  //   this.setState((prevState) => ({
+  //     arraySearch: [...prevState.arraySearch, (resultSearch).slice(0, NUMBER_SIX)],
+  //     loading: false,
+  //   }), () => {
+  //     const { arraySearch } = this.state;
+  //     console.log(arraySearch);
+  //   });
+  // }
 };
 
 render() {
@@ -56,16 +76,18 @@ render() {
       ) : (
         <section className="container-searchBar-albuns">
           {arrayArtists.map((artist, index) => (
-            <div
+            <button
+              type="button"
               style={ { backgroundColor: arrayColor[randomNumber()] } }
               className="container-searchBar-artist"
               key={ artist }
+              onClick={ () => { this.searchAlbum(artist); } }
             >
               <h4>{artist}</h4>
               <div className="container-img-searchBar">
                 <img src={ `../images/image_${index}.jpg` } alt="Imagem" />
               </div>
-            </div>
+            </button>
           ))}
         </section>
       )}

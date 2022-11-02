@@ -70,3 +70,13 @@
   font-size: 1.55em;
   margin: 0 12px;
 }
+
+.container-searchBar-albuns button {
+  border: none;
+}
+
+.container-searchBar-artist:hover {
+  box-shadow: 0 0 8px rgba(220, 220, 220, 0.9);
+}
+
+
