@@ -1,35 +1,72 @@
 .container-change-search {
-  margin-left: 125px;
+  margin-left: 140px;
   position: absolute;
-  top: 1.65vh;
+  top: 2.2vh;
 }
 
 .container-change-search input {
   border: none;
   border-radius: 40px;
-  line-height: 2.2em;
-  width: 18.5vw;
+  width: 15vw;
+
+}
+
+.container-change-search input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 .container-searchBar-albuns {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .container-searchBar-artist {
   align-items: center;
-  background-color: rgb(42, 42, 42);
+  background-color: rgb(156, 240, 225); /* Cor default */
   border-radius: 7px;
   display: flex;
-  height: 28.5vh;
-  margin: 0 12px;
+  flex-direction: column;
+  height: 22vh;
+  justify-content: center;
+  margin: 14px;
+  overflow: hidden;
   width: 10vw;
 }
 
 .container-searchBar-artist h4 {
   color: white;
+  font-size: 1.3em;
+  text-align: center;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .container-img-searchBar img {
-  height: 100px;
-  width: 100px;
-} 
+  border-radius: 5px;
+  height: 92px;
+  width: 92px;
+}
+
+.container-img-searchBar {
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+  left: 3.2vw;
+  position: relative;
+  top: 5vh;
+  transform: rotate(25deg);
+}
+
+.label-input-search {
+  align-items: center;
+  background-color: white;
+  border: none;
+  border-radius: 40px;
+  display: flex;
+  line-height: 2.2em;
+  width: 18.5vw;
+}
+
+.icon-search-glass {
+  font-size: 1.55em;
+  margin: 0 12px;
+}
