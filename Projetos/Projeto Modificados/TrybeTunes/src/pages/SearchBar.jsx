@@ -138,15 +138,25 @@ export default class SearchBar extends Component {
                   </div>
                 </div>
               </div>
-              <div className="container-searchBar-albuns-artist">
-                {resultSearch.map((element) => (
-                  <div key={ `${element.artistId}-${element.collectionId}` }>
-                    <CardMusic
-                      element={ element }
-                    />
-                  </div>
-                ))}
+              <div className="container-albuns-search-title">
+                <h2
+                  className="title-search"
+                >
+                  {`Featuring ${resultSearch[0].artistName}`}
+
+                </h2>
+                <div className="container-searchBar-albuns-artist">
+
+                  {resultSearch.map((element) => (
+                    <div key={ `${element.artistId}-${element.collectionId}` }>
+                      <CardMusic
+                        element={ element }
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
+
             </div>
           ) : (
             <section className="container-searchBar-albuns">
