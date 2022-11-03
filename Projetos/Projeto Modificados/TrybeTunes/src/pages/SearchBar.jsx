@@ -104,30 +104,38 @@ export default class SearchBar extends Component {
           {(inputSearch.length > 1 && loading === false) ? (
             <div className="container-searchBar-music-album">
               <div className="container-searchBar-top-musics">
-                <div className="container-searchBar-top-artist">
-                  <img
-                    src={ resultSearch[0].artworkUrl100 }
-                    alt="Artista/Banda"
-                  />
-                  <h3>{resultSearch[0].artistName}</h3>
-                  <h4>Artist</h4>
+                <div className="container-artist-title">
+                  <h2 className="title-search">Top Result</h2>
+                  <div className="container-searchBar-top-artist">
+                    <img
+                      src={ resultSearch[0].artworkUrl100 }
+                      alt="Artista/Banda"
+                    />
+                    <h3>{resultSearch[0].artistName}</h3>
+                    <h4>Artist</h4>
+                  </div>
                 </div>
                 <div className="container-searchBar-musics-artist">
-                  {resultMusic.map(({ previewUrl, amgArtistId }) => (
-                    <audio
-                      data-testid="audio-component"
-                      src={ previewUrl }
-                      controls
-                      key={ amgArtistId }
-                    >
-                      <track kind="captions" />
-                      O seu navegador não suporta o elemento
-                      {''}
-                      {''}
-                      <code>audio</code>
-                      .
-                    </audio>
-                  ))}
+                  <div className="container-musiscs-title">
+                    <h2 className="title-search">Musics</h2>
+                    <div className="container-searchBar-musiscs">
+                      {resultMusic.map(({ previewUrl, amgArtistId }) => (
+                        <audio
+                          data-testid="audio-component"
+                          src={ previewUrl }
+                          controls
+                          key={ amgArtistId }
+                        >
+                          <track kind="captions" />
+                          O seu navegador não suporta o elemento
+                          {''}
+                          {''}
+                          <code>audio</code>
+                          .
+                        </audio>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="container-searchBar-albuns-artist">

@@ -86,6 +86,12 @@
   justify-content: center;
 }
 
+.container-searchBar-top-musics {
+  display: flex;
+  justify-content: space-between;
+  width: 68vw;
+}
+
 .container-searchBar-top-artist {
   align-items: flex-start;
   background-color: rgb(42, 42, 42);
@@ -95,7 +101,7 @@
   height: 25vh;
   justify-content: center;
   padding-left: 40px;
-  width: 30vw;
+  width: 22vw;
 }
 
 .container-searchBar-top-artist img {
@@ -133,4 +139,27 @@
   justify-content: center;
   margin-right: 10px;
   width: 25px;
+}
+
+.container-searchBar-musics-artist {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
+
+.title-search {
+  color: white;
+  font-size: 1.5em;
+}
+
+.container-searchBar-musiscs {
+  align-items: flex-start;
+  background-color: rgb(42, 42, 42);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  justify-content: center;
+  padding-left: 40px;
+  width: 39.1vw;
 }
