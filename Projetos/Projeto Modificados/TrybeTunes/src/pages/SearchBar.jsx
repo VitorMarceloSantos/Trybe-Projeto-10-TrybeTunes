@@ -80,7 +80,6 @@ export default class SearchBar extends Component {
       };
 
       const newAudio = ({ target }) => {
-        console.log(target);
         this.setState((prevState) => ({
           isPlay: !prevState.isPlay,
         }), () => {
@@ -144,15 +143,29 @@ export default class SearchBar extends Component {
                   <div className="container-musiscs-title">
                     <h2 className="title-search">Songs</h2>
                     <div className="container-searchBar-musiscs">
-                      {resultMusic.map(({ previewUrl, amgArtistId }) => (
-                        <div key={ amgArtistId }>
-                          <button
+                      {resultMusic.map((
+                        { previewUrl, amgArtistId, artworkUrl100, trackName, artistName },
+                      ) => (
+                        <div key={ amgArtistId } className="container-play-music">
+                          {console.log(resultMusic)}
+                          <div className="container-flex-image">
+                            <img src={ artworkUrl100 } alt="Artist Album" />
+                            <div className="container-titles-play-music">
+                              <h4>{trackName}</h4>
+                              <h5>{artistName}</h5>
+                            </div>
+                          </div>
+                          <div className="container-addFavorite-play">
+                            <button type="button">Add</button>
+                            <p>...</p>
+                          </div>
+                          {/* <button
                             type="button"
                             value={ previewUrl }
                             onClick={ newAudio }
                           >
                             Play
-                          </button>
+                          </button> */}
                         </div>
                       ))}
                     </div>
