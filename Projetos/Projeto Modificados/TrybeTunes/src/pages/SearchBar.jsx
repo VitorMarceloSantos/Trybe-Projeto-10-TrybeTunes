@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/searchBar.css';
 import { HiSearch } from 'react-icons/hi';
+import { BsPlay, BsPause } from 'react-icons/bs';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import CardMusic from '../components/CardMusic';
 import musicsApi from '../services/musicsAPI';
@@ -11,6 +12,8 @@ export default class SearchBar extends Component {
     loading: false,
     resultSearch: '',
     resultMusic: '',
+    isPlay: false,
+    isMusic: '',
   }
 
     searchAlbum = async (nomeAlbum) => {
@@ -76,10 +79,26 @@ export default class SearchBar extends Component {
         return Math.floor(Math.random() * NUMBER_QUANT);
       };
 
-      const newAudio = ({ target: { value } }) => {
-        const audio = new Audio();
-        audio.src = `${value}`;
-        audio.play();
+      const newAudio = ({ target }) => {
+        console.log(target);
+        this.setState((prevState) => ({
+          isPlay: !prevState.isPlay,
+        }), () => {
+          const { isPlay } = this.state;
+          if (isPlay) {
+            const audio = new Audio();
+            audio.src = `${target.value}`;
+            audio.play();
+            this.setState({
+              isMusic: audio,
+            });
+            target.innerText = 'Pause';
+          } else {
+            const { isMusic } = this.state;
+            isMusic.pause();
+            target.innerText = 'Play';
+          }
+        });
       };
 
       const { inputSearch, loading, resultSearch, resultMusic } = this.state;
@@ -132,10 +151,9 @@ export default class SearchBar extends Component {
                             value={ previewUrl }
                             onClick={ newAudio }
                           >
-                            Musica
+                            Play
                           </button>
                         </div>
-
                       ))}
                     </div>
                   </div>
