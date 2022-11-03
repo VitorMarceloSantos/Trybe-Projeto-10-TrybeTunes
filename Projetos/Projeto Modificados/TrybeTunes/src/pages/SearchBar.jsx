@@ -76,6 +76,12 @@ export default class SearchBar extends Component {
         return Math.floor(Math.random() * NUMBER_QUANT);
       };
 
+      const newAudio = ({ target: { value } }) => {
+        const audio = new Audio();
+        audio.src = `${value}`;
+        audio.play();
+      };
+
       const { inputSearch, loading, resultSearch, resultMusic } = this.state;
 
       return (
@@ -117,22 +123,19 @@ export default class SearchBar extends Component {
                 </div>
                 <div className="container-searchBar-musics-artist">
                   <div className="container-musiscs-title">
-                    <h2 className="title-search">Musics</h2>
+                    <h2 className="title-search">Songs</h2>
                     <div className="container-searchBar-musiscs">
                       {resultMusic.map(({ previewUrl, amgArtistId }) => (
-                        <audio
-                          data-testid="audio-component"
-                          src={ previewUrl }
-                          controls
-                          key={ amgArtistId }
-                        >
-                          <track kind="captions" />
-                          O seu navegador não suporta o elemento
-                          {''}
-                          {''}
-                          <code>audio</code>
-                          .
-                        </audio>
+                        <div key={ amgArtistId }>
+                          <button
+                            type="button"
+                            value={ previewUrl }
+                            onClick={ newAudio }
+                          >
+                            Musica
+                          </button>
+                        </div>
+
                       ))}
                     </div>
                   </div>
