@@ -3,12 +3,14 @@ import '../styles/searchBar.css';
 import { HiSearch } from 'react-icons/hi';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import CardMusic from '../components/CardMusic';
+import musicsApi from '../services/musicsAPI';
 
 export default class SearchBar extends Component {
   state = {
     inputSearch: '',
     loading: false,
     resultSearch: '',
+    resultMusic: '',
   }
 
     searchAlbum = async (nomeAlbum) => {
@@ -20,10 +22,15 @@ export default class SearchBar extends Component {
         const result = await searchAlbumsAPI(nomeAlbum); // batendo na API
         this.setState({
           resultSearch: result,
-        }, () => {
+        }, async () => {
           const { resultSearch } = this.state;
           if (resultSearch.length > 0) {
+            // console.log('result', resultSearch[0])
+            const musics = await musicsApi(resultSearch[0].artistId);
+            console.log(musics);
+            const NUMBER_FIVE = 5;
             this.setState({
+              resultMusic: musics.slice(1, NUMBER_FIVE),
               loading: false,
             });
           }
@@ -69,7 +76,7 @@ export default class SearchBar extends Component {
         return Math.floor(Math.random() * NUMBER_QUANT);
       };
 
-      const { inputSearch, loading, resultSearch } = this.state;
+      const { inputSearch, loading, resultSearch, resultMusic } = this.state;
 
       return (
         <section className="container-searchBar-principal">
@@ -105,7 +112,23 @@ export default class SearchBar extends Component {
                   <h3>{resultSearch[0].artistName}</h3>
                   <h4>Artist</h4>
                 </div>
-                <div className="container-searchBar-musics-artist" />
+                <div className="container-searchBar-musics-artist">
+                  {resultMusic.map(({ previewUrl, amgArtistId }) => (
+                    <audio
+                      data-testid="audio-component"
+                      src={ previewUrl }
+                      controls
+                      key={ amgArtistId }
+                    >
+                      <track kind="captions" />
+                      O seu navegador não suporta o elemento
+                      {''}
+                      {''}
+                      <code>audio</code>
+                      .
+                    </audio>
+                  ))}
+                </div>
               </div>
               <div className="container-searchBar-albuns-artist">
                 {resultSearch.map((element) => (
