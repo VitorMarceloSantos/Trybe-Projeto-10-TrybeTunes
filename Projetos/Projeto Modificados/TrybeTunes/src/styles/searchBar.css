@@ -83,8 +83,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-left: 7px;
   justify-content: center;
+  margin-left: 7px;
 }
 
 .container-searchBar-top-musics {
@@ -154,39 +154,29 @@
   font-size: 1.5em;
 }
 
-.container-searchBar-musiscs {
-  align-items: flex-start;
-  background-color: rgb(42, 42, 42);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  height: 25vh;
-  justify-content: center;
-  width: 38vw;
-}
-
 .container-albuns-search-title {
   margin: 40px 0 0 3px;
   width: 68vw;
 }
 
 audio {
-  width: 20%;
   margin-top: 30px;
+  width: 20%;
 }
 
 .container-play-music {
   align-items: center;
-  background-color: red;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;
+  padding: 5px;
   width: 38vw;
 }
 
 .container-titles-play-music {
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 .container-play-music h4 {
@@ -209,5 +199,36 @@ audio {
 }
 
 .container-flex-image {
+  align-items: center;
   display: flex;
+}
+
+.button-icon-add-heart {
+  background-color: rgb(25, 25, 25);
+  border: none;
+  margin-right: 20px;
+}
+
+.icon-heart-favorite {
+  color: rgba(220, 220, 220, 0.9);
+}
+
+.container-addFavorite-play p {
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 1.4em;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.container-play-music:hover .button-icon-add-heart {
+  background-color: rgb(42, 42, 42);
+}
+
+.container-play-music:hover {
+  background-color: rgb(42, 42, 42);
+  cursor: pointer;
+}
+
+.icon-heart-favorite:hover {
+  color: red;
 }

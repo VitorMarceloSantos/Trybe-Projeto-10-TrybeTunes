@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { Component } from 'react';
 import '../styles/searchBar.css';
 import { HiSearch } from 'react-icons/hi';
-import { BsPlay, BsPause } from 'react-icons/bs';
+import { BsPlay, BsPause, BsHeart } from 'react-icons/bs';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import CardMusic from '../components/CardMusic';
 import musicsApi from '../services/musicsAPI';
@@ -156,7 +157,13 @@ export default class SearchBar extends Component {
                             </div>
                           </div>
                           <div className="container-addFavorite-play">
-                            <button type="button">Add</button>
+                            <button
+                              type="button"
+                              className="button-icon-add-heart"
+                            >
+                              <BsHeart className="icon-heart-favorite" />
+
+                            </button>
                             <p>...</p>
                           </div>
                           {/* <button
