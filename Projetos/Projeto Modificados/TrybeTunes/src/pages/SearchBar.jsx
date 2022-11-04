@@ -31,7 +31,6 @@ export default class SearchBar extends Component {
           if (resultSearch.length > 0) {
             // console.log('result', resultSearch[0])
             const musics = await musicsApi(resultSearch[0].artistId);
-            console.log(musics);
             const NUMBER_FIVE = 5;
             this.setState({
               resultMusic: musics.slice(1, NUMBER_FIVE),
@@ -81,6 +80,7 @@ export default class SearchBar extends Component {
       };
 
       const newAudio = ({ target }) => {
+        console.log(target);
         this.setState((prevState) => ({
           isPlay: !prevState.isPlay,
         }), () => {
@@ -92,11 +92,15 @@ export default class SearchBar extends Component {
             this.setState({
               isMusic: audio,
             });
-            target.innerText = 'Pause';
+            target.textContent = 'II  ';
           } else {
             const { isMusic } = this.state;
             isMusic.pause();
-            target.innerText = 'Play';
+            target.textContent = '\u25BA';
+            // https://www.evotech.net/articles/testjsentities.html
+            // tabela que converte os caracteres para uso em java script
+            // &#9658; -> HTML , \u25BA -> javaScript = Play
+            // &#9208; -> HTML , \u23F8' -> javaScritp = Pause
           }
         });
       };
@@ -157,22 +161,28 @@ export default class SearchBar extends Component {
                             </div>
                           </div>
                           <div className="container-addFavorite-play">
+                            <div
+                              className="container-button-play-music"
+                            >
+                              <button
+                                type="button"
+                                value={ previewUrl }
+                                onClick={ newAudio }
+                              >
+                                &#9658;
+                                {' '}
+                                {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
+                              </button>
+                            </div>
                             <button
                               type="button"
                               className="button-icon-add-heart"
                             >
                               <BsHeart className="icon-heart-favorite" />
-
                             </button>
                             <p>...</p>
                           </div>
-                          {/* <button
-                            type="button"
-                            value={ previewUrl }
-                            onClick={ newAudio }
-                          >
-                            Play
-                          </button> */}
+
                         </div>
                       ))}
                     </div>
