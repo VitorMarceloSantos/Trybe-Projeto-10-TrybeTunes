@@ -14,6 +14,7 @@ import '../styles/content.css';
 // import Search from '../pages/Search';
 import SearchBar from '../pages/SearchBar';
 import YourLibrary from '../pages/YourLibrary';
+import Musics from '../pages/Musics';
 
 export default class Content extends Component {
   render() {
@@ -21,15 +22,12 @@ export default class Content extends Component {
       <div>
 
         <section className="container-content">
-          {/* <div className="container-header">
-          <Header />
-        </div> */}
           <div className="container-albuns-cards">
             <Switch>
               <Route exact path="/" component={ Home } />
               <Route exact path="/search" component={ SearchBar } />
-              {/* <Route exact path="/search/:id" component={ SearchBarArtist } /> */}
               <Route exact path="/library" component={ YourLibrary } />
+              <Route exact path="/album/:id" component={ Musics } />
               {/* <Route exact path="/" component={ Login } />
         <Route exact path="/search" component={ Search } />
         <Route exact path="/album/:id" component={ Album } />

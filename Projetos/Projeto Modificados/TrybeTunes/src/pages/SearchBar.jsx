@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import '../styles/searchBar.css';
 import { HiSearch } from 'react-icons/hi';
-import { BsPlay, BsPause, BsHeart } from 'react-icons/bs';
+import { BsHeart } from 'react-icons/bs';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import CardMusic from '../components/CardMusic';
 import musicsApi from '../services/musicsAPI';
