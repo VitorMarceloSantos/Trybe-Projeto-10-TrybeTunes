@@ -9,6 +9,7 @@ export default class Musics extends Component {
     idAlbum: '',
     loading: true,
     resultSearch: '',
+    isDuration: 0,
   }
 
   componentDidMount() {
@@ -54,7 +55,7 @@ selectColor = () => {
 render() {
   // const { match: {params} } = this.props;
   // const { id } = params;
-  const { resultSearch, loading } = this.state;
+  const { resultSearch, loading, isDuration } = this.state;
 
   const newAudio = ({ target }) => {
     console.log(target);
@@ -66,8 +67,11 @@ render() {
         const audio = new Audio();
         audio.src = `${target.value}`;
         audio.play();
+        const { duration } = audio.duration.length;
+        console.log('duracao', duration);
         this.setState({
           isMusic: audio,
+          isDuration: duration,
         });
         target.textContent = 'II  ';
       } else {
@@ -131,20 +135,30 @@ render() {
                     className="container-button-play-music-musics"
                     key={ trackName }
                   >
-                    <button
-                      type="button"
-                      value={ previewUrl }
-                      onClick={ newAudio }
-                    >
-                      &#9658;
-                      {' '}
-                      {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
-                    </button>
-                    <div>
-                      <h3>{trackName}</h3>
-                      <h4>{artistName}</h4>
+                    <div style={ { display: 'flex' } }>
+                      <button
+                        type="button"
+                        value={ previewUrl }
+                        onClick={ newAudio }
+                      >
+                        &#9658;
+                        {' '}
+                        {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
+                      </button>
+                      <div>
+                        <h3>{trackName}</h3>
+                        <h4>{artistName}</h4>
+                      </div>
                     </div>
-
+                    <div className="container-liked-music-api">
+                      <button
+                        type="button"
+                        className="button-icon-add-heart-musics-api"
+                      >
+                        <BsHeart className="icon-heart-favorite-musics-api" />
+                      </button>
+                      <p>...</p>
+                    </div>
                   </div>
                 ))}
             </div>

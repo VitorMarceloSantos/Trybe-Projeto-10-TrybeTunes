@@ -95,7 +95,9 @@
 }
 
 .container-button-play-music-musics {
+  align-items: center;
   display: flex;
+  justify-content: space-between;
   padding: 10px;
 }
 
@@ -110,9 +112,29 @@
 
 .container-result-musics-api {
   margin: 30px 30px 0 0;
+
+}
+
+.container-liked-music-api {
+  align-items: center;
+  display: flex;
+}
+
+.container-liked-music-api button {
+  background-color: transparent;
 }
 
 .container-button-play-music-musics:hover {
   background-color: rgb(42, 42, 42);
   cursor: pointer;
+}
+
+.button-icon-add-heart-musics-api {
+  background-color: transparent;
+
+}
+
+.icon-heart-favorite-musics-api {
+  background-color: transparent;
+  font-size: 0.8em;
 }
