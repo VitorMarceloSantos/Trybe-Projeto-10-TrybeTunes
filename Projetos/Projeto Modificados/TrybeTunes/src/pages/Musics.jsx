@@ -9,7 +9,6 @@ export default class Musics extends Component {
     idAlbum: '',
     loading: true,
     resultSearch: '',
-    isDuration: 0,
   }
 
   componentDidMount() {
@@ -67,11 +66,8 @@ render() {
         const audio = new Audio();
         audio.src = `${target.value}`;
         audio.play();
-        const { duration } = audio.duration.length;
-        console.log('duracao', duration);
         this.setState({
           isMusic: audio,
-          isDuration: duration,
         });
         target.textContent = 'II  ';
       } else {

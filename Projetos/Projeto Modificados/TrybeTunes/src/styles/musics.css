@@ -102,7 +102,7 @@
 }
 
 .container-button-play-music-musics h3 {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 .container-button-play-music-musics h4 {
@@ -138,3 +138,8 @@
   background-color: transparent;
   font-size: 0.8em;
 }
+
+.icon-heart-favorite-musics-api:hover {
+  color: red;
+}
+
