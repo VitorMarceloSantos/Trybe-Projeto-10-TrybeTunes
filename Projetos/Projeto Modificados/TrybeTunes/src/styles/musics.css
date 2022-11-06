@@ -33,7 +33,7 @@
   display: flex;
 }
 
-.container-musics-player p{
+.container-musics-player p {
   color: white;
 }
 
@@ -45,4 +45,13 @@
   padding-bottom: 8px;
   padding-left: 8px;
   width: 55px;
+}
+
+.icon-heart-favorite {
+  font-size: 1.8em;
+}
+
+.icon-heart-favorite:hover {
+  color: red;
+  cursor: pointer;
 }
