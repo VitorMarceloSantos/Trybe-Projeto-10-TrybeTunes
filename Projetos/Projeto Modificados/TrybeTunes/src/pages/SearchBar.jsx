@@ -17,11 +17,11 @@ export default class SearchBar extends Component {
     isMusic: '',
   }
 
-    searchAlbum = async (nomeAlbum) => {
-      this.setState({
-        loading: true,
-        inputSearch: nomeAlbum,
-      });
+  searchAlbum = async (nomeAlbum) => {
+    this.setState({
+      loading: true,
+      inputSearch: nomeAlbum,
+    }, async () => {
       try {
         const result = await searchAlbumsAPI(nomeAlbum); // batendo na API
         this.setState({
@@ -29,7 +29,6 @@ export default class SearchBar extends Component {
         }, async () => {
           const { resultSearch } = this.state;
           if (resultSearch.length > 0) {
-            // console.log('result', resultSearch[0])
             const musics = await musicsApi(resultSearch[0].artistId);
             const NUMBER_FIVE = 5;
             this.setState({
@@ -41,7 +40,8 @@ export default class SearchBar extends Component {
       } catch (err) {
         console.error(`Erro ao consultar API: ${err.message}`);
       }
-    };
+    });
+  };
 
     changeSearch = ({ target }) => {
       this.setState({
@@ -152,7 +152,7 @@ export default class SearchBar extends Component {
                         { previewUrl, amgArtistId, artworkUrl100, trackName, artistName },
                       ) => (
                         <div key={ amgArtistId } className="container-play-music">
-                          {console.log(resultMusic)}
+                          {/* {console.log(resultMusic)} */}
                           <div className="container-flex-image">
                             <img src={ artworkUrl100 } alt="Artist Album" />
                             <div className="container-titles-play-music">

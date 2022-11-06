@@ -1,0 +1,48 @@
+.container-musics-album-artist {
+  align-items: center;
+  display: flex;
+  height: 28vh;
+}
+
+.container-img-title-musics {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.container-musics-album-artist img {
+  border-radius: 15px;
+  height: 200px;
+  margin: 0 30px;
+  width: 200px;
+}
+
+.container-img-title-musics p {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.container-img-title-musics h2 {
+  font-size: 3.5em;
+  font-weight: 700;
+}
+
+.container-musics-player {
+  align-items: center;
+  display: flex;
+}
+
+.container-musics-player p{
+  color: white;
+}
+
+.container-button-play-music button {
+  background-color: #0e9d67;
+  color: black;
+  font-size: 2.2em;
+  height: 55px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  width: 55px;
+}
