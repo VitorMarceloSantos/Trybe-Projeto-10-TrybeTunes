@@ -30,35 +30,66 @@
 
 .container-musics-player {
   align-items: center;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgb(25, 25, 25));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgb(25, 25, 25));
   display: flex;
   height: 15vh;
 }
 
 .container-musics-player p {
-  color: white;
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 2em;
 }
 
-.container-button-play-music button {
+.container-button-play-music-musics button {
+  align-items: center;
   background-color: #0e9d67;
+  border: none;
+  border-radius: 50%;
   color: black;
+  display: flex;
   font-size: 2.2em;
   height: 55px;
+  justify-content: center;
+  margin-left: 30px;
+  margin-right: 20px;
   padding-bottom: 8px;
-  padding-left: 8px;
+  padding-left: 12px;
   width: 55px;
 }
 
-.button-icon-add-heart {
+.button-icon-add-heart-musics {
   background-color: transparent;
+  border: none;
+  margin-right: 20px;
 }
 
-.icon-heart-favorite {
+.icon-heart-favorite-musics {
   background-color: transparent;
+  color: rgba(220, 220, 220, 0.9);
   font-size: 1.8em;
 }
 
-.icon-heart-favorite:hover {
+.icon-heart-favorite-musics:hover {
   color: red;
   cursor: pointer;
+}
+
+.container-button-play-music-musics button:hover {
+  color: rgba(220, 220, 220, 0.9);
+}
+
+.container-musics-player p:hover {
+  cursor: pointer;
+}
+
+.container-musics-songs-list {
+  color: rgba(220, 220, 220, 0.8);
+  font-size: 0.9em;
+  margin-left: 30px;
+}
+
+.line-border {
+  border: 1px solid rgba(220, 220, 220, 0.2);
+  margin: auto;
+  width: 70.4vw;
 }

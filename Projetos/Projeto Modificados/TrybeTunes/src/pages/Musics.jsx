@@ -42,11 +42,11 @@ selectColor = () => {
   const backgroundMusics = document.querySelector('.container-musics-album-artist');
 
   const arrayColor = [
-    'linear-gradient(to bottom, rgb(74, 60, 83), rgb(25, 25, 25))',
-    'linear-gradient(to bottom, rgb(92, 50, 51), rgb(25, 25, 25))',
-    'linear-gradient(to bottom, rgb(102, 77, 55),rgb(25, 25, 25))',
-    'linear-gradient(to bottom, rgb(57, 79, 92), rgb(25, 25, 25))',
-    'linear-gradient(to bottom, rgb(74, 98, 85), rgb(25, 25, 25))'];
+    'linear-gradient(to bottom, rgb(92, 50, 51), rgba(0, 0, 0, 0.8))',
+    'linear-gradient(to bottom, rgb(102, 77, 55),rgba(0, 0, 0, 0.8))',
+    'linear-gradient(to bottom, rgb(74, 60, 83), rgba(0, 0, 0, 0.8))',
+    'linear-gradient(to bottom, rgb(57, 79, 92), rgba(0, 0, 0, 0.8))',
+    'linear-gradient(to bottom, rgb(74, 98, 85), rgba(0, 0, 0, 0.8))'];
 
   backgroundMusics.style.background = arrayColor[this.randomNumber()];
 }
@@ -99,7 +99,7 @@ render() {
           </div>
           <div className="container-musics-player">
             <div
-              className="container-button-play-music"
+              className="container-button-play-music-musics"
             >
               <button
                 type="button"
@@ -113,13 +113,16 @@ render() {
             </div>
             <button
               type="button"
-              className="button-icon-add-heart"
+              className="button-icon-add-heart-musics"
             >
-              <BsHeart className="icon-heart-favorite" />
+              <BsHeart className="icon-heart-favorite-musics" />
             </button>
             <p>...</p>
           </div>
-          <div className="container-musics-songs-list" />
+          <div className="container-musics-songs-list">
+            <p># TITLE</p>
+            <div className="line-border"> </div>
+          </div>
         </div>
       ) }
     </section>
