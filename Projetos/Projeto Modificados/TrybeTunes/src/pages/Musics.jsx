@@ -140,8 +140,11 @@ render() {
                       {' '}
                       {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
                     </button>
-                    <h3>{trackName}</h3>
-                    <h4>{artistName}</h4>
+                    <div>
+                      <h3>{trackName}</h3>
+                      <h4>{artistName}</h4>
+                    </div>
+
                   </div>
                 ))}
             </div>
