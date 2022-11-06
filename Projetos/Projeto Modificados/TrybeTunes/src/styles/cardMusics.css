@@ -42,3 +42,7 @@
   margin: 20px 30px;
 }
 
+.container-card-music:hover {
+  border: 1px solid rgba(220, 220, 220, 0.6);
+}
+

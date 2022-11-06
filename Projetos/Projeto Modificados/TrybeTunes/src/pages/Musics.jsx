@@ -94,7 +94,7 @@ render() {
             <div className="container-img-title-musics">
               <p>Album</p>
               <h2>{resultSearch[0].collectionName}</h2>
-              <p>{`${resultSearch[0].artistName} - ${resultSearch.length} songs`}</p>
+              <p>{`${resultSearch[0].artistName} - ${resultSearch.length - 1} songs`}</p>
             </div>
           </div>
           <div className="container-musics-player">
@@ -121,7 +121,31 @@ render() {
           </div>
           <div className="container-musics-songs-list">
             <p># TITLE</p>
-            <div className="line-border"> </div>
+            {console.log(resultSearch)}
+            <div className="line-border" />
+            <div className="container-result-musics-api">
+              {(resultSearch.slice(1, resultSearch.length))
+                .map(({ previewUrl, trackName, artistName,
+                }, index) => (
+                  <div
+                    className="container-button-play-music-musics"
+                    key={ trackName }
+                  >
+                    <button
+                      type="button"
+                      value={ previewUrl }
+                      onClick={ newAudio }
+                    >
+                      &#9658;
+                      {' '}
+                      {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
+                    </button>
+                    <h3>{trackName}</h3>
+                    <h4>{artistName}</h4>
+                  </div>
+                ))}
+            </div>
+
           </div>
         </div>
       ) }

@@ -52,7 +52,7 @@
   justify-content: center;
   margin-left: 30px;
   margin-right: 20px;
-  padding-bottom: 8px;
+  padding-bottom: 7px;
   padding-left: 12px;
   width: 55px;
 }
@@ -92,4 +92,8 @@
   border: 1px solid rgba(220, 220, 220, 0.2);
   margin: auto;
   width: 70.4vw;
+}
+
+.container-button-play-music-musics {
+  display: flex;
 }
