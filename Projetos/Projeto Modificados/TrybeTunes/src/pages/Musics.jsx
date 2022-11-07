@@ -12,7 +12,7 @@ export default class Musics extends Component {
     resultSearch: '',
     randomSelectMusic: '',
     isPlay: false,
-    favorteSongSaved:[],
+    favorteSongSaved: [],
   }
 
   componentDidMount() {
@@ -21,8 +21,6 @@ export default class Musics extends Component {
     this.searchAlbum(id);
     this.verifyFavoriteSongs();
   }
-
-
 
   searchAlbum = async (idAlbum) => {
     try {
@@ -59,7 +57,7 @@ selectColor = () => {
   backgroundMusics.style.background = arrayColor[this.randomNumber()];
 }
 
-favoriteSong = ({ target }, trackId) => {
+favoriteSong = (trackId) => {
   this.setState((prevState) => ({ // utilizando o prevState parapegar o valor do check
     loading: true,
     check: !prevState.check, // sempre vai receber o inverso de seu valor inicial
@@ -68,15 +66,17 @@ favoriteSong = ({ target }, trackId) => {
     if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
       // caso o id não se encontre no find, salvará no localStorage
       await addSong(trackId);
-      target.classList.add('icon-heart-favorite-musics-api-selected');
-      console.log(target.classList);
+      this.setState((prevState) => ({
+        favorteSongSaved: [...prevState.favorteSongSaved, trackId],
+        loading: false,
+      }));
     } else {
       await removeSong(trackId);
+      this.setState((prevState) => ({
+        favorteSongSaved: prevState.favorteSongSaved.filter((id) => id !== trackId),
+        loading: false,
+      }));
     }
-    // console.log('favoritas', await getFavoriteSongs());
-    this.setState({
-      loading: false,
-    });
   });
 }
 
@@ -168,8 +168,6 @@ render() {
                 className="button-play-musics"
               >
                 &#9658;
-                {/* {' '} */}
-                {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
               </button>
             </div>
             <button
@@ -193,7 +191,7 @@ render() {
             <div className="container-result-musics-api">
               {(resultSearch.slice(1, resultSearch.length))
                 .map(({ previewUrl, trackName, artistName, trackId,
-                }) => (
+                }, index) => (
                   <div
                     className="container-button-play-music-musics"
                     key={ trackName }
@@ -217,9 +215,16 @@ render() {
                         type="button"
                         className="button-icon-add-heart-musics-api"
                         value={ trackId }
-                        onClick={ (event) => { this.favoriteSong(event, trackId); } }
+                        onClick={ (event) => {
+                          this.favoriteSong(event, trackId, `iconHeart-${index + 1}`);
+                        } }
                       >
-                        <BsHeart className="icon-heart-favorite-musics-api " style={ favorteSongSaved.some((id) => (id === trackId)) && {color: 'red'}}/>
+                        <BsHeart
+                          id={ `iconHeart-${index + 1}` }
+                          className={ `icon-heart-favorite-musics-api ${(favorteSongSaved
+                            .some((id) => (id === trackId)))
+                            && 'icon-heart-favorite-musics-api-selected'}` }
+                        />
                       </button>
                       <p>...</p>
                     </div>
