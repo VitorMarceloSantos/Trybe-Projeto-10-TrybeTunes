@@ -66,6 +66,7 @@ favoriteSong = (trackId) => {
     if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
       // caso o id não se encontre no find, salvará no localStorage
       await addSong(trackId);
+      // localStorage.setItem('likedSongs', JSON.stringify());
       this.setState((prevState) => ({
         favorteSongSaved: [...prevState.favorteSongSaved, trackId],
         loading: false,

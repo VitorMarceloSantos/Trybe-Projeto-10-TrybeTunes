@@ -1,5 +1,5 @@
 const FAVORITE_SONGS_KEY = 'favorite_songs';
-const TIMEOUT = 50; // tempo de resposta do servidor
+const TIMEOUT = 0; // tempo de resposta do servidor
 const SUCCESS_STATUS = 'OK';
 
 if (!JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY))) {
