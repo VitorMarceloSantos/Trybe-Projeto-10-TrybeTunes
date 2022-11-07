@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/musics.css';
 import { BsHeart } from 'react-icons/bs';
+import { SiTheirishtimes } from 'react-icons/si';
 import musicsApi from '../services/musicsAPI';
 import ButtonUpgrade from '../components/ButtonUpgrade';
 
 export default class Musics extends Component {
   state ={
-    idAlbum: '',
     loading: true,
     resultSearch: '',
+    randomSelectMusic: '',
+    isPlay: false,
   }
 
   componentDidMount() {
@@ -26,6 +29,7 @@ export default class Musics extends Component {
       }, () => {
         const { resultSearch } = this.state;
         console.log(resultSearch);
+        // this.randomMusic(resultSearch);
         this.selectColor();
       });
     } catch (err) {
@@ -52,12 +56,11 @@ selectColor = () => {
 }
 
 render() {
-  const { match: { params } } = this.props;
-  const { id } = params;
-  const { resultSearch, loading } = this.state;
+  // const { match: { params } } = this.props;
+  // const { id } = params;
+  const { resultSearch, loading, randomSelectMusic } = this.state;
 
-  const newAudio = ({ target }) => {
-    console.log(target);
+  const newAudio = (target) => {
     this.setState((prevState) => ({
       isPlay: !prevState.isPlay,
     }), () => {
@@ -82,6 +85,34 @@ render() {
     });
   };
 
+  const targetNewAudio = ({ target }) => {
+    newAudio(target);
+  };
+
+  const randomMusic = ({ target }) => {
+    const { isPlay } = this.state;
+    console.log('isplay', isPlay);
+    if (!isPlay) {
+      const randomSelect = resultSearch.slice(1, resultSearch.length);
+      const randomMusicFinally = randomSelect[Math
+        .floor(Math.random() * randomSelect.length)];
+      const value = {
+        previewUrl: randomMusicFinally.previewUrl,
+        name: randomMusicFinally.trackName,
+      };
+      this.setState({
+        randomSelectMusic: value,
+      }, () => {
+        newAudio(target);
+      });
+    } else {
+      const { isMusic } = this.state;
+      isMusic.pause();
+      target.textContent = '\u25BA';
+      this.setState({ isPlay: false });
+    }
+  };
+
   return (
     <section className="container-musics-main">
       <ButtonUpgrade />
@@ -103,8 +134,8 @@ render() {
             >
               <button
                 type="button"
-                // value={ previewUrl }
-                onClick={ newAudio }
+                value={ randomSelectMusic.previewUrl }
+                onClick={ randomMusic }
                 className="button-play-musics"
               >
                 &#9658;
@@ -119,6 +150,9 @@ render() {
               <BsHeart className="icon-heart-favorite-musics" />
             </button>
             <p>...</p>
+            <div className="container-name-music-random">
+              <p>{randomSelectMusic.name}</p>
+            </div>
           </div>
           <div className="container-musics-songs-list">
             <p># TITLE</p>
@@ -127,7 +161,7 @@ render() {
             <div className="container-result-musics-api">
               {(resultSearch.slice(1, resultSearch.length))
                 .map(({ previewUrl, trackName, artistName,
-                }, index) => (
+                }) => (
                   <div
                     className="container-button-play-music-musics"
                     key={ trackName }
@@ -136,7 +170,7 @@ render() {
                       <button
                         type="button"
                         value={ previewUrl }
-                        onClick={ newAudio }
+                        onClick={ targetNewAudio }
                         className="button-play-musics"
                       >
                         &#9658;
@@ -168,3 +202,11 @@ render() {
   );
 }
 }
+
+Musics.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
