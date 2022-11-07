@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/musics.css';
 import { BsHeart } from 'react-icons/bs';
-import { SiTheirishtimes } from 'react-icons/si';
 import musicsApi from '../services/musicsAPI';
 import ButtonUpgrade from '../components/ButtonUpgrade';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 export default class Musics extends Component {
   state ={
@@ -53,6 +53,37 @@ selectColor = () => {
     'linear-gradient(to bottom, rgb(74, 98, 85), rgba(0, 0, 0, 0.8))'];
 
   backgroundMusics.style.background = arrayColor[this.randomNumber()];
+}
+
+favoriteSong = ({ target }, trackId) => {
+  // const { target: { id } } = event;
+  this.setState((prevState) => ({ // utilizando o prevState parapegar o valor do check
+    loading: true,
+    check: !prevState.check, // sempre vai receber o inverso de seu valor inicial
+  }), async () => {
+    // const { check } = this.state; // pegando o valor atualizado do check
+    // if (check) { // se check for verdadira vai salvar a musica nos favoritos
+    const favoriteSongs = await getFavoriteSongs();
+    if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
+      // caso o id não se encontre no find, salvará no localStorage
+      await addSong(trackId);
+    } else {
+      await removeSong(trackId);
+    }
+
+    console.log('favoritas', await getFavoriteSongs());
+    // await addSong(trackId); // vai adicionar o o objeto correspondete, convertendo Number para String
+    // console.log(localStorage);
+    // localStorage.clear() // apagar o localStorage salvo
+    // } else {
+    // const { filterMusic } = this.props;
+    // filterMusic(id);
+    // await removeSong(searchMusics.find((music) => (String(music.trackId)) === id)); // removendo musica de favoritas
+    // }
+    this.setState({
+      loading: false,
+    });
+  });
 }
 
 render() {
@@ -112,7 +143,6 @@ render() {
       this.setState({ isPlay: false });
     }
   };
-
   return (
     <section className="container-musics-main">
       <ButtonUpgrade />
@@ -163,7 +193,7 @@ render() {
             <div className="line-border" />
             <div className="container-result-musics-api">
               {(resultSearch.slice(1, resultSearch.length))
-                .map(({ previewUrl, trackName, artistName,
+                .map(({ previewUrl, trackName, artistName, trackId,
                 }) => (
                   <div
                     className="container-button-play-music-musics"
@@ -177,8 +207,6 @@ render() {
                         className="button-play-musics"
                       >
                         &#9658;
-                        {' '}
-                        {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
                       </button>
                       <div>
                         <h3>{trackName}</h3>
@@ -189,6 +217,8 @@ render() {
                       <button
                         type="button"
                         className="button-icon-add-heart-musics-api"
+                        value={ trackId }
+                        onClick={ (event) => { this.favoriteSong(event, trackId); } }
                       >
                         <BsHeart className="icon-heart-favorite-musics-api" />
                       </button>

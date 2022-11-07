@@ -36,7 +36,7 @@ class MusicCard extends Component {
       const { check } = this.state; // pegando o valor atualizado do check
       if (check) { // se check for verdadira vai salvar a musica nos favoritos
         await addSong(searchMusics.find((music) => (String(music.trackId)) === id)); // vai adicionar o o objeto correspondete, convertendo Number para String
-        // localStorage.clear() // apagar o localStorage salvo
+        // localStorage.removeItem('favorite_songs');
       } else {
         const { filterMusic } = this.props;
         filterMusic(id);
