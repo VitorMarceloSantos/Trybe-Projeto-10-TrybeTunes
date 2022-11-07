@@ -52,9 +52,9 @@ selectColor = () => {
 }
 
 render() {
-  // const { match: {params} } = this.props;
-  // const { id } = params;
-  const { resultSearch, loading, isDuration } = this.state;
+  const { match: { params } } = this.props;
+  const { id } = params;
+  const { resultSearch, loading } = this.state;
 
   const newAudio = ({ target }) => {
     console.log(target);
@@ -105,9 +105,10 @@ render() {
                 type="button"
                 // value={ previewUrl }
                 onClick={ newAudio }
+                className="button-play-musics"
               >
                 &#9658;
-                {' '}
+                {/* {' '} */}
                 {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
               </button>
             </div>
@@ -136,6 +137,7 @@ render() {
                         type="button"
                         value={ previewUrl }
                         onClick={ newAudio }
+                        className="button-play-musics"
                       >
                         &#9658;
                         {' '}

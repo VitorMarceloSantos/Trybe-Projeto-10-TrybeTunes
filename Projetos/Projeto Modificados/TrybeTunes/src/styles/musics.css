@@ -52,8 +52,9 @@
   justify-content: center;
   margin-left: 30px;
   margin-right: 20px;
-  padding-bottom: 7px;
-  padding-left: 12px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  text-align: center;
   width: 55px;
 }
 
@@ -74,7 +75,7 @@
   cursor: pointer;
 }
 
-.container-button-play-music-musics button:hover {
+.button-play-musics:hover {
   color: rgba(220, 220, 220, 0.9);
 }
 
