@@ -12,13 +12,17 @@ export default class Musics extends Component {
     resultSearch: '',
     randomSelectMusic: '',
     isPlay: false,
+    favorteSongSaved:[],
   }
 
   componentDidMount() {
     const { match: { params } } = this.props;
     const { id } = params;
     this.searchAlbum(id);
+    this.verifyFavoriteSongs();
   }
+
+
 
   searchAlbum = async (idAlbum) => {
     try {
@@ -56,40 +60,35 @@ selectColor = () => {
 }
 
 favoriteSong = ({ target }, trackId) => {
-  // const { target: { id } } = event;
   this.setState((prevState) => ({ // utilizando o prevState parapegar o valor do check
     loading: true,
     check: !prevState.check, // sempre vai receber o inverso de seu valor inicial
   }), async () => {
-    // const { check } = this.state; // pegando o valor atualizado do check
-    // if (check) { // se check for verdadira vai salvar a musica nos favoritos
     const favoriteSongs = await getFavoriteSongs();
     if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
       // caso o id não se encontre no find, salvará no localStorage
       await addSong(trackId);
+      target.classList.add('icon-heart-favorite-musics-api-selected');
+      console.log(target.classList);
     } else {
       await removeSong(trackId);
     }
-
-    console.log('favoritas', await getFavoriteSongs());
-    // await addSong(trackId); // vai adicionar o o objeto correspondete, convertendo Number para String
-    // console.log(localStorage);
-    // localStorage.clear() // apagar o localStorage salvo
-    // } else {
-    // const { filterMusic } = this.props;
-    // filterMusic(id);
-    // await removeSong(searchMusics.find((music) => (String(music.trackId)) === id)); // removendo musica de favoritas
-    // }
+    // console.log('favoritas', await getFavoriteSongs());
     this.setState({
       loading: false,
     });
   });
 }
 
+verifyFavoriteSongs = async () => {
+  const favoriteSongs = await getFavoriteSongs(); // coloar no setState para fazer apenas uma requisiçã
+  this.setState({ favorteSongSaved: favoriteSongs });
+};
+
 render() {
   // const { match: { params } } = this.props;
   // const { id } = params;
-  const { resultSearch, loading, randomSelectMusic } = this.state;
+  const { resultSearch, loading, randomSelectMusic, favorteSongSaved } = this.state;
 
   const newAudio = (target) => {
     this.setState((prevState) => ({
@@ -220,7 +219,7 @@ render() {
                         value={ trackId }
                         onClick={ (event) => { this.favoriteSong(event, trackId); } }
                       >
-                        <BsHeart className="icon-heart-favorite-musics-api" />
+                        <BsHeart className="icon-heart-favorite-musics-api " style={ favorteSongSaved.some((id) => (id === trackId)) && {color: 'red'}}/>
                       </button>
                       <p>...</p>
                     </div>
