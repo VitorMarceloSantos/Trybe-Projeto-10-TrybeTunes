@@ -215,9 +215,7 @@ render() {
                         type="button"
                         className="button-icon-add-heart-musics-api"
                         value={ trackId }
-                        onClick={ (event) => {
-                          this.favoriteSong(event, trackId, `iconHeart-${index + 1}`);
-                        } }
+                        onClick={ () => { this.favoriteSong(trackId); } }
                       >
                         <BsHeart
                           id={ `iconHeart-${index + 1}` }
