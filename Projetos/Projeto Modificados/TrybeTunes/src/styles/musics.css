@@ -79,9 +79,6 @@
   color: rgba(220, 220, 220, 0.9);
 }
 
-.container-musics-player p:hover {
-  cursor: pointer;
-}
 
 .container-musics-songs-list {
   color: rgba(220, 220, 220, 0.8);
@@ -142,5 +139,22 @@
 
 .icon-heart-favorite-musics-api:hover {
   color: red;
+}
+
+.container-name-music-random {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.container-name-music-random p {
+  font-size: 0.9em;
+}
+
+/* .add-sound-gif {
+  background-image: url('../images/sound.gif');
+} */
+
+.container-musics-player p:hover {
+  cursor: pointer;
 }
 

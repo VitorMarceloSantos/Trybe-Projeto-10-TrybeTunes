@@ -151,7 +151,10 @@ render() {
             </button>
             <p>...</p>
             <div className="container-name-music-random">
-              <p>{randomSelectMusic.name}</p>
+              <div className="add-sound-gif" />
+              {randomSelectMusic.name !== undefined && (
+                <p>{`Song: ${randomSelectMusic.name}`}</p>
+              )}
             </div>
           </div>
           <div className="container-musics-songs-list">
