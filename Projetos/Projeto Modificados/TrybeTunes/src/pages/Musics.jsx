@@ -16,7 +16,10 @@ export default class Musics extends Component {
     isPlay: false,
     favorteSongSaved: [],
     songsDetailsSaved: [{}],
+    albumSaved: [],
   }
+
+  // collectionId, collectionName, artistName
 
   componentDidMount() {
     const { match: { params } } = this.props;
@@ -97,20 +100,60 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
   });
 }
 
+favoriteAlbum = (collectionId, collectionName, artistName) => {
+  this.setState({ // utilizando o prevState parapegar o valor do check
+    loading: true,
+  }, () => {
+    const favoriteAlbum = JSON.parse(localStorage.getItem('favorite_album'));
+    if (favoriteAlbum === null) {
+      console.log('entrou aqui');
+      this.setState({
+        albumSaved: [{ collectionId, collectionName, artistName }],
+        loading: false,
+      }, async () => {
+        const { albumSaved } = this.state;
+        this.savedLocalStorage('favorite_album', albumSaved);
+      });
+    } else if (!favoriteAlbum
+      .some(({ collectionId: id }) => Number(id) === collectionId)) {
+      this.setState((prevState) => ({
+        albumSaved: [...prevState.albumSaved,
+          { collectionId, collectionName, artistName }],
+        loading: false,
+      }), () => {
+        const { albumSaved } = this.state;
+        this.savedLocalStorage('favorite_album', albumSaved);
+      });
+    } else {
+      this.setState((prevState) => ({
+        albumSaved: prevState.albumSaved
+          .filter(({ collectionId: id }) => id !== collectionId),
+        loading: false,
+      }), () => {
+        const { albumSaved } = this.state;
+        this.savedLocalStorage('favorite_album', albumSaved);
+      });
+    }
+  });
+}
+
 verifyFavoriteSongs = async () => {
   const favoriteSongs = await getFavoriteSongs(); // coloar no setState
   const favoriteSongSaved = JSON.parse(localStorage.getItem('likedSongs'));
-  console.log('saved', favoriteSongSaved);
+  const favoriteAlbumSaved = JSON.parse(localStorage.getItem('favorite_album'));
+  console.log('ALBUM', favoriteAlbumSaved);
   this.setState({
     favorteSongSaved: favoriteSongs,
     songsDetailsSaved: favoriteSongSaved,
+    albumSaved: favoriteAlbumSaved,
   });
 };
 
 render() {
   // const { match: { params } } = this.props;
   // const { id } = params;
-  const { resultSearch, loading, randomSelectMusic, favorteSongSaved } = this.state;
+  const {
+    resultSearch, loading, randomSelectMusic, favorteSongSaved, albumSaved } = this.state;
 
   const newAudio = (target) => {
     this.setState((prevState) => ({
@@ -196,7 +239,19 @@ render() {
               type="button"
               className="button-icon-add-heart-musics"
             >
-              <BsHeart className="icon-heart-favorite-musics" />
+              <BsHeart
+                className={ `icon-heart-favorite-musics 
+                          ${albumSaved !== null
+          ? (albumSaved
+            .some(({ collectionId: id }) => (id === resultSearch[0].collectionId))
+                            && 'icon-heart-favorite-musics-api-selected') : null}` }
+                onClick={
+                  () => {
+                    this.favoriteAlbum(resultSearch[0].collectionId,
+                      resultSearch[0].collectionName, resultSearch[0].artistName);
+                }
+                }
+              />
             </button>
             <p>...</p>
             <div className="container-name-music-random">
