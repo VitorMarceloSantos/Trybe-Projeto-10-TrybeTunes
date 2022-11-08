@@ -71,7 +71,7 @@ export default class YourLibrary extends Component {
           </ul>
         </nav>
         <section className="container-your-library-album">
-          <p className="text-library">Library</p>
+          {/* <p className="text-library">Library</p> */}
           {separateArtistsName.length !== 0 ? (
             separateArtistsName.map((album) => (
               <AlbumSaved

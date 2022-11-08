@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import '../styles/cardMusics.css';
+import '../styles/cardLibrary.css';
 
 export default class CardLibrary extends Component {
   render() {
