@@ -7,6 +7,7 @@ import musicsApi from '../services/musicsAPI';
 import ButtonUpgrade from '../components/ButtonUpgrade';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import selectColor from '../functions/selectColor';
+import MusicPlayer from '../components/MusicPlayer';
 
 export default class Musics extends Component {
   state ={
@@ -18,8 +19,6 @@ export default class Musics extends Component {
     songsDetailsSaved: [{}],
     albumSaved: [],
   }
-
-  // collectionId, collectionName, artistName
 
   componentDidMount() {
     const { match: { params } } = this.props;
@@ -222,7 +221,14 @@ render() {
               <p>{`${resultSearch[0].artistName} - ${resultSearch.length - 1} songs`}</p>
             </div>
           </div>
-          <div className="container-musics-player">
+          <MusicPlayer
+            randomSelectMusic={ randomSelectMusic }
+            randomMusic={ randomMusic }
+            albumSaved={ albumSaved }
+            resultSearch={ resultSearch }
+            favoriteAlbum={ this.favoriteAlbum }
+          />
+          {/* <div className="container-musics-player">
             <div
               className="container-button-play-music-musics"
             >
@@ -240,7 +246,7 @@ render() {
               className="button-icon-add-heart-musics"
             >
               <BsHeart
-                className={ `icon-heart-favorite-musics 
+                className={ `icon-heart-favorite-musics
                           ${albumSaved !== null
           ? (albumSaved
             .some(({ collectionId: id }) => (id === resultSearch[0].collectionId))
@@ -260,7 +266,7 @@ render() {
                 <p>{`Song: ${randomSelectMusic.name}`}</p>
               )}
             </div>
-          </div>
+          </div> */}
           <div className="container-musics-songs-list">
             <p># TITLE</p>
             {console.log(resultSearch)}
