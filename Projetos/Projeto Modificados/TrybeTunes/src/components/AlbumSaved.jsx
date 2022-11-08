@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CardMusics from './CardMusics';
+import CardLibrary from './CardLibrary';
 
 export default class AlbumSaved extends Component {
   render() {
     const { albumSaved } = this.props;
+    console.log('albumsaved', albumSaved);
     return (
       <div>
         <p className="text-library">Library</p>
-        {albumSaved.map((album) => (
-          <CardMusics
-            key={ `${album.collectionId}-${album.artistName}` }
-            arraySearch={ [album] }
-            nameArtist={ album.artistName }
-          />
-        ))}
+        <CardLibrary
+          key={ `${albumSaved[0].collectionId}-${albumSaved[0].artistName}` }
+          arraySearch={ albumSaved }
+          nameArtist={ albumSaved[0].artistName }
+        />
       </div>
     );
   }
