@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/musics.css';
 import { BsHeart } from 'react-icons/bs';
-import musicsApi from '../services/musicsAPI';
+// import musicsApi from '../services/musicsAPI';
 import ButtonUpgrade from '../components/ButtonUpgrade';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+
+const searchAlbum = require('../functions/searcAlbum');
 
 export default class Musics extends Component {
   state ={
@@ -13,31 +15,32 @@ export default class Musics extends Component {
     randomSelectMusic: '',
     isPlay: false,
     favorteSongSaved: [],
+    songsDetailsSaved: [],
   }
 
   componentDidMount() {
     const { match: { params } } = this.props;
     const { id } = params;
-    this.searchAlbum(id);
+    searchAlbum(id);
     this.verifyFavoriteSongs();
   }
 
-  searchAlbum = async (idAlbum) => {
-    try {
-      const musics = await musicsApi(idAlbum);
-      this.setState({
-        resultSearch: musics,
-        loading: false,
-      }, () => {
-        const { resultSearch } = this.state;
-        console.log(resultSearch);
-        // this.randomMusic(resultSearch);
-        this.selectColor();
-      });
-    } catch (err) {
-      console.error(`Erro ao consultar API: ${err.message}`);
-    }
-  };
+  // searchAlbum = async (idAlbum) => {
+  //   try {
+  //     const musics = await musicsApi(idAlbum);
+  //     this.setState({
+  //       resultSearch: musics,
+  //       loading: false,
+  //     }, () => {
+  //       const { resultSearch } = this.state;
+  //       console.log(resultSearch);
+  //       // this.randomMusic(resultSearch);
+  //       this.selectColor();
+  //     });
+  //   } catch (err) {
+  //     console.error(`Erro ao consultar API: ${err.message}`);
+  //   }
+  // };
 
 randomNumber = () => {
   const NUMBER_QUANT = 5; // gera um número aleatoria de 0 a 4
@@ -57,7 +60,7 @@ selectColor = () => {
   backgroundMusics.style.background = arrayColor[this.randomNumber()];
 }
 
-favoriteSong = (trackId) => {
+favoriteSong = (trackId, previewUrl, trackName, artistName) => {
   this.setState((prevState) => ({ // utilizando o prevState parapegar o valor do check
     loading: true,
     check: !prevState.check, // sempre vai receber o inverso de seu valor inicial
@@ -66,13 +69,18 @@ favoriteSong = (trackId) => {
     if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
       // caso o id não se encontre no find, salvará no localStorage
       await addSong(trackId);
-      // localStorage.setItem('likedSongs', JSON.stringify());
+      localStorage.setItem('likedSongs', JSON
+        .stringify({ previewUrl, trackName, artistName }));
       this.setState((prevState) => ({
         favorteSongSaved: [...prevState.favorteSongSaved, trackId],
+        songsDetailsSaved: [...prevState.songsDetailsSaved,
+          { previewUrl, trackName, artistName }],
         loading: false,
       }));
     } else {
       await removeSong(trackId);
+
+      // Fazer localStorage REMOVER do songsDetalSaved
       this.setState((prevState) => ({
         favorteSongSaved: prevState.favorteSongSaved.filter((id) => id !== trackId),
         loading: false,
@@ -82,8 +90,12 @@ favoriteSong = (trackId) => {
 }
 
 verifyFavoriteSongs = async () => {
-  const favoriteSongs = await getFavoriteSongs(); // coloar no setState para fazer apenas uma requisiçã
-  this.setState({ favorteSongSaved: favoriteSongs });
+  const favoriteSongs = await getFavoriteSongs(); // coloar no setState
+  const favoriteSongSaved = JSON.parse(localStorage.getItem('likedSongs'));
+  this.setState({
+    favorteSongSaved: favoriteSongs,
+    songsDetailsSaved: favoriteSongSaved,
+  });
 };
 
 render() {
@@ -216,7 +228,11 @@ render() {
                         type="button"
                         className="button-icon-add-heart-musics-api"
                         value={ trackId }
-                        onClick={ () => { this.favoriteSong(trackId); } }
+                        onClick={ () => {
+                          this.favoriteSong(
+                            trackId, previewUrl, trackName, artistName,
+                          );
+                        } }
                       >
                         <BsHeart
                           id={ `iconHeart-${index + 1}` }
