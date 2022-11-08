@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/yourLibrary.css';
 // import CardMusics from '../components/CardMusics';
 import AlbumSaved from '../components/AlbumSaved';
+import NotFoundPlaylist from '../components/NotFoundPlaylist';
 
 export default class YourLibrary extends Component {
   state = {
@@ -18,7 +19,8 @@ export default class YourLibrary extends Component {
     this.setState({
       albumSaved: favoriteAlbumSaved,
     }, () => {
-      this.separateAlbum();
+      const { albumSaved } = this.state;
+      if (albumSaved !== null) this.separateAlbum();
     });
   };
 
@@ -82,7 +84,7 @@ export default class YourLibrary extends Component {
           )
             : (
               <div className="container-not-selected-your-library">
-                <p> Nenhum album encontrado</p>
+                <NotFoundPlaylist />
               </div>
             )}
         </section>

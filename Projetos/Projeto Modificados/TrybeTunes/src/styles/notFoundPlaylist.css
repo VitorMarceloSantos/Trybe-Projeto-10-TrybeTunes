@@ -1,0 +1,21 @@
+.container-library-not-found {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.container-main-not-found {
+  align-items: center;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  justify-content: center;
+  width: 40vw;
+}
+
+.container-main-not-found img {
+  height: 10vh;
+}
+
