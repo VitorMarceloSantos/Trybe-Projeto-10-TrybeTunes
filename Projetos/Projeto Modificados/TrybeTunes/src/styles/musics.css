@@ -155,10 +155,6 @@
   font-size: 0.9em;
 }
 
-/* .add-sound-gif {
-  background-image: url('../images/sound.gif');
-} */
-
 .container-musics-player p:hover {
   cursor: pointer;
 }
