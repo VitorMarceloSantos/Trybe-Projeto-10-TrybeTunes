@@ -1,3 +1,4 @@
+/* eslint-disable react-func/max-lines-per-function */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/musics.css';
@@ -41,11 +42,11 @@ export default class Musics extends Component {
     }
   };
 
-  savedLocalStorage = () => {
-    const { songsDetailsSaved } = this.state;
-    console.log(songsDetailsSaved);
-    localStorage.setItem('likedSongs', JSON
-      .stringify(songsDetailsSaved));
+  savedLocalStorage = (key, state) => {
+    // const { songsDetailsSaved } = this.state;
+    // console.log(songsDetailsSaved);
+    localStorage.setItem(key, JSON
+      .stringify(state));
   }
 
 favoriteSong = (trackId, previewUrl, trackName, artistName) => {
@@ -54,35 +55,43 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
     check: !prevState.check, // sempre vai receber o inverso de seu valor inicial
   }), async () => {
     const favoriteSongs = await getFavoriteSongs();
-    if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
+    if (favoriteSongs === null) { // na primeira execução quando o localStorage for null
+      console.log('entrou aqui');
+      this.setState({
+        favorteSongSaved: [trackId],
+        songsDetailsSaved: [{ previewUrl, trackName, artistName, trackId }],
+        loading: false,
+      }, async () => {
+        // await addSong(trackId);
+        const { songsDetailsSaved, favorteSongSaved } = this.state;
+        this.savedLocalStorage('favorite_songs', favorteSongSaved);
+        this.savedLocalStorage('likedSongs', songsDetailsSaved);
+      });
+    } else if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
       // caso o id não se encontre no find, salvará no localStorage
       // console.log('songs', songsDetailsSaved)
-      await addSong(trackId);
       this.setState((prevState) => ({
         favorteSongSaved: [...prevState.favorteSongSaved, trackId],
         songsDetailsSaved: [...prevState.songsDetailsSaved,
-          { previewUrl, trackName, artistName }],
+          { previewUrl, trackName, artistName, trackId }],
         loading: false,
-      }), () => {
-        // const { songsDetailsSaved } = this.state;
+      }), async () => {
+        const { songsDetailsSaved } = this.state;
         // console.log(songsDetailsSaved);
-        // localStorage.setItem('likedSongs', JSON
-        //   .stringify(songsDetailsSaved));
-        this.savedLocalStorage();
+        await addSong(trackId);
+        this.savedLocalStorage('likedSongs', songsDetailsSaved);
       });
     } else {
-      await removeSong(trackId);
-// FAZER CASOS EM O LOCALSTORAGE COMEÇA VAZIO
-      // Fazer localStorage REMOVER do songsDetalSaved
       this.setState((prevState) => ({
         favorteSongSaved: prevState.favorteSongSaved.filter((id) => id !== trackId),
+        songsDetailsSaved: prevState.songsDetailsSaved
+          .filter(({ trackId: id }) => id !== trackId),
         loading: false,
-      }), () => {
-        // const { songsDetailsSaved } = this.state;
+      }), async () => {
+        const { songsDetailsSaved } = this.state;
         // console.log(songsDetailsSaved);
-        // localStorage.setItem('likedSongs', JSON
-        //   .stringify(songsDetailsSaved));
-        this.savedLocalStorage();
+        await removeSong(trackId);
+        this.savedLocalStorage('likedSongs', songsDetailsSaved);
       });
     }
   });
