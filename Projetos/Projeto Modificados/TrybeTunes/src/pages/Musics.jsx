@@ -8,6 +8,7 @@ import ButtonUpgrade from '../components/ButtonUpgrade';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import selectColor from '../functions/selectColor';
 import MusicPlayer from '../components/MusicPlayer';
+import MusicsList from '../components/MusicsList';
 
 export default class Musics extends Component {
   state ={
@@ -228,46 +229,13 @@ render() {
             resultSearch={ resultSearch }
             favoriteAlbum={ this.favoriteAlbum }
           />
-          {/* <div className="container-musics-player">
-            <div
-              className="container-button-play-music-musics"
-            >
-              <button
-                type="button"
-                value={ randomSelectMusic.previewUrl }
-                onClick={ randomMusic }
-                className="button-play-musics"
-              >
-                &#9658;
-              </button>
-            </div>
-            <button
-              type="button"
-              className="button-icon-add-heart-musics"
-            >
-              <BsHeart
-                className={ `icon-heart-favorite-musics
-                          ${albumSaved !== null
-          ? (albumSaved
-            .some(({ collectionId: id }) => (id === resultSearch[0].collectionId))
-                            && 'icon-heart-favorite-musics-api-selected') : null}` }
-                onClick={
-                  () => {
-                    this.favoriteAlbum(resultSearch[0].collectionId,
-                      resultSearch[0].collectionName, resultSearch[0].artistName);
-                }
-                }
-              />
-            </button>
-            <p>...</p>
-            <div className="container-name-music-random">
-              <div className="add-sound-gif" />
-              {randomSelectMusic.name !== undefined && (
-                <p>{`Song: ${randomSelectMusic.name}`}</p>
-              )}
-            </div>
-          </div> */}
-          <div className="container-musics-songs-list">
+          <MusicsList
+            resultSearch={ resultSearch }
+            targetNewAudio={ targetNewAudio }
+            favoriteSong={ this.favoriteSong }
+            favorteSongSaved={ favorteSongSaved }
+          />
+          {/* <div className="container-musics-songs-list">
             <p># TITLE</p>
             {console.log(resultSearch)}
             <div className="line-border" />
@@ -306,7 +274,7 @@ render() {
                       >
                         <BsHeart
                           id={ `iconHeart-${index + 1}` }
-                          className={ `icon-heart-favorite-musics-api 
+                          className={ `icon-heart-favorite-musics-api
                           ${favorteSongSaved !== null
                     ? (favorteSongSaved
                       .some((id) => (id === trackId))
@@ -318,8 +286,7 @@ render() {
                   </div>
                 ))}
             </div>
-
-          </div>
+          </div> */}
         </div>
       ) }
     </section>
