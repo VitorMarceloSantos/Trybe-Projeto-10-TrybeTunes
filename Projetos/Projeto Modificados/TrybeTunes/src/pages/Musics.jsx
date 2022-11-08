@@ -41,6 +41,13 @@ export default class Musics extends Component {
     }
   };
 
+  savedLocalStorage = () => {
+    const { songsDetailsSaved } = this.state;
+    console.log(songsDetailsSaved);
+    localStorage.setItem('likedSongs', JSON
+      .stringify(songsDetailsSaved));
+  }
+
 favoriteSong = (trackId, previewUrl, trackName, artistName) => {
   this.setState((prevState) => ({ // utilizando o prevState parapegar o valor do check
     loading: true,
@@ -49,25 +56,34 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
     const favoriteSongs = await getFavoriteSongs();
     if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
       // caso o id não se encontre no find, salvará no localStorage
-      const { songsDetailsSaved} = this.state;
-      console.log('songs', songsDetailsSaved)
+      // console.log('songs', songsDetailsSaved)
       await addSong(trackId);
-      localStorage.setItem('likedSongs', JSON
-        .stringify([...songsDetailsSaved, { previewUrl, trackName, artistName }]));
       this.setState((prevState) => ({
         favorteSongSaved: [...prevState.favorteSongSaved, trackId],
         songsDetailsSaved: [...prevState.songsDetailsSaved,
           { previewUrl, trackName, artistName }],
         loading: false,
-      }));
+      }), () => {
+        // const { songsDetailsSaved } = this.state;
+        // console.log(songsDetailsSaved);
+        // localStorage.setItem('likedSongs', JSON
+        //   .stringify(songsDetailsSaved));
+        this.savedLocalStorage();
+      });
     } else {
       await removeSong(trackId);
-
+// FAZER CASOS EM O LOCALSTORAGE COMEÇA VAZIO
       // Fazer localStorage REMOVER do songsDetalSaved
       this.setState((prevState) => ({
         favorteSongSaved: prevState.favorteSongSaved.filter((id) => id !== trackId),
         loading: false,
-      }));
+      }), () => {
+        // const { songsDetailsSaved } = this.state;
+        // console.log(songsDetailsSaved);
+        // localStorage.setItem('likedSongs', JSON
+        //   .stringify(songsDetailsSaved));
+        this.savedLocalStorage();
+      });
     }
   });
 }
@@ -75,10 +91,10 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
 verifyFavoriteSongs = async () => {
   const favoriteSongs = await getFavoriteSongs(); // coloar no setState
   const favoriteSongSaved = JSON.parse(localStorage.getItem('likedSongs'));
-  console.log('saved', favoriteSongSaved)
+  console.log('saved', favoriteSongSaved);
   this.setState({
     favorteSongSaved: favoriteSongs,
-    songsDetailsSaved: [favoriteSongSaved],
+    songsDetailsSaved: favoriteSongSaved,
   });
 };
 
@@ -220,9 +236,11 @@ render() {
                       >
                         <BsHeart
                           id={ `iconHeart-${index + 1}` }
-                          className={ `icon-heart-favorite-musics-api ${(favorteSongSaved
-                            .some((id) => (id === trackId)))
-                            && 'icon-heart-favorite-musics-api-selected'}` }
+                          className={ `icon-heart-favorite-musics-api 
+                          ${favorteSongSaved !== null
+                    ? (favorteSongSaved
+                      .some((id) => (id === trackId))
+                            && 'icon-heart-favorite-musics-api-selected') : null}` }
                         />
                       </button>
                       <p>...</p>
