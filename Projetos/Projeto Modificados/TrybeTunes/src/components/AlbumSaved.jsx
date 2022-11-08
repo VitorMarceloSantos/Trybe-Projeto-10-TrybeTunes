@@ -8,7 +8,6 @@ export default class AlbumSaved extends Component {
     console.log('albumsaved', albumSaved);
     return (
       <div>
-        <p className="text-library">Library</p>
         <CardLibrary
           key={ `${albumSaved[0].collectionId}-${albumSaved[0].artistName}` }
           arraySearch={ albumSaved }
