@@ -28,10 +28,7 @@ export default class Home extends Component {
       this.setState((prevState) => ({
         arraySearch: [...prevState.arraySearch, (resultSearch).slice(0, NUMBER_SIX)],
         loading: false,
-      }), () => {
-        const { arraySearch } = this.state;
-        console.log(arraySearch);
-      });
+      }));
     }
   };
 

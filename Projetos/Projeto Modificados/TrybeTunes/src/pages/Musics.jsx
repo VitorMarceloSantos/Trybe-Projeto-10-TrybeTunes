@@ -87,14 +87,14 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
   });
 }
 
-favoriteAlbum = (collectionId, collectionName, artistName) => {
+favoriteAlbum = (collectionId, collectionName, artistName, artworkUrl100) => {
   this.setState({
     loading: true,
   }, () => {
     const favoriteAlbum = JSON.parse(localStorage.getItem('favorite_album'));
     if (favoriteAlbum === null) {
       this.setState({
-        albumSaved: [{ collectionId, collectionName, artistName }],
+        albumSaved: [{ collectionId, collectionName, artistName, artworkUrl100 }],
         loading: false,
       }, async () => {
         const { albumSaved } = this.state;
@@ -104,7 +104,7 @@ favoriteAlbum = (collectionId, collectionName, artistName) => {
       .some(({ collectionId: id }) => Number(id) === collectionId)) {
       this.setState((prevState) => ({
         albumSaved: [...prevState.albumSaved,
-          { collectionId, collectionName, artistName }],
+          { collectionId, collectionName, artistName, artworkUrl100 }],
         loading: false,
       }), () => {
         const { albumSaved } = this.state;

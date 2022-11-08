@@ -37,7 +37,8 @@ export default class MusicPlayer extends Component {
                       && 'icon-heart-favorite-musics-api-selected') : null}` }
             onClick={ () => {
               favoriteAlbum(resultSearch[0].collectionId,
-                resultSearch[0].collectionName, resultSearch[0].artistName);
+                resultSearch[0].collectionName,
+                resultSearch[0].artistName, resultSearch[0].artworkUrl100);
             } }
           />
         </button>
