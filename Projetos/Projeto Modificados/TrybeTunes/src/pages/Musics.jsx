@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/musics.css';
 import { BsHeart } from 'react-icons/bs';
-// import musicsApi from '../services/musicsAPI';
+import musicsApi from '../services/musicsAPI';
 import ButtonUpgrade from '../components/ButtonUpgrade';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
-
-const searchAlbum = require('../functions/searcAlbum');
+import selectColor from '../functions/selectColor';
 
 export default class Musics extends Component {
   state ={
@@ -15,50 +14,32 @@ export default class Musics extends Component {
     randomSelectMusic: '',
     isPlay: false,
     favorteSongSaved: [],
-    songsDetailsSaved: [],
+    songsDetailsSaved: [{}],
   }
 
   componentDidMount() {
     const { match: { params } } = this.props;
     const { id } = params;
-    searchAlbum(id);
+    this.searchAlbum(id);
     this.verifyFavoriteSongs();
   }
 
-  // searchAlbum = async (idAlbum) => {
-  //   try {
-  //     const musics = await musicsApi(idAlbum);
-  //     this.setState({
-  //       resultSearch: musics,
-  //       loading: false,
-  //     }, () => {
-  //       const { resultSearch } = this.state;
-  //       console.log(resultSearch);
-  //       // this.randomMusic(resultSearch);
-  //       this.selectColor();
-  //     });
-  //   } catch (err) {
-  //     console.error(`Erro ao consultar API: ${err.message}`);
-  //   }
-  // };
-
-randomNumber = () => {
-  const NUMBER_QUANT = 5; // gera um número aleatoria de 0 a 4
-  return Math.floor(Math.random() * NUMBER_QUANT);
-};
-
-selectColor = () => {
-  const backgroundMusics = document.querySelector('.container-musics-album-artist');
-
-  const arrayColor = [
-    'linear-gradient(to bottom, rgb(92, 50, 51), rgba(0, 0, 0, 0.8))',
-    'linear-gradient(to bottom, rgb(102, 77, 55),rgba(0, 0, 0, 0.8))',
-    'linear-gradient(to bottom, rgb(74, 60, 83), rgba(0, 0, 0, 0.8))',
-    'linear-gradient(to bottom, rgb(57, 79, 92), rgba(0, 0, 0, 0.8))',
-    'linear-gradient(to bottom, rgb(74, 98, 85), rgba(0, 0, 0, 0.8))'];
-
-  backgroundMusics.style.background = arrayColor[this.randomNumber()];
-}
+  searchAlbum = async (idAlbum) => {
+    try {
+      const musics = await musicsApi(idAlbum);
+      this.setState({
+        resultSearch: musics,
+        loading: false,
+      }, () => {
+        const { resultSearch } = this.state;
+        console.log(resultSearch);
+        // this.randomMusic(resultSearch);
+        selectColor();
+      });
+    } catch (err) {
+      console.error(`Erro ao consultar API: ${err.message}`);
+    }
+  };
 
 favoriteSong = (trackId, previewUrl, trackName, artistName) => {
   this.setState((prevState) => ({ // utilizando o prevState parapegar o valor do check
@@ -68,9 +49,11 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
     const favoriteSongs = await getFavoriteSongs();
     if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
       // caso o id não se encontre no find, salvará no localStorage
+      const { songsDetailsSaved} = this.state;
+      console.log('songs', songsDetailsSaved)
       await addSong(trackId);
       localStorage.setItem('likedSongs', JSON
-        .stringify({ previewUrl, trackName, artistName }));
+        .stringify([...songsDetailsSaved, { previewUrl, trackName, artistName }]));
       this.setState((prevState) => ({
         favorteSongSaved: [...prevState.favorteSongSaved, trackId],
         songsDetailsSaved: [...prevState.songsDetailsSaved,
@@ -92,9 +75,10 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
 verifyFavoriteSongs = async () => {
   const favoriteSongs = await getFavoriteSongs(); // coloar no setState
   const favoriteSongSaved = JSON.parse(localStorage.getItem('likedSongs'));
+  console.log('saved', favoriteSongSaved)
   this.setState({
     favorteSongSaved: favoriteSongs,
-    songsDetailsSaved: favoriteSongSaved,
+    songsDetailsSaved: [favoriteSongSaved],
   });
 };
 
