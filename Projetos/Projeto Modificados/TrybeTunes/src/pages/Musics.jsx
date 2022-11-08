@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/musics.css';
-import { BsHeart } from 'react-icons/bs';
 import musicsApi from '../services/musicsAPI';
 import ButtonUpgrade from '../components/ButtonUpgrade';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
@@ -35,9 +34,6 @@ export default class Musics extends Component {
         resultSearch: musics,
         loading: false,
       }, () => {
-        const { resultSearch } = this.state;
-        console.log(resultSearch);
-        // this.randomMusic(resultSearch);
         selectColor();
       });
     } catch (err) {
@@ -46,33 +42,26 @@ export default class Musics extends Component {
   };
 
   savedLocalStorage = (key, state) => {
-    // const { songsDetailsSaved } = this.state;
-    // console.log(songsDetailsSaved);
     localStorage.setItem(key, JSON
       .stringify(state));
   }
 
 favoriteSong = (trackId, previewUrl, trackName, artistName) => {
-  this.setState((prevState) => ({ // utilizando o prevState parapegar o valor do check
+  this.setState({ // utilizando o prevState parapegar o valor do check
     loading: true,
-    check: !prevState.check, // sempre vai receber o inverso de seu valor inicial
-  }), async () => {
+  }, async () => {
     const favoriteSongs = await getFavoriteSongs();
     if (favoriteSongs === null) { // na primeira execução quando o localStorage for null
-      console.log('entrou aqui');
       this.setState({
         favorteSongSaved: [trackId],
         songsDetailsSaved: [{ previewUrl, trackName, artistName, trackId }],
         loading: false,
       }, async () => {
-        // await addSong(trackId);
         const { songsDetailsSaved, favorteSongSaved } = this.state;
         this.savedLocalStorage('favorite_songs', favorteSongSaved);
         this.savedLocalStorage('likedSongs', songsDetailsSaved);
       });
     } else if (!favoriteSongs.some((idMusic) => Number(idMusic) === trackId)) {
-      // caso o id não se encontre no find, salvará no localStorage
-      // console.log('songs', songsDetailsSaved)
       this.setState((prevState) => ({
         favorteSongSaved: [...prevState.favorteSongSaved, trackId],
         songsDetailsSaved: [...prevState.songsDetailsSaved,
@@ -80,7 +69,6 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
         loading: false,
       }), async () => {
         const { songsDetailsSaved } = this.state;
-        // console.log(songsDetailsSaved);
         await addSong(trackId);
         this.savedLocalStorage('likedSongs', songsDetailsSaved);
       });
@@ -92,7 +80,6 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
         loading: false,
       }), async () => {
         const { songsDetailsSaved } = this.state;
-        // console.log(songsDetailsSaved);
         await removeSong(trackId);
         this.savedLocalStorage('likedSongs', songsDetailsSaved);
       });
@@ -101,12 +88,11 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
 }
 
 favoriteAlbum = (collectionId, collectionName, artistName) => {
-  this.setState({ // utilizando o prevState parapegar o valor do check
+  this.setState({
     loading: true,
   }, () => {
     const favoriteAlbum = JSON.parse(localStorage.getItem('favorite_album'));
     if (favoriteAlbum === null) {
-      console.log('entrou aqui');
       this.setState({
         albumSaved: [{ collectionId, collectionName, artistName }],
         loading: false,
@@ -141,7 +127,6 @@ verifyFavoriteSongs = async () => {
   const favoriteSongs = await getFavoriteSongs(); // coloar no setState
   const favoriteSongSaved = JSON.parse(localStorage.getItem('likedSongs'));
   const favoriteAlbumSaved = JSON.parse(localStorage.getItem('favorite_album'));
-  console.log('ALBUM', favoriteAlbumSaved);
   this.setState({
     favorteSongSaved: favoriteSongs,
     songsDetailsSaved: favoriteSongSaved,
@@ -150,8 +135,6 @@ verifyFavoriteSongs = async () => {
 };
 
 render() {
-  // const { match: { params } } = this.props;
-  // const { id } = params;
   const {
     resultSearch, loading, randomSelectMusic, favorteSongSaved, albumSaved } = this.state;
 
@@ -235,58 +218,6 @@ render() {
             favoriteSong={ this.favoriteSong }
             favorteSongSaved={ favorteSongSaved }
           />
-          {/* <div className="container-musics-songs-list">
-            <p># TITLE</p>
-            {console.log(resultSearch)}
-            <div className="line-border" />
-            <div className="container-result-musics-api">
-              {(resultSearch.slice(1, resultSearch.length))
-                .map(({ previewUrl, trackName, artistName, trackId,
-                }, index) => (
-                  <div
-                    className="container-button-play-music-musics"
-                    key={ trackName }
-                  >
-                    <div style={ { display: 'flex' } }>
-                      <button
-                        type="button"
-                        value={ previewUrl }
-                        onClick={ targetNewAudio }
-                        className="button-play-musics"
-                      >
-                        &#9658;
-                      </button>
-                      <div>
-                        <h3>{trackName}</h3>
-                        <h4>{artistName}</h4>
-                      </div>
-                    </div>
-                    <div className="container-liked-music-api">
-                      <button
-                        type="button"
-                        className="button-icon-add-heart-musics-api"
-                        value={ trackId }
-                        onClick={ () => {
-                          this.favoriteSong(
-                            trackId, previewUrl, trackName, artistName,
-                          );
-                        } }
-                      >
-                        <BsHeart
-                          id={ `iconHeart-${index + 1}` }
-                          className={ `icon-heart-favorite-musics-api
-                          ${favorteSongSaved !== null
-                    ? (favorteSongSaved
-                      .some((id) => (id === trackId))
-                            && 'icon-heart-favorite-musics-api-selected') : null}` }
-                        />
-                      </button>
-                      <p>...</p>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div> */}
         </div>
       ) }
     </section>
