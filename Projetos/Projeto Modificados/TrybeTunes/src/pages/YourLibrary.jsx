@@ -4,6 +4,7 @@ import '../styles/yourLibrary.css';
 // import CardMusics from '../components/CardMusics';
 import AlbumSaved from '../components/AlbumSaved';
 import NotFoundPlaylist from '../components/NotFoundPlaylist';
+import separateAlbum from '../functions/separeteAlbum';
 
 export default class YourLibrary extends Component {
   state = {
@@ -27,24 +28,25 @@ export default class YourLibrary extends Component {
 
   separateAlbum = () => {
     const { albumSaved } = this.state;
-    let newArray = [];
-    const arrayAlbums = [];
-    albumSaved.forEach(({ artistName }) => {
-      // console.log('entrouaqui')
-      if (newArray.length === 0 && arrayAlbums.length === 0) {
-        newArray = albumSaved.filter(({ artistName: name }) => name === artistName);
-        arrayAlbums.push(newArray); // adicionando os albuns iguais
-        newArray = albumSaved
-          .filter(({ artistName: name }) => name !== newArray[0].artistName);
-      } else if (newArray.length !== 0 && artistName === newArray[0].artistName) {
-        console.log('nome', newArray[0].artistName);
-        const arrayNew = newArray
-          .filter(({ artistName: name }) => name === newArray[0].artistName);
-        arrayAlbums.push(arrayNew); // adicionando os albuns iguais
-        newArray = newArray
-          .filter(({ artistName: name }) => name !== newArray[0].artistName);
-      }
-    });
+    const arrayAlbums = separateAlbum(albumSaved);
+    // let newArray = [];
+    // const arrayAlbums = [];
+    // albumSaved.forEach(({ artistName }) => {
+    //   // console.log('entrouaqui')
+    //   if (newArray.length === 0 && arrayAlbums.length === 0) {
+    //     newArray = albumSaved.filter(({ artistName: name }) => name === artistName);
+    //     arrayAlbums.push(newArray); // adicionando os albuns iguais
+    //     newArray = albumSaved
+    //       .filter(({ artistName: name }) => name !== newArray[0].artistName);
+    //   } else if (newArray.length !== 0 && artistName === newArray[0].artistName) {
+    //     console.log('nome', newArray[0].artistName);
+    //     const arrayNew = newArray
+    //       .filter(({ artistName: name }) => name === newArray[0].artistName);
+    //     arrayAlbums.push(arrayNew); // adicionando os albuns iguais
+    //     newArray = newArray
+    //       .filter(({ artistName: name }) => name !== newArray[0].artistName);
+    //   }
+    // });
     // console.log('newArreay', newArray);
     // console.log('arrayAlbum', arrayAlbums);
     this.setState({ separateArtistsName: arrayAlbums }, () => {

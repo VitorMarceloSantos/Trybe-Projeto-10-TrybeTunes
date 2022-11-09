@@ -5,7 +5,6 @@ import CardLibrary from './CardLibrary';
 export default class AlbumSaved extends Component {
   render() {
     const { albumSaved } = this.props;
-    console.log('albumsaved', albumSaved);
     return (
       <div>
         <CardLibrary

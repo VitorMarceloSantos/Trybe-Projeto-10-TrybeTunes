@@ -51,7 +51,7 @@ favoriteSong = (trackId, previewUrl, trackName, artistName) => {
     loading: true,
   }, async () => {
     const favoriteSongs = await getFavoriteSongs();
-    if (favoriteSongs === null) { // na primeira execução quando o localStorage for null
+    if (favoriteSongs.length === 0) { // na primeira execução quando o localStorage for null
       this.setState({
         favorteSongSaved: [trackId],
         songsDetailsSaved: [{ previewUrl, trackName, artistName, trackId }],

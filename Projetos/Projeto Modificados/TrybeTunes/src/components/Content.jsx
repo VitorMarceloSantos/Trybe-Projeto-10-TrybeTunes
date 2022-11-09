@@ -7,6 +7,7 @@ import '../styles/content.css';
 import SearchBar from '../pages/SearchBar';
 import YourLibrary from '../pages/YourLibrary';
 import Musics from '../pages/Musics';
+import LikedSongs from '../pages/LikedSongs';
 
 export default class Content extends Component {
   render() {
@@ -20,6 +21,7 @@ export default class Content extends Component {
               <Route exact path="/search" component={ SearchBar } />
               <Route exact path="/library" component={ YourLibrary } />
               <Route exact path="/album/:id" component={ Musics } />
+              <Route exact path="/favorites" component={ LikedSongs } />
             </Switch>
           </div>
         </section>
