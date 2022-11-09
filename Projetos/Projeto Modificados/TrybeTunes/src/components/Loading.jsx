@@ -10,6 +10,9 @@ class Loading extends Component {
         <div className="r3" />
         <div className="r4" />
         <div className="r5" />
+        <div className="r6" />
+        <div className="r7" />
+        <div className="r8" />
       </div>
     );
   }
