@@ -30,8 +30,13 @@
   cursor: pointer;
 }
 
-.container-header img {
-  height: 27px;
+.icon-user-header {
+  background-color: rgb(65, 65, 65);
+  border-radius: 40%;
+  color: white;
+  height: 24px;
+  padding: 2px;
+  width: 24px;
 }
 
 .container-header h2 {

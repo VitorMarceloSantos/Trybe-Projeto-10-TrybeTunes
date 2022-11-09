@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { AiOutlineUser } from 'react-icons/ai';
 import { BiCaretDown } from 'react-icons/bi';
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
-import trybefi from '../images/trybefi.png';
 import '../styles/index.css';
 import '../styles/header.css';
 
@@ -39,7 +39,7 @@ export default class Header extends Component {
         {isLoading ? <Loading /> : (
           <section className="container-user">
             <div className="container-border">
-              <img src={ trybefi } alt="Logo Trybefi" />
+              <AiOutlineUser className="icon-user-header" />
               {/* <p>{console.log(nameUser)}</p> */}
               <h2>{nameUser.name}</h2>
               <BiCaretDown style={ { color: 'white' } } />
