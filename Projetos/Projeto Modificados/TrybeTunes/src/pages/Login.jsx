@@ -20,9 +20,15 @@ class Login extends Component {
       const { nameUser } = this.state;
       const regexEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
       if (regexEmail.test(nameUser)) {
-        this.setState({ buttonValidation: false });
+        this.setState({ buttonValidation: false }, () => {
+          const buttonQuery = document.querySelector('.button-login');
+          buttonQuery.style.backgroundColor = 'rgb(35, 35, 35)';
+        });
       } else {
-        this.setState({ buttonValidation: true });
+        this.setState({ buttonValidation: true }, () => {
+          const buttonQuery = document.querySelector('.button-login');
+          buttonQuery.style.backgroundColor = 'rgb(205, 205, 205)';
+        });
       }
     });
   }
