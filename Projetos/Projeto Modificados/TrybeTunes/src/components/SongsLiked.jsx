@@ -47,7 +47,7 @@ export default class SongsLiked extends Component {
                   onClick={ () => removeFavorite(trackId) }
                 >
                   <BsHeart
-                    className="icon-heart-favorite-musics-api"
+                    className="icon-heart-favorite-musics-api-liked"
                   />
                 </button>
                 <p>...</p>
