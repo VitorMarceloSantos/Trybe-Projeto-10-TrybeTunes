@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SongsLiked from '../components/SongsLiked';
 import separateAlbum from '../functions/separeteAlbum';
 import '../styles/likedSongs.css';
+import ButtonUpgrade from '../components/ButtonUpgrade';
 
 export default class LikedSongs extends Component {
   state = {
@@ -28,10 +29,7 @@ export default class LikedSongs extends Component {
   separateAlbum = () => {
     const { albumSaved } = this.state;
     const arrayAlbums = separateAlbum(albumSaved);
-    this.setState({ separateArtistsName: arrayAlbums }, () => {
-      const { separateArtistsName } = this.state;
-      console.log('estado', separateArtistsName);
-    });
+    this.setState({ separateArtistsName: arrayAlbums });
   }
 
   render() {
@@ -61,6 +59,7 @@ export default class LikedSongs extends Component {
     return (
 
       <div className="container-result-musics-api">
+        <ButtonUpgrade />
         {separateArtistsName.map((artist) => (
           <div key={ artist.trackId }>
             <h2 className="title-artist-liked-songs">

@@ -1,9 +1,32 @@
 .title-artist-liked-songs {
-  color: white;
+  color: rgba(220, 220, 220, 0.9);
   font-size: 1.5em;
   margin: 25px 40px;
 }
 
 .container-music-liked-song {
-  color: white;
+  color: rgba(220, 220, 220, 0.9);
+}
+
+.button-icon-add-heart-musics {
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
+}
+
+.icon-heart-favorite-musics-api {
+  background-color: transparent;
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 0.8em;
+}
+
+.icon-heart-favorite-musics:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.container-liked-music-api p {
+  background-color: transparent;
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 1.4em;
 }
