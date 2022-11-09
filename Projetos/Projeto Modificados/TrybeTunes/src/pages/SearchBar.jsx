@@ -229,7 +229,11 @@ export default class SearchBar extends Component {
             </section>
           )
           )}
-          {loading === true && <Loading />}
+          {loading === true && (
+            <div style={ { paddingTop: '40vh' } }>
+              <Loading />
+            </div>
+          )}
         </section>
       );
     }
