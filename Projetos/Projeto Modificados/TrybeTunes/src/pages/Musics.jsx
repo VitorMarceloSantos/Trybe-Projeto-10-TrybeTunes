@@ -19,6 +19,7 @@ export default class Musics extends Component {
     favorteSongSaved: [],
     songsDetailsSaved: [{}],
     albumSaved: [],
+    colorHeader: '',
   }
 
   componentDidMount() {
@@ -28,14 +29,22 @@ export default class Musics extends Component {
     this.verifyFavoriteSongs();
   }
 
+  backgroundHeader = () => {
+    const backgroundMusics = document.querySelector('.container-musics-album-artist');
+    const { colorHeader } = this.state;
+    backgroundMusics.style.background = colorHeader;
+  }
+
   searchAlbum = async (idAlbum) => {
     try {
       const musics = await musicsApi(idAlbum);
+      const background = selectColor();
       this.setState({
         resultSearch: musics,
+        colorHeader: background,
         loading: false,
       }, () => {
-        selectColor();
+        this.backgroundHeader();
       });
     } catch (err) {
       console.error(`Erro ao consultar API: ${err.message}`);
@@ -137,7 +146,7 @@ verifyFavoriteSongs = async () => {
 
 render() {
   const {
-    resultSearch, loading, randomSelectMusic, favorteSongSaved, albumSaved } = this.state;
+    resultSearch, loading, randomSelectMusic, favorteSongSaved, albumSaved, colorHeader } = this.state;
 
   const newAudio = (target) => {
     this.setState((prevState) => ({
@@ -170,7 +179,6 @@ render() {
 
   const randomMusic = ({ target }) => {
     const { isPlay } = this.state;
-    console.log('isplay', isPlay);
     if (!isPlay) {
       const randomSelect = resultSearch.slice(1, resultSearch.length);
       const randomMusicFinally = randomSelect[Math
@@ -198,7 +206,10 @@ render() {
         <Loading />
       ) : (
         <div className="container-global-main-musics">
-          <div className="container-musics-album-artist">
+          <div
+            className="container-musics-album-artist"
+            style={ { background: colorHeader } }
+          >
             <img src={ resultSearch[0].artworkUrl100 } alt="Imagem Album" />
             <div className="container-img-title-musics">
               <p>Album</p>

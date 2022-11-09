@@ -4,7 +4,7 @@ function randomNumber() {
 }
 
 function selectColor() {
-  const backgroundMusics = document.querySelector('.container-musics-album-artist');
+  // const backgroundMusics = document.querySelector('.container-musics-album-artist');
 
   const arrayColor = [
     'linear-gradient(to bottom, rgb(92, 50, 51), rgba(0, 0, 0, 0.8))',
@@ -13,7 +13,8 @@ function selectColor() {
     'linear-gradient(to bottom, rgb(57, 79, 92), rgba(0, 0, 0, 0.8))',
     'linear-gradient(to bottom, rgb(74, 98, 85), rgba(0, 0, 0, 0.8))'];
 
-  backgroundMusics.style.background = arrayColor[randomNumber()];
+  return arrayColor[randomNumber()];
+  // backgroundMusics.style.background = arrayColor[randomNumber()]
 }
 
 export default selectColor;

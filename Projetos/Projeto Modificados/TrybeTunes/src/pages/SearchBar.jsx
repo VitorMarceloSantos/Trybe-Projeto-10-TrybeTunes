@@ -6,6 +6,7 @@ import { BsHeart } from 'react-icons/bs';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import CardMusic from '../components/CardMusic';
 import musicsApi from '../services/musicsAPI';
+import Loading from '../components/Loading';
 
 export default class SearchBar extends Component {
   state = {
@@ -209,7 +210,7 @@ export default class SearchBar extends Component {
               </div>
 
             </div>
-          ) : (
+          ) : (loading !== true && (
             <section className="container-searchBar-albuns">
               {arrayArtists.map((artist, index) => (
                 <button
@@ -226,7 +227,9 @@ export default class SearchBar extends Component {
                 </button>
               ))}
             </section>
+          )
           )}
+          {loading === true && <Loading />}
         </section>
       );
     }
