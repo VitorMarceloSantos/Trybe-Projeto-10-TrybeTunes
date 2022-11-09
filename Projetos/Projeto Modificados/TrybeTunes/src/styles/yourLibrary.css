@@ -1,3 +1,7 @@
+.container-your-library-album {
+  width: 70vw;
+}
+
 .container-nav-yourLibrary ul {
   display: flex;
   left: 18.8vw;
@@ -43,4 +47,26 @@
   font-size: 1.5em;
   margin: 20px 30px;
   text-align: center;
+}
+
+.container-trash-library {
+  color: white;
+  margin: 15px auto;
+}
+
+.container-trash-library:hover {
+  color: rgb(115, 115, 115);
+  cursor: pointer;
+}
+
+.container-card-album-library {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-trash {
+  background-color: transparent;
+  border: none;
 }
