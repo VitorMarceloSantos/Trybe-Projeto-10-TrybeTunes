@@ -3,7 +3,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 import { BiCaretDown } from 'react-icons/bi';
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
 import { getUser } from '../services/userAPI';
-import Loading from './Loading';
+import LoadingUser from './LoadingUser';
 import '../styles/index.css';
 import '../styles/header.css';
 
@@ -36,7 +36,7 @@ export default class Header extends Component {
             <MdArrowForwardIos className="arrows" />
           </div>
         </section>
-        {isLoading ? <Loading /> : (
+        {isLoading ? <LoadingUser /> : (
           <section className="container-user">
             <div className="container-border">
               <AiOutlineUser className="icon-user-header" />
