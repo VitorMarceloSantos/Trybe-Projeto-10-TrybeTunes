@@ -10,7 +10,7 @@ export default class CardLibrary extends Component {
     return (
       <div className="container-geral-cards">
         <h2 className="title-container-card">{nameArtist}</h2>
-        <div className="container-carousel-musics">
+        <div className="container-carousel-musics-library">
           {arraySearch.map((element) => (
             <div className="container-card-album-library" key={ element.collectionId }>
               <div className="container-card-music">

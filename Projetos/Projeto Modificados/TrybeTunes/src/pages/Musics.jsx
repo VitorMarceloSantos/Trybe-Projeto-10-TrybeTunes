@@ -146,7 +146,8 @@ verifyFavoriteSongs = async () => {
 
 render() {
   const {
-    resultSearch, loading, randomSelectMusic, favorteSongSaved, albumSaved, colorHeader } = this.state;
+    resultSearch,
+    loading, randomSelectMusic, favorteSongSaved, albumSaved, colorHeader } = this.state;
 
   const newAudio = (target) => {
     this.setState((prevState) => ({
