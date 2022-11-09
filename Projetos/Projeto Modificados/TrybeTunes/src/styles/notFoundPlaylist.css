@@ -1,13 +1,12 @@
 .container-library-not-found {
   align-items: center;
   display: flex;
-  height: 100vh;
+  height: 80vh;
   justify-content: center;
 }
 
 .container-main-not-found {
   align-items: center;
-  background-color: red;
   display: flex;
   flex-direction: column;
   height: 40vh;
@@ -19,3 +18,33 @@
   height: 10vh;
 }
 
+.container-main-not-found h2 {
+  color: white;
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.container-main-not-found h3 {
+  color: white;
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.container-main-not-found button {
+  border: none;
+  border-radius: 40px;
+  border-width: 1px;
+  box-shadow: none;
+  color: rgb(35, 35, 35);
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-top: 10px;
+  padding: 12px;
+  width: 8vw;
+}
+
+.container-main-not-found button:hover {
+  background-color: rgb(60, 60, 60);
+  color: white;
+
+}

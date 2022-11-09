@@ -26,6 +26,7 @@
 }
 
 .container-nav-yourLibrary button:hover {
+  background-color: rgb(60, 60, 60);
   color: rgb(180, 180, 180);
 }
 
