@@ -24,7 +24,11 @@ export default class CardLibrary extends Component {
                   <h4>{element.collectionName}</h4>
                 </Link>
               </div>
-              <button type="button" className="button-trash">
+              <button
+                type="button"
+                className="button-trash"
+                onClick={ () => { console.log('entrouaqui'); } }
+              >
                 <BsTrash className="container-trash-library" />
               </button>
             </div>

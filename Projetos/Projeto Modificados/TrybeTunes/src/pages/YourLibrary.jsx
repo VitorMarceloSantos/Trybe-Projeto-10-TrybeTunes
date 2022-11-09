@@ -29,29 +29,19 @@ export default class YourLibrary extends Component {
   separateAlbum = () => {
     const { albumSaved } = this.state;
     const arrayAlbums = separateAlbum(albumSaved);
-    // let newArray = [];
-    // const arrayAlbums = [];
-    // albumSaved.forEach(({ artistName }) => {
-    //   // console.log('entrouaqui')
-    //   if (newArray.length === 0 && arrayAlbums.length === 0) {
-    //     newArray = albumSaved.filter(({ artistName: name }) => name === artistName);
-    //     arrayAlbums.push(newArray); // adicionando os albuns iguais
-    //     newArray = albumSaved
-    //       .filter(({ artistName: name }) => name !== newArray[0].artistName);
-    //   } else if (newArray.length !== 0 && artistName === newArray[0].artistName) {
-    //     console.log('nome', newArray[0].artistName);
-    //     const arrayNew = newArray
-    //       .filter(({ artistName: name }) => name === newArray[0].artistName);
-    //     arrayAlbums.push(arrayNew); // adicionando os albuns iguais
-    //     newArray = newArray
-    //       .filter(({ artistName: name }) => name !== newArray[0].artistName);
-    //   }
-    // });
-    // console.log('newArreay', newArray);
-    // console.log('arrayAlbum', arrayAlbums);
     this.setState({ separateArtistsName: arrayAlbums }, () => {
       const { separateArtistsName } = this.state;
       console.log('estado', separateArtistsName);
+    });
+  }
+
+  removeFavorite = async (id) => {
+    const { albumSaved } = this.state;
+    const newArray = albumSaved.filter(({ trackId }) => id !== trackId);
+    await removeSong(id);
+    this.savedLocalStorage('likedSongs', newArray);
+    this.setState({ albumSaved: newArray }, () => {
+      this.separateAlbum();
     });
   }
 
