@@ -7,7 +7,6 @@ import '../styles/sideBar.css';
 
 class SideBar extends Component {
   render() {
-    // const { nameUser, isLoading } = this.state;
     return (
       <nav data-testid="header-component" className="container-sideBar-style">
         <ul>
