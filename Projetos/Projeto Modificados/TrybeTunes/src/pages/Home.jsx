@@ -5,6 +5,7 @@ import '../styles/home.css';
 import asMaisTocadas from '../images/asMaisTocadas.png';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import CardMusics from '../components/CardMusics';
+import Loading from '../components/Loading';
 
 export default class Home extends Component {
   state= {
@@ -51,7 +52,7 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
-        {loading ? <p>Carregando</p> : (
+        {loading ? <Loading /> : (
           arraySearch.map((artist) => (
             <CardMusics
               key={ artist.collectionName }

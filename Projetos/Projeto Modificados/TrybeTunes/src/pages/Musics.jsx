@@ -8,6 +8,7 @@ import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongs
 import selectColor from '../functions/selectColor';
 import MusicPlayer from '../components/MusicPlayer';
 import MusicsList from '../components/MusicsList';
+import Loading from '../components/Loading';
 
 export default class Musics extends Component {
   state ={
@@ -194,7 +195,7 @@ render() {
     <section className="container-musics-main">
       <ButtonUpgrade />
       {loading ? (
-        <p>Carregando</p> // ALTERAR AQUI !!!!!!!!!!
+        <Loading />
       ) : (
         <div className="container-global-main-musics">
           <div className="container-musics-album-artist">
