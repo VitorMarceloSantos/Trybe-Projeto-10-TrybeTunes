@@ -6,7 +6,7 @@ import { BsTrash } from 'react-icons/bs';
 
 export default class CardLibrary extends Component {
   render() {
-    const { arraySearch, nameArtist } = this.props;
+    const { arraySearch, nameArtist, removeFavorite } = this.props;
     return (
       <div className="container-geral-cards">
         <h2 className="title-container-card">{nameArtist}</h2>
@@ -27,7 +27,8 @@ export default class CardLibrary extends Component {
               <button
                 type="button"
                 className="button-trash"
-                onClick={ () => { console.log('entrouaqui'); } }
+                value={ element.collectionId }
+                onClick={ () => removeFavorite(element.collectionId) }
               >
                 <BsTrash className="container-trash-library" />
               </button>
@@ -43,4 +44,5 @@ export default class CardLibrary extends Component {
 CardLibrary.propTypes = {
   arraySearch: PropTypes.arrayOf.isRequired,
   nameArtist: PropTypes.string.isRequired,
+  removeFavorite: PropTypes.func.isRequired,
 };

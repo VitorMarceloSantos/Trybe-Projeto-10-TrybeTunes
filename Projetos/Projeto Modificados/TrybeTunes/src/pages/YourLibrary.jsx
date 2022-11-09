@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/yourLibrary.css';
-// import CardMusics from '../components/CardMusics';
 import AlbumSaved from '../components/AlbumSaved';
 import NotFoundPlaylist from '../components/NotFoundPlaylist';
 import separateAlbum from '../functions/separeteAlbum';
@@ -29,17 +28,18 @@ export default class YourLibrary extends Component {
   separateAlbum = () => {
     const { albumSaved } = this.state;
     const arrayAlbums = separateAlbum(albumSaved);
-    this.setState({ separateArtistsName: arrayAlbums }, () => {
-      const { separateArtistsName } = this.state;
-      console.log('estado', separateArtistsName);
-    });
+    this.setState({ separateArtistsName: arrayAlbums });
+  }
+
+  savedLocalStorage = (key, state) => {
+    localStorage.setItem(key, JSON
+      .stringify(state));
   }
 
   removeFavorite = async (id) => {
     const { albumSaved } = this.state;
-    const newArray = albumSaved.filter(({ trackId }) => id !== trackId);
-    await removeSong(id);
-    this.savedLocalStorage('likedSongs', newArray);
+    const newArray = albumSaved.filter(({ collectionId }) => id !== collectionId);
+    this.savedLocalStorage('favorite_album', newArray);
     this.setState({ albumSaved: newArray }, () => {
       this.separateAlbum();
     });
@@ -67,12 +67,12 @@ export default class YourLibrary extends Component {
           </ul>
         </nav>
         <section className="container-your-library-album">
-          {/* <p className="text-library">Library</p> */}
           {separateArtistsName.length !== 0 ? (
             separateArtistsName.map((album) => (
               <AlbumSaved
                 key={ album.collectionId }
                 albumSaved={ album }
+                removeFavorite={ this.removeFavorite }
               />
             ))
           )

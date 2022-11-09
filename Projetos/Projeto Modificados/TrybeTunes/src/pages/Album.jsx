@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
 import SideBar from '../components/SideBar';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';

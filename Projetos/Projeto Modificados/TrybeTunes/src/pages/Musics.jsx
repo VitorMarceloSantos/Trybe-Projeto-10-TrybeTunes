@@ -194,7 +194,7 @@ render() {
     <section className="container-musics-main">
       <ButtonUpgrade />
       {loading ? (
-        <p>Carregando</p>
+        <p>Carregando</p> // ALTERAR AQUI !!!!!!!!!!
       ) : (
         <div className="container-global-main-musics">
           <div className="container-musics-album-artist">
