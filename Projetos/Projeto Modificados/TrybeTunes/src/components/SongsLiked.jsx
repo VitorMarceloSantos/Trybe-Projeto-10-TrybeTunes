@@ -5,10 +5,11 @@ import '../styles/likedSongs.css';
 
 export default class SongsLiked extends Component {
   render() {
-    const { separateArtistsName, newAudio } = this.props;
+    const { separateArtistsName, newAudio, removeFavorite } = this.props;
+
     return (
       <div style={ { marginLeft: '30px' } }>
-        {separateArtistsName.map(({ previewUrl, trackName, artistName,
+        {separateArtistsName.map(({ previewUrl, trackName, artistName, trackId,
         }) => (
           <div
             className="container-button-play-music-musics"
@@ -43,7 +44,7 @@ export default class SongsLiked extends Component {
                   type="button"
                   className="button-icon-add-heart-musics-api"
                   // value={ trackId }
-                  onClick={ () => console.log('função') }
+                  onClick={ () => removeFavorite(trackId) }
                 >
                   <BsHeart
                     className="icon-heart-favorite-musics-api"
@@ -64,4 +65,5 @@ export default class SongsLiked extends Component {
 SongsLiked.propTypes = {
   separateArtistsName: PropTypes.arrayOf.isRequired,
   newAudio: PropTypes.func.isRequired,
+  removeFavorite: PropTypes.func.isRequired,
 };

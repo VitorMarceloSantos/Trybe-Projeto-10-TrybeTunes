@@ -16,12 +16,12 @@
 
 .icon-heart-favorite-musics-api {
   background-color: transparent;
-  color: rgba(220, 220, 220, 0.9);
+  color: red;
   font-size: 0.8em;
 }
 
-.icon-heart-favorite-musics:hover {
-  color: red;
+.icon-heart-favorite-musics-api:hover {
+  color: rgb(95, 95, 95);
   cursor: pointer;
 }
 

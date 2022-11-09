@@ -3,6 +3,7 @@ import SongsLiked from '../components/SongsLiked';
 import separateAlbum from '../functions/separeteAlbum';
 import '../styles/likedSongs.css';
 import ButtonUpgrade from '../components/ButtonUpgrade';
+import { removeSong } from '../services/favoriteSongsAPI';
 
 export default class LikedSongs extends Component {
   state = {
@@ -30,6 +31,28 @@ export default class LikedSongs extends Component {
     const { albumSaved } = this.state;
     const arrayAlbums = separateAlbum(albumSaved);
     this.setState({ separateArtistsName: arrayAlbums });
+  }
+
+  savedLocalStorage = (key, state) => {
+    localStorage.setItem(key, JSON
+      .stringify(state));
+  }
+
+  removeFavorite = async (id) => {
+    // this.setState((prevState) => ({
+    //   albumSaved: prevState.albumSaved.filter(({ trackId }) => id !== trackId),
+    // }), async () => {
+    //   const { albumSaved } = this.state;
+    //   await removeSong(id);
+    //   this.savedLocalStorage('likedSongs', albumSaved);
+    // });
+    const { albumSaved } = this.state;
+    const newArray = albumSaved.filter(({ trackId }) => id !== trackId);
+    await removeSong(id);
+    this.savedLocalStorage('likedSongs', newArray);
+    this.setState({ albumSaved: newArray }, () => {
+      this.separateAlbum();
+    });
   }
 
   render() {
@@ -68,6 +91,7 @@ export default class LikedSongs extends Component {
             <SongsLiked
               separateArtistsName={ artist }
               newAudio={ newAudio }
+              removeFavorite={ this.removeFavorite }
             />
           </div>
         ))}
