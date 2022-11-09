@@ -54,6 +54,7 @@ export default class YourLibrary extends Component {
 
   render() {
     const { separateArtistsName } = this.state;
+    const { history } = this.props;
     return (
       <div className="container-main-your-library">
         <nav className="container-nav-yourLibrary">
@@ -84,7 +85,9 @@ export default class YourLibrary extends Component {
           )
             : (
               <div className="container-not-selected-your-library">
-                <NotFoundPlaylist />
+                <NotFoundPlaylist
+                  history={ history }
+                />
               </div>
             )}
         </section>
