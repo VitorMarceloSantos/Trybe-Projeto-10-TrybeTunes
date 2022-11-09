@@ -21,7 +21,7 @@ export default class SongsLiked extends Component {
               >
                 &#9658;
               </button>
-              <div>
+              <div className="container-music-liked-song">
                 <h3>{trackName}</h3>
                 <h4>{artistName}</h4>
               </div>

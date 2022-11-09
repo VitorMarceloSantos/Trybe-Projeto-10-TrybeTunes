@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SongsLiked from '../components/SongsLiked';
 import separateAlbum from '../functions/separeteAlbum';
+import '../styles/likedSongs.css';
 
 export default class LikedSongs extends Component {
   state = {
@@ -53,10 +54,6 @@ export default class LikedSongs extends Component {
           const { isMusic } = this.state;
           isMusic.pause();
           target.textContent = '\u25BA';
-          // https://www.evotech.net/articles/testjsentities.html
-          // tabela que converte os caracteres para uso em java script
-          // &#9658; -> HTML , \u25BA -> javaScript = Play
-          // &#9208; -> HTML , \u23F8' -> javaScritp = Pause
         }
       });
     };
@@ -66,7 +63,7 @@ export default class LikedSongs extends Component {
       <div className="container-result-musics-api">
         {separateArtistsName.map((artist) => (
           <div key={ artist.trackId }>
-            <h2>
+            <h2 className="title-artist-liked-songs">
               {artist[0].artistName}
             </h2>
             <SongsLiked
