@@ -76,7 +76,7 @@
 }
 
 .container-searchBar-artist:hover {
-  box-shadow: 0 0 8px rgba(220, 220, 220, 0.9);
+  box-shadow: 0 0 10px rgba(220, 220, 220, 0.9);
 }
 
 .container-searchBar-music-album {
