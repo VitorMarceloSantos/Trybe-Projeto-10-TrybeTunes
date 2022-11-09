@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/yourLibrary.css';
 // import CardMusics from '../components/CardMusics';
 import AlbumSaved from '../components/AlbumSaved';
@@ -96,3 +97,7 @@ export default class YourLibrary extends Component {
     );
   }
 }
+
+YourLibrary.propTypes = {
+  history: PropTypes.func.isRequired,
+};
