@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import '../styles/login.css';
+import trybefi from '../images/trybefi.png';
 
 class Login extends Component {
   constructor() {
@@ -43,26 +44,36 @@ class Login extends Component {
   render() {
     const { buttonValidation, isLoading } = this.state;
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="container-main-login">
         { isLoading ? <Loading /> : (
-          <form>
-            <label htmlFor="login-name-input">
-              <input
-                type="text"
-                name="login-name-input"
-                data-testid="login-name-input"
-                onChange={ this.handleNameUser }
-              />
-            </label>
-            <button
-              disabled={ buttonValidation }
-              type="submit"
-              data-testid="login-submit-button"
-              onClick={ this.handleSubmit }
-            >
-              Entrar
-            </button>
-          </form>)}
+          <div className="container-img-form">
+            <img src={ trybefi } alt="Logo TrybeFi" />
+            <form className="form-login">
+              <div>
+                <label htmlFor="login-name-input">
+                  <input
+                    type="text"
+                    name="login-name-input"
+                    data-testid="login-name-input"
+                    onChange={ this.handleNameUser }
+                  />
+                </label>
+              </div>
+              <div>
+                <button
+                  disabled={ buttonValidation }
+                  type="submit"
+                  data-testid="login-submit-button"
+                  onClick={ this.handleSubmit }
+                  className="button-login"
+                >
+                  Entrar
+                </button>
+              </div>
+
+            </form>
+          </div>
+        )}
       </div>
     );
   }
