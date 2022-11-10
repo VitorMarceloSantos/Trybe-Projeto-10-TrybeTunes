@@ -83,7 +83,7 @@
 .container-musics-songs-list {
   color: rgba(220, 220, 220, 0.8);
   font-size: 0.9em;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .line-border {
@@ -106,7 +106,6 @@
 .container-button-play-music-musics h4 {
   font-size: 0.8em;
 }
-
 
 .container-result-musics-api {
   margin: 30px 30px 0 0;
