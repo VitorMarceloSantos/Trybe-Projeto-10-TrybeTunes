@@ -159,3 +159,37 @@
   cursor: pointer;
 }
 
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .container-button-play-music-musics h3 {
+    font-size: 1.05em;
+  }
+
+  .container-button-play-music-musics h4 {
+    font-size: 0.75em;
+  }
+
+  .container-button-play-music-musics button {
+    font-size: 1.9em;
+    height: 45px;
+    width: 45px;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-button-play-music-musics h3 {
+    font-size: 1.05em;
+  }
+
+  .container-button-play-music-musics h4 {
+    font-size: 0.75em;
+  }
+
+  .container-button-play-music-musics button {
+    font-size: 1.9em;
+    height: 45px;
+    width: 45px;
+  }
+}
+
