@@ -46,3 +46,29 @@
   border: 1px solid rgba(220, 220, 220, 0.6);
 }
 
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .container-card-music-library img {
+    height: 145px;
+    margin: 0 0 8px 9.4px;
+    width: 145px;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-card-music-library img {
+    height: 125px;
+    margin: 0 0 8px 8px;
+    width: 125px;
+  }
+
+  .container-card-music-library h3 {
+    font-size: 0.8em;
+  }
+
+  .container-card-music-library h4 {
+    font-size: 0.62em;
+  }
+}
+
