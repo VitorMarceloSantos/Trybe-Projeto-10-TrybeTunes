@@ -12,7 +12,7 @@ export default class SearchBar extends Component {
   state = {
     inputSearch: '',
     loading: false,
-    resultSearch: '',
+    resultSearch: [],
     resultMusic: '',
     isPlay: false,
     isMusic: '',
@@ -153,7 +153,6 @@ export default class SearchBar extends Component {
                         { previewUrl, amgArtistId, artworkUrl100, trackName, artistName },
                       ) => (
                         <div key={ amgArtistId } className="container-play-music">
-                          {/* {console.log(resultMusic)} */}
                           <div className="container-flex-image">
                             <img src={ artworkUrl100 } alt="Artist Album" />
                             <div className="container-titles-play-music">
@@ -195,7 +194,6 @@ export default class SearchBar extends Component {
                   className="title-search"
                 >
                   {`Featuring ${resultSearch[0].artistName}`}
-
                 </h2>
                 <div className="container-searchBar-albuns-artist">
 
@@ -208,7 +206,6 @@ export default class SearchBar extends Component {
                   ))}
                 </div>
               </div>
-
             </div>
           ) : (loading !== true && (
             <section className="container-searchBar-albuns">
@@ -229,6 +226,7 @@ export default class SearchBar extends Component {
             </section>
           )
           )}
+          {/* {erroApi === true && <p>Não foi encontrado nehum resultado</p>} */}
           {loading === true && (
             <div style={ { paddingTop: '40vh' } }>
               <Loading />
