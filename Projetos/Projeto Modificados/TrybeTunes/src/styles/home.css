@@ -107,4 +107,8 @@
   .container-banner-geral img {
     height: 175px;
   }
+
+  .container-banner-geral button:hover {
+    font-size: 1em;
+  }
 }
