@@ -62,3 +62,50 @@
 .container-banner-geral button:hover {
   font-size: 1.05em;
 }
+
+
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .button-banner-play {
+    font-size: 0.9em;
+  }
+
+  .button-banner-follow {
+    font-size: 0.9em;
+  }
+
+  .container-banner-geral button {
+    padding: 8px;
+  }
+
+  .container-buttons-banner {
+    height: 5vh;
+  }
+
+  .container-text-banner h3 {
+    font-size: 3.1em;
+  }
+
+  .container-banner-geral img {
+    height: 200px;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-banner-geral button {
+    padding: 6px;
+  }
+
+  .container-text-banner h3 {
+    font-size: 2.4em;
+  }
+
+  .container-text-banner p {
+    font-size: 0.95em;
+  }
+
+  .container-banner-geral img {
+    height: 175px;
+  }
+}
