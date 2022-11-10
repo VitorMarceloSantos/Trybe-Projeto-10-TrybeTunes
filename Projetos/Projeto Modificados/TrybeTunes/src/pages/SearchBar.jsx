@@ -16,6 +16,7 @@ export default class SearchBar extends Component {
     resultMusic: '',
     isPlay: false,
     isMusic: '',
+    validation: false,
   }
 
   searchAlbum = async (nomeAlbum) => {
@@ -29,13 +30,16 @@ export default class SearchBar extends Component {
           resultSearch: result,
         }, async () => {
           const { resultSearch } = this.state;
-          if (resultSearch.length > 0) {
+          if (result.length > 0) {
             const musics = await musicsApi(resultSearch[0].artistId);
             const NUMBER_FIVE = 5;
             this.setState({
               resultMusic: musics.slice(1, NUMBER_FIVE),
               loading: false,
+              validation: false,
             });
+          } else {
+            this.setState({ validation: true, loading: false });
           }
         });
       } catch (err) {
@@ -106,7 +110,7 @@ export default class SearchBar extends Component {
         });
       };
 
-      const { inputSearch, loading, resultSearch, resultMusic } = this.state;
+      const { inputSearch, loading, resultSearch, resultMusic, validation } = this.state;
 
       return (
         <section className="container-searchBar-principal">
@@ -131,7 +135,7 @@ export default class SearchBar extends Component {
               )}
             </label>
           </section>
-          {(inputSearch.length > 1 && loading === false) ? (
+          {(inputSearch.length > 1 && loading === false && resultSearch.length !== 0) ? (
             <div className="container-searchBar-music-album">
               <div className="container-searchBar-top-musics">
                 <div className="container-artist-title">
@@ -207,7 +211,7 @@ export default class SearchBar extends Component {
                 </div>
               </div>
             </div>
-          ) : (loading !== true && (
+          ) : (inputSearch.length <= 1 && (
             <section className="container-searchBar-albuns">
               {arrayArtists.map((artist, index) => (
                 <button
@@ -226,8 +230,8 @@ export default class SearchBar extends Component {
             </section>
           )
           )}
-          {/* {erroApi === true && <p>Não foi encontrado nehum resultado</p>} */}
-          {loading === true && (
+          {validation && <p>Não foi encontrado nehum resultado</p>}
+          {(loading === true && resultSearch.length !== 0) && (
             <div style={ { paddingTop: '40vh' } }>
               <Loading />
             </div>
