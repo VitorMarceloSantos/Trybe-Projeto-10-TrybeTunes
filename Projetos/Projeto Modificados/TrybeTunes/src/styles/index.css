@@ -19,16 +19,3 @@
   width: 14.5vw;
 }
 
-@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
-
-  /* .container-header-content {
-    width: 83vw;
-  } */
-}
-
-@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
-/* 
-  .container-header-content {
-    width: 99vw;
-  } */
-}

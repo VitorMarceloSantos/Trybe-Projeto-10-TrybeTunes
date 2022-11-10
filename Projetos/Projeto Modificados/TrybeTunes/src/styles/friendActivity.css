@@ -118,15 +118,13 @@
 @media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
 
   .container-cicle-blue1 {
-    height: 7.5px;
-    position: absolute;
-    right: 9vw;
-    top: 16.8vh;
+    right: 10.5vw;
+    top: 17vh;
   }
 
   .container-cicle-blue2 {
-    right: 9vw;
-    top: 24.4vh;
+    right: 10.5vw;
+    top: 24.6vh;
   }
 
   .icon-friend {
@@ -176,13 +174,13 @@
   }
 
   .container-cicle-blue1 {
-    right: 6.9vw;
-    top: 21.5vh;
+    right: 10.2vw;
+    top: 19.4vh;
   }
 
   .container-cicle-blue2 {
-    right: 6.9vw;
-    top: 30.1vh;
+    right: 10.2vw;
+    top: 27.7vh;
   }
 
   .line-gray-sup {
