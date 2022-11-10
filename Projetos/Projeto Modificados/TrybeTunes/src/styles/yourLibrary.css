@@ -4,10 +4,10 @@
 
 .container-nav-yourLibrary ul {
   display: flex;
-  left: 18.8vw;
+  left: 19.4vw;
   list-style: none;
   position: absolute;
-  top: 1.3vh;
+  top: 2vh;
 }
 
 .container-nav-yourLibrary ul li {
