@@ -13,7 +13,7 @@ export default class CardLibrary extends Component {
         <div className="container-carousel-musics-library">
           {arraySearch.map((element) => (
             <div className="container-card-album-library" key={ element.collectionId }>
-              <div className="container-card-music">
+              <div className="container-card-music-library">
                 <Link
                   data-testid={ `link-to-album-${element.collectionId}` }
                   to={ `/album/${element.collectionId}` }

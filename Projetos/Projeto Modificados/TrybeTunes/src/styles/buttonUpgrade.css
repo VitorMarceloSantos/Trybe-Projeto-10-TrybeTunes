@@ -22,11 +22,6 @@
   zoom: 1.03;
 }
 
-@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
-
-  
-}
-
 @media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
 
   .container-upgrade button {

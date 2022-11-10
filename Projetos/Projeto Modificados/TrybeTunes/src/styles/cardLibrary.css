@@ -6,7 +6,7 @@
   width: 99.7%;
 }
 
-.container-card-music {
+.container-card-music-library {
   align-items: center;
   background-color: rgb(42, 42, 42);
   border-radius: 7px;
@@ -16,33 +16,33 @@
   width: 10vw;
 }
 
-.container-card-music img {
+.container-card-music-library img {
   border-radius: 7px;
   height: 170px;
   margin: 0 0 15px 11px;
 }
 
-.container-card-music h3 {
+.container-card-music-library h3 {
   color: white;
   font-size: 0.9em;
   margin-left: 11px;
   text-align: center;
 }
 
-.container-card-music h4 {
+.container-card-music-library h4 {
   color: white;
   font-size: 0.8em;
   margin-left: 11px;
   text-align: center;
 }
 
-.title-container-card {
+.title-container-card-library {
   color: white;
   font-size: 1.5em;
   margin: 25px 40px;
 }
 
-.container-card-music:hover {
+.container-card-music-library:hover {
   border: 1px solid rgba(220, 220, 220, 0.6);
 }
 
