@@ -32,13 +32,13 @@
 
 ##
 <h3>Galeria:</h3>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-Trybe-Projeto-10-TrybeTunes/main/screenShot/home.png" title="Projeto - 10" alt="J"/><br/>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-Trybe-Projeto-10-TrybeTunes/main/screenShot/search.png" title="Projeto - 10" alt="J"/><br/>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-Trybe-Projeto-10-TrybeTunes/main/screenShot/musics.png" title="Projeto - 10" alt="J"/><br/>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-Trybe-Projeto-10-TrybeTunes/main/screenShot/musicsSearch.png" title="Projeto - 10" alt="J"/><br/>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-Trybe-Projeto-10-TrybeTunes/main/screenShot/albums.png" title="Projeto - 10" alt="J"/><br/>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-Trybe-Projeto-10-TrybeTunes/main/screenShot/playlist.png" title="Projeto - 10" alt="J"/><br/>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-Trybe-Projeto-10-TrybeTunes/main/screenShot/not.png" title="Projeto - 10" alt="J"/><br/>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-Trybe-Projeto-10-TrybeTunes/main/screenShot/nota.png" title="Projeto - 10" alt="J" width="1000" height="1500"/><br/>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes/main/screenShot/home.png" title="Projeto - 10" alt="J"/><br/>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes/main/screenShot/search.png" title="Projeto - 10" alt="J"/><br/>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes/main/screenShot/musics.png" title="Projeto - 10" alt="J"/><br/>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/-rybe-Projeto-10-TrybeTunes/main/screenShot/musicsSearch.png" title="Projeto - 10" alt="J"/><br/>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes/main/screenShot/albums.png" title="Projeto - 10" alt="J"/><br/>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes/main/screenShot/playlist.png" title="Projeto - 10" alt="J"/><br/>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes/main/screenShot/not.png" title="Projeto - 10" alt="J"/><br/>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes/main/screenShot/nota.png" title="Projeto - 10" alt="J" width="1000" height="1500"/><br/>
 
 ##
