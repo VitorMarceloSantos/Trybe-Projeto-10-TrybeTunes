@@ -12,7 +12,6 @@
   border: none;
   border-radius: 40px;
   width: 15vw;
-
 }
 
 .container-change-search input:focus {
@@ -260,5 +259,25 @@ audio {
 .container-button-play-music button:hover {
   background-color: #0e9d67;
   color: white;
+}
+
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .container-change-search input {
+    font-size: 0.9em;
+    width: 13.5vw;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .button-icon-search-close {
+    width: 15px;
+  }
+
+  .container-change-search input {
+    font-size: 0.9em;
+    width: 13vw;
+  }
 }
 
