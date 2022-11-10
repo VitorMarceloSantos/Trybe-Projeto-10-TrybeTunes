@@ -4,20 +4,20 @@
   width: 100vw;
 }
 
-.container-sideBar {
-  background-color: black;
-  width: 12.5vw;
-}
-
 .container-header-content {
   background-color: green;
-  width: 73vw;
+  width: 71vw;
 }
 
 .container-friendActivity {
   background-color: black;
   width: 14.5vw;
 
+}
+
+.container-sideBar {
+  background-color: black;
+  width: 14.5vw;
 }
 
 @media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
