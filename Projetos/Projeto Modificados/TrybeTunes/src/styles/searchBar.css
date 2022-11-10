@@ -267,6 +267,10 @@ audio {
     font-size: 0.9em;
     width: 13.5vw;
   }
+
+  .container-searchBar-artist h4 {
+    font-size: 1.15em;
+  }
 }
 
 @media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
@@ -278,6 +282,10 @@ audio {
   .container-change-search input {
     font-size: 0.9em;
     width: 13vw;
+  }
+
+  .container-searchBar-artist h4 {
+    font-size: 1.05em;
   }
 }
 
