@@ -5,7 +5,6 @@
 }
 
 .container-header-content {
-  background-color: green;
   width: 71vw;
 }
 
@@ -22,14 +21,14 @@
 
 @media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
 
-  .container-header-content {
+  /* .container-header-content {
     width: 83vw;
-  }
+  } */
 }
 
 @media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
-
+/* 
   .container-header-content {
     width: 99vw;
-  }
+  } */
 }
