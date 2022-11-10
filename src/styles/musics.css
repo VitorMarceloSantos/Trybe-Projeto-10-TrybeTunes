@@ -1,0 +1,194 @@
+.container-musics-album-artist {
+  align-items: center;
+  display: flex;
+  height: 28vh;
+}
+
+.container-img-title-musics {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.container-musics-album-artist img {
+  border-radius: 15px;
+  height: 200px;
+  margin: 0 30px;
+  width: 200px;
+}
+
+.container-img-title-musics p {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.container-img-title-musics h2 {
+  font-size: 3.5em;
+  font-weight: 700;
+}
+
+.container-musics-player {
+  align-items: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgb(25, 25, 25));
+  display: flex;
+  height: 15vh;
+}
+
+.container-musics-player p {
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 2em;
+}
+
+.container-button-play-music-musics button {
+  align-items: center;
+  background-color: #0e9d67;
+  border: none;
+  border-radius: 50%;
+  color: black;
+  display: flex;
+  font-size: 2.2em;
+  height: 55px;
+  justify-content: center;
+  margin-left: 30px;
+  margin-right: 20px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  text-align: center;
+  width: 55px;
+}
+
+.button-icon-add-heart-musics {
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
+}
+
+.icon-heart-favorite-musics {
+  background-color: transparent;
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 1.8em;
+}
+
+.icon-heart-favorite-musics:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.button-play-musics:hover {
+  color: rgba(220, 220, 220, 0.9);
+}
+
+
+.container-musics-songs-list {
+  color: rgba(220, 220, 220, 0.8);
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.line-border {
+  border: 1px solid rgba(220, 220, 220, 0.2);
+  margin-right: 70px;
+  width: 69vw;
+}
+
+.container-button-play-music-musics {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.container-button-play-music-musics h3 {
+  font-size: 1.2em;
+}
+
+.container-button-play-music-musics h4 {
+  font-size: 0.8em;
+}
+
+.container-result-musics-api {
+  margin: 30px 30px 0 0;
+
+}
+
+.container-liked-music-api {
+  align-items: center;
+  display: flex;
+}
+
+.container-liked-music-api button {
+  background-color: transparent;
+}
+
+.container-button-play-music-musics:hover {
+  background-color: rgb(42, 42, 42);
+  cursor: pointer;
+}
+
+.button-icon-add-heart-musics-api {
+  background-color: transparent;
+
+}
+
+.icon-heart-favorite-musics-api {
+  background-color: transparent;
+  font-size: 0.8em;
+}
+
+.icon-heart-favorite-musics-api:hover {
+  color: red;
+}
+
+.icon-heart-favorite-musics-api-selected {
+  color: red;
+}
+
+
+.container-name-music-random {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.container-name-music-random p {
+  font-size: 0.9em;
+}
+
+.container-musics-player p:hover {
+  cursor: pointer;
+}
+
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .container-button-play-music-musics h3 {
+    font-size: 1.05em;
+  }
+
+  .container-button-play-music-musics h4 {
+    font-size: 0.75em;
+  }
+
+  .container-button-play-music-musics button {
+    font-size: 1.9em;
+    height: 45px;
+    width: 45px;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-button-play-music-musics h3 {
+    font-size: 1.05em;
+  }
+
+  .container-button-play-music-musics h4 {
+    font-size: 0.75em;
+  }
+
+  .container-button-play-music-musics button {
+    font-size: 1.9em;
+    height: 45px;
+    width: 45px;
+  }
+}
+

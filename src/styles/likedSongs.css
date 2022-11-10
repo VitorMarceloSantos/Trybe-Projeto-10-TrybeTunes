@@ -1,0 +1,62 @@
+.title-artist-liked-songs {
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 1.5em;
+  margin: 25px 40px;
+}
+
+.container-music-liked-song {
+  color: rgba(220, 220, 220, 0.9);
+}
+
+.button-icon-add-heart-musics {
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
+}
+
+.icon-heart-favorite-musics-api-liked {
+  background-color: transparent;
+  color: red;
+  font-size: 0.8em;
+}
+
+.icon-heart-favorite-musics-api-liked:hover {
+  color: rgb(95, 95, 95);
+  cursor: pointer;
+}
+
+.container-liked-music-api p {
+  background-color: transparent;
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 1.4em;
+}
+
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .title-artist-liked-songs {
+    font-size: 1.35em;
+  }
+
+  .icon-heart-favorite-musics-api-liked {
+    font-size: 0.7em;
+  }
+
+  .container-liked-music-api p {
+    font-size: 1.3em;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .title-artist-liked-songs {
+    font-size: 1.25em;
+  }
+
+  .icon-heart-favorite-musics-api-liked {
+    font-size: 0.6em;
+  }
+
+  .container-liked-music-api p {
+    font-size: 1.2em;
+  }
+}

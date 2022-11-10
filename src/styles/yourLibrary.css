@@ -1,0 +1,88 @@
+.container-your-library-album {
+  width: 70vw;
+}
+
+.container-nav-yourLibrary ul {
+  display: flex;
+  left: 20vw;
+  list-style: none;
+  position: absolute;
+  top: 2vh;
+}
+
+.container-nav-yourLibrary ul li {
+  margin-right: 20px;
+}
+
+.container-nav-yourLibrary button {
+  background-color: rgb(35, 35, 35);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 0.9em;
+  height: 40px;
+  padding: 5px;
+  width: 85px;
+}
+
+.container-nav-yourLibrary button:focus {
+  background-color: rgb(60, 60, 60);
+}
+
+.container-nav-yourLibrary button:hover {
+  background-color: rgb(60, 60, 60);
+  color: rgb(180, 180, 180);
+}
+
+.text-library {
+  color: white;
+  font-size: 2.5em;
+  font-weight: 700;
+  margin: 20px 30px;
+  text-align: center;
+}
+
+.title-container-card-library {
+  color: white;
+  font-size: 1.5em;
+  margin: 20px 30px;
+  text-align: center;
+}
+
+.container-trash-library {
+  color: white;
+  margin: 15px auto;
+}
+
+.container-trash-library:hover {
+  color: rgb(115, 115, 115);
+  cursor: pointer;
+}
+
+.container-card-album-library {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-trash {
+  background-color: transparent;
+  border: none;
+}
+
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .container-nav-yourLibrary ul {
+    left: 22vw;
+    top: 2vh;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-nav-yourLibrary ul {
+    left: 22vw;
+    top: 1.8vh;
+  }
+}

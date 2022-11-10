@@ -1,0 +1,41 @@
+.container-upgrade {
+  position: absolute;
+  right: 30vw;
+  top: 2vh;
+}
+
+.container-upgrade button {
+  background-color: rgb(35, 35, 35);
+  border-color: rgb(214, 218, 221);
+  border-radius: 40px;
+  border-width: 1px;
+  box-shadow: none;
+  color: white;
+  font-weight: 500;
+  padding: 10px;
+  width: 7vw;
+}
+
+.container-upgrade button:hover {
+  background-color: black;
+  font-size: 1.05em;
+  zoom: 1.03;
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-upgrade button {
+    font-size: 0.9em;
+    padding: 7px;
+  }
+
+  .container-upgrade {
+    top: 2vh;
+  }
+
+  .container-upgrade button:hover {
+    font-size: 0.95em;
+    zoom: 1.02;
+  }
+}
+
