@@ -70,3 +70,19 @@
   background-color: transparent;
   border: none;
 }
+
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .container-nav-yourLibrary ul {
+    left: 22vw;
+    top: 2vh;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-nav-yourLibrary ul {
+    left: 22vw;
+    top: 1.8vh;
+  }
+}
