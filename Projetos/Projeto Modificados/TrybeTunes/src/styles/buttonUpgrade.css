@@ -32,5 +32,10 @@
   .container-upgrade {
     top: 2vh;
   }
+
+  .container-upgrade button:hover {
+    font-size: 0.95em;
+    zoom: 1.02;
+  }
 }
 
