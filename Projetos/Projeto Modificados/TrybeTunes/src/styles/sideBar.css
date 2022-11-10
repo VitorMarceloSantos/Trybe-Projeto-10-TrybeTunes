@@ -50,3 +50,27 @@
   color: white;
   font-size: 0.8em;
 }
+
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .container-heart {
+    width: 1.5vw;
+  }
+
+  .icon-sideBar-heart {
+    font-size: 0.9em;
+  }
+
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-heart {
+    height: 2.95vh;
+    width: 1.7vw;
+  }
+
+  .icon-sideBar-heart {
+    font-size: 1em;
+  }
+}
