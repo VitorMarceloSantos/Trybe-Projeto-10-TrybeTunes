@@ -204,7 +204,9 @@ render() {
     <section className="container-musics-main">
       <ButtonUpgrade />
       {loading ? (
-        <Loading />
+        <div className="container-loading-musics">
+          <Loading />
+        </div>
       ) : (
         <div className="container-global-main-musics">
           <div
