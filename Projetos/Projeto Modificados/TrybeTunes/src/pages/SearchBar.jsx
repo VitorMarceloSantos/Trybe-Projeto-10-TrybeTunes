@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { Component } from 'react';
 import '../styles/searchBar.css';
 import { HiSearch } from 'react-icons/hi';
@@ -7,6 +6,8 @@ import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import CardMusic from '../components/CardMusic';
 import musicsApi from '../services/musicsAPI';
 import Loading from '../components/Loading';
+import MusicNotFound from '../components/MusicNotFound';
+import '../styles/musicNotFound.css';
 
 export default class SearchBar extends Component {
   state = {
@@ -109,7 +110,6 @@ export default class SearchBar extends Component {
           }
         });
       };
-
       const { inputSearch, loading, resultSearch, resultMusic, validation } = this.state;
 
       return (
@@ -174,8 +174,6 @@ export default class SearchBar extends Component {
                                 onClick={ newAudio }
                               >
                                 &#9658;
-                                {' '}
-                                {/* Foi utilizado caracter unicode para o simbolo de play e de pause */}
                               </button>
                             </div>
                             <button
@@ -186,7 +184,6 @@ export default class SearchBar extends Component {
                             </button>
                             <p>...</p>
                           </div>
-
                         </div>
                       ))}
                     </div>
@@ -230,7 +227,12 @@ export default class SearchBar extends Component {
             </section>
           )
           )}
-          {validation && <p>Não foi encontrado nehum resultado</p>}
+          {validation && (
+            <div className="container-not-found-music">
+              <MusicNotFound
+                resetInputSearch={ this.resetInputSearch }
+              />
+            </div>)}
           {(loading === true && resultSearch.length !== 0) && (
             <div style={ { paddingTop: '40vh' } }>
               <Loading />
