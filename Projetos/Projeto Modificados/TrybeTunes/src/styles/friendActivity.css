@@ -114,3 +114,99 @@
 .text-inf {
   margin-top: 15px;
 }
+
+@media ( max-width : 1680px ) { /* Tela: laptop: 1680 x 1050 */
+
+  .container-cicle-blue1 {
+    height: 7.5px;
+    position: absolute;
+    right: 9vw;
+    top: 16.8vh;
+  }
+
+  .container-cicle-blue2 {
+    right: 9vw;
+    top: 24.4vh;
+  }
+
+  .icon-friend {
+    font-size: 1.2em;
+    margin-bottom: 7px;
+  }
+
+  .container-friend-activity button {
+    font-size: 0.85em;
+    padding: 8px;
+    width: 8vw;
+  }
+
+  .container-friend-activity button:hover {
+    font-size: 0.9em;
+    zoom: 1.02;
+  }
+}
+
+@media ( max-width : 1440px ) { /* Tela: laptop: 1440 x 900 */
+
+  .container-friend-title {
+    font-size: 0.93em;
+    margin: 15px 13px 27px;
+  }
+
+  .icon-friend {
+    font-size: 1.1em;
+    margin-bottom: 7px;
+  }
+
+  .friend-text {
+    font-size: 0.78em;
+  }
+
+  .container-border-friend {
+    height: 41px;
+    width: 41px;
+  }
+
+  .icon-friend-user {
+    font-size: 1.4em;
+  }
+
+  .container-users {
+    margin: 15px 0 7px 17px;
+  }
+
+  .container-cicle-blue1 {
+    height: 7.9px;
+    position: absolute;
+    right: 9vw;
+    top: 16.8vh;
+  }
+
+  .container-cicle-blue2 {
+    right: 9vw;
+    top: 24.4vh;
+  }
+
+  .line-gray-sup {
+    height: 7.5px;
+  }
+
+  .line-gray-inf {
+    height: 7.5px;
+  }
+
+  .text-inf {
+    font-size: 0.8em;
+    text-align: justify;
+  }
+
+  .container-friend-activity button {
+    font-size: 0.8em;
+    padding: 7px;
+  }
+
+  .container-friend-activity button:hover {
+    font-size: 0.85em;
+    zoom: 1.02;
+  }
+}
