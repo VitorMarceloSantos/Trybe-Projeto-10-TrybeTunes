@@ -86,7 +86,6 @@ export default class SearchBar extends Component {
       };
 
       const newAudio = ({ target }) => {
-        console.log(target);
         this.setState((prevState) => ({
           isPlay: !prevState.isPlay,
         }), () => {
