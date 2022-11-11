@@ -1,9 +1,0 @@
-{
-  "name": "Trek",
-  "price": 0,
-  "description": {
-    "rating": 4,
-    "difficulty": "Fácil",
-    "createdAt": "01/01/2022"
-  }
-}
