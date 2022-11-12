@@ -1,0 +1,776 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'HarryPotter';
+  src: url('./font/HARRYP__.TTF');
+}
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  background-image: linear-gradient(to right, rgb(50, 167, 145), rgba(50, 167, 146, 0.61), transparent, rgba(50, 167, 146, 0.61), rgb(50, 167, 145));
+  justify-content: space-between;
+  align-items: center;
+  height: 12vh;
+  position: relative; /* vai ser utilizado para movimentar a img hogwarts */
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.301);
+}
+
+header .trybewarts-header-logo {
+  margin-left: 2%;
+  height: 90%;
+}
+
+header h1 {
+  font-family: 'HarryPotter';
+  font-size: 5.5em;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.233);
+}
+
+header #titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+header #titulo img {
+  width: 17%;
+  opacity: 25%;
+  position: absolute;
+}
+
+header #login-trybewarts {
+  margin-right: 5%;
+  margin-top: 5px;
+}
+
+header .trybewarts-login {
+  display: flex;
+  flex-direction: column;
+}
+
+header .trybewarts-login input {
+  margin-bottom: 5px;
+  width: 200px;
+  font-size: .7em;
+}
+
+header .trybewarts-login button {
+  padding: 1px;
+  font-size: .8em;
+}
+
+.animate__faster { /* Animaçao CSS */
+  --animate-duration: 5s;
+}
+
+header #cadastre-se {
+  font-size: .65em;
+  text-align: center;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+header #cadastre-se:hover {
+  text-decoration: underline;
+}
+
+header #titulo:hover {
+  cursor: pointer;
+}
+
+header #container-login-sucesso {
+  display: none;
+  margin-right: 5%;
+  margin-top: 5px;
+  width: 200px;
+}
+
+header #container-login-sucesso #foto-usuario-miniatura {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgb(0, 0, 0);
+  margin-right: 10px;
+}
+
+header #nome-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+}
+
+header #container-login-sucesso #logout:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(255, 0, 0, .7);
+}
+
+/* Main */
+main {
+  height: 81vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+main #background-image {
+  background-image: url('./images/fundo-harry.jpg');
+  position: absolute; /* em relação ao main */
+  z-index: 1;
+  height: 81vh;
+  width: 100vw;
+  opacity: 0.5;
+}
+
+main #navegacao-lateral {
+  z-index: 2;
+  background-color: rgb(255, 255, 255);
+  width: 10vw;
+  min-height: 50vh;
+}
+
+main #navegacao-lateral ul li{
+  border-top: 1px solid black;
+  text-align: center;
+}
+
+main #navegacao-lateral ul li:last-child{
+  border-bottom:  1px solid black;
+}
+
+main #navegacao-lateral .nav-link {
+  font-size: .8em;
+  font-weight: 500;
+}
+
+main #navegacao-lateral .nav-link:hover {
+  background-color: rgba(50, 167, 146, 0.363);
+  color: rgb(0, 0, 0);
+}
+
+main #navegacao-lateral #trechos-livro {
+  padding: 7px;
+}
+
+main #navegacao-lateral #trechos-livro .cor-text {
+  color: black;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.589);
+}
+
+main #container-usuario {
+  z-index: 2;
+  margin-top: 10px;
+  align-items: center;
+  width: 60vw;
+  height: 70vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
+  border: 1px solid black;
+  border-color: rgb(50, 167, 145);
+  margin-left: 30px; /* Usado para separar do nav*/
+  margin-right: 30px; /* Usado para separar do aside*/
+}
+
+/*Container Usuario*/
+/*Container-inicial*/
+#container-usuario #container-inicial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#container-usuario #container-inicial #container-logo-trybe {
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+
+#container-usuario #container-inicial #img-logo-trybe {
+  width: 80%;
+}
+
+#container-usuario #container-inicial #container-logo-trybewarts {
+  display: flex;
+  justify-content: center;
+}
+
+#container-usuario #container-inicial #img-logo-trybewarts {
+  width: 35%; 
+}
+
+/* Container Formulário */
+main #container-formulario h2 {
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2em;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.37);
+}
+
+main #container-formulario {
+  display: none;
+  position: relative;
+  padding: 5px 25px;
+}
+
+main #container-formulario input {
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+main #container-formulario #img-perfil {  
+  width: 150px;
+  height: 200px;
+  border: 1px solid black;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main #container-formulario #foto-usuario:not(:last-child) {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: 75%;
+}
+
+main #container-formulario #foto-usuario input[type="file"]{
+  position: absolute;
+  right: -60%;
+  font-size: .7em;
+  margin-top: 5px;
+}
+
+main #container-formulario #foto-usuario #input-file:hover{
+  cursor: pointer;
+  color: rgba( 100, 53, 53, 0.8);
+}
+
+main #container-formulario #imagem-perfil {
+  width: 140px;
+  height: 180px;
+}
+
+main #container-formulario #container-genero input[type="radio"]{
+  margin-left: 1%;
+}
+
+main #container-formulario #container-genero label{
+  margin-left: -1.5%;
+}
+
+main #container-formulario #container-genero #input-email{
+ margin-right: 3%;
+}
+
+main #container-formulario #container-senha {
+  display: flex;
+  flex-direction: column;
+}
+
+main #container-formulario #container-senha #pass-1 {
+  width: 30%;
+}
+
+main #container-formulario #container-senha #pass-2 {
+  width: 30%;
+}
+
+main #container-formulario #container-senha #exibir-senha-checkbox {
+  display: flex;
+  position: relative;
+}
+
+main #container-formulario #container-senha #exibir-senha-checkbox #exibir-senha {
+  position: absolute;
+  right: 67%;
+  top: 15%;
+}
+
+main #container-formulario #container-senha #exibir-senha-checkbox label{
+  margin-left: 5px;
+}
+
+main #container-formulario #container-houses {
+  margin-bottom: 5px;
+}
+
+main #container-formulario #container-houses select{
+  margin-left: 10px;
+}
+
+main #container-formulario #container-family input {
+  margin-left: 10px;
+}
+
+main #container-formulario #container-family label:not(:first-child) {
+  margin-left: -15px;
+}
+
+main #container-formulario #container-conteudo input{
+  margin-left: 10px;
+}
+
+main #container-formulario #container-conteudo label:not(:first-child) {
+  margin-left: -15px;
+}
+
+main #container-formulario #container-avaliacao input{
+  margin-left: 10px;
+}
+
+main #container-formulario #container-avaliacao label:not(:first-child) {
+  margin-left: -15px;
+}
+
+main #container-formulario #container-observacao {
+  position: relative;
+  margin-top: 20px;
+}
+
+main #container-formulario #container-observacao label {
+  position: absolute;
+  margin-top: -23px;
+}
+
+main #container-formulario #container-observacao span {
+  position: absolute;
+  bottom: 5%;
+  font-size: .7em;
+  margin-left: 5px;
+}
+
+main #container-formulario #textarea {
+  resize: none;
+}
+
+main #container-formulario #checkbox-agreement {
+  margin: 5px 0;
+}
+
+main #container-formulario #checkbox-agreement #label-infos {
+  font-weight: 500;
+  margin-left: -1%;
+}
+
+main #container-finalizar-formulario {
+  display: none;
+}
+
+main #container-carrosel {
+  display: none;
+}
+
+.buttons {
+  width: 8%;
+  border-radius: 10px;
+  background-color: rgb(50, 167, 145, 0.5);
+  font-size: .9em;
+}
+
+.buttons:hover {
+  cursor: pointer;
+  background-color: rgb( 21, 89, 88, 0.8);
+  color: rgb(255, 255, 255);
+  transition: .5s;
+}
+
+/* Visualizar Tabela Formulário */ 
+#container-finalizar-formulario {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 2%;
+}
+
+#container-finalizar-formulario h2 {
+  margin-bottom: 15px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2em;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.37);
+}
+
+#container-finalizar-formulario #form-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-finalizar-formulario #form-data td{
+  padding: 5px;
+}
+
+#container-finalizar-formulario #img-informacao {
+  background-color: rgb(255, 255, 255);
+  width: 6vw;
+  height: 15vh; 
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
+  border: 1px solid black;
+  border-color: rgb(50, 167, 145);
+  margin: auto;
+  margin-bottom: 1%;
+}
+
+#container-finalizar-formulario #imagem-informacao {
+  width: 5vw;
+  height: 14vh;
+}
+
+/* Container Agradecimento */
+#container-usuario #container-agradecimento {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+#container-usuario #container-agradecimento h2{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.4em;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.37);
+}
+
+#container-usuario #container-agradecimento #harry-gif {
+  margin-top: 5%;
+  width: 50%;
+}
+
+#container-usuario #container-agradecimento #btn-finalizar {
+  margin-top: 3%;
+}
+
+/* Container Aside*/
+main #aside-direito {
+  z-index: 2;
+  background-color: rgb(255, 255, 255);
+  width: 15vw;
+  height: 45vh; 
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
+  border: 1px solid black;
+  border-color: rgb(50, 167, 145);
+}
+
+main #aside-direito .tamanho-img {
+  width: 14vw;
+  height: 43vh;
+}
+
+#container-finalizar-formulario button {
+  margin-top: 30px;
+  margin-right: 15px;
+}
+
+/* Container-Escritora */
+main #container-usuario #container-escritora {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px 40px 40px;
+}
+
+main #container-usuario #container-escritora h2 {
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2em;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.37);
+}
+
+main #container-usuario #container-escritora #container-img-escritora {
+  float: left; /* Colocar a imagem a esquerda do texto */
+  margin-right:  10px;
+}
+
+main #container-usuario #container-escritora #img-escritora {
+  width: 250px;
+  border-radius: 10px;
+}
+
+main #container-usuario #container-escritora p {
+  font-size: 1em;
+  text-align: justify;
+}
+
+main #container-usuario #container-escritora p :not(:last-child){
+  text-indent: 10px;
+}
+
+/* Container - Desenvolvedor */
+main #container-usuario #container-desenvolvedor {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px 40px 40px;
+}
+
+main #container-usuario #container-desenvolvedor h2 {
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2em;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.37);
+  margin-bottom: 2%;
+}
+
+main #container-usuario #container-desenvolvedor #container-img-desenvolvedor {
+  float: left; /* Colocar a imagem a esquerda do texto */
+  margin-right:  15px;
+}
+
+main #container-usuario #container-desenvolvedor #img-desenvolvedor {
+  width: 250px;
+  border-radius: 10px;
+}
+
+main #container-usuario #container-desenvolvedor p {
+  font-size: 1em;
+  text-align: justify;
+}
+
+main #container-usuario #container-desenvolvedor p {
+  text-indent: 10px;
+}
+
+main #container-usuario #container-desenvolvedor #contato-desenvolvedor {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+  height: 17vh;
+  width: 19vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+}
+
+main #container-usuario #container-desenvolvedor #contato-desenvolvedor span {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+main #container-usuario #container-desenvolvedor #icones-desenvolvedor .fa-brands{
+  font-size: 4em;
+  color: rgb(50, 167, 145);
+}
+
+main #container-usuario #container-desenvolvedor #icones-desenvolvedor .fa-brands:not(first-child){
+  margin-left: 20px;
+}
+
+main #container-usuario #container-desenvolvedor #icones-desenvolvedor .fa-brands:hover {
+  cursor: pointer;
+  color: rgba( 2, 53, 53, 0.8);
+}
+
+/* Footer */
+footer {
+  height: 7vh;
+  background-image: linear-gradient(to right, rgba( 2, 53, 53, 0.8), rgba(1, 89, 88, 0.8), transparent, rgba(1, 89, 88, 0.8), rgb( 2, 53, 53, 0.8));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.6);
+}
+footer #text-desenvolvedor p{
+ font-weight: 900;
+ font-size: 1.1em;
+ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+ position: relative;
+}
+
+footer .icones{ /*Tamanho dos Icones*/
+  font-size: 1.1em;
+  position: absolute;
+  margin-top: 1.7%;
+}
+
+footer .icones .fa-brands{/*Todos os filhos exceto o primeiro filho*/
+  margin-left: 30px;
+}
+
+footer .icones a .fa-github{ /*Atlerando a cor do icone ao passar o mouse*/
+  color: red;
+}
+
+footer .icones a .fa-linkedin{ /*Atlerando a cor do icone ao passar o mouse*/
+  color: green;
+}
+
+footer .icones a .fa-instagram-square{ /*Atlerando a cor do icone ao passar o mouse*/
+  color: blue;
+}
+
+footer .icones a .fa-brands:hover{ /*Atlerando a cor do icone ao passar o mouse*/
+  cursor: pointer;
+  color: black;
+  transition: .3s; /*Tempo de transição*/
+}
+
+/* Responsividade */
+@media (max-width: 1680px){ /* Tela: 1680 x 1050 */
+
+  header #titulo img {
+    width: 19.5%;
+  }
+
+  main #container-formulario #foto-usuario:not(:last-child) {
+    margin-left: 70%;
+  }
+  
+  main #container-formulario #foto-usuario input[type="file"]{
+    margin-top: 8px;
+  }
+
+  main #navegacao-lateral #trechos-livro .cor-text {
+    font-size: .9em;
+  }
+}
+
+@media (max-width: 1680px){ /* Tela: laptop: 1440 x 900 */
+  .header {
+    padding-top: 10px;
+  }
+
+  header .trybewarts-header-logo {
+    margin-top: -13px;
+  }
+  
+  header #login-trybewarts {
+    margin-right: 5%;
+    margin-top: -5px;
+  }
+
+  header .trybewarts-login input {
+    margin-bottom: 2px;
+    width: 200px;
+    font-size: .7em;
+  }
+  
+  header .trybewarts-login button {
+    padding: 1px;
+    font-size: .7em;
+  }
+
+  header #cadastre-se {
+    font-size: .6em;
+    margin-top: 2px;
+  }
+
+  main #navegacao-lateral #trechos-livro .cor-text {
+    font-size: .68em;
+    padding: 5px;
+  }
+
+  main #container-formulario {
+    font-size: .9em;
+  }
+
+  main #container-formulario input {
+    margin-bottom: 10px;
+    margin-right: 15px;
+  }
+
+  main #container-formulario #container-senha {
+    margin-top: -5px;
+  }
+
+  main #container-formulario #container-senha #pass-1 {
+    margin-bottom: 2px;
+  }
+  
+  main #container-formulario #container-senha #exibir-senha-checkbox #exibir-senha {
+    right: 65%;
+  }
+  
+  main #container-formulario #container-senha #exibir-senha-checkbox label{
+    margin-left: 15px;
+  }
+
+  main #container-formulario #container-conteudo input{
+    margin-left: 3px;
+  }
+  
+  main #container-formulario #container-conteudo label:not(:first-child) {
+    margin-left: -16px;
+  }
+
+  main #container-formulario #foto-usuario:not(:last-child) {
+    margin-top: -2%;
+    margin-left: 67%;
+  }
+  
+  main #container-formulario #foto-usuario input[type="file"]{
+    margin-top: 8px;
+  }
+
+  #container-finalizar-formulario {
+    margin-top: 1%;
+  }
+
+  #container-finalizar-formulario h2 {
+    margin-bottom: 5px;
+  }
+
+  #container-finalizar-formulario #form-data td{
+    padding: 2px;
+  }
+
+  main #container-usuario #container-escritora #img-escritora {
+    width: 150px;
+  }
+
+  main #container-usuario #container-escritora p {
+    font-size: .8em;
+    text-align: justify;
+  }
+
+  main #container-usuario #container-desenvolvedor #img-desenvolvedor {
+    width: 150px;
+  }
+
+  main #container-usuario #container-desenvolvedor p {
+    font-size: .8em;
+  }
+
+  main #container-usuario #container-desenvolvedor #contato-desenvolvedor {
+    height: 16vh;
+    width: 17vw;
+  }
+
+  main #container-usuario #container-desenvolvedor #contato-desenvolvedor span {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  
+  main #container-usuario #container-desenvolvedor #icones-desenvolvedor .fa-brands{
+    font-size: 2.5em;
+  }
+}

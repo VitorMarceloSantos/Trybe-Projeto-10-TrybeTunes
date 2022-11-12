@@ -1,0 +1,263 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container-index {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.img-index {
+  height: 45vh;
+}
+
+.container-create {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50vw;
+  margin-top: 15px;
+}
+
+.logo-yugioh {
+  height: 15vh;
+}
+
+.container-filters {
+  width: 80vw;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.filtros {
+  font-size: 1.2em;
+  font-weight: bolder;
+  border: 1px solid rgba(0, 0, 0, 0.349);
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.356);
+}
+.filtros div {
+  padding: 7px;
+}
+.filtros input {
+  margin: 0px 10px;
+}
+.filtros .text-filters {
+  font-size: 1.2em;
+  margin: 8px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.26);
+}
+
+.container-create-deck {
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  border-width: 7px;
+  width: 20vw;
+  height: 55vh;
+  background-image: url("../images/fundoCarta.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  font-weight: 700;
+}
+.container-create-deck .container-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  font-weight: 700;
+}
+.container-create-deck .shadow {
+  background-image: url("../images/fundoCarta_1.jpg");
+  background-size: cover;
+  border-radius: 3px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 3px 4px 2px rgba(0, 0, 0, 0.8);
+}
+.container-create-deck .name-card {
+  margin-top: 20px;
+  width: 17vw;
+  margin-bottom: 20px;
+  font-weight: bolder;
+  text-align: left;
+  font-size: 1.4em;
+  padding-left: 15px;
+}
+.container-create-deck .name-rare {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.container-create-deck .name-img {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.container-create-deck .name-description {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.container-create-deck .container-atributtes {
+  margin-bottom: 20px;
+  text-align: center;
+  background-size: cover;
+  border-radius: 3px;
+  border: 2px solid rgb(255, 255, 255);
+  padding: 10px;
+}
+.container-create-deck .container-atributtes input {
+  margin: 0px 10px;
+  margin-bottom: 10px;
+}
+.container-create-deck .super-trunfo span {
+  margin-left: 5px;
+  font-size: 1.2em;
+}
+.container-create-deck .btn-save {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+.container-create-deck .container-img-rare {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  margin-bottom: 1.5vh;
+}
+.container-create-deck .img-rare {
+  height: 1.6vh;
+}
+
+.img-card {
+  width: 17vw;
+  height: 25vh;
+  border: 1px solid black;
+}
+
+.img-description {
+  margin-top: 1vh;
+  width: 17vw;
+  height: 14vh;
+  border: 1px solid black;
+  position: relative;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 8.7vh;
+  height: 8vh;
+  width: 14.5vw;
+}
+
+.attr-atk {
+  position: absolute;
+  bottom: 4.5vh;
+  right: 6.2vw;
+}
+
+.attr-def {
+  position: absolute;
+  bottom: 4.5vh;
+  right: 2.2vw;
+}
+
+.attr-mag {
+  position: absolute;
+  bottom: 4.5vh;
+  right: 10.2vw;
+}
+
+.super-trunfo {
+  color: red;
+  font-size: 1.2em;
+  position: absolute;
+  bottom: 48.7vh;
+  right: 1.7vw;
+}
+
+.container-deck {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 5vh;
+  width: 90vw;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  padding: 20px 10px;
+}
+.container-deck label {
+  display: flex;
+  justify-content: center;
+}
+.container-deck .btn-delete {
+  margin: 15px 0px;
+  border-radius: 5px;
+}
+.container-deck .btn-delete:hover {
+  cursor: pointer;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=main.css.map */
